@@ -117,14 +117,27 @@ Together these show the interesting middle of the bootstrap graph working with t
 seed step with a from-scratch chain (stage0 → M2-Planet → mes → tcc) is the
 remaining gap below.
 
+- **musl-from-source** ✅ (Tier 3 — libc) — build musl 1.2.5 from the upstream
+  release tarball, then use its `musl-gcc` wrapper to compile+run a binary against
+  the from-source libc. Built on a glibc base on purpose: musl only emits its gcc
+  wrapper on a non-musl host (the wrapper's job is to redirect a glibc gcc to musl).
+  The from-source musl installs its loader to `/lib/ld-musl-aarch64.so.1`, which is
+  what the test binary runs against. Turns Tier 3 from *consumed* to *verified*.
+- **gcc-from-source** ⏳ (Tier 2 — the C compiler) — building GCC 14.2 from the
+  GNU release tarball, single-stage (`--disable-bootstrap`), C-only, no multilib;
+  prerequisites (gmp/mpfr/mpc) from apt. Then the freshly built `gcc` compiles+runs
+  a program. The heavyweight seed of the whole stack. *(In progress — see
+  `results/gcc-from-source.json` once it lands.)*
+
 ## Open frontiers (closing the bottom of the stack)
 
 The repo proves the *upper* layers; the genuinely hard, interesting part is the
 floor. Concrete next probes, each a candidate recipe/experiment:
 
-1. **Build musl from source** in a container (it builds with just a C compiler) —
-   turns Tier 3 from "consumed" into "verified".
-2. **Build GCC from source** (and/or a cross-binutils) — the heavyweight seed.
+1. ~~**Build musl from source**~~ ✅ done (`bootstrap/musl-from-source`).
+2. **Build GCC from source** ⏳ in progress (`bootstrap/gcc-from-source`, C-only
+   single-stage). Next: build its gmp/mpfr/mpc prerequisites from source too, and
+   a from-source binutils, to remove the apt-provided pieces.
 3. **The real seed chain** — wire up the existing "bootstrap the world" projects as
    verified recipes:
    - **stage0** (`oriansj/stage0`) — hex0 → hex1 → … a few hundred bytes of seed.
