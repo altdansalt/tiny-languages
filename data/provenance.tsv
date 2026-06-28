@@ -1,0 +1,32 @@
+name	outcome	impl	host_lang	base	build	tools	libs	arch
+ape	ok	C	—	musl (alpine)	make	—	—	native
+atto	fail	Rust	Rust	musl (alpine)	cargo	—	—	native
+berry	ok	C	—	musl (alpine)	cmake	cmake, python3	—	native
+brainfuck	ok	C	—	musl (alpine)	cmake	cmake	—	native
+chibi-scheme	ok	C	—	musl (alpine)	make	—	—	native
+clox	ok	C	—	musl (alpine)	make	—	—	native
+cproc	ok	C	—	musl (alpine)	configure	—	binutils	native
+fe	ok	C	—	musl (alpine)	cc	—	—	native
+femtolisp	ok	C	—	glibc (debian)	make	—	—	amd64
+goawk	ok	Go	Go	musl (alpine)	go	—	—	native
+gravity	ok	C	—	musl (alpine)	make	—	—	native
+janet	ok	C	—	musl (alpine)	make	—	—	native
+lci	ok	C	—	musl (alpine)	cmake	cmake	ncurses-dev, readline-dev	native
+lua	ok	C	—	musl (alpine)	make	—	readline-dev	native
+m4	ok	C	—	musl (alpine)	configure+tarball	—	—	native
+mac	ok	C	—	musl (alpine)	make	—	—	native
+micropython	ok	C	—	musl (alpine)	make	python3	libffi-dev, pkgconf	native
+mruby	ok	C	Ruby	musl (alpine)	rake	—	—	native
+onetrueawk	ok	C	—	musl (alpine)	make	bison	—	native
+partcl	ok	C	—	musl (alpine)	cc	—	—	native
+pforth	ok	C	—	musl (alpine)	cmake	cmake	—	native
+picol	ok	C	—	musl (alpine)	cc	—	—	native
+pocketlang	ok	C	—	musl (alpine)	make	—	—	native
+quickjs-ng	ok	C	—	musl (alpine)	cmake	cmake	—	native
+squirrel	ok	C++	—	musl (alpine)	cmake	cmake	—	native
+tcc	ok	C	—	glibc (debian)	configure	—	—	native
+ubasic	ok	C	—	musl (alpine)	cc	—	—	native
+umka	ok	C	—	musl (alpine)	make	—	—	native
+wasm3	ok	C	—	musl (alpine)	cmake	cmake	—	native
+wren	ok	C	—	musl (alpine)	make	—	—	native
+yoctolisp	ok	C	—	musl (alpine)	make	—	—	native

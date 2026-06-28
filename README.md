@@ -34,6 +34,8 @@ Every "known-working" claim in this repo is backed by an actual container build+
 | `data/` | Raw fetched data from source lists |
 | `DECISIONS.md` | Decisions, conventions, roads not taken |
 | `FINDINGS.md` | Running log of what worked and what didn't |
+| `BOOTSTRAP.md` | Dependency/provenance map: what each language needs to *exist* |
+| `data/provenance.tsv` | Per-language build provenance (impl lang, libc, deps) |
 
 ## Environment
 
