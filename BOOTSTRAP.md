@@ -150,6 +150,15 @@ remaining gap below.
   cproc itself*. The cproc-built cproc then compiles+runs a program
   (`cproc-selfhost-ok`). Native arm64; a 76 KB driver. The cleanest small "real"
   compiler architecture in the repo, shown closing its own self-host loop.
+- **cproc-capabilities** ✅ (what cproc can actually compile — an evidence gate). An
+  expectation-encoded matrix: cproc handles near-complete C11 — `_Generic`,
+  `_Static_assert`, compound literals/designated inits, varargs, VLAs, bitfields,
+  64-bit ints, `double` + `printf %f`, libm via own prototypes, `setjmp`/`longjmp` —
+  and **self-hosts** + builds clean single-file languages (`fe`, `ubasic`). Its
+  limits are pinned too: **no `long double`** (QBE lacks it), so on musl *including
+  `<math.h>` at all* fails — which is exactly why **lua doesn't build** (`lcode.c`);
+  and no GNU extensions (inline asm, computed goto, statement expressions) or
+  `<stdatomic.h>`. The build fails if any test deviates, so these claims stay honest.
 - **ocaml-selfhost** ✅ (self-hosting *language*, native arm64 — the one the C-seed
   chain can't do on arm64). OCaml ships a ~2 MB architecture-neutral bytecode
   compiler in `boot/`. `make` builds the full compiler *from* that seed; `make

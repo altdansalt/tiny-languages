@@ -1,0 +1,10 @@
+{
+  "name": "cproc-capabilities",
+  "outcome": "ok",
+  "build_exit": 0,
+  "build_seconds": 7,
+  "binary_bytes": 87728,
+  "smoke": "=== Standard C / C11 (expected to work) ===   printf / stdio                       PASS (want PASS) [ok]    _Generic                             PASS (want PASS) [ok]    _Static_assert                       PASS (want PASS) [ok]    compound literal + designated init   PASS (want PASS) [ok]    varargs (stdarg)                     PASS (want PASS) [ok]    VLA (variable-length array)          PASS (w",
+  "image_line": "tinylang/cproc-capabilities   latest         1a988fcc8f4a982b6fe86240...",
+  "log": "results/cproc-capabilities.log"
+}

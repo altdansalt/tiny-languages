@@ -1,0 +1,106 @@
+#1 [resolver] fetching image...docker.io/library/alpine:3.20
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 oci-layout://docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc
+#3 resolve docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc done
+#3 DONE 0.0s
+
+#4 [linux/arm64 1/8] RUN apk add --no-cache build-base git binutils musl-dev
+#4 CACHED
+
+#5 [linux/arm64/v8 2/8] WORKDIR /src
+#5 CACHED
+
+#6 [linux/arm64 3/8] RUN git clone --depth 1 https://github.com/omenos/mirror-qbe qbe     && make -C qbe -j"$(nproc)"     && cp qbe/qbe /usr/local/bin/qbe
+#6 CACHED
+
+#7 [internal] load build context
+#7 transferring context: 5.28kB done
+#7 DONE 0.0s
+
+#8 [linux/arm64 4/8] RUN git clone --depth 1 https://github.com/michaelforney/cproc cproc     && cd cproc && ./configure --with-qbe=/usr/local/bin/qbe && make -j"$(nproc)"     && cp cproc cproc-qbe /usr/local/bin/
+#8 0.063 Cloning into 'cproc'...
+#8 0.713 checking host system type... aarch64-alpine-linux-musl
+#8 0.714 checking target system type... aarch64-alpine-linux-musl
+#8 0.715 creating config.h... done
+#8 0.716 creating config.mk... done
+#8 0.719 cc -Wall -Wpedantic -Wno-parentheses -Wno-switch -g -pipe -c -o driver.o driver.c
+#8 0.719 cc -Wall -Wpedantic -Wno-parentheses -Wno-switch -g -pipe -c -o util.o util.c
+#8 0.719 cc -Wall -Wpedantic -Wno-parentheses -Wno-switch -g -pipe -c -o attr.o attr.c
+#8 0.720 cc -Wall -Wpedantic -Wno-parentheses -Wno-switch -g -pipe -c -o decl.o decl.c
+#8 0.720 cc -Wall -Wpedantic -Wno-parentheses -Wno-switch -g -pipe -c -o eval.o eval.c
+#8 0.720 cc -Wall -Wpedantic -Wno-parentheses -Wno-switch -g -pipe -c -o expr.o expr.c
+#8 0.721 cc -Wall -Wpedantic -Wno-parentheses -Wno-switch -g -pipe -c -o init.o init.c
+#8 0.722 cc -Wall -Wpedantic -Wno-parentheses -Wno-switch -g -pipe -c -o main.o main.c
+#8 0.760 cc -Wall -Wpedantic -Wno-parentheses -Wno-switch -g -pipe -c -o map.o map.c
+#8 0.772 cc -Wall -Wpedantic -Wno-parentheses -Wno-switch -g -pipe -c -o pp.o pp.c
+#8 0.772 cc -Wall -Wpedantic -Wno-parentheses -Wno-switch -g -pipe -c -o scan.o scan.c
+#8 0.773 cc -Wall -Wpedantic -Wno-parentheses -Wno-switch -g -pipe -c -o scope.o scope.c
+#8 0.775 cc -Wall -Wpedantic -Wno-parentheses -Wno-switch -g -pipe -c -o stmt.o stmt.c
+#8 0.785 cc -Wall -Wpedantic -Wno-parentheses -Wno-switch -g -pipe -c -o targ.o targ.c
+#8 0.798 cc -Wall -Wpedantic -Wno-parentheses -Wno-switch -g -pipe -c -o token.o token.c
+#8 0.808 cc -Wall -Wpedantic -Wno-parentheses -Wno-switch -g -pipe -c -o tree.o tree.c
+#8 0.812 cc -Wall -Wpedantic -Wno-parentheses -Wno-switch -g -pipe -c -o type.o type.c
+#8 0.821 cc -Wall -Wpedantic -Wno-parentheses -Wno-switch -g -pipe -c -o utf.o utf.c
+#8 0.822 cc -Wall -Wpedantic -Wno-parentheses -Wno-switch -g -pipe -c -o qbe.o qbe.c
+#8 0.825 cc  -o cproc ./driver.o ./util.o
+#8 0.931 cc  -o cproc-qbe ./attr.o ./decl.o ./eval.o ./expr.o ./init.o ./main.o ./map.o ./pp.o ./scan.o ./scope.o ./stmt.o ./targ.o ./token.o ./tree.o ./type.o ./utf.o ./util.o ./qbe.o
+#8 DONE 1.0s
+
+#9 [linux/arm64/v8 5/8] COPY probe.sh /probe.sh
+#9 DONE 0.0s
+
+#10 [linux/arm64 6/8] RUN sh /probe.sh > /capabilities.txt 2>&1; rc=$?; cat /capabilities.txt; [ "$rc" -eq 0 ]
+#10 2.055 === Standard C / C11 (expected to work) ===
+#10 2.055   printf / stdio                       PASS (want PASS) [ok] 
+#10 2.055   _Generic                             PASS (want PASS) [ok] 
+#10 2.055   _Static_assert                       PASS (want PASS) [ok] 
+#10 2.055   compound literal + designated init   PASS (want PASS) [ok] 
+#10 2.055   varargs (stdarg)                     PASS (want PASS) [ok] 
+#10 2.055   VLA (variable-length array)          PASS (want PASS) [ok] 
+#10 2.055   bitfields                            PASS (want PASS) [ok] 
+#10 2.055   long long / 64-bit arithmetic        PASS (want PASS) [ok] 
+#10 2.055   double arithmetic + printf %f        PASS (want PASS) [ok] 
+#10 2.055   libm via own prototype (sqrt)        PASS (want PASS) [ok] 
+#10 2.055   setjmp / longjmp                     PASS (want PASS) [ok] 
+#10 2.055 
+#10 2.055 === Current limits (expected to FAIL) ===
+#10 2.055   long double (QBE has no long double) FAIL (want FAIL) [ok] cproc-qbe: long double is not yet supported
+#10 2.055   #include <math.h> (musl forces ldbl) FAIL (want FAIL) [ok] cproc-qbe: long double is not yet supported
+#10 2.055   isnan() macro (pulls in long double) FAIL (want FAIL) [ok] cproc-qbe: long double is not yet supported
+#10 2.055   _Atomic / <stdatomic.h>              FAIL (want FAIL) [ok] /usr/lib/gcc/aarch64-alpine-linux-musl/13.2.1/includ
+#10 2.055   GNU inline asm                       FAIL (want FAIL) [ok] /tmp/s.c:1:25: error: inline assembly is not yet sup
+#10 2.055   computed goto (GNU ext)              FAIL (want FAIL) [ok] /tmp/s.c:1:24: error: expected primary expression
+#10 2.055   statement expression (GNU ext)       FAIL (want FAIL) [ok] /tmp/s.c:1:20: error: expected primary expression
+#10 2.055 
+#10 2.055 === Real programs (clone + compile with cproc) ===
+#10 2.055   fe (rxi) — single-file Lisp        PASS (want PASS) [ok] 
+#10 2.055   ubasic — tiny BASIC                PASS (want PASS) [ok] 
+#10 2.055   lua — full interpreter             FAIL (want FAIL) [ok] lcode.c: cproc-qbe: long double is not yet 
+#10 2.055 
+#10 2.055 Legend: cproc is a near-complete C11 front end (QBE backend -> arm64/amd64/
+#10 2.055 riscv64). It self-hosts and builds clean standard-C codebases (fe, ubasic, qbe,
+#10 2.055 itself). It does NOT yet do long double — so on musl, including <math.h> alone
+#10 2.055 fails, which is why lua doesn't build — nor GNU extensions (inline asm, computed
+#10 2.055 goto, statement expressions) or <stdatomic.h>.
+#10 2.055 
+#10 2.055 === 0 mismatch(es) vs documented expectations ===
+#10 DONE 2.1s
+
+#11 [linux/arm64 7/8] RUN printf 'BINSIZE %s cproc\n' "$(stat -c %s /usr/local/bin/cproc)"
+#11 0.048 BINSIZE 87728 cproc
+#11 DONE 0.1s
+
+#12 exporting to oci image format
+#12 exporting layers 0.1s done
+#12 exporting manifest sha256:2136c23c4b2e0c010dd81cc76e27aac2de8acd0995f5cbaecf4fa2d1ba22f380 done
+#12 exporting config sha256:d373a67d22f8618bad2ec97193c9a12786f39488b13761fcee8cb7e2098b0047 done
+#12 exporting manifest list sha256:1a988fcc8f4a982b6fe86240572ec9b6dcd366042ad635c96d497e6a9d24a4af done
+#12 sending tarball
+#12 sending tarball 0.7s done
+#12 DONE 0.8s
+Successfully built tinylang/cproc-capabilities:latest
