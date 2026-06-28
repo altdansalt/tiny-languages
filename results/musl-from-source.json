@@ -1,0 +1,10 @@
+{
+  "name": "musl-from-source",
+  "outcome": "ok",
+  "build_exit": 0,
+  "build_seconds": 11,
+  "binary_bytes": 913752,
+  "smoke": "ok-musl ",
+  "image_line": "tinylang/musl-from-source     latest         cb84df95fdf104ec9e7c475e...",
+  "log": "results/musl-from-source.log"
+}

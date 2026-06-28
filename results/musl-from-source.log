@@ -1,0 +1,48 @@
+#1 [resolver] fetching image...docker.io/library/debian:bookworm-slim
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 oci-layout://docker.io/library/debian:bookworm-slim@sha256:60eac759739651111db372c07be67863818726f754804b8707c90979bda511df
+#3 resolve docker.io/library/debian:bookworm-slim@sha256:60eac759739651111db372c07be67863818726f754804b8707c90979bda511df done
+#3 DONE 0.0s
+
+#4 [linux/arm64 5/9] RUN ./configure --prefix=/opt/musl && make -j"$(nproc)" && make install
+#4 CACHED
+
+#5 [linux/arm64/v8 2/9] WORKDIR /src
+#5 CACHED
+
+#6 [linux/arm64 3/9] RUN wget -q https://musl.libc.org/releases/musl-1.2.5.tar.gz     && tar xf musl-1.2.5.tar.gz
+#6 CACHED
+
+#7 [linux/arm64/v8 4/9] WORKDIR /src/musl-1.2.5
+#7 CACHED
+
+#8 [linux/arm64 1/9] RUN apt-get update && apt-get install -y --no-install-recommends         build-essential wget ca-certificates     && rm -rf /var/lib/apt/lists/*
+#8 CACHED
+
+#9 [linux/arm64 6/9] RUN printf '#include <stdio.h>\nint main(){printf("ok-musl\\n");return 0;}\n' > /h.c     && /opt/musl/bin/musl-gcc /h.c -o /h     && /h | tee /smoke.out && grep -q '^ok-musl' /smoke.out
+#9 CACHED
+
+#10 [linux/arm64 7/9] RUN echo "interpreter of the musl-built binary:"     && readelf -l /h | grep -i 'interpreter' || true
+#10 0.036 interpreter of the musl-built binary:
+#10 0.037       [Requesting program interpreter: /lib/ld-musl-aarch64.so.1]
+#10 DONE 0.0s
+
+#11 [linux/arm64 8/9] RUN printf 'BINSIZE %s libc.so\n' "$(stat -c %s /opt/musl/lib/libc.so)"
+#11 0.044 BINSIZE 913752 libc.so
+#11 DONE 0.0s
+
+#12 exporting to oci image format
+#12 exporting layers
+#12 exporting layers 7.0s done
+#12 exporting manifest sha256:4b6a592efdd7d0476ccd12a63f0037e8d38c3cb018299cfffe84fdfd14443975 done
+#12 exporting config sha256:c58794a612942bed58961723698f069fcd216e29a2ea520e705c34a7aa2edb14 done
+#12 exporting manifest list sha256:cb84df95fdf104ec9e7c475e4b09d3b784f6a5f7173be22fd014dbfa9920d390 done
+#12 sending tarball
+#12 sending tarball 0.9s done
+#12 DONE 7.9s
+Successfully built tinylang/musl-from-source:latest

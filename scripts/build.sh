@@ -36,10 +36,15 @@ build_one() {
     archrun="--arch $arch"
   fi
 
+  # optional per-recipe build resources (heavyweight builds like gcc)
+  local resflags=""
+  [[ -f "$dir/cpus" ]]   && resflags+=" --cpus $(tr -d '[:space:]' < "$dir/cpus")"
+  [[ -f "$dir/memory" ]] && resflags+=" --memory $(tr -d '[:space:]' < "$dir/memory")"
+
   echo "BUILD $name ${arch:+[$arch]}..."
   local start end status size smoke
   start=$(date +%s)
-  container build $archflag -t "$tag" -f "$dir/Dockerfile" "$dir" >"$log" 2>&1
+  container build $archflag $resflags -t "$tag" -f "$dir/Dockerfile" "$dir" >"$log" 2>&1
   status=$?
   end=$(date +%s)
 
