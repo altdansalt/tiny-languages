@@ -37,6 +37,33 @@ genuinely "tiny" in dependency terms. musl-static binaries are the closest analo
 "drop it on a bare RPi / into a minimal wasm-ish sandbox." When a project genuinely
 needs glibc, we fall back to debian-slim and note it.
 
+## 2026-06-28 — Data pipeline & arch strategy
+
+### List mining (`scripts/fetch_lists.sh` → `scripts/enrich.py`)
+`fetch_lists.sh` pulls each source list's README via the GitHub API and extracts
+every `github.com/<owner>/<repo>` link → `data/pool_repos.txt` (~1.9k repos).
+`enrich.py` resolves them in **batched GraphQL** (50/query, ~40 calls total
+instead of ~1900 REST calls), records `data/pool.tsv`, and emits a ranked
+`data/shortlist.tsv` of candidates not already in `candidates.tsv`.
+
+Tininess score favors: small `diskUsage` (<1 MB best), a portable implementation
+language (C/C++/Rust/Go/Zig/…), interpreter/compiler/lang keywords, some traction
+(stars), and penalizes archived repos. The shortlist is the queue for new recipes.
+
+### amd64 emulation for arch-locked languages
+The host is arm64, but `container --arch amd64` works (Rosetta) — confirmed. For
+languages whose source only knows x86 (`__x86_64__`, x86 asm) we add a recipe-dir
+`arch` file containing `amd64`; `build.sh` then builds *and* smoke-runs under
+emulation. First use: **femtolisp** (its `llt` headers also need glibc's
+`__gnu_linux__`, so its recipe is debian + amd64). Native arm64/musl stays the
+default; emulation is the escape hatch, noted per-recipe.
+
+### glibc fallback
+Alpine/musl is the default and preferred (harsher = more portable). When a project
+genuinely needs glibc we use `debian:bookworm-slim` and say why in the recipe
+header. So far: **tcc** (musl `wchar_t` redefinition in its runtime lib) and
+**femtolisp** (`__gnu_linux__`).
+
 ## Roads not taken (so far)
 
 - **One mega-Dockerfile for everything** — rejected: poor caching, one failure

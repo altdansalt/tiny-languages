@@ -1,66 +1,95 @@
-#1 [resolver] fetching image...docker.io/library/alpine:3.20
+#1 [resolver] fetching image...docker.io/library/debian:bookworm-slim
 #1 DONE 0.0s
 
 #2 [internal] load .dockerignore
-#2 transferring context: 2B 0.0s done
+#2 transferring context: 2B done
 #2 DONE 0.0s
 
-#3 oci-layout://docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc
-#3 resolve docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc done
+#3 oci-layout://docker.io/library/debian:bookworm-slim@sha256:60eac759739651111db372c07be67863818726f754804b8707c90979bda511df
+#3 resolve docker.io/library/debian:bookworm-slim@sha256:60eac759739651111db372c07be67863818726f754804b8707c90979bda511df done
 #3 DONE 0.0s
 
-#4 [linux/arm64 1/7] RUN apk add --no-cache build-base git
+#4 [linux/amd64 2/7] WORKDIR /src
 #4 CACHED
 
-#5 [linux/arm64/v8 2/7] WORKDIR /src
+#5 [linux/amd64 1/7] RUN apt-get update && apt-get install -y --no-install-recommends         build-essential git ca-certificates     && rm -rf /var/lib/apt/lists/*
 #5 CACHED
 
-#6 [linux/arm64 3/7] RUN git clone --depth 1 https://github.com/JeffBezanson/femtolisp .
-#6 0.032 Cloning into '.'...
-#6 DONE 0.9s
+#6 [linux/amd64 3/7] RUN git clone --depth 1 https://github.com/JeffBezanson/femtolisp .
+#6 CACHED
 
-#7 [linux/arm64 4/7] RUN make -j"$(nproc)"
-#7 0.035 gcc -O2 -DNDEBUG -falign-functions -Wall -Wno-strict-aliasing -Illt  -DUSE_COMPUTED_GOTO -c flisp.c -o flisp.o
-#7 0.036 gcc -O2 -DNDEBUG -falign-functions -Wall -Wno-strict-aliasing -Illt  -DUSE_COMPUTED_GOTO -c builtins.c -o builtins.o
-#7 0.056 In file included from llt/llt.h:5,
-#7 0.056                  from flisp.c:46:
-#7 0.056 llt/dtypes.h:31:4: error: #error "unknown platform"
-#7 0.056    31 | #  error "unknown platform"
-#7 0.056       |    ^~~~~
-#7 0.061 llt/dtypes.h:92:4: error: #error "unknown platform"
-#7 0.061    92 | #  error "unknown platform"
-#7 0.061       |    ^~~~~
-#7 0.061 In file included from llt/llt.h:6:
-#7 0.061 llt/utils.h:27:4: error: #error "unknown architecture"
-#7 0.061    27 | #  error "unknown architecture"
-#7 0.061       |    ^~~~~
-#7 0.061 In file included from llt/llt.h:5,
-#7 0.061                  from builtins.c:17:
-#7 0.061 llt/dtypes.h:31:4: error: #error "unknown platform"
-#7 0.061    31 | #  error "unknown platform"
-#7 0.061       |    ^~~~~
-#7 0.061 llt/dtypes.h:92:4: error: #error "unknown platform"
-#7 0.061    92 | #  error "unknown platform"
-#7 0.061       |    ^~~~~
-#7 0.061 In file included from llt/llt.h:6:
-#7 0.061 llt/utils.h:27:4: error: #error "unknown architecture"
-#7 0.061    27 | #  error "unknown architecture"
-#7 0.061       |    ^~~~~
-#7 0.070 make: *** [Makefile:26: builtins.o] Error 1
-#7 0.070 make: *** Waiting for unfinished jobs....
-#7 0.130 make: *** [Makefile:26: flisp.o] Error 1
-#7 ERROR: process "/bin/sh -c make -j\"$(nproc)\"" did not complete successfully: exit code: 2
-------
- > [linux/arm64 4/7] RUN make -j"$(nproc)":
-0.061 llt/dtypes.h:92:4: error: #error "unknown platform"
-0.061    92 | #  error "unknown platform"
-0.061       |    ^~~~~
-0.061 In file included from llt/llt.h:6:
-0.061 llt/utils.h:27:4: error: #error "unknown architecture"
-0.061    27 | #  error "unknown architecture"
-0.061       |    ^~~~~
-0.070 make: *** [Makefile:26: builtins.o] Error 1
-0.070 make: *** Waiting for unfinished jobs....
-0.130 make: *** [Makefile:26: flisp.o] Error 1
-------
-Error: unknown (2): failed to solve: process "/bin/sh -c make -j\"$(nproc)\"" did not complete successfully: exit code: 2
+#7 [linux/amd64 4/7] RUN make release -j"$(nproc)"
+#7 0.146 gcc -O2 -DNDEBUG -falign-functions -Wall -Wno-strict-aliasing -Illt  -DUSE_COMPUTED_GOTO -c flisp.c -o flisp.o
+#7 0.212 gcc -O2 -DNDEBUG -falign-functions -Wall -Wno-strict-aliasing -Illt  -DUSE_COMPUTED_GOTO -c builtins.c -o builtins.o
+#7 1.056 gcc -O2 -DNDEBUG -falign-functions -Wall -Wno-strict-aliasing -Illt  -DUSE_COMPUTED_GOTO -c string.c -o string.o
+#7 1.282 string.c: In function 'fl_string_width':
+#7 1.282 string.c:56:21: warning: implicit declaration of function 'wcwidth' [-Wimplicit-function-declaration]
+#7 1.282    56 |             int w = wcwidth(*(uint32_t*)cp_data(cp));
+#7 1.282       |                     ^~~~~~~
+#7 1.873 gcc -O2 -DNDEBUG -falign-functions -Wall -Wno-strict-aliasing -Illt  -DUSE_COMPUTED_GOTO -c equalhash.c -o equalhash.o
+#7 2.533 gcc -O2 -DNDEBUG -falign-functions -Wall -Wno-strict-aliasing -Illt  -DUSE_COMPUTED_GOTO -c table.c -o table.o
+#7 3.216 gcc -O2 -DNDEBUG -falign-functions -Wall -Wno-strict-aliasing -Illt  -DUSE_COMPUTED_GOTO -c iostream.c -o iostream.o
+#7 3.225 cd llt && /usr/bin/make
+#7 3.305 make[1]: Entering directory '/src/llt'
+#7 3.370 gcc -O3 -DNDEBUG -Wall -Wno-strict-aliasing  -c bitvector.c -o bitvector.o
+#7 3.993 gcc -O3 -DNDEBUG -Wall -Wno-strict-aliasing  -c hashing.c -o hashing.o
+#7 4.111 gcc -O3 -DNDEBUG -Wall -Wno-strict-aliasing  -c socket.c -o socket.o
+#7 4.709 gcc -O3 -DNDEBUG -Wall -Wno-strict-aliasing  -c timefuncs.c -o timefuncs.o
+#7 4.813 gcc -O2 -DNDEBUG -falign-functions -Wall -Wno-strict-aliasing -Illt  -DUSE_COMPUTED_GOTO -c flmain.c -o flmain.o
+#7 5.271 gcc -O3 -DNDEBUG -Wall -Wno-strict-aliasing  -c ptrhash.c -o ptrhash.o
+#7 5.376 rm -rf libflisp.a
+#7 5.395 ar rs libflisp.a flisp.o builtins.o string.o equalhash.o table.o iostream.o
+#7 5.411 /usr/bin/ar: creating libflisp.a
+#7 5.427 gcc -O3 -DNDEBUG -Wall -Wno-strict-aliasing  -c utf8.c -o utf8.o
+#7 5.980 gcc -O3 -DNDEBUG -Wall -Wno-strict-aliasing  -c ios.c -o ios.o
+#7 6.237 In function 'u8_wc_toutf8',
+#7 6.237     inlined from 'u8_unescape' at utf8.c:414:15:
+#7 6.239 utf8.c:181:23: warning: 'ch' may be used uninitialized [-Wmaybe-uninitialized]
+#7 6.239   181 |         dest[1] = (ch & 0x3F) | 0x80;
+#7 6.239       |                   ~~~~^~~~~~~
+#7 6.239 utf8.c: In function 'u8_unescape':
+#7 6.239 utf8.c:401:15: note: 'ch' was declared here
+#7 6.239   401 |     u_int32_t ch;
+#7 6.239       |               ^~
+#7 6.416 gcc -O3 -DNDEBUG -Wall -Wno-strict-aliasing  -c dirpath.c -o dirpath.o
+#7 6.911 gcc -O3 -DNDEBUG -Wall -Wno-strict-aliasing  -c htable.c -o htable.o
+#7 7.029 gcc -O3 -DNDEBUG -Wall -Wno-strict-aliasing  -c bitvector-ops.c -o bitvector-ops.o
+#7 7.494 gcc -O3 -DNDEBUG -Wall -Wno-strict-aliasing  -c int2str.c -o int2str.o
+#7 8.011 gcc -O3 -DNDEBUG -Wall -Wno-strict-aliasing  -c dump.c -o dump.o
+#7 8.096 gcc -O3 -DNDEBUG -Wall -Wno-strict-aliasing  -c random.c -o random.o
+#7 8.612 gcc -O3 -DNDEBUG -Wall -Wno-strict-aliasing  -c lltinit.c -o lltinit.o
+#7 8.790 In file included from random.c:13:
+#7 8.790 In function 'init_by_array',
+#7 8.790     inlined from 'randomize' at random.c:61:5:
+#7 8.792 mt19937ar.c:84:21: warning: 'tm' is used uninitialized [-Wuninitialized]
+#7 8.792    84 |           + init_key[j] + j; /* non linear */
+#7 8.792       |             ~~~~~~~~^~~
+#7 8.793 random.c: In function 'randomize':
+#7 8.793 random.c:60:15: note: 'tm' declared here
+#7 8.793    60 |     u_int64_t tm = i64time();
+#7 8.793       |               ^~
+#7 8.989 rm -rf libllt.a
+#7 9.005 ar rs libllt.a bitvector.o hashing.o socket.o timefuncs.o ptrhash.o utf8.o ios.o dirpath.o htable.o bitvector-ops.o int2str.o dump.o random.o lltinit.o
+#7 9.022 /usr/bin/ar: creating libllt.a
+#7 9.044 make[1]: Leaving directory '/src/llt'
+#7 9.093 gcc -O2 -DNDEBUG -falign-functions -Wall -Wno-strict-aliasing -Illt  -DUSE_COMPUTED_GOTO flisp.o builtins.o string.o equalhash.o table.o iostream.o flmain.o -o flisp llt/libllt.a -lm libflisp.a
+#7 DONE 9.2s
+
+#8 [linux/amd64 5/7] RUN printf '(princ "ok-femto")(princ "\\n")\n' > /smoke.lsp     && ./flisp /smoke.lsp | tee /smoke.out && grep -q '^ok-femto' /smoke.out
+#8 0.082 ok-femto
+#8 DONE 0.1s
+
+#9 [linux/amd64 6/7] RUN printf 'BINSIZE %s flisp\n' "$(stat -c %s flisp)"
+#9 0.064 BINSIZE 208208 flisp
+#9 DONE 0.1s
+
+#10 exporting to oci image format
+#10 exporting layers
+#10 exporting layers 9.3s done
+#10 exporting manifest sha256:2536a80590633de3dfa010184e50a0412bfb174bf32cc96f539e3586b223ba3e done
+#10 exporting config sha256:f6182d90081be00e1c17ef38e1a18b7dc3dc197737de53d95d95fc33b3f6af0c done
+#10 exporting manifest list sha256:2a31d4559ee121d26602f8c8d9922ef15df77e46640e8dcb2a33af92224c5766 done
+#10 sending tarball
+#10 sending tarball 1.2s done
+#10 DONE 10.5s
+Successfully built tinylang/femtolisp:latest

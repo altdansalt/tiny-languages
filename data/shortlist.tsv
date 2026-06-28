@@ -1,0 +1,1309 @@
+repo	score	disk_kb	lang	stars	description
+yuin/gopher-lua	9	499	Go	6941	GopherLua: VM and compiler for Lua in Go
+matz/streem	9	841	C	4599	prototype of stream based programming language
+lotabout/write-a-C-interpreter	9	160	C	4377	Write a simple interpreter of C. Inspired by c4 and largely based on it.
+andrejbauer/plzoo	9	377	OCaml	1593	Programming Languages Zoo
+esseks/monicelli	9	321	C++	1379	An esoteric programming language, come se fosse antani.
+jserv/amacc	9	297	C	1060	Small C Compiler generating ELF executable Arm architecture, supporting JIT execution
+milochristiansen/lua	9	232	Go	922	A Lua 5.3 VM and compiler written in Go.
+nickmqb/muon	9	674	C	780	Modern low-level programming language
+rhysd/gocaml	9	736	Go	756	:camel: Statically typed functional programming language implementation with Go and LLVM
+felixangell/mac	9	37	C	749	bytecode interpreter in c (blog post)
+hush-shell/hush	9	533	Rust	692	Hush is a unix shell based on the Lua programming language
+fabianishere/brainfuck	9	861	C	621	Brainfuck interpreter written in C
+thesephist/ink	9	840	Go	577	Ink is a minimal programming language inspired by modern JavaScript and Go, with functional style.
+kanaka/wac	9	192	C	492	WebAssembly interpreter in C
+ajeetdsouza/loxcraft	9	863	Rust	364	Language tooling for the Lox programming language.
+wasplang/wasp	9	100	Rust	324	a web assembly programming language
+adamdunkels/ubasic	9	198	C	313	The uBASIC interpreter
+kgabis/ape	9	150	C	275	Ape Programming Language
+fragglet/yoctolisp	9	57	C	255	Tiny Scheme-like Lisp interpreter written in a weekend
+igor84/summus	9	348	C	243	Simple compiler frontend using LLVM as backend
+Tablam/TablaM	9	784	Rust	227	The practical relational programing language for data-oriented applications
+Paradoxis/PHP-Backdoor	9	7	C	222	Your interpreter isn’t safe anymore  —  The PHP module backdoor
+rsms/hue	9	839	C++	176	A functional programming language
+ozy/ToyJVM	9	63	C	165	An experimental Java Bytecode Interpreter written in C
+zesterer/atto	9	77	Rust	164	An insanely simple self-hosted functional programming language
+andrewpillar/req	9	266	Go	161	A simple and opinionated HTTP scripting language
+php-test-helpers/php-test-helpers	9	340	C	157	An extension for the PHP Interpreter to ease testing of PHP code.
+bbu/simple-interpreter	9	54	C	155	A hackable and extensible lexer, parser and interpreter for a minimalistic, imperative, C-like language.
+laruence/php-lua	9	96	C	152	This extension embeds the lua interpreter and offers an OO-API to lua variables and functions.
+dimkr/szl	9	870	C	149	A lightweight, embeddable scripting language
+wernsey/chip8	9	397	C	128	A CHIP-8 interpreter, assembler and disassembler in C
+erkyrath/glulxe	9	495	C	124	The Glulx VM reference interpreter
+jwillia3/BASIC	9	125	C	124	An extensible BASIC interpreter in one header
+linuxmooc/pylite	9	180	C	108	A tiny python interpreter for educational purpose
+dpapavas/luaprompt	9	124	C	106	An embeddable Lua command prompt as well as a stand-alone interpreter with pretty-printing and autocompletion.
+tlack/b-decoded	9	30	C	101	arthur whitney's b interpreter translated into a more traditional flavor of C
+serprex/luwa	8	684	Lua	97	WIP jit lua to wasm
+justinmeza/doge	8	304	C	96	The doge interpreter for the shibe esoteric programming language.
+ndreynolds/flathead	8	937	C	96	A toy JavaScript interpreter written in C
+mlochbaum/ILanguage	8	468	C	94	An interpreter for a J-inspired language
+nanoflite/basic	8	389	C	93	:tv: A from-scratch BASIC interpreter with a focus on being easy to extend and port.
+xyproto/battlestar	8	703	Go	93	:dizzy: A different take on Assembly, with the goal of creating tiny executables.
+nickdesaulniers/bf_interpreter_jit_compiler	8	38	C	88	Teach myself about interpreters, JITs, and compilers using the Brainfuck language as the toy language
+hausdorff/turtles	8	268	C	87	Lisp interpreter written for the Apple //e. It's called turtles because guess how slow it is.
+larryhe/tiny-c-interpreter	8	212	C	85	this is a github mirror of picoC (http://code.google.com/p/picoc/)
+grassel/wac-esp	8	72	C	80	Web Assembly Interpreter for ESP32 family of micro controllers running the ESP-IDF development framework, based on the g
+matrix-org/rust-opa-wasm	8	643	Rust	79	Open Policy Agent WebAssembly Rust SDK
+camden-smallwood/solidity-rs	8	476	Rust	78	Solidity 0.8.X AST parsing and analysis in Rust.
+fy0/python_lite	8	834	C	76	[WIP] A simple, lightweight implementation of python3 language.
+abhinav-upadhyay/cmonkey	8	745	C	75	C Implementation of the monkey programming language
+jonpry/Pill	8	252	C++	74	Skill language interpreter
+kgabis/brainfuck-c	8	8	C	68	Brainfuck interpreter in C.
+kazuho/C	8	106	C	66	pseudo-interpreter of the C programming language (using GCC)
+phase/o	8	485	C	61	Esoteric stack-oriented programming language for code golf
+mpu/lambda	8	132	C	60	A small λ-calculus interpreter in C
+0xbf00/simbple	8	194	C	59	macOS Sandbox Profile Language (SBPL) Interpreter
+justinmeza/lolcode	8	206	C	58	A first attempt at a LOLCODE interpreter written in C; please use the lci project instead!
+mattn/cisp	8	427	C	58	Minimal Lisp Interpreter
+kristianlm/small-lisp	8	14	C	57	A very small lisp interpreter, that I may one day get working on my 8-bit AVR microcontroller.
+deepakkarki/pruspeak	8	559	C	55	BotSpeak interpreter for the BeagleBone Black's PRU
+hmgle/yascm	8	167	C	49	Yet Another Scheme Interpreter using flex and bison
+jalalmostafa/clox	8	190	C	49	A virtual machine and a tree-walk interpreter for the Lox programming language in C89 :cyclone:
+d99kris/nopeos	8	157	C	48	Simple OS kernel with BASIC interpreter for x86
+apankrat/bff	8	10	C	47	Moderately-optimizing brainfuck interpreter
+tavmem/buddy	8	127	C	47	early A interpreter with buddy system space management.
+rwos/newsqueak	8	379	C	45	squint -  Rob Pike's Newsqueak interpreter for Unix
+ajhalthor/interpreter	8	60	C	44	Interpreter for the Declaration Section of a C program
+dmbaturin/hope	8	229	C	43	Hope programming language interpreter
+dbetz/xlisp	8	296	C	42	XLISP - an object-oriented LISP
+sonneveld/nagi	8	715	C	42	New Adventure Game Interpreter
+yiransheng/basic_rs	8	557	Rust	40	Original Dartmouth BASIC Interpreter/Compiler
+iocane/unbox	8	964	C	38	GPL licensed J interpreter
+grigory-rechistov/interpreters-comparison	8	320	C	37	Sample programs for comparison of different VM interpretation techniques
+HPCguy/Squint	8	770	C	37	Squint: A peephole optimizer for stack VM compilers
+tinwe6/loxi	8	61	C	37	loxi - a Lox interpreter
+yangtau/hedgehog	8	765	C	37	a toy programming language
+bipinu/malbolge	8	3	C	35	Malbolge Interpreter
+jcolag/Thue	8	22	C	35	The Thue programming language:  Programming with grammars
+rswinkle/C_Interpreter	8	344	C	35	Aims to be interpreted C written in C.
+vmmc2/Bleach	8	891	C++	35	The implementation of my undergraduate thesis: "Bleach: A programming language aimed for teaching Compilers."
+zabbix-tools/zabbix-module-python	8	48	C	34	Embedded Python interpreter module for Zabbix
+howerj/pickle	8	594	C	34	Improvements to picol: A TCL like interpreter suitable as an shell in an embedded system
+KarlAndr1/beryl	8	263	C	33	The Beryl Scripting Language
+jhallen/ivy-lang	8	150	C	32	Ivy programming language
+morrow1nd/luax	8	248	C	32	Lua-like programming language for studying compiler&interpreter courses.
+pmachapman/LittleC	8	96	C	32	A modified version of the LittleC Interpreter from Herbert Schildt's C: The Complete Reference (4th Ed.)
+Usbac/borealis	8	266	C	32	The elegant and consistent programming language.
+irori/lazyk	8	12	C	31	Lazy K interpreter
+Jaffe-/lispc	8	49	C	31	A simple Lisp interpreter in C
+dbetz/advsys	8	44	C	30	AdvSys - A Language for Writing Text Adventure Games
+michiakig/lisp-in-c	8	684	C	30	Lisp interpreter in C and compiler to C
+NicksterSand/Cflat	8	94	C	30	An interpreter for C flat, a music-based programming language
+arkanis/lisp.c	8	113	C	29	My second Lisp interpreter (bytecode compiler and interpreter) written in GNU C
+mikelma/oktac	8	448	Rust	28	okta programming language compiler. THIS IS A MIRROR OF THE ORIGINAL REPO HOSTED IN SOURCEHUT.
+odddollar/Leafscript	8	787	Go	28	Lightweight programming language (proof of concept)
+erdian718/lua	8	139	Go	27	Go Lua Compiler and VM
+droyo/APL	8	204	C	26	UTF8 APL interpreter
+erhanbaris/EasyLang	8	853	C++	26	Easy Programming Language / VM
+txus/calc	8	144	C	26	Simple arithmetic language interpreter with JIT compilation, using LLVM.
+ignorabimus/minischeme	8	638	C	25	Mini-Scheme Interpreter with Copying GC
+mkostrun/UBASIC-PLUS	8	283	C	25	uBasic Plus for microcontrollers adds features to uBasic such as arrays and floating point numbers, more functions and a
+Symbitic/CTRJS	8	348	C	24	JavaScript interpreter for the Nintendo 3DS.
+wernsey/musl	8	79	C	24	A small, embeddable BASIC interpreter in C.
+JackMc/BasicLisp	8	61	C	23	A basic (basic) Lisp interpreter in C!
+MalcolmMcLean/minibasic	8	72	C	23	Small Basic interpreter, written in C. 
+TinHead/Valkyrie-CNC-source-code	8	444	C	23	Reprap based g-code interpreter adapted for my own toy
+Chip-84/chip-84	8	745	C	22	A CHIP-8/S-CHIP Interpreter for the TI-84 Plus CE
+cookerlyk/Chip8	8	70	C	22	Chip-8 Interpreter written in C
+knordman/esstee	8	750	C	22	Structured Text (ST) Interpreter
+Ralnoc/pam-python	8	90	C	22	pam_python is a PAM module that runs the Python interpreter, and so allows PAM modules to be written in Python.
+tcort/tcbasic	8	292	C	22	tcbasic is a small BASIC Interpreter written in C.
+belijzajac/WisniaLang	8	860	C++	21	A compiler for an experimental programming language that produces tiny Linux binaries (ELF x86_64) without LLVM dependen
+kungfooman/EiC-C-Interpreter	8	700	C	21	EiC C Interpreter
+marianoguerra/pynerl	8	105	C	21	run an embeded python interpreter in erlang
+Suloch/chirp	8	162	C	21	Interpreter in C for rockstar programing language
+tinku99/ahkx	8	552	C	21	autohotkey interpreter compiled with gcc
+0xM4LL0C/yuji	8	240	C	20	tiny scripting language in C
+fjames86/flisp	8	732	C	20	A Scheme-like Lisp interpreter that can also run as an operating system
+kgabis/business-card-brainfuck	8	4	C	20	Tiny Brainfuck interpreter.
+mschuetz/tinylisp	8	399	C	20	A C implementation of the Lisp interpreter described in McCarthy's Lisp 1.5 manual.
+tommasocerruti/rowlang	8	126	C	20	RowLang is a minimalistic esoteric programming language written as an analogy to rowing.
+accreator/VSCI	8	260	C	19	Very Simple C Interpreter
+eki/dorothy	8	180	C	19	A Z-Machine interpreter library.
+hideo55/node-perl	8	159	C	19	Embeded perl interpreter for node.js
+hoelzro/sqlite-lua-extension	8	5	C	19	A SQLite extension that embeds a Lua interpreter into SQLite
+ingramj/bs	8	174	C	19	An interpreter for a simple Scheme-like language
+Jackojc/klaxon	8	195	C++	19	Minimalist RPN language that compiles to x86-64 assembly (with more backends to come).
+magetron/c-interpreter	8	60	C	19	Patrick's C Compiler (interpreter)
+MohammedRashad/Simplex	8	66	C	19	Programming Language for everyone, and no one.
+wgtdkp/kawaii	8	10	C	19	A kawaii Scheme interpreter in C
+koturn/Whitespace	8	34	C	18	An interpreter and C-translator of Whitespace
+luvisi/continuinglogo	8	997	C	18	A Logo interpreter with dynamic scope, shallow binding, tail call optimization, Lisp 1.5 style FUNARG's, and first class
+oguzalb/Fayton	8	582	C	18	A minimalistic python interpreter written in c, just to see where i can get to :)
+saulpw/frotzos	8	463	C	18	a barebones bootable platform to run the frotz z-code interpreter inside a VM
+dbetz/bob	8	312	C	17	The Bob Programming Language
+amykyta3/tclpython	8	61	C	16	Tcl package that provides access to a Python interpreter
+jarhot1992/mujs	8	108	C	16	MuJS is a lightweight Javascript interpreter designed for embedding in other software to extend them with scripting capa
+PatrickHead/ucBasic	8	38	C	16	A Tiny BASIC inspired interpreter for microcontrollers.  Currently for the Arduino/AVR, with a development version for P
+tvcutsem/schemeken	8	334	C	16	A Distributed Resilient Scheme Interpreter
+BenWiederhake/ohno	8	23	C	15	Interpreter for an esoteric, overly hard language
+dimkr/b6b	8	422	C	15	A lightweight, embeddable scripting language
+joewing/jl	8	90	C	15	Small, embeddable LISP-like language.
+kbob/schetoo	8	740	C	15	Another Scheme interpreter
+motet-a/toy	8	26	C	15	Tiny JavaScriptish interpreter
+schani/SimpLang	8	91	C	15	A very simple programming language for teaching interpreter and compiler building.
+boynton/scheme	8	128	C	14	A simple yet fairly fast scheme byte code interpreter written in ANSI C.
+nithinkr1shna/python-bytecode-interpreter	8	44	C	14	A bytecode interpreter for v 2.7.10
+pwil3058/dunnart	8	345	D	14	LALR(1) Parser Generator for the D Programming Language
+sungit/TinyScheme	8	340	C	14	mirror of tinyscheme interpreter and extensions
+yangruihan/clox	8	65	C	14	Repository for C implement programming language with the book "Crafting Interpreters" http://www.craftinginterpreters.co
+bnzis/bulb	8	213	C	13	My little programming language. 
+iksteen/pyhp	8	18	C	13	Embed the PHP interpreter in Python
+paulwratt/bas-2.5-plus	8	690	C	13	2018 version of BAS 2.4 ANSI BASIC interpreter by Michael Haardt - http://moira.de (cpmtools fame)
+shin-k-h/microlisp	8	98	C	13	A lisp interpreter
+technosaurus/jsish	8	524	C	13	mirror of jsish - A javascript interpreter with 0install, sqlite and websocket support
+AaronCGoidel/SlothLang	8	131	C	12	The World's Greatest Sloth Based Programming Language
+brenns10/funlisp	8	241	C	12	Simple, embeddable lisp interpreter
+do-aki/php-ext-perl	8	162	C	12	This php extension embeds Perl Interpreter into PHP.
+farshield/tachograph_d8	8	10	C	12	Tachograph D8 serial output interpreter
+Gyumeijie/an-embedded-c-interpreter	8	81	C	12	a very simple interpreter for c, inspired by c4, but it is embedded
+m-ender/orthagonal	8	18	C	12	A two-dimensional programming language from 1994.
+nickdrozd/lispinc	8	316	C	12	An "explicit control" Lisp interpreter written in assembly-like C
+rkujawa/rk65c02	8	768	C	12	Experimental 65C02 machine code interpreter/emulator/disassembler.
+wbhart/Cesium	8	223	C	12	Fast interpreter with LLVM backend.
+ArunMichaelDsouza/Zeta	8	495	C	11	Zeta is a command interpreter built purely in C for Windows OS
+barak/lysp	8	92	C	11	Tiny, lightweight Lisp interpreter closely following the tradition of the earliest  implementations
+csdexter/gcode-canon	8	676	C	11	An attempt at a canonical G-Code interpreter with 100% coverage of the standard
+irori/unlambda	8	34	C	11	Unlambda interpreter
+ellamental/Lispy	8	192	C	11	Lispy is a very simple Scheme interpreter suitable for someone learning how to write an interpreter.
+LuisAlbizo/WardScript	8	298	C	11	A high-level and minimalist programming language
+phorward/xpl	8	18	C	11	An eXample Programming Language
+uanhi/meet	8	567	C++	11	The Meet Language Interpreter
+vibhavp/skeem	8	548	C	11	A Scheme Interpreter written in C
+dinglixing/panda-org	8	659	C	10	Panda is  a library to build your compiler/interpreter or embedded in your program. 
+eddieantonio/brainmuk	8	69	C	10	brainfuck x86 compiler and interpreter
+eshyong/Chip-8-Emulator	8	144	C	10	Interpreter for the Chip 8 Virtual Machine. My first real project in C!
+geekscape/aiko_engine	8	384	C	10	Embedded Lisp interpreter for distributed message handling
+instead-hub/instead-launcher	8	354	C	10	Game update/launch program for INSTEAD, simple text adventures interpreter.
+jondeaton/Lisp	8	502	C	10	Lisp interpreter written in C
+numerals/lisp	8	266	C	10	Lisp interpreter in C following www.buildyourownlisp.com
+pera/ad-hoc	8	73	C	10	Ad-hoc programming language
+peterhellberg/brandy	8	613	C	10	Brandy Basic V Interpreter patched to compile under OS X
+shritesh/brainfuck-rs-wasm	8	25	Rust	10	A Brainfuck interpreter written in Rust and compiled to WebAssembly
+sviperll/argo	8	32	C	10	Pragmatic functional programming language
+0xFACE/bbconsole	8	27	C	9	Linux console for BlueBasic (BASIC interpreter for CC2540 and CC2541 Bluetooth LE chips).
+furuame/Pascal-Esque-Interpreter	8	48	C	9	P.E.I is a Pascal like interpreter implemented in C
+andrewbuss/crisp	8	98	C	9	A C interpreter for a purely functional language, bolted to a very unsafe FFI
+ekatz/sci	8	529	C	9	Sierra's Creative Interpreter
+irori/clamb	8	11	C	9	Universal Lambda interpreter
+lbsmith/Production-Basic	8	700	C	9	Business Basic interpreter loading/saving Thoroughbred Basic files
+timshen91/Evil	8	240	C	9	Yet another Scheme interpreter
+wernsey/Fiz	8	86	C	9	A small but functional interpreter for a Tcl-like language
+aleksei-udalov/vm	8	24	C	8	A simple stack-based interpreter. Inspired by x86 assembly, forth, and java bytecode.
+dslab-epfl/chef-symbex-lua	8	624	C	8	Lua interpreter modded to support symbolic execution
+dyninc/js-number-crunching	8	117	C	8	Experiment to compare in-browser JS to other interpreters (and then some)
+greezybacon/clox	8	493	C	8	Interpreter for the Lox language in C
+hikarin/aquario	8	524	C	8	GC-oriented Lisp interpreter
+kvverti/clavender	8	487	C	8	An implementation of the Lavender programming language in C.
+liutgnu/asm-interpreter	8	42	C	8	An x86 assembly-like language interpreter
+mkotha/bfi	8	146	C	8	A brainfuck interpreter on the C preprocessor
+mousetail/CellTail	8	143	Rust	8	The cell tail language
+naleksiev/fin	8	122	C	8	Scripting language.
+ornata/6502	8	288	C	8	6502 interpreter
+rinoldm/sbfi	8	22	C	8	Simple BrainFuck Interpreter written in C.
+lkowalick/j-interpreter	8	2	C	8	A breakdown of Arthur Whitney's quickly drafted J interpreter implementation
+stackluca/v3	8	146	C	8	a javascript interpreter
+ushitora-anqou/simplinterp	8	5	C	8	A simple interpreter strongly inspired by https://youtu.be/JAtN0TGrNE4
+aap/l15	8	23	C	7	A simple interpreter of LISP 1.5
+borg323/jzip	8	877	C	7	Updated version of the Jzip 2.1 Z-Machine interpreter
+DavidKinder/Windows-AGiliTy	8	877	C	7	Windows port of Robert Masenten's AGiliTY AGT interpreter.
+hellerve-project-based-learning/clox	8	42	C	7	My take on Crafting Interpreters
+ianmaclarty/gclua	8	392	C	7	A modified lua-5.1.5 interpreter that uses libgc
+Liutos/liutscm	8	443	C	7	An interpreter for a subset of Scheme.
+luser-dr00g/sexp.c	8	78	C	7	A very primitive LISP interpreter
+MitchBradley/OBPclassTinyForth	8	14	C	7	Extremely rudimentary and incomplete Forth interpreter for teaching the basic ideas of Forth.
+nablaa/prolog-interpreter-c	8	51	C	7	Prolog interpreter in C
+RickCarlino/WASM-Forth	8	32	C	7	A sort-of-kind-of-working Forth interpreter that runs in the browser using Web Assembly (WASM). PRs welcome.
+rinat-enikeev/Small-C-Interpreter	8	612	C	7	C, interpreter of subset of C language, written in С. 
+shekohex/jax	8	53	C	7	minimal C-interpreter to play with. for learning purpose
+SimonKagstrom/sarien-j2me	8	696	C	7	A port of the Sarien AGI interpreter to J2ME phones, using Cibyl
+sunzx/TarielBASIC	8	30	C	7	A portable BASIC interpreter written in C.
+zhujinliang/tclInterpreter	8	128	C	7	A interpreter that can interpret simple tcl language
+andrewchambers/janet-ll	8	232	C	6	A low level rust crate providing bindings to the janet interpreter.
+andrix/tinyruby	8	120	C	6	Homework for the University to implement an small but functional Ruby Interpreter - a very Work in Progress
+angrykoala/mindfck	8	310	Go	6	A language to transpile to brainfuck
+catseye/FBBI	8	180	C	6	MIRROR of https://codeberg.org/catseye/FBBI : The Flaming Bovine Befunge-98 Interpreter.
+chrizel/moelisp	8	55	C	6	a toy lisp interpreter
+danthelion/selyp	8	35	C	6	A Lisp interpreter implemented in C.
+Dillonb/chip8	8	366	C	6	CHIP-8 Interpreter in C and SDL
+Eschelle/Eschelle	8	94	C++	6	The Eschelle programming language
+ffwff/bfjit	8	23	C	6	JIT interpreter for brainfuck
+flightaware/tclsyslogd	8	148	C	6	BSD syslogd with integrated Tcl interpreter that can look at each message received
+Gikoskos/simbly	8	390	C	6	Multithreaded runtime and interpreter for programs written in a tiny assembly-like language
+hackzilla/cola	8	149	C	6	A lightweight, yet fairly powerful BASIC interpreter in < 300 lines of code. Works with just about any C/C++ compiler an
+kladskull/mybb	8	365	C	6	Business Basic Interpreter
+louiswins/unlambda	8	132	C	6	unl is an Unlambda interpreter
+lucyTheSlayer/orange	8	35	C	6	study to make a simple comiler & interpreter
+mewo2/gertie	8	14	C	6	A Scheme-like Lisp interpreter
+kladskull/mybb	8	365	C	6	Business Basic Interpreter
+oguzbakir/brainfuck-interpreter	8	17	C	6	Little brainfuck interpreter with some typo checks. Written in C
+sdevlin/yoshi	8	456	C	6	A LISP interpreter written in C
+szholdiyarov/command-line-interpreter	8	2	C	6	A simple command line interpreter(shell)
+wasmite/wasabi	8	974	C	6	
+414owen/Befunge	8	76	C	5	An extremely fast befunge interpreter
+756445638/jsInterpreter	8	226	C	5	
+aashutoshrathi/Elf	8	538	C	5	Linux Terminal interpreter in C
+bcantrill/bfuld	8	96	C	5	Modifies an ELF interpreter for development purposes
+brouhaha/i2l	8	37	C	5	Portable I2L interpreter in C
+catseye/beta-Juliet	8	81	C	5	MIRROR of https://codeberg.org/catseye/beta-Juliet : A minimal event-oriented language
+davidxifeng/ci	8	450	Rust	5	a little c interpreter
+eltuza/myjs	8	83	C	5	JS (ES262) interpreter in C - Extremely Experimental - Learning purposes
+erickedji/pseudoccompilercollection	8	340	C	5	Compiler and byte-code interpreter for a C-like langage (using LEX & YACC)
+ethanhowell/vowels	8	296	C	5	An interpreter for the Vowels Programming Language.
+glycerine/rustxi	8	429	C	5	rust + transactions + interpreter = rustxi.  rustxi is a transactional jit-compilation-based REPL for the Rust language.
+gokselgoktas/brainfuck	8	25	C	5	An optimizing Brainfuck compiler & interpreter
+iamsubhranil/Alang	8	311	C	5	An algorithmic language with recursive descent parser and tree-walk interpreter/bytecode stack virtual machine(in separa
+kitaka/lexer	8	132	C	5	My simple interpreter for PHP.
+luaforge/l-bia	8	192	C	5	Lua Built-In program (L-Bia) is a self-running Lua interpreter. It turns
+your Lua program with all required modules (ei
+lukasleung/cs170Project	8	43	C	5	Creating a Scheme Interpreter in C
+marmalade/python	8	273	C	5	python interpreter for marmalade
+mattn/C-win32	8	156	C	5	win32 port of C(a pseudo-interpreter of the C programming language)
+mig-hub/yabi	8	104	C	5	Yet Another Brainfuck Interpreter
+MineRobber9000/bf3ds	8	76	C	5	Brainfuck interpreter for the 3DS.
+Mithreindeir/nom	8	163	C	5	First Attempt at a Toy Language Interpreter
+NFestoso/Compiler	8	67	C	5	Front-end Platypus compiler implemented in C. Includes Buffer, Scanner, and Parser. Platypus is a language comprised of 
+noahp/nocli	8	95	C	5	Command-line interpreter for embedded systems
+nohajc/.KEK-on-Rails	8	646	C	5	A C-like language interpreter
+rohitjha/brainfuck	8	31	C	5	An interpreter for the Brainfuck programming language, written in C.
+SinclairQL/level9	8	279	C	5	Level 9 Interpreter v5.1
+subarnop/Daisy	8	416	C	5	Simple arithmetic and logical Interpreter.
+tcort/edgar	8	220	C	5	an interpreter for the edgar programming language
+telephil/sarcasm	8	427	C	5	really simple scheme language interpreter
+uliwitness/Leonie	8	572	C	5	Bytecode interpreter and primitive code generation backend for a HyperTalk-like programming language named Hammer.
+willianscsilva/interpreter	8	515	C	5	The Maverick Programming Language
+AlexMoroz/esp32-lua-interpreter	8	262	C	4	Esp32 Lua project
+almk277/ROSE	8	244	C	4	A little virtual machine with byte-code interpreter and assembler.
+amiremohamadi/rePython	8	25	C	4	ReBuild a minimal python for fun :)
+kevyonan/Urhay-Interpreter	8	72	C	4	a small, educational AST interpreter that implements a dynamically-typed, C-like language.
+avorobey/sketch	8	205	C	4	A toy Scheme interpreter written in C
+Beneking102/benedictum	8	19	C	4	A Latin-themed esoteric programming language where source code reads as prayer
+camburn/EmbeddedPython	8	6	C	4	An example of an embedded python interpreter in a C program.
+carzil/brainfuck-jit	8	32	C	4	Optimizing interpreter for Brainfuck
+catseye/OpenZz	8	450	C	4	MIRROR of https://codeberg.org/catseye/OpenZz : Cat's Eye Technologies' fork of OpenZz, a dynamic (self-modifying) gramm
+crimsonwoods/mirb-stm32f4discovery	8	452	C	4	mirb (an interpreter of mruby) port to STM32F4 Discovery board.
+dbetz/notc	8	54	C	4	This is a simple interpreter with c-like syntax.
+dchest/CocoaScheme	8	268	C	4	Unfinished Scheme<->Objective-C bridge using s7 Scheme interpreter.
+devyn/flat	8	104	C	4	Concatenative language interpreter written in C
+diego-miranda-ng/portugol_interpreter	8	388	C	4	Este interpretador de PORTUGOL está sendo construído com o intuito de auxiliar alunos iniciantes de programação no estud
+Dnawrkshp/liblua-5.1.4-ps3	8	133	C	4	Lua interpreter for the PlayStation 3. Credits to https://github.com/jonlimle/LuaPlayerPS3.     https://www.lua.org/
+duckinator/ooc-in-ruby	8	344	C	4	ooc interpreter in ruby. Purely for shits and giggles and possibly experimentation. Don't assume it's entirely compliant
+etienne-p/Pd_Scheme	8	571	C	4	Embedding a Scheme interpreter in Pure-Data
+Flakheads/CraneFlak	8	21	C	4	A version of the Brain-Flak interpreter written in C. Does not have all the bells and whistles the Ruby interpreter has.
+fschaefer/bas-for-little-wire	8	388	C	4	Bas is an interpreter for the classic dialect of the programming language BASIC extended for use with the "Little-Wire -
+gcatlin/loxy	8	38	C	4	Lox in C (A Tree-walk Interpreter)
+gerdr/m0	8	160	C	4	M0 interpreter
+glguida/lac	8	316	C	4	a LISP interpreter
+grouzen/fflisp	8	144	C	4	Simple LISP 1.5 interpreter written in C
+gyom/schemeInterpreterC	8	136	C	4	toy implementation of a Scheme interpreter written in C
+karlredgate/forth	8	69	C	4	A toy Forth interpreter to demonstrate how Forth works.
+indianakernick/Expr-JIT	8	18	C	4	I named it JIT but it's actually a stack-based bytecode interpreter!
+lelanthran/csl	8	152	C	4	Embeddable language for C programs.
+LucasMW/bfi	8	11	C	4	Brainfuck Interpreter
+majioa/refal6	8	700	C	4	REFAL6 Interpreter and byte-compiler
+MattRyder/interpreter	8	354	C	4	A Ruby interpreter written in C, as part of my CS degree.
+mushrom/gojira	8	412	C	4	A nifty scheme interpreter
+nevyn/padlua	8	396	C	4	[CocoaTouch] Interactive Lua interpreter for iPad
+nih-at/ttftot42	8	479	C	4	Use TrueType fonts with PostScript interpreters with TrueType rasterizers. (deprecated)
+nkottary/vm	8	208	C	4	Bytecode interpreter for a stack machine
+notozeki/nacl-mruby	8	312	C	4	mruby interpreter works on Native Client
+pbui/adder	8	7	C	4	Simple Interpreter Inspired by Python
+peterwankman/libisp	8	311	C	4	Lisp interpreter based on SICP
+phunanon/Barebrain	8	64	C	4	Relatively fast, cleanly written C and Python Brainfuck interpreters
+rbryan/rplisp	8	264	C	4	RPL interpreter.
+segfault802/chip8	8	212	C	4	An interpreter for the CHIP-8 architecture
+sftp/kbrainfuck	8	176	C	4	Brainfuck interpreter for linux kernel
+shurizzle/brainfuck	8	131	C	4	A simple brainfuck interpreter
+soh-cah-toa/egghead	8	148	C	4	A GNU-compliant brainfuck interpreter.
+bertmuthalaly/roots	8	100	C	4	a lisp interpreter in C
+vtols/Scheme	8	656	C	4	Scheme interpreter implementation
+wilt00x/brainfuck-interpreter	8	1	C	4	🧠 A simple Brainfuck interpreter implementing 10 instructions and a stack.
+yuanchenyang/TI89-Scheme	8	116	C	4	A scheme interpreter for the TI89 graphing calculator, written in C.
+acros/CDECL	8	116	C	3	C language declaration interpreter
+alabid/scheme_interpreter	8	607	C	3	SCHEME interpreter implemented in C.
+alandipert/shave	8	86	C	3	a wannabe lisp interpreter
+andersonsp/picol	8	124	C	3	Fork of Antirez's picol interpreter, to use as configuration language for my C programs
+andrewchambers/bfjit_x86_64	8	112	C	3	a brainfuck interpreter for x86_64 that uses jit 
+angavrilov/exhaust-asm	8	144	C	3	Reimplementation of the interpreter in Intel Core 2 64-bit assembly with SSE3 & 4.1
+axknightroad/SQL_Compiler	8	24	C	3	a Linux SQL interpreter
+baguette/tiny7	8	122	C	3	A small-footprint, embeddable interpreter for R7RS-small Scheme
+butcherg/ldpi	8	108	C	3	Ladder logic interpreter for the Raspberry Pi.  Uses byte code files produced by ldmicro.
+cachehash/bfdc	8	152	C	3	bfdc is an optimizing brainfuck compiler/interpreter
+clhodapp/blip	8	144	C	3	An interpreter for the blip programming language. It's currently not useful at all.
+CorridoniMatias/kemmens	8	526	C	3	Biblioteca Multiuso para C - Socket Server - Socket Client - Thread Pool - Serialization - Command Interpreter
+cyberpython/Bfck	8	90	C	3	A simple Brainfuck interpreter written in C
+darkfire000/BF-Interpreter	8	1	C	3	BF interpreter written in C. Just a test and not optimized to work or look good.
+dbetz/etalk	8	20	C	3	A Simple Object-Oriented Language
+devenbhooshan/AssToC	8	132	C	3	Assembly Language Interpreter in C
+devonsparks/whitney	8	3	C	3	My annotated copy of Arthur Whitney's "afternoon interpreter"
+edwinsoen/x86-interpreter	8	160	C	3	Small x86 interpreter for CS6270
+ELLIOTTCABLE/Old-World-Paws.c	8	376	C	3	A run at an ISO C99 Paws interpreter
+eponymous/yocto-scheme	8	276	C	3	Small scheme interpreter based on MiniScheme
+fxthomas/LuaInterpreter	8	488	C	3	Simple and lightweight bindings between Objective-C and LUA
+hmarr/skeema	8	168	C	3	A Scheme-like language interpreter in C
+id101010/bfckr	8	980	C	3	A little brainfuck interpreter and debugger written in C.
+indiejames/TestLua	8	248	C	3	A simple iOS app to demonstrate embedding a Lua interpreter in a game.
+itamarst/giljoy	8	116	C	3	Python Global Interpreter Lock (GIL) Profiler
+jahan-addison/VVTBI--VVTB-interpreter	8	243	C	3	Interpreter for the VVTB language
+jam1garner/another-simple-bytecode	8	10	C	3	A simple bytecode language I designed with an included assembler and virtual machine interpreter
+JamesHinshelwood/RegisterMachineInterpreter	8	74	C	3	Register machine interpreter written in C
+jcande/xenocryst	8	22	C	3	A brainfuck interpreter written for memcpy(). Read the paper (or source) for more details.
+jcatw/iota	8	324	C	3	A lisp interpreter
+jcupitt/asp	8	50	C	3	interpreter for a tiny functional programming language
+johannesfrey/Ceme	8	131	C	3	A scheme interpreter written in C (Work in Progress)
+JohnBSmith/moss-c	8	530	C	3	Moss interpreter
+JohnnyonFlame/crisp-8	8	416	C	3	A portable, free SDL [S]CHIP-8 Interpreter/Emulator.
+ksherlock/zip	8	75	C	3	ZIP - Infocom Z-code Interpreter Program V2.0 7 Nov 1993 by Mark Howell
+leoht/micro-lisp	8	132	C	3	A really - really, minimal interpreter for basic LISP expressions, written in C, for the sake of learning and fun
+lisale0/monty	8	65	C	3	Opcode interpreter
+matheuscscp/hello-prolog	8	58	C	3	Prolog interpreter made with Flex/Bison for compilers class.
+matt-kempster/subpython	8	96	C	3	An interpreter for a minimal version of Python
+mauke/sparchways	8	120	C	3	a terminfo format string interpreter
+microsounds/hpsh	8	24	C	3	A stack-based Reverse Polish Notation (RPN) interpreter. Recreate the feel of Hewlett-Packard calculators!
+mikekhalil/PrologInterpreter	8	53	C	3	Prolog Interpreter written in C
+MrMonk3y/Boopa-Dee-Bappa-Dee	8	13	C	3	A Boopa-Dee Bappa-Dee Interpreter similar to Urban Müllers brainfuck Interpreter
+mseitzer/bispe	8	89	C	3	A Bytecode Interpreter for Secure Program Execution in Untrusted Main Memory
+nikp123/selfmodifying-brainfuck-interpreter	8	3	C	3	Just another brainfuck interpreter written in C
+olls/3var-interpreter	8	154	C	3	Interpreter for 3var
+oznakn/pielang	8	804	C	3	Is it possible to write an interpreter?
+pdemian/DEXEv3	8	124	C	3	A stack based bytecode interpreter in C
+phil-de-choc/pcastli	8	606	C	3	PCASTL Interpreter
+prakhar1989/lispy	8	51	C	3	Lisp Interpreter in C
+Prashant47/picoc	8	932	C	3	Porting picoc interpreter to xv6
+realsugar/rbf	8	105	C	3	Real BrainF**k Interpreter
+robertostling/lisp1k	8	20	C	3	Interpreter for a minimal LISP-like language (in 1k lines of C)
+sanyaade-embedded-systems/Leonie	8	327	C	3	Bytecode interpreter and primitive code generation backend for a HyperTalk-like programming language named Hammer.
+scruss/rtb	8	244	C	3	Gordon Henderson's “Return to Basic” interpreter — GPL 3 version of 2013-01-27
+seaslee/slisp	8	128	C	3	A scheme(covered in SICP) interpreter implementation with C language 
+sebbekarlsson/cola	8	265	C	3	component language (component-based programming language)
+superzazu/chip8	8	5	C	3	Chip8 interpreter in C/SDL2.
+supragya/HLang	8	302	C	3	Core shell scripting language design and interpreter proposed for HelenOS's BDSH shell system. Includes prototype implem
+tbonelaforge/lambda	8	105	C	3	An interpreter for a programming language based on the Lambda Calculus.
+tkovs/cbrainfuck	8	320	C	3	:curly_loop: A brainfuck interpreter made in C.
+vmasek/IFJ-14	8	620	C	3	Group project 'pascal like interpreter written in C' for IFJ 2014
+voidnull/cmdconsole	8	152	C	3	Command line interpreter for c++ backed by linenoise
+waywardmonkeys/vub-dylan	8	652	C	3	An old (1995) Dylan interpreter written in C++
+yifengyou/write-a-C-interpreter	8	73	C	3	
+zpconn/Simple	8	124	C	3	Interpreter for a simple scripting language called Simple, written in C.
+16Bitt/libcc	8	21	C	2	A small library for building simple interpreters and compilers
+furuame/Arithmetic-Interpreter	8	14	C	2	
+ahsieh/basicinterpreter	8	372	C	2	BASIC interpreter in C
+aknorjaden/LuaThread	8	372	C	2	LuaThread is a double layer wrapper for the Lua script language interpreter and also uses Tomaka17's luawrapper (link be
+alexander-koch/golem	8	567	C	2	Compiler / Interpreter for the Golem programming language
+AlexanderKuptsov/InterpreterTinyBasic	8	44	C	2	
+amalpoulose/System-programming-custom-shell-ATerm-1.0	8	97	C	2	ATerm 1.0 beta  :  A basic command-line interpreter (shell).
+Amatsukan/BFIT_BrainFuck-Interpreter-Terminal	8	47	C	2	
+amstone326/Small-Interpreter	8	112	C	2	Interpreter for a simple, stack-based language - compiles .j files into .asm files that can be assembled and run in Penn
+anandapurva55/C-Interpreter	8	24	C	2	An interpreter for a subset C of language
+AnderainLovelace/dPicoC-NS	8	314	C	2	a Nspire(ndless-based) C language interpreter Port
+ankscircle/Micro-shell--ush-	8	99	C	2	"ush" is a command interpreter written in C with a syntax similar to UNIX C shell. The main tasks were- Lexical structur
+apg/bf	8	136	C	2	A brainfuck interpreter (and studio)
+asxalex/TTtL	8	34	C	2	an interpreter of my own
+BillBai/bisp	8	91	C	2	Bill + Lisp,  currently following the tut http://www.buildyourownlisp.com to write a lisp interpreter :)
+bl0ckeduser/wannabe-lisp	8	174	C	2	babby's first lisp (scheme) interpreter
+burberger/blisp	8	236	C	2	A simple lisp interpreter written in C
+cav94mat/asus-tcci	8	176	C	2	TrendChip Command Interpreter for ASUS modem/routers. A way to access a lot of hidden options/information, in particular
+cjhoward18/BytecodeInterpreter	8	9	C	2	This project is a stack-based bytecode interpreter (or virtual machine) for a simple instruction set. Instead of using r
+cleichner/glsh	8	138	C	2	A unix command-line interpreter
+cliffeh/punky	8	249	C	2	a simple functional language interpreter
+danielkeller/cinterp	8	112	C	2	unfinished c interpreter
+darconeous/bf-tools	8	120	C	2	A fast BF (an esoteric programming language) interpreter I wrote a long time ago.
+darvid7/C-Command-Line-Interpreter	8	23	C	2	Command Line Interpreter built in C to emulate Unix commands.
+dbetz/bob2	8	152	C	2	Revised version of Bob derived from the Nuon work at VM Labs
+ddpyugi/inter_c	8	71	C	2	a tiny "pseudo C" interpreter
+dengh/Interpreter	8	344	C	2	Simple functional programing language implemented with C, utilizing parallelisation.
+JayNakrani/xvg-interpreter	8	477	C	2	Interpreter for xvg.
+edthrn/python3-in-c	8	2	C	2	A dummy example of how to embed a Python 3 interpreter in your C program.
+franckmarini/Cli	8	176	C	2	Command Line Interpreter library for Arduino
+fredreichbier/skelde	8	428	C	2	it's a toy bytecode interpreter!
+gmalysa/cs-lisp	8	229	C	2	A for-fun attempt at implementing a basic lisp interpreter.
+guptaNswati/simple_shell	8	129	C	2	A simple UNIX command interpreter
+haifenghuang/YAVM-Virtual-Machine	8	176	C	2	A *VERY* simple register based byte-code interpreter
+hcheung01/monty	8	67	C	2	Interpreter for Monty ByteCodes files implemented using queues and stacks, created with C
+hikari-no-yume/DevPerc.c	8	152	C	2	A (currently unfinished) interpreter for the Deviating Percolator (DevPerc) language, written in pure `-Wall -pedantic` 
+iainmerrick/gift	8	892	C	2	Yet another Glulx interpreter
+iceflying/BFInterpreter	8	181	C	2	a lightweight interpreter of brainfuck builded by C
+inrick/CHIP-8	8	15	C	2	CHIP-8 interpreter
+JacksonKearl/yasa	8	35	C	2	Yet Another Scripting Atrocity - Interpreter and Translators
+jcolag/PosTuring	8	27	C	2	Interpreter for a programming language based on the Post-Turing Machine
+jesus-ramos/not-a-good-bf-interpreter	8	116	C	2	A brainfuck interpreter in C
+jloughry/s7	8	595	C	2	Bill Schottstaedt's s7 Scheme interpreter (with a few small changes of my own)
+JonathanDC64/Chip-8-Interpreter	8	854	C	2	A simple Chip-8 emulator
+JuEeHa/lambdacalc	8	120	C	2	Lambda calculus interpreter
+karttu/St.-Vitus-Lisp	8	260	C	2	My very compact Lisp-interpreter for MS-DOS, the last build done February 21, 1992 !
+KirkMartinez/cbm-scheme	8	31	C	2	Simple Scheme interpreter for Commodore (and other 6502) machines
+koturn/Brainfuck	8	216	C	2	An interpreter and C-translator of Brainfuck
+Krypton-Project/Rye	8	89	C	2	Rye interpreter
+kulikjak/ELI	8	26	C	2	Esoteric Language Interpreter
+dgswan/jslang	8	132	C	2	My js interpreter for university
+RKirlew/Brainfart-Interpreter-In-C	8	4	C	2	Brainfart is a toy language made by me. It was inspired by Brainf*ck,however Brainfart is somewhat simplified.
+m-rinaldi/MRI_Hack	8	100	C	2	For understanding the internals of the Matz's Ruby Interpreter
+macmade/BrainDead	8	51	C	2	BrainDead is an interpreter for the BrainFuck programming language, written in C, that can be run in interactive or non-
+markuman/mex-lua	8	6	C	2	...the faster interpreter in the interpreter
+mbelicki/uScheme	8	124	C	2	Minimalistic Scheme interpreter in C (it's currently faaaar from being complete (also buggy as hell)).
+mckenney5/qsh	8	656	C	2	qsh - A small, lightweight, command interpreter
+mmniazi/lisp	8	67	C	2	lisp interpreter written in c
+mooseman/crystal	8	388	C	2	A series of small public-domain parsers and interpreters. STATUS - Working. 
+mrsempress/Simple-Interpreter	8	98	C	2	1. Lex and yacc; 2. ANTLR two ways to implement
+mushrom/nscheme	8	130	C	2	High-performance scheme interpreter
+kevin-zhu-ca/SimpleC-compiler	8	34	C	2	A simple C interpreter that interpretes itself.
+nomox/Texed	8	197	C	2	Simple Interpreter
+nymacro/tentcl	8	219	C	2	A hand-parsed Tcl [subset] interpreter.
+oademuwagun/basic-interpreter	8	540	C	2	
+odkq/simplebf	8	92	C	2	Simple brainfuck interpreter written in ANSI C
+parsec-zz/bf93	8	112	C	2	the fastest befunge-93 interpreter there is
+pqnelson/ml	8	106	C	2	A Study in Implementing Functional Programming Languages
+prosopon/prosopon-interpreter	8	323	C	2	Interpreter for Prosopon
+rameshvarun/dumblisp	8	71	C	2	A lisp interpreter written in pure C.
+rebcabin/ancient_siodffi	8	329	C	2	how to load a Windows DLL into a Scheme interpreter!
+reposefulGrass/monkey-interpreter	8	231	C	2	Monkey Language Interpreter in C
+rgburke/CHIP-8	8	27	C	2	CHIP-8 interpreter
+roynwang/RYLan	8	300	C	2	A simple interpreter
+SabraTech/Unix-shell-interface	8	3	C	2	A Unix shell is a command-line interpreter
+selavy/write-an-interpreter-in-c	8	4	C	2	porting "Writing An Interpreter In Go" to C https://interpreterbook.com/
+Shylock-Hg/AT-interpreter	8	118	C	2	AT command library
+SiebelsTim/ToyInterpreter	8	115	C	2	
+tadzik/Plis	8	96	C	2	Stupid LISP-alike interpreter
+tario/microruby	8	820	C	2	Minimalist ruby interpreter made from scratch
+thea-leake/crisp	8	282	C	2	A Lisp interpreter/dialect written in C.
+toddjasonblackmon/picol	8	100	C	2	Small tcl interpreter
+TomTriple/strike-interpreter	8	124	C	2	This is currently an experimental language with all interpreter parts written from scratch
+ttshivhula/brainfuck_interpreter	8	1	C	2	My simple brainfuck interpreter
+turu/Compilation-Theory	8	372	C	2	Lexers, parsers, interpreters for Compilation Theory. Bison, Ply etc.
+tyru/forth-interp	8	140	C	2	forth interpreter. I'm new to forth so maybe some behavior's wrong. DOES NOT WORK NOW.
+wongsingfo/SimpleLisp	8	37	C	2	A dirty implement of scheme interpreter :)
+3swu/Toy-Scheme	8	92	C	2	A tiny toy Scheme interpreter
+wuuff/chip-8-gamebuino	8	66	C	2	A Chip8 interpreter for the Gamebuino
+yoh-there/databaseGV	8	152	C	2	A very raw, fast, text based interpreter of CANbus data for the Renault Zoe
+yu-alan14/cs61c-proj1	8	195	C	2	Simple RISC-V interpreter
+yuhangwang/ninjal	8	143	C	2	Combine Lua or C modules and the Lua interpreter  into one static binary using Ninja cross-platform build system
+yzavhoro/minishell	8	29	C	2	mini UNIX command interpreter
+zeling/bf	8	603	C	2	Playground for the infamous esolang: Brainf*ck
+zurl/MUA	8	126	C	2	An interpreter as the homework of Advance C Programming
+7shi/Betelgeuse	8	380	C	1	Alpha disassembler and interpreter written in F#
+AbstractBeliefs/bavrf	8	18	C	1	AVR Interpreter for the Brainfuck esolang
+AGraci/Simple-Interpreter	8	208	C	1	A simple interpreter for a toy grammar (written in C).
+ahorn/bf-interpreter	8	108	C	1	BF virtual machine written in C
+ajalgaonkar/The_Nut_Shell	8	644	C	1	This project involves writing a command interpreter for a Korn-shell-like command language in C using Lex and Yacc runni
+ajzaff/multifunge	8	71	C	1	An interpreter for a minimal Funge language
+alanszlosek/tesi	8	188	C	1	A terminal with short escape sequences, and it's emulator (Tesi Escape Sequence Interpreter)
+alexmalyshev/bfin	8	212	C	1	A simple implementation of a brainfuck interpreter in C89.
+aneesh87/ushell	8	21	C	1	This is a command interpreter shell that parses and executes user commands. It supports pipelining, redirection and  bas
+antagon/capdiss	8	374	C	1	Capture file dissector with embedded Lua interpreter.
+apg/surd	8	154	C	1	an absurd lisp interpreter
+armaank/BF-Compiler	8	4	C	1	A compiler/interpreter for the BrainF*ck programming language
+arn-e/bf-interpreter	8	108	C	1	brainf*ck interpreter written in C
+bacomatic/bfi	8	13	C	1	Brainf*ck Interpreter
+barryp/py-exim-localscan	8	135	C	1	Embeds a Python interpreter into Exim 4.x. to allow Exim local_scan() functions to be written in Python
+behailus/DoS-IL	8	71	C	1	Domain Specific IoT Language Interpreter
+berengerfoucher/brainfuck_interpreter	8	1	C	1	Quick and simple brainfuck interpreter
+bizzl-greekdog/Brainfuck	8	100	C	1	A simple brainfuck interpreter written in C.
+sonyafrostit/MipsRabbit	8	18	C	1	MipsRabbit is a MIPS .asm interpreter. Rather than compiling MIPS code and running it from a VM or other program, why no
+BrainSteel/BrainF-k	8	21	C	1	Fully functional BF and BF-equivalent interpreter
+brat-pack/C-interpreter-	8	85	C	1	This is a simple language interpreter in C
+BruceMacD/Phun-Lexical-Analyser	8	402	C	1	A "phun" parser and interpreter similar to Scheme.
+brvboas/Linux-Command-Interpreter	8	112	C	1	An Example of Linux Command Interpreter in C
+callMeName/Myshell	8	156	C	1	A simple shell interpreter.
+castleberrysam/Mouse-Interpreter	8	9	C	1	A basic interpreter for a basic language.
+Cesura/meraki	8	320	C	1	A kernel written from the ground up in C and assembly, with the intention of having all kernel- and user-land applicatio
+cfcosta/brainfucking	8	104	C	1	A brainfuck interpreter/compiler. DON'T WORK YET.
+cfrank/cfbf	8	40	C	1	A Brainfuck interpreter
+cibersheep/level9-interpreter-snap	8	75	C	1	Code to «snapify» this interpreter made to work on gtk2
+citisolo/feeny-ast-interpreter	8	990	C	1	Ast interpreter for the feeny language
+clwhe/slur-lisp	8	4	C	1	A simple Lisp interpreter
+crazymerlyn/clox	8	34	C	1	A lox interpreter in c
+crunkmaster/lisp	8	148	C	1	a simple lisp interpreter being implemented in C.
+duongvuhong/chip8	8	116	C	1	A CHIP8 interpreter
+cvaraujo/interpreter-using-lex-yacc	8	19	C	1	A small interpreter using Lex and Yacc in C.
+CWood1/interpreter	8	81	C	1	Interpreter
+damiendart/brainfuck	8	30	C	1	Yet another nice brainfuck interpreter written in C. (Read-only mirror.)
+danhan52/interpreter	8	29	C	1	A racket interpreter written in C
+Daniel-Abrecht/unitscript	8	35	C	1	Interpreter for descriptive unit file like init scripts in yaml for sysv-rc
+darkelle24/minishell1	8	14	C	1	Basic UNIX command interpreter based on tcsh. Command : env, setenv, cd, unsetenv and can execute binairies
+davidweber/lci	8	252	C	1	Linux Command Interpreter
+dbittman/elf-ld.so	8	148	C	1	I'm considering writing my own dynamic linker and program interpreter. Someone please stop me.
+delieva/Interpreter	8	30	C	1	Interpreter based on ast tree
+deveah/atto	8	76	C	1	A small subset-of-Scheme interpreter
+drshiki/brainfuck	8	90	C	1	This is a simple interpreter for brainfuck language written in C programming language
+dtomasiewicz/Adept	8	112	C	1	Dynamic Language Interpreter
+eddieantonio/lersp	8	152	C	1	so U KNow that interNET meme "ermagurd"? So... okay. No? Well, okay. Here's a very simple Lisp interpreter thing!
+edghto/iperl	8	156	C	1	Interactive perl interpreter
+edma2/lispy	8	116	C	1	lisp interpreter
+edma2/skm	8	212	C	1	scheme interpreter
+EinBaum/FizzBuzz	8	7	C	1	The FizzBuzz Programming Language interpreter
+emctoo/schemer	8	168	C	1	scheme interpreter
+esromlabs/honeybee-arduino	8	43	C	1	a HoneyBee interpreter for Arduino
+EXio4/brainfuck-c	8	112	C	1	just for the lulz brainfuck interpreter!
+fch/brainfckInterpreter	8	20	C	1	Very basic interpreter
+FreeJules/simple_shell	8	133	C	1	UNIX command line interpreter
+fromasmtodisasm/xlang	8	218	C	1	This xlang interpreter for educational purposes and as a hobby.
+g-berthiaume/urbanmi	8	14	C	1	A simple brainfuck language interpreter written in C11.
+genrnd/fifth	8	131	C	1	Simple stack interpreter (forth-like)
+geoffCamp/logo	8	192	C	1	Logo command interpreter coded in C
+gerhardgruber/vala_interpreter	8	208	C	1	This repository contains an interpreter and a virtual machine for a Vala-like language
+girard-r/Corewar	8	132	C	1	Asm binary interpreter for virtual machine - C project
+gitanat/minimal-brainfuck	8	100	C	1	A minimalistic C implementation of a brainfuck interpreter
+gre/boolean-functions	8	492	C	1	A boolean functions commandline interpreter written in C for a university project - feb 2011
+grubino/brainf-ck-interpreter	8	152	C	1	
+guisilvano/interpreter	8	15	C	1	Interpretador de gramática escrito em C
+hentom/LOOP-Interpreter	8	13	C	1	Small and simple C-based LOOP interpreter.
+hummanta/sol-to-o1js	8	12	Rust	1	Solidity Compiler & Transpiler for Mina
+heraldofsolace/Brainfuck	8	26	C	1	A collection of brainfuck interpreters written in C, Ruby and Python
+iambrj/cathy	8	25	C	1	An interpreter for a simple programming language
+iitalics/Scheme-Interpreter-C	8	204	C	1	Self explanatory
+iliasafrass/InterpreterExpressionRegulier	8	641	C	1	un interpreteur des expressions regulier (flex & bison & langage C)
+indiejames/Lua-Test	8	244	C	1	A simple iOS app to demonstrate embedding a Lua interpreter in a game.
+jakibaki/testpicoc	8	658	C	1	Just some playing around with picoc (c interpreter) on the Nintendo switch.
+Jakub-Svoboda/IFJ16	8	403	C	1	Interpreter for IFJ16 language. Authors: Jakub Svoboda, Michael Schmid, Jan Grossmann, Matyáš Sládek, Kateřina Šmajzrová
+jasanign/Parser	8	6	C	1	An interpreter written in C language for arithmetic expressions that use A Recursive Descent Parser
+jaskorpe/CGI	8	124	C	1	CGI projects. Only a brainfuck interpreter for now.
+jaw0/jlisp	8	224	C	1	lisp interpreter
+jbheard/SimpleLang-interpreter	8	86	C	1	A simple command line SimpleLang(++) interpreter
+jchmrt/etbi	8	85	C	1	endless tape brainfuck interpreter
+jcolag/Klickenklacker	8	49	C	1	The reference interpreter for the Rube II automaton-like programming language.
+jcolag/Wierd	8	35	C	1	Interpreter for the the Wierd Programming Language
+jelaas/jelvm	8	112	C	1	a small virtual machine interpreter
+jes/bnbf	8	200	C	1	Brainfuck interpreter with bignum cells and various runtime options.
+jeteve/lispi	8	320	C	1	A legacy lisp interpreter written in C and french
+Jim-Fan/lambda	8	47	C	1	Experimental interpreter for untyped lambda calculus
+paulourio/Wooki	8	288	C	1	An interpreter for my own language
+jks-liu/lisp-style-repl	8	140	C	1	Simple lisp style command line interpreter (repl) especially for embedded system.
+jlopezr/JBasic	8	56	C	1	Simple Basic Interpreter in C
+joefarebrother/scheme	8	328	C	1	A scheme interpreter and compiler
+johnbartholomew/brainfunc	8	131	C	1	A really bad brainfuck interpreter
+JonasDann/Brainfucker	8	39	C	1	Brainfuck interpreter in C
+joukewitteveen/brainfuck2	8	108	C	1	A brainfuck interpreter
+JSaenz4/Y86-Interpreter	8	168	C	1	Runs programs (yb files) in the Y86 instruction set architecture outputting detailed (fetch, decode, and execute) inform
+jsardo/cli	8	16	C	1	a minimal command line interpreter 
+jtruant/Note-Interpreter-Using-Bitwise-Operators-In-C	8	88	C	1	
+jvanderkallen/brainfuck-interpreter	8	15	C	1	Interpreter for the Brainfuck language
+k0gaMSX/klisp	8	152	C	1	Simple lisp interpreter
+k16shikano/es	8	96	C	1	a pretty toy Scheme-like interpreter using YACC with minimum s-expression rules.
+igor-filipenko/interpreter	8	62	C	1	Simple lisp-like interpreter written on C
+kamimura/kscheme	8	867	C	1	Scheme interpreter
+KatuH/kaniScript	8	10	C	1	Script language for Katuh Adventure Novel Interpreter
+kbyanc/libpperl	8	153	C	1	Library for Embedding a Persistent Perl Interpreter
+kdharsee/Calc_and_Format	8	152	C	1	cs211 - Formula: C implementation of a bit sequence interpreter ( either as a two's complement int or IEEE 74 single pre
+keiya/rubbish	8	24	C	1	RubbiSH, a useless UNIX Shell command line interpreter (CLI).
+Kelwing/bfi	8	164	C	1	A simple, fast, and for fun Brainfuck Interpreter
+keyvin/basic	8	155	C	1	Simple integer basic interpreter
+komiyamb/kom_lisp	8	96	C	1	ore ore lisp interpreter
+kopos/bff	8	10	C	1	Brainfuck compiler / interpreter / repl / JIT
+Korrigan/brainfuck	8	100	C	1	A simple Brainfuck interpreter
+kruegerkylej/KINTtoGo	8	602	C	1	Translation of the KINT interpreter to the Go language
+ksheedlo/bf	8	124	C	1	A brainfuck compiler and interpreter in C.
+kuitang/Turing-Machinery	8	96	C	1	A bytecode interpreter for a bidirectional, infinite-length-tape Turing machine.
+l0stman/loot	8	456	C	1	A toy Scheme interpreter in C
+letoh/WSFN	8	104	C	1	an implementation of WSFN interpreter
+LibreLabUCM/codigo-rojo	8	62	C	1	Free (as in freedom) MARS interpreter
+liexusong/simple-interpreter	8	2	C	1	Simple Interpreter
+liquidev/microbf	8	50	C	1	A small, optimizing Brainfuck interpreter
+lucas-akira/chip8-emu	8	195	C	1	CHIP-8 interpreter in C
+luizperes/BrainfuckInterpreter	8	17	C	1	Brainfuck interpreter 
+luqmaan/ghettocli	8	432	C	1	A ghetto command line interpreter.
+maksverver/brainfuck	8	116	C	1	Brainfuck interpreters, tools and programs
+mathew-hall/bf-jit	8	120	C	1	A simple JITting Brainfuck interpreter.
+matthiasb85/SimpleCLI	8	36	C	1	A simple command line interpreter for small embedded systems
+maxrosan/elf-interpreter	8	176	C	1	
+mattburdumy/LispInterpreter	8	132	C	1	C-Based Lisp Interpreter
+megabytefisher/MAI	8	269	C	1	MAI - MIPS Assembly Interpreter
+meganzhao10/Scheme-Interpreter	8	358	C	1	A Scheme interpreter implemented in C
+microaeris/chip8	8	596	C	1	Chip8 interpreter in C using SDL 
+mjk3979/cproftalk	8	228	C	1	A proftalk interpreter written in C that is designed for C and later porting to CUDA.
+mk12/eva	8	263	C	1	The preferred Scheme interpreter of Eva Lu Ator.
+MrDetonia/pzab	8	124	C	1	The PZAB interpreter in C
+mrfright/clasp	8	280	C	1	A Lisp interpreter written in C
+Mrktn/bfng93	8	100	C	1	A simple Befunge-93 interpreter
+netguy204/lithp	8	108	C	1	simple lisp interpreter written in c
+njlr/mujs-snapshot	8	509	C	1	MuJS is a lightweight Javascript interpreter designed for embedding in other software to extend them with scripting capa
+nmeum/climp	8	73	C	1	Dirty interpreter for the limp programming language in C
+npmiller/comp	8	228	C	1	A small interpreter written in C
+oddcoder/simcalc	8	148	C	1	simple calculator and expression interpreter
+or1426/Shlisp	8	123	C	1	A massively over ambitious attempt to write a lisp interpreter.
+orchid-hybrid/riff-raff	8	128	C	1	first order lisp interpreter in C
+padentomasello/MIPS-Instruction-Set-Emulator	8	196	C	1	Instruction Set Interpreter for subset of MIPS
+pharus/brainfuck	8	5	C	1	Exploring brainfuck, starting by implementing an interpreter and then a compiler
+pld-linux/eic	8	8	C	1	C language interpreter
+pocket7878/MyForth	8	104	C	1	My little forth interpreter
+Property404/dbfi	8	156	C	1	Dagan's Brainfuck Interpreter
+phistep/bananaBF	8	96	C	1	Another brainfuck interpreter
+purplefoot/zerp	8	308	C	1	Zerp is a z-machine interpreter written in C that uses Andrew Plotkin's GLK Library for I/O.
+qcpw/BFInterpret	8	11	C	1	a simple interpreter for the BrainF**k language
+rbaron/scam	8	15	C	1	A toy Lisp interpreter in C
+rohieb/brainfuck	8	100	C	1	Brainfuck interpreter and compiler in C
+RohitBhatta/Improved-Interpreter	8	13	C	1	Advanced Interpreter with Pointers and Structs
+samcamwilliams/lisp-on-xen	8	140	C	1	A port of a basic LISP interpreter to run as an OS on a Xen hypervisor target.
+Sameeranjoshi/mini-interpreter	8	14	C	1	
+sbuggay/bfmt	8	108	C	1	BrainFuck interpreter
+schiermike/brainfuck-tools	8	90	C	1	A simple Brainfuck interpreter and a C to Brainfuck compiler
+SeavantUUz/chiya	8	200	C	1	chiya is an interpreter.
+shiroyasha/lisp	8	308	C	1	Toy lisp interpreter written in C
+shoemakerc/scheme-interpreter	8	48	C	1	Interpreter for Scheme; made in C
+Shylock-Hg/ABI	8	84	C	1	Another brainfuck interpreter
+sidprasad/NetworkInterpreter	8	924	C	1	Interpreter with shared environment across a network
+sluchin/calc	8	426	C	1	client server calculator interpreter
+snehi23/SER502_Compiler_and_Interpreter	8	232	C	1	Language Design Project using flex and bison for compiler and python for interpreter [Run time environment]
+SophieZ302/C-Project-Interpreter	8	172	C	1	Racket Interpreter in C, using Stack, Queue, Binary Tree
+spatters/c_scheme	8	6	C	1	Mini scheme interpreter written in c. Purely for my own eduction.
+ssharshavardhan/Command-line-interpreter	8	8	C	1	Unix like command line interpreter implemented in c
+stasoid/1L_AOI	8	4	C	1	Interpreter for 1L_AOI language https://esolangs.org/wiki/1L_AOI
+StrangePan/I_C_Whitespace	8	164	C	1	An interpreter written in C for the esoteric programming language Whitespace
+sudharsh/fungi	8	256	C	1	Buggy interpreter for befunge written in C
+t00sh/interpret	8	152	C	1	Basic interpreter for a basic language. (totally invented :))
+tangentforks/hope	8	296	C	1	hope interpreter from http://www.soi.city.ac.uk/~ross/Hope/
+tcarmet/ft_minishell1	8	413	C	1	Unix command interpreter
+tiger1013/C-based-Makefile-interpreter	8	12	C	1	
+tmoldwin/CommandLineInterpreter	8	104	C	1	A command line interpreter I wrote in C
+tomsik68/brainfuck.c	8	124	C	1	Brainfuck Interpreter written in ANSI C
+trentgill/fn_ptr_graph	8	68	C	1	Forth-y CLI for DSP graphs. C (DSP) & Haskell (interpreter & graph compiler) backend. Wrapped in libsoundio
+lispandfound/asm-education-interpreter	8	283	C	1	
+tryan/sirf	8	248	C	1	SiRF binary protocol interpreter
+vanhineam/WICI	8	312	C	1	A Wren Intermediate Code(WIC) Interpreter written in C
+vinay-cpj/Linux-Commandline-interpreter-	8	5	C	1	
+wgreenberg/lithp	8	39	C	1	A Scheme interpreter
+dvly/kshell	8	43	C	1	A command-line interpreter for Linux kernel
+wrog/Thread-IID	8	144	C	1	perl unique Interpreter IDs
+xinghen91/Logo-Programming-Language-	8	71	C	1	1st year project, created a small interpreter in c. see assignment 02 outline.
+hotTeaFun/Interpreter	8	52	C	1	This is a simple interrupter based on C.The grammars haven't been well-designed yet.  
+yasuo-ozu/cantang	8	35	C	1	interpreter
+yasuo-ozu/rhino-c	8	93	C	1	A C99 interpreter
+ziggi/bfi	8	124	C	1	A lightweight Brainfuck interpreter written in C.
+sanchez-lucas/42sh	8	807	C	1	Unix Command Interpreter - Part 3 - Last Part
+1byte2bytes/BrainfuckKernel	8	5	C	0	A kernel that has one purpose - to run a Brainfuck interpreter. Because why not.
+5cs/interpreter	8	10	C	0	little gradient descent recursive interpreter
+Abdelrahman-Noureldin-Saleh/Interpreter	8	131	C	0	(C)
+adelmeleka/Interpreter	8	23	C	0	
+Ahmed-Masoud/interpreter	8	45	C	0	implemented in C all arithmetic operations and functions and conditions 
+ahmedhammad97/Interpreter	8	44	C	0	A C program that reads a new expression every time, process it and calculate a value, then assign it to the variable nam
+ahvar/interpreter	8	68	C	0	The interpreter parses and interprets code
+aliaamohamedali/Interpreter	8	40	C	0	A (CLanguage) implementation of an interpreter that reads in, verifies and calculate mathematical equations and assign t
+aluxian/UoS-CS2-LaBASIC	8	100	C	0	LaBASIC is a BASIC interpreter for the LaFortuna board
+amers185/Lisp-Interpreter	8	20	C	0	A Scheme Interpreter (Dialect of LISP) implemented in C with its own garbage collector. 
+asid21/thue_interpreter	8	2	C	0	
+AWGillespie/bf-interpreter	8	5	C	0	
+awh44/Interpreters	8	22	C	0	A repository for interpreters for some languages
+aymanizz/clox-interpreter	8	118	C	0	An interpreter in c
+babara2/Scheme-Interpreter	8	21	C	0	
+billymeter/brainfuck	8	2	C	0	A brainfuck interpreter written in C
+Boktraskare/traskare	8	60	C	0	Interpreter
+BramvanVeenschoten1/interpreter	8	35	C	0	an interpreter
+catchesfire/interpreter	8	7	C	0	
+cmiss/perl_interpreter	8	308	C	0	
+code-forger/brainfuck-interpreter	8	16	C	0	a brainfuck interpreter in C
+darrenyip/interpreter	8	554	C	0	simple interpreter for abstract machine
+digas111/Interpreter	8	211	C	0	
+Doriszhuo/Interpreters	8	7	C	0	Use C interface to evaluate first and second class Scheme-like functions.
+e-hyland/Interpreter	8	349	C	0	Parser and interpreter built in C for the Logo language. Graphics in SDL.
+ELWarnerII/Interpreter	8	21	C	0	This repository contains files that interpret a programming language our class put together that is a more primitive ver
+fromasmtodisasm/interpreter	8	68	C	0	The interpreter parses and interprets code
+GehadG/Interpreter	8	4	C	0	
+ggtemplar/Interpreter	8	37	C	0	Implementing a simple calculator in Flex and Bison.
+guilledk/interpreter	8	2	C	0	
+iGimm/Interpreter	8	39	C	0	Phase III: Code generation / Interpreter
+inste/jane	8	124	C	0	Tiny interpreter for educational purposes
+vismeoww/interpreter	8	99	C	0	a simple interpreter with syntax similiar to python
+Jemyz/Interpreter	8	5	C	0	Full functionality interpreter allowing declaring variables and fuctions using postfix evaluation techniques
+jjunac/InterpreterAsm	8	41	C	0	Compile ASM files into file that can be interpreted byt the microprocessor built during the "Program Execution" course
+jmariehawkins/Interpreter	8	327	C	0	An interpreter for a simple calculator language.  It parses an input program, checks for errors, builds a syntax tree ba
+JordiKai/interpreterProject251	8	22	C	0	Continuation of project in CS251
+jzbl/sbf	8	4	C	0	SBF - simple brainfuck interpreter written in C
+Kennelly57/Scheme_Interpreter	8	179	C	0	A basic interpreter to run Scheme. Currently needs some bug fixing in some early parts.
+KoltPenny/Interpreter	8	51	C	0	Simple interpreter with Flex and Bison in C
+LAGIdiot/Interpreter	8	370	C	0	Implementace interpretu imperativního jazyka IFJ15
+wcttmf/beerscript	8	35	C	0	interpreter
+MahmoudAbdelRazik95/Interpreter	8	4	C	0	
+matslina/obfint	8	100	C	0	Obfuscated brainfuck interpreters
+mawbye/interpreter-	8	36	C	0	interpreter written for programming languages course
+MichaelMMacLeod/lisp	8	465	C	0	a toy lisp interpreter written in c
+mihamor/interpreter	8	260	C	0	Simple Interpreter written in pure C
+MohamedMurad/OS	8	739	C	0	Implementation for the first 2 phases of Pintos OS, Shell Interpreter and two simple mini-projects
+NaglijLamer/Interpreter	8	296	C	0	Interpreter for virtual machine.
+nalin1096/Arm_interpreter	8	494	C	0	An arm interpreter made in C as part of our Computer Organization course 2015. 
+nealjc/scheme_interpreter	8	120	C	0	Scheme interpreter written in C (slow work in progress, code is messy, etc.)
+nishi-yuki/HRM-interpreter	8	7	C	0	ヒューマンリソースマシーン風の言語
+dmitrirazumov/InterpreterLoop	8	8	C	0	
+oswidan97/Interpreter	8	60	C	0	
+pascal-cuoq/zlib-fork	8	672	C	0	This is a fork of zlib 1.2.8, with step-by-step analysis with tis-interpreter added as extra commits
+PatrickDale/Interpreter	8	124	C	0	A Racket Interpreter
+aelkhamsi/interpreter	8	13	C	0	This is a interpreter/compiler of a hybrid language
+RafaelZuniga1995/Scheme-Interpreter-	8	39	C	0	An interpreter written in C for the Scheme language.
+RafalWilinski/Interpreter	8	39	C	0	📺 My own bash interpreter in C
+ranma42/languages-compilers-interpreters-2018	8	26	C	0	Languages, compilers and interpreters
+ruhan/lcompiler	8	105	C	0	This is an interpreter concept written in C
+saetar/Interpreter	8	248	C	0	Racket interpreter written in C
+SandraSherif/Interpreter	8	23	C	0	simple interpreter that executes instructions and print the result of each instruction. Example for input and output:- E
+sdrummeyjr/ramble	8	533	C	0	Attempting to learn CLang by building an interpreter for a new language. I named the language "Ramble" because I tend to
+segin/efibrainfuck	8	17	C	0	Brainfuck interpreter for (Universal) Extensible Firmware Interface. 
+spkenkare/Interpreter	8	1	C	0	
+srujanbelde/Interpreter	8	1	C	0	Interpreter developed using cpp
+smasnada/Interpreter	8	204	C	0	
+sylvetrix/bf_interpreter	8	2	C	0	Brainfuck Interpreter
+syvjohan/InterpreterQ	8	168	C	0	Interpreter for programming language Q
+tedward111/Interpreter	8	30	C	0	This is a project for my Programming Languages class, an interpreter for Scheme written in C
+TerraExx/Interpreter	8	65	C	0	See ReadMe
+Tom-Le/SchemeInterpreter	8	296	C	0	An experimental Scheme interpreter.
+vishal0027/Interpreter	8	81	C	0	
+wilber1202/interpreter	8	10	C	0	all code of interpreter
+wtakuo/tscheme	8	154	C	0	A Tiny Scheme Interpreter
+the8bitdev/Priml	8	540	C++	0	Priml is a stack-oriented scripting language based on Forth and BASIC.
+ZeyadZanaty/Interpreter	8	22	C	0	Interpreter in C
+jamiebuilds/the-super-tiny-compiler	7	41	JavaScript	28544	:snowman: Possibly the smallest compiler ever
+rswier/c4	7	48	C	10731	C in four functions
+aalhour/awesome-compilers	7	300		9820	:sunglasses: Curated list of awesome resources on Compilers, Interpreters and Runtimes
+robertkrimen/otto	7	2343	Go	8442	A JavaScript interpreter in Go (golang)
+philipl/pifs	7	22	C	7501	πfs - the data-free filesystem!
+rui314/8cc	7	1309	C	6399	A Small C Compiler
+alda-lang/alda	7	4007	Go	5915	A music programming language for musicians. :notes:
+yoav-lavi/melody	7	3985	Rust	4747	Melody is a language that compiles to regular expressions and aims to be more readable and maintainable
+microsoft/verona	7	4374	C++	3722	Research programming language for concurrent ownership
+leafo/moonscript	7	3130	Lua	3445	:crescent_moon: A language that compiles to Lua
+munificent/vigil	7	11	Python	3031	Vigil, the eternal morally vigilant programming language
+drh/lcc	7	3525	C	2575	The lcc retargetable ANSI C compiler
+seanbaxter/circle	7	4562	C++	2561	The compiler is available for download. Get it!
+edubart/nelua-lang	7	4782	Lua	2394	Minimal, efficient, statically-typed and meta-programmable systems programming language heavily inspired by Lua, which c
+PistonDevelopers/dyon	7	2897	Rust	1910	A rusty dynamically typed scripting language
+liljencrantz/crush	7	4103	Rust	1887	Crush is a command line shell that is also a powerful modern programming language.
+soul-lang/SOUL	7	4373	C++	1740	The SOUL programming language and API
+joaomilho/Enterprise	7	692	JavaScript	1617	🦄 The Enterprise™ programming language
+austral/austral	7	4829	OCaml	1535	Systems language with linear types and capability-based security.
+argotorg/solc-js	7	694	TypeScript	1508	Javascript bindings for the Solidity compiler
+fetlang/fetlang	7	2735	C++	1500	Fetish-themed programming language
+madrobby/vapor.js	7	167	JavaScript	1412	The World's Smallest & Fastest JavaScript Library
+kevinlawler/kona	7	2594	C	1410	Open-source implementation of the K programming language
+ezrosent/frawk	7	1699	Rust	1307	an efficient awk-like language
+morganstanley/hobbes	7	3894	C	1204	A language and an embedded JIT compiler
+zesterer/tao	7	1760	Rust	1155	A statically-typed functional language with generics, typeclasses, sum types, pattern-matching, first-class functions, c
+terrajobst/minsk	7	651	C#	1119	This repo contains Minsk, a handwritten compiler in C#. It illustrates basic concepts of compiler construction and how o
+koute/cargo-web	7	887	Rust	1112	A Cargo subcommand for the client-side Web
+pointlander/peg	7	809	Go	1112	Peg, Parsing Expression Grammar, is an implementation of a Packrat parser generator.
+vrtbl/passerine	7	1305	Rust	1091	A small extensible programming language designed for concise expression with little code.
+tomhrr/dale	7	3821	C++	1045	Lisp-flavoured C
+alilleybrinker/langs-in-rust	7	189	Python	1021	A list of programming languages implemented in Rust, for inspiration.
+jnz/q3vm	7	1943	C	939	Q3VM - Single file (vm.c) bytecode virtual machine/interpreter for C-language input
+vczh/tinymoe	7	4394	C++	923	English-like dynamic typing programming language
+rebol/rebol	7	3188	C	885	Source code for the Rebol interpreter
+dundalek/awesome-lisp-languages	7	75		872	A list of Lisp-flavored programming languages
+LingDong-/wax	7	1328	C	850	A tiny programming language that transpiles to C, C++, Java, TypeScript, Python, C#, Swift, Lua and WebAssembly 🚀
+hexagonal-sun/bic	7	1015	C	844	A C interpreter and API explorer.
+justinmeza/lci	7	1170	C	812	A LOLCODE interpreter written in C.
+astrolang/astro	7	3261	Rust	802	A fun safe language for rapid prototyping and high performance applications
+vvanders/wasm_lua	7	1641	C	802	Lua VM running in a WASM environment
+arnetheduck/nlvm	7	1243	Nim	775	LLVM-based compiler for the Nim language
+adam-mcdaniel/oakc	7	1888	Rust	749	A portable programming language with a compact intermediate representation
+sam-astro/Z-Sharp	7	2925	C++	739	Custom programming interpreter for ZSharp (Z#), a custom game programming language I made
+hengestone/lua-languages	7	115		688	Languages that compile to Lua
+zetavm/zetavm	7	1601	C++	641	Multi-Language Platform for Dynamic Programming Languages
+forest-lang/forest-compiler	7	668	Haskell	625	A multi-syntax functional programming language that compiles to WebAssembly.
+maryrosecook/littlelisp	7	32	JavaScript	618	A small Lisp interpreter in JavaScript
+jpoirier/picoc	7	1594	C	587	A very small C interpreter
+mattgreen/hython	7	562	Haskell	582	Haskell-powered Python 3 interpreter
+chrisdunelm/DotNetAnywhere	7	2221	C	570	Small .NET interpreter
+Arachnid/evmdis	7	48	Go	567	EVM disassembler
+coi/coi	7	1125	C++	559	A type-safe, component-based language for building reactive WASM web apps.
+zserge/partcl	7	34	C	522	ParTcl - a micro Tcl implementation
+Eliah-Lakhin/lady-deirdre	7	3881	Rust	485	Compiler front-end foundation technology.
+wu-lang/wu	7	1596	Rust	484	🐉 A practical game and data language
+never-lang/never	7	2881	C	462	Never: statically typed, embeddable functional programming language.
+pikatchu/LinearML	7	1334	OCaml	434	Functional language for parallel programming
+schemedoc/awesome-scheme	7	83		415	A curated list of awesome Scheme libraries and resources
+cloe-lang/cloe	7	2728	Go	413	Cloe programming language
+AnonymousAAArdvark/qi	7	2629	C	403	Lightweight and fast programming language designed to be written in Chinese.
+raineorshine/solidity-repl	7	533	JavaScript	394	Ethereum Solidity REPL
+rottytooth/Folders	7	138	C#	386	A language where the code is written with folders
+JoeStrout/miniscript	7	2810	C++	381	source code of both C# and C++ implementations of the MiniScript scripting language
+ClueLang/Clue	7	1248	Rust	379	C/Rust like programming language that compiles into Lua code
+MrSmith33/vox	7	2992	D	374	Vox language compiler. AOT / JIT / Linker. Zero dependencies
+Keno/julia-wasm	7	157	JavaScript	347	Running julia on wasm
+arialang/aria	7	2044	Rust	333	The Aria Programming Language
+linsa-io/programming-languages	7	329		328	Awesome Programming Languages
+mwerezak/sphinx-lang	7	1515	Rust	293	An intepreter for a simple dynamic language written in Rust
+One-Language/One	7	3333	C	286	One (onelang) is an open-source system programming language that makes it easy to build reliable, efficient and performa
+robertmuth/awesome-low-level-programming-languages	7	130		281	A curated list of low level programming languages (i.e. suitable for OS and game programming)
+cognate-lang/cognate	7	4669	C	261	A human readable quasi-concatenative programming language
+krgamestudios/Toy	7	2220	C	259	The Toy Programming Language. Mirrored nightly from https://gitea.krgamestudios.com/krgamestudios/Toy
+HackerFoo/poprc	7	4882	C	257	A Compiler for the Popr Language
+sebmarkbage/ocamlrun-wasm	7	3	Shell	256	OCamlrun WebAssembly - OCaml Bytecode Interpreter in WASM
+tokay-lang/tokay	7	1827	Rust	251	Tokay programming language, designed for ad-hoc parsing and syntax-directed development.
+shiika-lang/shiika	7	3715	Rust	242	A statically-typed programming language
+Wafelack/orion	7	2200	Rust	237	Orion is a high level, purely functional programming language with a LISP based syntax.
+DavidKinder/Inform6	7	3094	C	232	The latest version of the Inform 6 compiler, used for generating interactive fiction games.
+GaijinEntertainment/quirrel	7	4887	C++	220	Quirrel - Gaijin Entertainment dynamic script language
+schism-lang/schism	7	881	Scheme	220	A self-hosting Scheme to WebAssembly compiler
+readevalprintlove/black	7	30	Scheme	197	Kenichi Asai's reflective programming language Black
+Storyyeller/cubiml-demo	7	1883	Rust	190	A simple ML-like programming language with subtyping and full type inference. 
+antonmedv/ultra-tiny-compiler	7	15	CoffeeScript	186	Ultra Tiny Compiler
+linkdd/letlang	7	4113	Rust	175	Functional language with a powerful type system.
+Aloshi/dukglue	7	1856	C	174	A C++ binding/wrapper library for the Duktape JavaScript interpreter.
+antimony-lang/antimony	7	2575	Rust	169	The Antimony programming language
+dfinity-side-projects/dhc	7	385	Haskell	167	Compiles Haskell to WebAssembly
+wbhart/Cesium3	7	2050	C	164	Fast interpreter with macros, local type inference, LLVM backend.
+maierfelix/mini-js	7	37	JavaScript	163	Minimal self-hosted JavaScript compiler in 1k lines of code
+tmcw/wah	7	41	Clojure	159	a slightly higher-level language superset of webassembly
+saharan/HGSL	7	652	Haxe	158	A shading language that can be compiled into GLSL ES 3.0
+publicrepo/gmscript	7	2427	C++	157	Embedded scripting language for C++ apps, tools and games
+stefano/wasm-forth	7	63	Python	151	A Forth implementation compiling to WebAssembly.
+Feral-Lang/Feral	7	2041	C++	149	Feral programming language reference implementation
+ptal/oak	7	962	Rust	146	A typed parser generator embedded in Rust code for Parsing Expression Grammars
+WebGHC/wasm-cross	7	254	Nix	146	Nix expressions for cross compiling to WebAssembly
+kevyonan/Tagha	7	3264	C	140	Minimal, low-level, fast, and self-contained register-based bytecode virtual machine/runtime environment.
+SenegalLang/Senegal	7	2900	C	140	Senegal programming language
+hatashiro/kou	7	301	TypeScript	138	A minimal language compiled into wasm bytecode
+jamen/elixir-wasm	7	400	Elixir	134	Encoding the WASM binary format.
+vkazanov/bytecode-interpreters-post	7	1098	C	129	A few basic bytecode interpreters used as example code in a series of articles
+jauhien/iron-llvm	7	115	Rust	128	Safe Rust LLVM bindings
+hook-lang/hook	7	3722	C	119	The Hook Programming Language
+RabbitVM/rabbit	7	812	HTML	115	Rabbit VM.
+DavidKinder/Windows-Frotz	7	3275	C	113	Z-code interpreter for Windows, based on Stefan Jokisch's Frotz interpreter core.
+tarpit-collective/cane	7	2849	C++	110	A small MIDI sequencer DSL designed around vectors and euclidean rhythms
+luser-dr00g/xpost	7	2334	C	107	A PostScript interpreter in C
+Property404/hdbf	7	167	C	104	Hyper-Dimensional Brainfuck
+brwhale/KataScript	7	4165	C++	102	A simple scripting language
+DolphyWind/Electra-Lang	7	1150	C++	100	Electra is an esolang where you code like an electrician.
+tinygo-org/tinygo	6	13054	Go	17537	Go compiler for small places. Microcontrollers, WebAssembly (WASM/WASI), and command-line tools. Based on LLVM.
+tinygo-org/tinygo	6	13054	Go	17537	Go compiler for small places. Microcontrollers, WebAssembly (WASM/WASI), and command-line tools. Based on LLVM.
+gopherjs/gopherjs	6	7966	Go	13160	A compiler from Go to JavaScript for running Go code in a browser
+xoreaxeaxeax/movfuscator	6	12232	C	10197	The single instruction C compiler
+expr-lang/expr	6	12406	Go	7920	Expression language and expression evaluation for Go
+elves/elvish	6	15858	Go	6329	Powerful scripting language & versatile interactive shell
+hsutter/cppfront	6	17071	C++	5966	A personal experimental C++ Syntax 2 -> Syntax 1 compiler
+rhaiscript/rhai	6	14426	Rust	5465	Rhai - An embedded scripting language for Rust.
+zenc-lang/zenc	6	6022	C	4298	Write like a high-level language, run like C.
+gluon-lang/gluon	6	12730	Rust	3399	A static, type inferred and embeddable language written in Rust.
+ChaiScript/ChaiScript	6	7095	C++	3120	Embedded Scripting Language Designed for C++
+SerenityOS/jakt	6	14258	C++	2987	The Jakt Programming Language
+terralang/terra	6	7582	C++	2888	Terra is a low-level system programming language that is embedded in and meta-programmed by the Lua programming language
+erg-lang/erg	6	19220	Rust	2859	A statically typed language compatible with Python
+kcl-lang/kcl	6	13158	Rust	2375	KCL Programming Language Core and API (CNCF Sandbox Project). https://kcl-lang.io
+kcl-lang/kcl	6	13158	Rust	2375	KCL Programming Language Core and API (CNCF Sandbox Project). https://kcl-lang.io
+rune-rs/rune	6	15407	Rust	2275	An embeddable dynamic programming language for Rust.
+mun-lang/mun	6	5313	Rust	2120	Source code for the Mun language and runtime.
+endrazine/wcc	6	8830	C	1994	The Witchcraft Compiler Collection
+fusionlanguage/fut	6	17574	C++	1917	Fusion programming language. Transpiling to C, C++, C#, D, Java, JavaScript, Python, Swift, TypeScript and OpenCL C.
+candid82/joker	6	7476	Go	1758	Small Clojure interpreter, linter and formatter.
+buzz-language/buzz	6	8009	Zig	1498	👨‍🚀  buzz, A small/lightweight statically typed scripting language
+fubark/cyber	6	13025	Zig	1445	Fast and concurrent scripting.
+SaptakBhoumik/Peregrine	6	7410	C++	1439	A blazing fast language for the blazing fast world(WIP)
+hyperledger-solang/solang	6	18608	Rust	1381	Solidity Compiler for Solana, Polkadot and Stellar
+dibyendumajumdar/ravi	6	13076	C	1251	Ravi is a dialect of Lua, featuring limited optional static typing, JIT and AOT compilers
+FascinatedBox/lily	6	13358	C	1092	Interpreted language focused on expressiveness and type safety.
+c2lang/c2compiler	6	14398	C	831	the c2 programming language
+ArkScript-lang/Ark	6	7451	C++	718	ArkScript is a small, fast, functional and scripting language for C++ projects
+dlang-community/Pegged	6	6610	D	549	A Parsing Expression Grammar (PEG) module, using the D programming language.
+rochus-keller/Oberon	6	6892	C++	546	Oberon parser, code model & browser, compiler and IDE with debugger, and an implementation of the Oberon+ programming la
+tyfkda/xcc	6	6052	C	529	Standalone C compiler/assembler/linker/libc for x86-64/aarch64/riscv64/wasm
+liam-ilan/crumb	6	7479	C	443	The Crumb Programming Language
+second-state/SOLL	6	10991	C++	374	SOLL is a new compiler for generate Ewasm from solidity and yul. See a demo here: https://asciinema.org/a/ezJqNLicn5fya0
+endbasic/endbasic	6	7086	Rust	372	BASIC environment with a REPL, a web interface, a graphical console, and RPi support written in Rust
+alantech/alan	6	10310	Rust	321	Autoscalable Programming Language
+dictu-lang/Dictu	6	11342	C	280	Dictu is a high-level dynamically typed, multi-paradigm, interpreted programming language.
+dictu-lang/Dictu	6	11342	C	280	Dictu is a high-level dynamically typed, multi-paradigm, interpreted programming language.
+davidgiven/cowgol	6	9457	C	270	A self-hosted Ada-inspired programming language for very small systems.
+rdebath/Brainfuck	6	5339	C	242	Brainfuck torture test. Brainfuck interpreters and compilers to C, V. VIM syntax file for brainf*ck. Fast JIT Assembly, 
+smallbasic/SmallBASIC	6	16861	C	241	SmallBASIC is a fast and easy to learn BASIC language interpreter ideal for everyday calculations, scripts and prototype
+ceu-lang/ceu	6	18505	Lua	227	The Programming Language Céu
+rsms/compis	6	11264	C	227	Contemporary systems programming language in the spirit of C
+alumina-lang/alumina	6	13768	Rust	220	A general purpose programming language
+JohnDTill/Forscape	6	9368	C++	198	Scientific computing language
+Lartu/ldpl	6	14045	C++	176	COBOL-like programming language that compiles to C++. With serious dinosaurs with neckties and briefcases 🦕💼
+IanHarvey/pcc	6	10217	C	133	Portable C Compiler sources
+mietek/charity-lang	6	16989	C	127	Charity language interpreters and literature
+andygeiss/esp32-transpiler	6	72	Go	99	Transpile Golang into Arduino code to use fully automated testing at your IoT projects.
+contextfreeinfo/rio	6	3096	Rust	97	Goal: A safe, tiny, flexible, fast compiling, semi-fast running, data-friendly, functional-first language
+ecky-l/wacl	6	119	JavaScript	92	A Tcl distibution for WebAssembly or Javascript
+rhysd/Dachs	6	2525	C++	92	Dachs; A Doggy :dog: Programming Language
+xupingmao/minipy	6	4302	C	87	迷你Python解释器(A python interpreter)
+guilhermeferreira/spikepp	6	1873	C	86	SPIKE is a protocol fuzzer creation kit. It provides an API that allows a user to create their own fuzzers for network b
+chkoreff/Fexl	6	2980	C	85	Function EXpression Language (interpreter for functional programs)
+egel-lang/egel	6	3388	C++	84	The Egel Programming Language
+ianjsikes/rust-wasm-loader	6	84	JavaScript	82	Webpack loader for Rust
+SPY/idris-codegen-wasm	6	65	Haskell	82	WebAssembly Code Generation Backend for Idris Compiler
+mmcqd/pure	6	417	OCaml	81	A pure type system implemented in OCaml
+judofyr/duktape.rb	6	3853	C	80	Ruby bindings to the Duktape JavaScript interpreter
+godunko/adawebpack	6	470	Ada	79	Ada WASM Runtime and Bindings for Web API
+rain-1/s	6	141	C	78	reupload of s, used to have 100 stars
+miki151/zenon	6	1459	C++	77	The Zenon programming language
+ETHproductions/japt	6	753	JavaScript	76	Japt 1.4.5, the other JavaScript golfing language
+sebastien/k7	6	2264	C	74	A standard library for the V8 JavaScript interpreter
+glouw/rr	6	1677	C	73	The Roman II Programming Language
+yasl-lang/yasl	6	3445	C	73	Bytecode Interpreter for Yet Another Scripting Language (YASL).
+Champii/Rock	6	1997	Rust	71	Native language with Rust & LLVM
+matter-labs/era-compiler-solidity	6	3852	Rust	70	Solidity compiler for ZKsync.
+ainfosec/crema	6	2284	C++	67	Crema: A Sub-Turing Programming Language
+deadsy/grbl_stm32f4	6	2646	C	65	The grbl g-code interpreter ported to the STM32F4
+hulang1024/Scheme	6	1824	C	65	A Scheme interpreter written in C.
+rm-hull/byok	6	3154	C	65	A bare-metal x86 Forth interpreter & compiler
+kanaka/wam	6	40	JavaScript	64	WebAssembly Macro language and processor
+rusini/manool	6	2032	C	63	Fairly readable homoiconic language with primarily value (non-referential) semantics that balances the programmer's prod
+cout/ruby-internal	6	1319	C	59	A library to provide access to the internals of the Ruby interpreter
+MoritzMaxeiner/llvm-d	6	305	D	58	D bindings for LLVM
+FantasyInternet/poetry	6	425	WebAssembly	58	A poetically dynamic and simple programming language that compiles to WebAssembly!
+ArgonLang/Argon	6	3100	C++	57	Argon programming language
+remko/uxn.wasm	6	195	WebAssembly	57	WebAssembly implementation of the Uxn virtual machine
+DavidKinder/Git	6	1305	C	56	Fast Glulx interpreter, originally written by Iain Merrick.
+ltoddy/scheme.c	6	2129	C	52	A Scheme interpreter base on R5RS specification.
+begeekmyfriend/tash	6	156	C	50	An advanced Tompson Shell porting on Linux.
+sweirich/replib	6	822	Coq	47	Replib: generic programming  & Unbound: generic treatment of binders 
+verdie-g/brainfuck2wasm	6	49	JavaScript	47	A brainfuck-to-WebAssembly compiler
+DavidKinder/Level9	6	1126	C	46	Interpreter for games released by the UK company Level 9, originally written by Glen Summers.
+jasonnyberg/j2	6	1843	C	46	j2 is a minimalist concatenative programming language that makes up for its simplicity by its ability to natively bind w
+Srinivasa314/neptune-lang	6	4566	Rust	44	A fast, concurrent and embeddable scripting language
+mkhan45/RustScript2	6	1900	OCaml	43	RustScript is a functional scripting language with as much relation to Rust as Javascript has to Java. 
+sekomer/Victim	6	42	Haskell	43	Victim programming language written in Haskell
+dbohdan/picol	6	1502	C	41	[Fossil repository mirror] A tiny interpreter
+sebbekarlsson/glms	6	439	C	40	Generalized Linear Model Script
+ljulliar/rlang	6	268	Ruby	39	A (subset of) Ruby to WebAssembly compiler
+ucodev/usched	6	3537	C	38	A remote command-line scheduler with an almost-natural language interpreter.
+zauberzeug/lizard	6	4146	C	35	Domain-specific language to specify behaviour of microcontroller managed hardware
+angrykoala/chuckscript	6	15	JavaScript	33	Chuck Norris Programming Language
+kojix2/cry-wasm	6	556	Ruby	33	cry-wasm speeds up Ruby code using Crystal
+rust-lang/rustc_codegen_c	6	52	Rust	32	C based backend for rustc
+luser-dr00g/inca	6	1507	C	29	an APL-style array calculator/interpreter in C based on the J-incunabulum, extended to allow propagating specifications 
+paivett/gone	6	46	Python	29	Toy compiler for a fictional go-like language called Gone.
+dido/arcueid	6	2978	C	28	A C interpreter for Paul Graham's Arc dialect of Lisp
+Feneric/nim-wasm-helpers	6	12		28	Help quickly set up a VM configured to build WebAssembly code using Nim.
+surma/bfwasm	6	79	JavaScript	28	A non-optimizing Brainf_ck to WebAssembly compiler
+eevolang/eevo	6	1258	C	27	simple yet expressive high-level functional scripting language (formerly known as tisp) [MIRROR] 
+Pi4IoT/Single_Board_Computer	6	261	C	27	Single Board Computer like Raspberry, Arduino, ASUS etc.
+mechaniputer/libreDSSP	6	1565	C	26	A GPL Licensed DSSP Interpreter
+cmatsuoka/sarien	6	3268	C	25	A Sierra AGI resource interpreter engine
+hummanta/awesome-compilers	6	82		25	An opinionated list of awesome compiler frameworks, libraries, software and resources.
+0branch/boron	6	1956	C	24	Boron is a scripting language similar to Rebol. The interpreter is a C library which may be copied under the terms of th
+sschauss/wracket	6	4	Racket	23	Lisp-like language to WebAssembly build with racket
+dibsonthis/Glide	6	1886	C++	22	Glide programming language
+Legimet/duktape-nspire	6	2329	C	22	JavaScript (ECMAScript) interpreter for TI-Nspire using Duktape
+munificent/bulfinch	6	156	Java	22	Just a little toy language to learn about register-based VMs.
+pabloosabaterr/Orn	6	2045	C	22	A compiler for a typescript like, low level programming language.
+serprex/brainwebfuckassembly	6	5	JavaScript	22	Brainfuck WASM compiler
+cell-labs/cell-script	6	4064	Go	21	Cell Script is a new designed language for smart-contract programming on UTXO chain, currently supports CKB.
+bobbimanners/EightBall	6	2861	C	20	The Eight Bit Algorithmic Language for Apple II, Commodore 64 and VIC20
+julekgwa/21sh	6	1673	C	20	UNIX shell - a simple command-line interpreter
+PelionIoT/mbed-client-cli	6	345	C	19	Command Line Interface library for device
+joes-esolangs/cassette	6	610	Prolog	19	a new evolutionary highlevel and readable tape language (unlike brainf)
+cyd01/pico-c	6	1869	C	19	pico-c, a very small C interpreter
+DavidKinder/Magnetic	6	1388	C	19	Interpreter for games released by the UK company Magnetic Scrolls, originally written by Niclas Karlsson.
+sangkeon/java-opa-wasm	6	373	Java	18	
+Wodan58/joy1	6	1357	C	18	Manfred von Thun's Programming Language Joy
+Daniel-Cortez/pawn-3.2-plus	6	3428	C	17	Pawn scripting language with runtime fixes and improvements
+microresearch/dark-interpreter	6	2858	C	17	ARM-basedblackdeathfuture.
+kylelk/Android-lua	6	2122	C	16	lua command line interpreter for Android
+Makeblock-official/XYGCodeInterpreter	6	2408	C	16	
+RauliL/plorth-webassembly	6	806		16	WebAssembly version of Plorth programming language
+catseye/Vinegar	6	44	Python	15	MIRROR of https://codeberg.org/catseye/Vinegar : A semi-concatenative language where every operation can fail
+cerus/edina	6	165	Java	15	Edina - A simple stack-oriented compiled programming language.
+chrisosaurus/plot	6	3677	C	15	toy r7rs-small (WG1) scheme interpreter
+AmazingRise/rise-jvm	6	590	JavaScript	14	Rise JVM is a minimal Java VM based on WASM.
+ariannamethod/ariannamethod.ai	6	1157	C	14	Arianna Method Programming Language
+dsturnbull/stack_cpu	6	120	C	14	Stack machine simulation
+fg123/wendy	6	1805	C	14	Wendy is an compiler / interpreter for WendyScript
+frenetic-lang/ox	6	87	OCaml	14	 A platform for writing OpenFlow controllers
+overscript-lang/OverScript	6	155	C#	14	The OverScript programming language
+a2d24/python-opa-wasm	6	145	Python	13	Open Policy Agent WebAssembly SDK for Python
+GEMISIS/ASM-Interpreter	6	2156	C	13	A simple assembly interpreter.  It can be used to learn the basics of most assembly languages.
+hankem/S-Lang	6	4783	C	13	John E. Davis' S-Lang library / interpreter
+ikasty/hyeongc	6	209	C	13	혀엉씨
+jie-meng/LuaDroid	6	4966	C	13	Lua interpreter for Android
+malbrain/javascript-database	6	2194	C	13	Vanilla JavaScript interpreter with built-in NO-SQL document database with Btree & ARTful indexing from the database pro
+egel-lang/soul	6	19		12	Soul - an esoteric concatenative language
+kylecronin/zap	6	1548	C	12	Scheme interpreter in C - created as a learning exercise
+AvivC/RibbonLang	6	4104	C	11	The Ribbon programming language
+burz/cfl	6	1216	C	11	a Compileable statically typed Functional programming Language
+howerj/liblisp	6	2000	C	11	liblisp; a lisp interpreter that can be used as a library written in c99
+mrharmonies/hashpling	6	221	C	11	hashpling allows you to use shebang on non-UNIX platform
+AndrewHazelden/IRIXBASIC	6	1015	C	10	IRIXBASIC is a simple BASIC interpreter that was developed for the 2012 Summer RetroChallenge. The goal of this project 
+erkyrath/fizmo	6	2502	C	10	A C Z-machine interpreter (mirror of official release site)
+exokomodo/daybreak	6	3303	C	10	Programming language that compiles to C
+surveydude/Gillespie-BASIC	6	2971	C	10	A useful BASIC Interpreter for 32 & 64-bit Windows.
+tiagosr/ofxDuktape	6	2608	C	10	Addon for openFrameworks with bindings to the Duktape Javascript interpreter
+demmys/cuda_brainfuck	6	1008	C	9	Brainfuck interpreter on GPGPU with CUDA
+erikdelange/EXIN-The-Experimental-Interpreter	6	2540	C	9	Define your own programming language and design your own interpreter! This one is written in C and executes a simple Bas
+lyriarte/MemoCalc	6	164	C	9	MemoCalc Palm OS application
+MotionLang/motion	6	2317	C	9	Motion is a clean, dynamically typed programming language.
+navionguy/basicwasm	6	1073	Go	9	Web UI for GWBasic programs compiled to wasm.
+bor0/chip-8	6	512	C	8	CHIP-8 virtual machine was made to allow video games to be more easily programmed for said computers
+chrender/libfizmo	6	2007	C	8	libfizmo aims to provide a Z-Machine interpreter core library in plain C.
+gsamokovarov/chip8.c	6	1248	C	8	Simple CHIP-8 interpreter.
+gvx/suzy	6	108	Python	8	A three-dimensional esoteric programming language
+holgerl/hilvl	6	213	JavaScript	8	A hilvl programming language
+liljencrantz/anna	6	4416	C	8	Interpreter for statically typed, duck typed language with list style macros
+MunVM/MunVM	6	77	C	8	
+nickelsworth/alice	6	1140	C	8	alice pascal : a syntax-directed editor and interpreter for pascal
+thblt/uberwald	6	1686	C	8	A simple Lisp interpreter to teach myself about Lisps and Interpreters.
+0branch/regina	6	2920	C	7	The Regina Rexx interpreter. Mirror of https://svn.code.sf.net/p/regina-rexx/code (git svn clone).
+davidchisnall/jsrun	6	1207	C	7	Experimental JavaScript interpreter for FreeBSD
+emmaconnor/dots	6	7	Python	7	A Turing-complete programming language with only one symbol: "."
+kvbc/brackets	6	35	JavaScript	7	An esolang with brackets, a lot of brackets
+marcelklehr/magnet	6	288	JavaScript	7	An experiment: A duck-typed, object-oriented, syntax-driven (and potentially awesome) programming language.
+pirate/assembly-repl	6	1439	C	7	A REPL for raw ASM assembly, LLVM IR, C++, C, Objective C, and WASM on macOS/Linux ARM64/AMD64. Useful for learning asse
+spk121/guile-plotutils	6	4635	C	7	This is a binding of the GNU Plotutils plotting and graphing library for the GNU Guile interpreter of the Scheme program
+voithos/awl	6	1083	C	7	Experimental Lispy mini-language
+DeybisMelendez/ni	6	1443	Lua	6	Ni is a small esoteric programming language turing complete, cell based, like brainfuck.
+ittner/Lua-experimentation	6	2984	C	6	General hacking and experimentation with the Lua interpreter (patches, work versions, etc.)
+my2iu/TADS2-html5	6	3374	C	6	Port of the TADS 2 interpreter for HTML5
+Nakilon/rasel	6	302	Ruby	6	RASEL (Random Access Stack Esoteric Language) reference implementation
+oatmealine/78	6	6	JavaScript	6	an esolang focused on the numbers 7 and 8
+cxd4/mupen86	6	3608	C	5	Misnomer for this experimental x86-64 fork of Mupen64 0.5's (pure) interpreter.
+dhustkoder/pschip8	6	3040	C	5	PlayStation 1 Chip8 Interpreter
+dreadpiratepj/emo-framework-fork	6	4948	C	5	A fork of emo-framework, an open source game engine by Kota Iguchi. Check out the original project for the stable versio
+fstirlitz/c-bsp	6	196	C	5	C implementation of the Binary Scripted Patch specification
+juhana/hugojs	6	1004	C	5	HugoJS online Hugo interpreter
+las-r/aergia	6	314	Python	5	A minimal yet usable programming language.
+upbqdn/Pascal-interpreter	6	3228	C	5	A simplified Pascal interpreter
+matthewfl/ilang	6	1676	C++	5	A new programming language in the works
+PlanetAPL/nars2000	6	3313	C	5	nars2000 - An experimental APL interpreter
+sungwoncho/tru	6	26	Python	5	An esoteric programming language with prefix-free brackets
+verhas/ScriptBasic	6	1103	C	5	The original source repository for the classic ScriptBasic interpreter as or www.scriptbasc.com
+Arc676/Vongsprache	6	181	C	4	I bims eine Programmiersprache!
+eagr/sol-repl	6	355	JavaScript	4	Solidity REPL
+Sodel-the-Vociferous/baremetal-lisp	6	1632	C	4	One of my earliest projects: a toy lisp interpreter that runs on bare hardware
+usqcd-software/qlua	6	2167	C	4	Qlua interpreter
+wewei/PythonGeek	6	4648	C	4	A python interpreter on iOS
+wrapl/wrapl	6	3262	C	4	Wrapl, The Programming Language
+AloneCafe/l2	6	136	C	4	一种简单的、动态弱类型的、解释型的脚本编程语言，及其脚本解释器的设计与实现
+begah-old/Andrua	6	3900	C	3	Crossplatform code editor and interpreter for Lua running on Android and Dekstop.
+binji/pnacl.c	6	4359	C	3	PNaCl reader/parser/interpreter in C
+cicada-lang/cicada	6	4		3	Cicada Language
+grafovdenis/SmallBasic_Interpreter	6	2555	C	3	Low level programming coursework
+jansegre/luar	6	2208	C	3	A rustic Rust API that embeds the C Lua interpreter.
+jrwebb56/OPEN-DESIRE	6	2497	C	3	Dr G. A. Korn's experiment-protocol interpreter and differential equation solver
+mwiedeV1/v1	6	2692	C++	3	V1 Scripting Language
+nk521/attu	6	5	C	3	A simple instruction executor written in C just for education purpose!
+onetom/saphir	6	1324	C	3	Saphirion's fork of the REBOL 3 interpreter.
+seoushi/Kitsune-Programming-Language	6	1196	C++	3	A simple prototype based programming language
+stdio2016/OOPS	6	99	C	3	OOPS! 這個語言好難。這才是純物件導向語言
+kaijchen/vmassembly	6	2932	C	2	an Assembly Interpreter for a Virtual Machine (prob. 0 in ccf-ccsp 2016)
+dmitr101/brnfck	6	1049	C	2	brainfuck interpreter
+garretraziel/guppy	6	3846	C	2	Simple almost-lua interpreter.
+gramster/PEW	6	1042	C	2	A Protocol Engineering Workbench - IDE, compiler, VM, interpreter, debugger for Estelle (Extended State Transition Langu
+jordemort/embryo	6	3464	C	2	SMALL-based abstract machine (AMX) bytecode interpreter
+Mr-Monster-0248/Algorithm-interpretor	6	2158	C	2	An algorithm interpretor in C language for the 3rd project in first year at EFREI
+Ninesquared81/motorway-lang	6	48	Python	2	An esoteric programming language based on the British motorway network
+olewhalehunter/libra	6	53	Prolog	2	a lazy interpreter of binary relational algebra 
+rattata2me/cuddly-calculator	6	172	C	2	Calculator and 2d Graphics Library. Open source and designed for low-end processors. Made in C
+Skaylatk/Kantalo	6	153	JavaScript	2	here is the open source of the kantalo language along with the documentation
+till-s/cexpsh	6	1260	C	2	C-expression interpreter/shell and run-time linker/loader
+wizzard0/dotNetAnywhere-wb	6	3382	C	2	My fork of dotNetAnywhere.org's CIL interpreter, dated about 2010.
+BlueDream145/minishell_1	6	19	C	1	Epitech Project, minishell_1
+madkne/MPL_interpreter	6	3766	C	1	A small,fast and simple interpreter also best solution to common problems of programmers.
+bubble-07/ConCurC	6	1616	C	1	An interpreter for the Concur programming language written in C.
+chrender/fizmo-sdl	6	1412	C	1	SDL-based frontend for the fizmo interpreter.
+fhammoud/interpreter	6	1135	C	1	Custom language interpreter written in C
+henrythacker/--c	6	1876	C	1	Basic interpreter, TAC generator & MIPS compiler for --C. Part of the coursework for CM30171.
+joakimthun/Chippy	6	1113	C	1	A simple CHIP-8 interpreter written in C
+kvitajakub/interpreterLua	6	1136	C	1	School interpreter of Lua.
+rzbin/libra	6	28	Haskell	1	♎️ Libra is a basic stack-based programming language simulated through Haskell.
+SherlockLee/FileModeForInterpreter	6	1672	C	1	
+spk121/serveez-mg	6	3876	C	1	A server framework for the Guile 2.0 Scheme interpreter derived from the GNU Serveez project.
+tcort/lmc	6	43	C	1	a virtual machine implementation of Dr. Madnick's "Little Man Computer" along with an assembler.
+tnguyen0317/Compilers-and-interpreters	6	2256	C	1	Labs in Örebro University course called Compilers and Interpreters
+zeotrope/anicca	6	1002	C	1	Prototype J interpreter
+Carlos2396/Interpreter	6	2853	C	0	
+hfoffani/hypolambda	6	186	C#	0	A very compact functional programming language for .NET.
+maria-sabo/InterpreterLoop	6	1556	C	0	Курсовая работа по программированию. Интерпретатор языка Loop.
+rald/pbrain	6	129	Brainfuck	0	pbrain interpreter in c
+SanTiepi/benoit	6	718	JavaScript	0	Benoît — A programming language where functions are algebra and modules are messages between machines.. Built for human-
+golang/go	5	443498	Go	135081	The Go programming language
+kelseyhightower/nocode	5	5	Dockerfile	65436	The best way to write secure and reliable applications. Write nothing; deploy nowhere.
+php/php-src	5	641651	C	40207	The PHP Interpreter
+carbon-language/carbon-lang	5	114586	C++	33852	Carbon Language's main repository: documents, design, implementation, and related tools. (NOTE: Carbon Language is exper
+emscripten-core/emscripten	5	267337	C++	27447	Emscripten: An LLVM-to-WebAssembly Compiler
+argotorg/solidity	5	84186	C++	25670	Solidity, the Smart Contract Programming Language
+go-delve/delve	5	34597	Go	24804	Delve is a debugger for the Go programming language.
+EnterpriseQualityCoding/FizzBuzzEnterpriseEdition	5	340	Java	23728	FizzBuzz Enterprise Edition is a no-nonsense implementation of FizzBuzz made by serious businessmen for serious business
+RustPython/RustPython	5	100407	Rust	22148	A Python Interpreter written in Rust
+gleam-lang/gleam	5	28586	Rust	21616	⭐️ A friendly language for building type-safe, scalable systems!
+bytecodealliance/wasmtime	5	155715	Rust	18265	A lightweight WebAssembly runtime that is fast, secure, and standards-compliant
+nim-lang/Nim	5	124570	Nim	18069	Nim is a statically typed compiled systems programming language. It combines successful concepts from mature languages l
+rust-lang/rust-analyzer	5	119555	Rust	16613	A Rust compiler front-end for IDEs
+benfred/py-spy	5	3230	Rust	15302	Sampling profiler for Python programs
+analysis-tools-dev/static-analysis	5	41724	Rust	14652	⚙️ A curated list of static analysis (SAST) tools and linters for all programming languages, config files, build tools, 
+gruns/icecream	5	488	Python	10057	🍦 Never use print() to debug again.
+goplus/xgo	5	26366	Go	9440	XGo is a programming language that reads like plain English. But it's also incredibly powerful — it lets you leverage as
+wasm-bindgen/wasm-bindgen	5	40023	Rust	9060	Facilitating high-level interactions between Wasm modules and JavaScript
+capstone-engine/capstone	5	69684	C	8870	Capstone disassembly/disassembler framework for ARM, ARM64 (ARMv8), Alpha, BPF, Ethereum VM, HPPA, LoongArch, M68K, M680
+aemkei/jsfuck	5	142	JavaScript	8598	Write any JavaScript with 6 Characters: []()!+
+traefik/yaegi	5	31605	Go	8316	Yaegi is Another Elegant Go Interpreter
+boa-dev/boa	5	61833	Rust	7353	Boa is an embeddable Javascript engine written in Rust.
+dop251/goja	5	2127	Go	6966	ECMAScript/JavaScript engine in pure Go
+kkuchta/css-only-chat	5	21	Ruby	6595	A truly monstrous async web chat using no JS whatsoever on the frontend
+halide/Halide	5	182652	C++	6547	a language for fast, portable data-parallel computation
+ocaml/ocaml	5	402243	OCaml	6516	The core OCaml system: compilers, runtime system, base libraries
+roc-lang/roc	5	233828	Zig	5749	A fast, friendly, functional language.
+luau-lang/luau	5	23673	C++	5646	A small, fast, and embeddable programming language based on Lua with a gradual type system.
+rocq-prover/rocq	5	214598	OCaml	5501	The Rocq Prover is an interactive theorem prover, or proof assistant. It provides a formal language to write mathematica
+prompt-toolkit/ptpython	5	1191	Python	5439	A better Python REPL
+pest-parser/pest	5	2559	Rust	5361	The Elegant Parser
+ProvableHQ/leo	5	260913	Rust	4818	🦁 The Leo Programming Language. A Programming Language for Formally Verified, Zero-Knowledge Applications
+cel-expr/cel-spec	5	1353	Starlark	3861	Common Expression Language -- specification and binary representation
+NerdLang/nerd	5	171778	C++	3615	🔱 Javascript's God Mode. No VM. No Bytecode. No GC. Just native binaries.
+emojicode/emojicode	5	28024	C	3408	😀😜🔂 World’s only programming language that’s bursting with emojis
+dlang/dmd	5	201088	D	3287	dmd D Programming Language compiler
+vadimcn/codelldb	5	4098	Rust	3242	A VSCode debugger extension for native code, powered by LLDB.
+rubinius/rubinius	5	168116	C	3095	The Rubinius Language Platform
+grame-cncm/faust	5	396271	C++	3077	Functional programming language for signal processing and sound synthesis
+bazelbuild/starlark	5	4005	Python	3031	Starlark Language
+espruino/Espruino	5	233580	C	2956	The Espruino JavaScript interpreter - Official Repo
+ispc/ispc	5	50755	C++	2912	Intel® Implicit SPMD Program Compiler
+beefytech/Beef	5	55970	C++	2821	Beef Programming Language
+IoLanguage/io	5	31573	C	2776	Io programming language. Inspired by Self, Smalltalk and LISP.
+bakpakin/Fennel	5	3400	Fennel	2740	Lua Lisp Language
+aardappel/lobster	5	128255	C++	2728	The Lobster Programming Language
+bytecodealliance/javy	5	107035	Rust	2697	JS to WebAssembly toolchain
+lfe/lfe	5	4627	Erlang	2437	Lisp Flavoured Erlang (LFE)
+jfecher/ante	5	42115	Rust	2247	A safe, easy systems language
+nature-lang/nature	5	39026	C	2242	The Nature Programming Language
+jameysharp/corrode	5	725	Haskell	2187	C to Rust translator
+ryanmjacobs/c	5	164	Shell	2177	Compile and execute C "scripts" in one go!
+oracle/graaljs	5	1198855	C++	2012	GraalJS – A high-performance, ECMAScript compliant, and embeddable JavaScript runtime for Java
+gotcha/ipdb	5	211	Python	1973	Integration of IPython pdb
+wa-lang/wa	5	30302	Go	1768	凹语言, The Wa Programming Language
+kevinmehall/rust-peg	5	1203	Rust	1598	Parsing Expression Grammar (PEG) parser generator for Rust
+robpike/ivy	5	1920	Go	1482	ivy, an APL-like calculator
+ring-lang/ring	5	3683059	C	1449	A simple, lightweight, flexible, embeddable, portable and multi-paradigm dynamic programming language for developing app
+sylefeb/Silice	5	56184	C++	1423	Silice is an easy-to-learn, powerful hardware description language, that simplifies designing hardware algorithms with p
+noir-lang/noir	5	1229272	Rust	1367	Noir is a domain specific language for zero knowledge proofs
+Marwes/combine	5	2376	Rust	1359	A parser combinator library for Rust
+ldc-developers/ldc	5	177466	D	1349	The LLVM-based D Compiler.
+ConsenSysDiligence/surya	5	887	JavaScript	1171	A set of utilities for exploring Solidity contracts 
+evincarofautumn/kitten	5	2914	Haskell	1165	A statically typed concatenative systems programming language.
+GaijinEntertainment/daScript	5	186374	C	1136	daslang - high-performance statically strong typed scripting language
+nevalang/neva	5	30178	Go	1070	Next-Gen programming language for humans and AI. Hybrid visual/textual, parallelism by default, strict static typing, co
+gnolang/gno	5	154259	Go	1069	Gno: An interpreted, stack-based Go virtual machine to build succinct and composable apps + gno.land: a blockchain for t
+i-net-software/JWebAssembly	5	1982	Java	1048	Java bytecode to WebAssembly compiler
+hamler-lang/hamler	5	1683	Erlang	1039	Haskell-style functional programming language running on Erlang VM.
+raineorshine/solgraph	5	519	JavaScript	1026	Visualize Solidity control flow for smart contract security analysis.  :dollar: ⇆ :dollar:
+sebastianwessel/quickjs	5	4315	TypeScript	912	A typescript package to execute JavaScript and TypeScript code in a webassembly quickjs sandbox
+DennisMitchell/jellylanguage	5	1122	Python	910	Jelly is a recreational programming language inspired by J.
+haskell/parsec	5	474	Haskell	888	A monadic parser combinator library
+arturo-lang/arturo	5	83216	Nim	877	Simple, expressive & portable programming language for efficient scripting
+ruby/ruby.wasm	5	3094	Ruby	857	ruby.wasm is a collection of WebAssembly ports of the CRuby.
+pfalcon/pycopy	5	50300	C	819	Pycopy - a minimalist and memory-efficient Python dialect. Good for desktop, cloud, constrained systems, microcontroller
+felix-lang/felix	5	90634	C	818	The Felix Programming Language
+prathyvsh/pl-catalog	5	2343		777	A catalog of programming languages
+refaktor/rye	5	144719	Go	686	Programming and interaction language. Flexible about syntax, strict about state.
+ceifa/wasmoon	5	1395	TypeScript	675	A real lua 5.4 VM with JS bindings made with webassembly
+goccmack/gocc	5	2493	Go	661	Parser / Scanner Generator
+phantomics/april	5	4570	Common Lisp	658	The APL programming language (a subset thereof) compiling to Common Lisp.
+silq-lang/silq	5	3907	Q#	646	Silq quantum programming language type checker, compiler, and experimental interpreter.
+erezsh/Preql	5	1553	Python	631	An interpreted relational query language that compiles to SQL.
+naver/lispe	5	7663401	C	604	An implementation of a full fledged Lisp interpreter with Data Structure, Pattern Programming and High level Functions w
+JohnEarnest/Mako	5	2166	Forth	598	A simple virtual game console
+IppClub/YueScript	5	22003	Lua	596	A delightful language that compiles to Lua
+Gwion/Gwion	5	29358	C	581	:musical_note: strongly-timed musical programming language
+paladin-t/my_basic	5	35957	C	565	A lightweight BASIC interpreter written in standard C in dual files. Aims to be embeddable, extendable and portable.
+jondgoodwin/cone	5	24542	C	557	Cone Programming Language
+paradigmxyz/solar	5	33324	Rust	550	Blazingly fast, modular and contributor friendly Solidity compiler, written in Rust
+letoram/cat9	5	2495	Lua	530	A User shell for LASH
+Dark-Basic-Software-Limited/Dark-Basic-Pro	5	119451	C++	524	Dark Basic Pro is an open source BASIC programming language for creating Windows applications and games
+remobjects/pascalscript	5	3594	Pascal	507	pascalscript
+mirth-lang/mirth	5	26260	C	489	Compiler for the Mirth programming language.
+roscopeco/jasm	5	583	Java	472	A JVM assembler for the modern age
+mraleph/irhydra	5	3763	JavaScript	439	Tool for displaying IR used by V8 and Dart VM optimizing compilers
+ionelmc/python-manhole	5	545	Python	402	Debugging manhole for python applications.
+enspirit/finitio	5	2313	JavaScript	396	Finitio is a language for validating, coercing and documenting data.
+Rohansi/Mond	5	2825	C#	393	A scripting language for .NET Core
+alex/rply	5	196	Python	392	An attempt to port David Beazley's PLY to RPython, and give it a cooler API.
+harbour/core	5	169156	C	391	Portable, xBase compatible programming language and environment
+eeue56/derw	5	1440	TypeScript	381	An Elm-inspired language that transpiles to TypeScript
+nim-works/nimskull	5	111304	Nim	346	An in development statically typed systems programming language; with sustainability at its core. We, the community of u
+tabemann/zeptoforth	5	69740	Forth	342	A not-so-small Forth for Cortex-M
+nanoframework/nf-interpreter	5	59193	C	341	:gear: nanoFramework Interpreter, CLR, HAL, PAL and reference target boards
+ixionlang/ixion	5	2034	Kotlin	340	🔮 modern scripting programming language
+agraef/pure-lang	5	22742	C++	338	Pure programming language
+LADSoft/OrangeC	5	168834	C++	337	OrangeC Compiler And Tool Chain
+JamesBoer/Jinx	5	56405	C++	327	Embeddable scripting language for real-time applications
+rsms/move	5	3173	JavaScript	305	A simple, functional-biased, prototypal and powerful programming language that runs on any ES3 (or better) JavaScript pl
+c3d/xl	5	23008	C++	284	A minimalist, general-purpose programming language based on meta-programming and parse tree rewrites
+NomicFoundation/slang	5	28087	Rust	279	Solidity compiler tooling by @NomicFoundation
+LiXizhi/NPLRuntime	5	256542	C++	271	NPL - Neural Parallel Language
+genkami/watson	5	2148	Go	269	WATSON: Wasted but Amazing Turing-incomplete Stack-based Object Notation
+mmiscool/esp8266Basic	5	247886	C	265	Basic Interpreter for the ESP8266
+instead-hub/instead	5	20471	C	257	  INSTEAD - Simple Text Adventure Interpreter
+nitlang/nit	5	124755	C	257	Nit language
+ELENA-LANG/elena-lang	5	48882	C++	240	ELENA is a general-purpose language with late binding. It is multi-paradigm, combining features of functional and object
+luc-tielen/eclair-lang	5	4080	Haskell	230	A minimal, fast Datalog implementation in Haskell that compiles to LLVM IR
+frenetic-lang/frenetic	5	103192	OCaml	229	The Frenetic Programming Language and Runtime System
+charcoal-lang/Charcoal	5	1207	Python	227	A concise language for sketching ASCII art.
+naver/tamgu	5	491574	C++	225	Tamgu (탐구), a FIL programming language: Functional, Imperative, Logical all in one for annotation and data augmentation
+kekcleader/FreeOberon	5	50291	C	220	Cross-platform IDE for development in Oberon programming language made in the classical FreePascal-like pseudo-graphic s
+SwadicalRag/wasm2lua	5	2374	WebAssembly	219	wasm2lua: converting WASM into Lua
+biscuitlang/bl	5	410138	C	219	Simple programming language created for fun.
+phreda4/r3	5	158713	Forth	211	r3 programing language - ColorForth inspired
+charly-lang/charly	5	2737	Crystal	203	🐈 The Charly Programming Language | Written by @KCreate
+EricGrange/DWScript	5	203916	Pascal	201	Delphi Web Script general purpose scripting engine
+JohnBlood/awesome-basic	5	113		200	A curated list of awesome BASIC dialects, IDEs, and tutorials
+tim-hardcastle/pipefish	5	52496	Go	184	Source code for the Pipefish programming language
+PollRobots/scheme	5	1275	WebAssembly	182	An R7RS Scheme implemented in WebAssembly 
+c3d/tao3D	5	138260	C++	178	The Art of 3D, a new language for dynamic document description of real-time 3D animations
+WheretIB/nullc	5	36899	C++	168	Fast C-like programming language with advanced features
+fanx-dev/fanx	5	3355	Fantom	166	A full-stack programming language
+objeck/objeck-lang	5	3314742	C++	165	Lightweight object-oriented and functional programming language. Designed to be intuitive, small, cross-platform, and fa
+justinmeiners/lisp-interpreter	5	2379	Scheme	164	Embeddable lisp/scheme interpreter written in C.
+lboasso/oberonc	5	1188	Modula-2	164	An Oberon-07 compiler for the JVM
+open-policy-agent/npm-opa-wasm	5	1786	JavaScript	156	Open Policy Agent WebAssembly NPM module (opa-wasm)
+SPY/haskell-wasm	5	1031	Haskell	153	Haskell WebAssembly Toolkit
+Floydlang/floyd	5	199862	C++	152	The Floyd programming language
+rsms/co	5	2962	TypeScript	152	A programming language in early development
+ALANVF/star	5	2346	Haxe	149	An experimental programming language that's made to be powerful, productive, and predictable
+wonkey-coders/wonkey	5	234476	C++	144	Wonkey is an easy to learn, oriented object, modern and cross-platform programming language for creating cross-platform 
+phreda4/r4	5	62346	Forth	141	:r4 concatenative programming language with ideas from ColorForth.
+Draco-lang/Compiler	5	3925	C#	139	The compiler repository for the Draco programming language.
+metaeducation/ren-c	5	121423	C	138	Library for embedding a Rebol interpreter into C codebases
+AdeptLanguage/Adept	5	64706	C	131	The Adept Programming Language
+dino-lang/dino	5	29720	C	131	The programming language DINO
+bamless/jstar	5	23400	C	130	A lightweight embeddable scripting language
+ekmett/bound	5	499	Haskell	129	Combinators for manipulating locally-nameless generalized de Bruijn terms
+FreakC-Foundation/FreakC	5	1353	Batchfile	129	FreakC Programming Language - an experimental Batch-like language written in Batch which compiles to Batch
+svenssonjoel/lispBM	5	36089	C	129	An interpreter for a concurrent lisp with message-passing and pattern-matching.
+quil-lang/quil	5	435	TeX	127	Specification of Quil: A Practical Quantum Instruction Set Architecture
+Lambda-Mountain-Compiler-Backend/LSTS	5	1290		125	Large Scale Type Systems: ML/C Hybrid Programming Language
+bmx-ng/bmx-ng	5	4609	BlitzMax	125	The Open Source BlitzMax Compiler Project
+dlang-community/libdparse	5	4109	D	124	Library for lexing and parsing D source code
+jaseemabid/micromanual	5	426	TeX	124	A neatly typeset version of John McCarthy's classic paper
+acquitelol/elle	5	38409	Rust	112	A procedural programming language built in Rust which compiles to QBE
+MikeInnes/Charlotte.jl	5	51	Julia	112	Charlotte's Web Scale
+graue/esofiles	5	2898	C	110	The Esoteric File Archive
+Panzerschrek/U-00DC-Sprache	5	20912	C++	109	"Ü" programming language
+paritytech/revive	5	28058	Rust	102	Solidity compiler for Polkadot, targetting PolkaVM in pallet-revive
+syegulalp/Akilang	5	1288	Python	101	A compiler for a simple language, built with Python and LLVM
+aanon4/BlueBasic	5	17753	C	99	BASIC interpreter for CC2540 and CC2541 Bluetooth LE chips
+cozis/Noja	5	6309	C	98	A programming language written for fun!
+c3d/elfe	5	6970	C++	93	Extensible Language for Everyday
+Ttimofeyka/Rave	5	16160	C++	91	Compiled and statically typed programming language
+cforall/cforall	5	12181	C++	87	The compiler and standard distribution for the C∀ programming language
+marcelkottmann/esp32-javascript	5	11590	C	87	"Lightweight" JS interpreter for ESP32. Provides JS-based eventloop implementation and native asynchronous network and t
+giraffekey/xylo	5	5430	Rust	80	A functional programming language for procedural art
+ValKmjolnir/Nasal-Interpreter	5	9558	C++	71	Modern efficient runtime for Nasal: using stack-based direct-threading virtual machine.
+barn-lang/barn	5	18471	C	55	Barn is a simple programming language written in C that is compiled to C.
+pcmacdon/jsish	5	15347	C	46	Jsi is a small, C-embeddable javascript interpreter with tightly woven Web and DB support.
+jespa007/zetscript	5	10963	C++	41	ZetScript is a programming language with an API that allows bind C++ code in script side.
+sussman/twisty	5	6197	C	38	Twisty is a text-adventure interpreter for the Android operating system, playing both Z-machine and Glulx games.
+c-jullien/lelisp	5	10991	Assembly	36	Le-Lisp by INRIA
+martian56/raven	5	7715	Rust	34	Raven is a new systems and application programming language designed to combine the performance and control of C++, the 
+phreppo/pilisp	5	8238	C	33	Lisp interpreter with bytecode compiler
+aspl-lang/aspl	5	5750	C	31	ASPL is a modern, general-purpose programming language with a focus on simplicity, portability, and safety
+Rinnegatamante/lua-player-plus	5	5700	C	30	Multiplatform Lua interpreter (PSP/PSP Go version)
+slang-lang/slang	5	9085	C++	28	Statically typed scripting language... syntax errors should be catched at design time!
+Diesel-Net/kiwi-8	5	16638	C	27	CHIP-8 interpreter for Windows, MacOS, and Linux
+VorpalBlade/cfunge	5	6244	C	21	A fast Befunge93/98 interpreter in C
+AJMartel/IRTriageCMD	5	6984	C	20	Fork of ReactOS (Cmd.exe), IRTriage Command Line Interpreter 
+donpdonp/bitcoin-wasm	5	9017	C	12	The bitcoin script interpreter (cpp) compiled to webassembly.
+phorward/rapidbatch	5	7544	C	12	A scripting language with most active years around 2005
+seanofw/smile	5	10030	C	12	Smile programming language interpreter
+claytonkb/Babel	5	5922	C	10	An interpreter
+Fuechs/Lynx	5	14336	C++	10	C-like programming language
+kevinboone/grotz	5	16470	C	10	A z-code/Infocom interpreter for Linux and WIndows
+IsaacShelton/Adept3x	5	11413	Rust	8	A language designed to help maximize developer productivity and safety
+Epictetus/Joyau	5	11931	C	5	A ruby interpreter for PSP, with some extension so that it could do things such as image loading, ...
+proprowataya/calc4	5	7693	C++	5	The Calc4 Programming Language - Every code element is an operator, allowing programming in the style of a calculator
+MirkoDziadzka/hu-prolog	5	7310	C	4	"HU Prolog" - a portable prolog interpreter from the '80s 
+dflemstr/duk	5	5226	C	3	A high-level wrapper around the Duktape Javascript/EcmaScript interpreter.
+hyung-hwan/qse	5	12671	C	3	AWK interpreter & SED stream editor written in C/C++. AWK is not developed here any more. Visit https://github.com/hyung
+phorward/colm	5	17947	C++	2	Colm Language, includes Ragel 7.0+
+sergeyrachev/khaotica	5	5420	C	2	Bitstream editor empowered with FLAVOR interpreter
+instantiator/openbook-v2	5	13285	C	1	A 3D interactive fiction interpreter built in 2005...
+mdbarr/vcsi	5	7571	C	1	Vaguely Coherent Scheme Interpreter - A R5RS Scheme implementation in C with a custom module system.
+Pixilate/PyShell27	5	10909	C	1	Python27 interpreter wrapper for the 3DS
+SherlockLee/BufferModeForInterpreter	5	5976	C	1	
+SherlockLee/InterpreterForK0T	5	6824	C	1	

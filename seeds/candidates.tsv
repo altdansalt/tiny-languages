@@ -7,7 +7,7 @@ chibi-scheme	https://github.com/ashinn/chibi-scheme	C	interpreter	make	scheme,r7
 s7	https://github.com/dpsanders/s7	C	interpreter	cc	scheme,embeddable	untried	Single-file Scheme (also at ccrma)
 janet	https://github.com/janet-lang/janet	C	interpreter	make,meson	lisp,embeddable	ok	Small functional lang, single-file amalg
 fe	https://github.com/rxi/fe	C	interpreter	cc	lisp,minimal	ok	~800 LOC Lisp by rxi
-tcc	https://repo.or.cz/tinycc.git	C	compiler	configure	c-compiler,fast	fail	Tiny C Compiler
+tcc	https://repo.or.cz/tinycc.git	C	compiler	configure	c-compiler,fast	ok	Tiny C Compiler
 chibicc	https://github.com/rui314/chibicc	C	compiler	make	c-compiler,teaching	untried	Small C compiler by Rui Ueyama
 cproc	https://github.com/michaelforney/cproc	C	compiler	configure	c-compiler,qbe	fail	C11 compiler on QBE backend
 qbe	https://c9x.me/git/qbe.git	C	compiler	make	backend,ssa	untried	Compiler backend (used by cproc)
@@ -22,7 +22,7 @@ pocketlang	https://github.com/ThakeeNathees/pocketlang	C	interpreter	make,batch	
 umka	https://github.com/vtereshkov/umka-lang	C	interpreter	make	statically-typed,embeddable	ok	Statically typed embeddable lang
 squirrel	https://github.com/albertodemichelis/squirrel	C++	interpreter	cmake	game-scripting	ok	High-level OO scripting (games)
 gravity	https://github.com/marcobambini/gravity	C	interpreter	make	game-scripting	ok	Dynamically typed embeddable
-femtolisp	https://github.com/JeffBezanson/femtolisp	C	interpreter	make	lisp,scheme	fail	Small Scheme-like Lisp (used in Julia bootstrap)
+femtolisp	https://github.com/JeffBezanson/femtolisp	C	interpreter	make	lisp,scheme	ok	Small Scheme-like Lisp (used in Julia bootstrap)
 micropython	https://github.com/micropython/micropython	C	interpreter	make	python,microcontroller	ok	Python for microcontrollers; unix port
 tinypy	https://github.com/daniellimws/tinypy	C	interpreter	make	python,minimal	untried	Minimal Python subset
 m4	https://git.savannah.gnu.org/git/m4.git	C	interpreter	autotools	macro	ok	Macro processor (turing-complete)

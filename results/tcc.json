@@ -1,11 +1,10 @@
 {
   "name": "tcc",
-  "outcome": "fail",
-  "build_exit": 1,
+  "outcome": "ok",
+  "build_exit": 0,
   "build_seconds": 15,
-  "binary_bytes": 0,
-  "smoke": "",
-  "image_line": "",
-  "log": "results/tcc.log",
-  "reason": "configure --config-musl build fails compiling libtcc1/bcheck.o: 'incompatible redefinition of wchar_t' on musl. Retry on debian (glibc) base."
+  "binary_bytes": 427968,
+  "smoke": "ok-tcc ",
+  "image_line": "tinylang/tcc                  latest         87a762ef3cbd987db14836bf...",
+  "log": "results/tcc.log"
 }

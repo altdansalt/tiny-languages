@@ -13,7 +13,7 @@ Running log of build/test outcomes. Machine-readable results live in `results/*.
 | clox | ok | 6 | 74 KB | 3 |
 | cproc | fail | 4 | — |  |
 | fe | ok | 3 | 74 KB | ok-fe |
-| femtolisp | fail | 2 | — |  |
+| femtolisp | ok | 23 | 203 KB | ok-femto |
 | goawk | ok | 16 | 3.9 MB | ok-goawk |
 | gravity | ok | 3 | 438 KB | ok-gravity RESULT: NULL (in 0.0157 ms) |
 | janet | ok | 29 | 2.2 MB | ok janet |
@@ -27,7 +27,7 @@ Running log of build/test outcomes. Machine-readable results live in `results/*.
 | pocketlang | ok | 3 | 1.1 MB | ok-pocket |
 | quickjs-ng | ok | 34 | 1.3 MB | ok-qjs |
 | squirrel | ok | 12 | 73 KB | ok-squirrel |
-| tcc | fail | 15 | — |  |
+| tcc | ok | 15 | 418 KB | ok-tcc |
 | umka | ok | 12 | 322 KB | ok-umka |
 | wasm3 | ok | 4 | 236 KB | Result: 55 |
 | wren | ok | 6 | 196 KB | ok-wren |
@@ -45,16 +45,20 @@ Running log of build/test outcomes. Machine-readable results live in `results/*.
 - **chibi-scheme** ✅ — must `make install` to a prefix; running uninstalled with
   `SEXP_USE_DL=0` makes it mis-read a binary as Scheme (`undefined variable |ELF`).
   Smoke via `-e` (not stdin) to avoid REPL prompt noise. 234 KB.
-- **tcc** ❌ (deferred) — `--config-musl` build dies in `libtcc1/bcheck.o` with
-  `incompatible redefinition of wchar_t` on musl. Retry on a debian/glibc base.
+- **tcc** ✅ (rescued) — musl `--config-musl` dies in `libtcc1/bcheck.o`
+  (`incompatible redefinition of wchar_t`); builds cleanly on **debian/glibc**.
+  Also: clone from the `github.com/TinyCC/tinycc` mirror (`repo.or.cz` timed out
+  from the builder), and `make install` so `tcc -run` finds its own headers +
+  `libtcc1.a`. 418 KB.
+- **femtolisp** ✅ (rescued) — `llt` headers need glibc `__gnu_linux__` *and*
+  `__x86_64__`, so it builds on **debian under amd64 emulation** (recipe `arch`
+  file = `amd64`). Also build the `release` target (default also runs the test
+  suite, which exits 127 here). 203 KB. A native arm64/musl port would need
+  header patches.
 - **cproc** ❌ (deferred) — builds cproc + QBE, but `qbe` rejects IR keyword
   `extern` that the cproc frontend emits → cproc/qbe version skew. Need matching
   pinned commits. (Also found: the `8l/qbe` mirror has a `$define` typo on its
   aarch64 Makefile branch; `michaelforney/qbe` fixes that but the skew remains.)
-- **femtolisp** ❌ (deferred) — `llt/dtypes.h`/`utils.h` only recognize
-  `__x86_64__` + `__gnu_linux__`; `#error unknown platform/architecture` on
-  arm64/musl. Good candidate for an **amd64-emulation** build (confirmed working:
-  `container run --arch amd64 … uname -m` → `x86_64`).
 
 #### Batch 3 — 13 more verified (20 green total)
 - ✅ **clox** (`make clox`), **fe** (`-DFE_STANDALONE`, single file), **picol**
