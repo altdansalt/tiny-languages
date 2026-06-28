@@ -1,0 +1,91 @@
+#1 [resolver] fetching image...docker.io/library/alpine:3.20
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 oci-layout://docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc
+#3 resolve docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc done
+#3 DONE 0.0s
+
+#4 [linux/arm64 1/7] RUN apk add --no-cache build-base git
+#4 CACHED
+
+#5 [linux/arm64/v8 2/7] WORKDIR /src
+#5 CACHED
+
+#6 [linux/arm64 3/7] RUN git clone --depth 1 https://repo.or.cz/tinycc.git .
+#6 0.033 Cloning into '.'...
+#6 DONE 10.8s
+
+#7 [linux/arm64 4/7] RUN ./configure --config-musl && make -j"$(nproc)"
+#7 0.088 Binary directory    /usr/local/bin
+#7 0.088 TinyCC directory    /usr/local/lib/tcc
+#7 0.088 Library directory   /usr/local/lib
+#7 0.088 Include directory   /usr/local/include
+#7 0.088 Manual directory    /usr/local/share/man
+#7 0.088 Info directory      /usr/local/share/info
+#7 0.088 Doc directory       /usr/local/share/doc
+#7 0.088 Source path         /src
+#7 0.088 Build OS            Linux aarch64
+#7 0.088 C compiler          gcc (13.2)
+#7 0.088 Target OS           Linux
+#7 0.088 CPU                 arm64
+#7 0.088 Config              musl
+#7 0.088 Creating config.mak and config.h
+#7 0.110 gcc -o tcc.o -c tcc.c -I. -DONE_SOURCE=0 -DTCC_GITHASH="\"2026-06-13 mob@a338258\"" -Wall -O2 -Wdeclaration-after-statement -Wno-unused-result
+#7 0.110 gcc -o libtcc.o -c libtcc.c -I. -DONE_SOURCE=0 -Wall -O2 -Wdeclaration-after-statement -Wno-unused-result
+#7 0.310 gcc -DC2STR conftest.c -o c2str.exe
+#7 0.339 gcc -o tccgen.o -c tccgen.c -I. -Wall -O2 -Wdeclaration-after-statement -Wno-unused-result
+#7 0.488 gcc -o tccdbg.o -c tccdbg.c -I. -Wall -O2 -Wdeclaration-after-statement -Wno-unused-result
+#7 1.120 gcc -o tccelf.o -c tccelf.c -I. -Wall -O2 -Wdeclaration-after-statement -Wno-unused-result
+#7 1.996 gcc -o tccasm.o -c tccasm.c -I. -Wall -O2 -Wdeclaration-after-statement -Wno-unused-result
+#7 2.196 gcc -o tccrun.o -c tccrun.c -I. -Wall -O2 -Wdeclaration-after-statement -Wno-unused-result
+#7 2.314 gcc -o arm64-gen.o -c arm64-gen.c -I. -Wall -O2 -Wdeclaration-after-statement -Wno-unused-result
+#7 2.526 gcc -o arm64-link.o -c arm64-link.c -I. -Wall -O2 -Wdeclaration-after-statement -Wno-unused-result
+#7 2.555 arm64-link.c: In function 'relocate':
+#7 2.555 arm64-link.c:384:13: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+#7 2.555   384 |             int64_t tp_offset = val - tls_start + 16;
+#7 2.555       |             ^~~~~~~
+#7 2.635 gcc -o arm64-asm.o -c arm64-asm.c -I. -Wall -O2 -Wdeclaration-after-statement -Wno-unused-result
+#7 2.948 ./c2str.exe include/tccdefs.h tccdefs_.h
+#7 2.949 gcc -o tccpp.o -c tccpp.c -I. -Wall -O2 -Wdeclaration-after-statement -Wno-unused-result
+#7 3.869 ar rcs libtcc.a libtcc.o tccpp.o tccgen.o tccdbg.o tccelf.o tccasm.o tccrun.o arm64-gen.o arm64-link.o arm64-asm.o
+#7 3.871 gcc -o tcc tcc.o libtcc.a -lm -ldl -lpthread
+#7 3.883 make[1]: Entering directory '/src/lib'
+#7 3.883 ../tcc -c lib-arm64.c -o lib-arm64.o -B.. -I..
+#7 3.883 ../tcc -c stdatomic.c -o stdatomic.o -B.. -I..
+#7 3.885 ../tcc -c atomic.S -o atomic.o -B.. -I..
+#7 3.886 ../tcc -c builtin.c -o builtin.o -B.. -I..
+#7 3.887 ../tcc -c alloca.S -o alloca.o -B.. -I..
+#7 3.887 ../tcc -c alloca-bt.S -o alloca-bt.o -B.. -I..
+#7 3.888 ../tcc -c tcov.c -o tcov.o -B.. -I..
+#7 3.889 ../tcc -c armflush.c -o armflush.o -B.. -I..
+#7 3.889 ../tcc -c dsohandle.c -o dsohandle.o -B.. -I..
+#7 3.890 ../tcc -c runmain.c -o ../runmain.o -B.. -I..
+#7 3.890 ../tcc -c bt-exe.c -o ../bt-exe.o -B.. -I..
+#7 3.891 ../tcc -c bt-log.c -o ../bt-log.o -B.. -I..
+#7 3.892 ../tcc -c bcheck.c -o ../bcheck.o -B.. -I.. -bt
+#7 3.893 In file included from bcheck.c:25:
+#7 3.893 In file included from ../include/stdatomic.h:15:
+#7 3.893 ../include/stddef.h:6: error: incompatible redefinition of 'wchar_t'
+#7 3.894 make[1]: *** [Makefile:95: ../bcheck.o] Error 1
+#7 3.894 make[1]: *** Waiting for unfinished jobs....
+#7 3.896 make[1]: Leaving directory '/src/lib'
+#7 3.896 make: *** [Makefile:326: libtcc1.a] Error 2
+#7 ERROR: process "/bin/sh -c ./configure --config-musl && make -j\"$(nproc)\"" did not complete successfully: exit code: 2
+------
+ > [linux/arm64 4/7] RUN ./configure --config-musl && make -j"$(nproc)":
+3.890 ../tcc -c bt-exe.c -o ../bt-exe.o -B.. -I..
+3.891 ../tcc -c bt-log.c -o ../bt-log.o -B.. -I..
+3.892 ../tcc -c bcheck.c -o ../bcheck.o -B.. -I.. -bt
+3.893 In file included from bcheck.c:25:
+3.893 In file included from ../include/stdatomic.h:15:
+3.893 ../include/stddef.h:6: error: incompatible redefinition of 'wchar_t'
+3.894 make[1]: *** [Makefile:95: ../bcheck.o] Error 1
+3.894 make[1]: *** Waiting for unfinished jobs....
+3.896 make[1]: Leaving directory '/src/lib'
+3.896 make: *** [Makefile:326: libtcc1.a] Error 2
+------
+Error: unknown (2): failed to solve: process "/bin/sh -c ./configure --config-musl && make -j\"$(nproc)\"" did not complete successfully: exit code: 2

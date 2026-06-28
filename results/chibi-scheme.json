@@ -1,0 +1,10 @@
+{
+  "name": "chibi-scheme",
+  "outcome": "ok",
+  "build_exit": 0,
+  "build_seconds": 16,
+  "binary_bytes": 239224,
+  "smoke": "ok-chibi ",
+  "image_line": "tinylang/chibi-scheme         latest  b81825164142e6bd856ae5ed...",
+  "log": "results/chibi-scheme.log"
+}

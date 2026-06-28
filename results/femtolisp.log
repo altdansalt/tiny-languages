@@ -1,0 +1,66 @@
+#1 [resolver] fetching image...docker.io/library/alpine:3.20
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 transferring context: 2B 0.0s done
+#2 DONE 0.0s
+
+#3 oci-layout://docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc
+#3 resolve docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc done
+#3 DONE 0.0s
+
+#4 [linux/arm64 1/7] RUN apk add --no-cache build-base git
+#4 CACHED
+
+#5 [linux/arm64/v8 2/7] WORKDIR /src
+#5 CACHED
+
+#6 [linux/arm64 3/7] RUN git clone --depth 1 https://github.com/JeffBezanson/femtolisp .
+#6 0.032 Cloning into '.'...
+#6 DONE 0.9s
+
+#7 [linux/arm64 4/7] RUN make -j"$(nproc)"
+#7 0.035 gcc -O2 -DNDEBUG -falign-functions -Wall -Wno-strict-aliasing -Illt  -DUSE_COMPUTED_GOTO -c flisp.c -o flisp.o
+#7 0.036 gcc -O2 -DNDEBUG -falign-functions -Wall -Wno-strict-aliasing -Illt  -DUSE_COMPUTED_GOTO -c builtins.c -o builtins.o
+#7 0.056 In file included from llt/llt.h:5,
+#7 0.056                  from flisp.c:46:
+#7 0.056 llt/dtypes.h:31:4: error: #error "unknown platform"
+#7 0.056    31 | #  error "unknown platform"
+#7 0.056       |    ^~~~~
+#7 0.061 llt/dtypes.h:92:4: error: #error "unknown platform"
+#7 0.061    92 | #  error "unknown platform"
+#7 0.061       |    ^~~~~
+#7 0.061 In file included from llt/llt.h:6:
+#7 0.061 llt/utils.h:27:4: error: #error "unknown architecture"
+#7 0.061    27 | #  error "unknown architecture"
+#7 0.061       |    ^~~~~
+#7 0.061 In file included from llt/llt.h:5,
+#7 0.061                  from builtins.c:17:
+#7 0.061 llt/dtypes.h:31:4: error: #error "unknown platform"
+#7 0.061    31 | #  error "unknown platform"
+#7 0.061       |    ^~~~~
+#7 0.061 llt/dtypes.h:92:4: error: #error "unknown platform"
+#7 0.061    92 | #  error "unknown platform"
+#7 0.061       |    ^~~~~
+#7 0.061 In file included from llt/llt.h:6:
+#7 0.061 llt/utils.h:27:4: error: #error "unknown architecture"
+#7 0.061    27 | #  error "unknown architecture"
+#7 0.061       |    ^~~~~
+#7 0.070 make: *** [Makefile:26: builtins.o] Error 1
+#7 0.070 make: *** Waiting for unfinished jobs....
+#7 0.130 make: *** [Makefile:26: flisp.o] Error 1
+#7 ERROR: process "/bin/sh -c make -j\"$(nproc)\"" did not complete successfully: exit code: 2
+------
+ > [linux/arm64 4/7] RUN make -j"$(nproc)":
+0.061 llt/dtypes.h:92:4: error: #error "unknown platform"
+0.061    92 | #  error "unknown platform"
+0.061       |    ^~~~~
+0.061 In file included from llt/llt.h:6:
+0.061 llt/utils.h:27:4: error: #error "unknown architecture"
+0.061    27 | #  error "unknown architecture"
+0.061       |    ^~~~~
+0.070 make: *** [Makefile:26: builtins.o] Error 1
+0.070 make: *** Waiting for unfinished jobs....
+0.130 make: *** [Makefile:26: flisp.o] Error 1
+------
+Error: unknown (2): failed to solve: process "/bin/sh -c make -j\"$(nproc)\"" did not complete successfully: exit code: 2

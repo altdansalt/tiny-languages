@@ -1,0 +1,11 @@
+{
+  "name": "tcc",
+  "outcome": "fail",
+  "build_exit": 1,
+  "build_seconds": 15,
+  "binary_bytes": 0,
+  "smoke": "",
+  "image_line": "",
+  "log": "results/tcc.log",
+  "reason": "configure --config-musl build fails compiling libtcc1/bcheck.o: 'incompatible redefinition of wchar_t' on musl. Retry on debian (glibc) base."
+}

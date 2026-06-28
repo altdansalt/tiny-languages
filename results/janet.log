@@ -1,0 +1,137 @@
+#1 [resolver] fetching image...docker.io/library/alpine:3.20
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 transferring context: 2B 0.0s done
+#2 DONE 0.0s
+
+#3 oci-layout://docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc
+#3 resolve docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc done
+#3 CACHED
+
+#4 [linux/arm64 1/7] RUN apk add --no-cache build-base git
+#4 0.045 fetch https://dl-cdn.alpinelinux.org/alpine/v3.20/main/aarch64/APKINDEX.tar.gz
+#4 0.539 fetch https://dl-cdn.alpinelinux.org/alpine/v3.20/community/aarch64/APKINDEX.tar.gz
+#4 0.914 (1/33) Installing libgcc (13.2.1_git20240309-r1)
+#4 0.958 (2/33) Installing jansson (2.14-r4)
+#4 0.998 (3/33) Installing libstdc++ (13.2.1_git20240309-r1)
+#4 1.058 (4/33) Installing zstd-libs (1.5.6-r0)
+#4 1.109 (5/33) Installing binutils (2.42-r1)
+#4 1.325 (6/33) Installing libmagic (5.45-r1)
+#4 1.476 (7/33) Installing file (5.45-r1)
+#4 1.491 (8/33) Installing libgomp (13.2.1_git20240309-r1)
+#4 1.523 (9/33) Installing libatomic (13.2.1_git20240309-r1)
+#4 1.554 (10/33) Installing gmp (6.3.0-r1)
+#4 1.598 (11/33) Installing isl26 (0.26-r1)
+#4 1.661 (12/33) Installing mpfr4 (4.2.1-r0)
+#4 1.701 (13/33) Installing mpc1 (1.3.1-r1)
+#4 1.728 (14/33) Installing gcc (13.2.1_git20240309-r1)
+#4 4.356 (15/33) Installing libstdc++-dev (13.2.1_git20240309-r1)
+#4 4.717 (16/33) Installing musl-dev (1.2.5-r3)
+#4 4.957 (17/33) Installing g++ (13.2.1_git20240309-r1)
+#4 6.154 (18/33) Installing make (4.4.1-r2)
+#4 6.193 (19/33) Installing fortify-headers (1.1-r3)
+#4 6.224 (20/33) Installing patch (2.7.6-r10)
+#4 6.261 (21/33) Installing build-base (0.5-r3)
+#4 6.313 (22/33) Installing ca-certificates (20260413-r0)
+#4 6.380 (23/33) Installing brotli-libs (1.1.0-r2)
+#4 6.421 (24/33) Installing c-ares (1.33.1-r0)
+#4 6.479 (25/33) Installing libunistring (1.2-r0)
+#4 6.549 (26/33) Installing libidn2 (2.3.7-r0)
+#4 6.614 (27/33) Installing nghttp2-libs (1.62.1-r0)
+#4 6.658 (28/33) Installing libpsl (0.21.5-r1)
+#4 6.710 (29/33) Installing libcurl (8.14.1-r2)
+#4 6.765 (30/33) Installing libexpat (2.8.1-r0)
+#4 6.813 (31/33) Installing pcre2 (10.43-r0)
+#4 6.871 (32/33) Installing git (2.45.4-r0)
+#4 7.248 (33/33) Installing git-init-template (2.45.4-r0)
+#4 7.322 Executing busybox-1.36.1-r31.trigger
+#4 7.332 Executing ca-certificates-20260413-r0.trigger
+#4 7.352 OK: 225 MiB in 47 packages
+#4 DONE 7.4s
+
+#5 [linux/arm64/v8 2/7] WORKDIR /src
+#5 DONE 0.0s
+
+#6 [linux/arm64 3/7] RUN git clone --depth 1 https://github.com/janet-lang/janet .
+#6 0.039 Cloning into '.'...
+#6 DONE 0.9s
+
+#7 [linux/arm64 4/7] RUN make -j"$(nproc)"
+#7 0.049 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/abstract.boot.o -c src/core/abstract.c
+#7 0.050 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/array.boot.o -c src/core/array.c
+#7 0.094 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/asm.boot.o -c src/core/asm.c
+#7 0.109 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/buffer.boot.o -c src/core/buffer.c
+#7 0.172 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/bytecode.boot.o -c src/core/bytecode.c
+#7 0.178 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/capi.boot.o -c src/core/capi.c
+#7 0.212 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/cfuns.boot.o -c src/core/cfuns.c
+#7 0.254 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/compile.boot.o -c src/core/compile.c
+#7 0.277 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/corelib.boot.o -c src/core/corelib.c
+#7 0.358 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/debug.boot.o -c src/core/debug.c
+#7 0.365 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/emit.boot.o -c src/core/emit.c
+#7 0.412 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/ev.boot.o -c src/core/ev.c
+#7 0.414 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/ffi.boot.o -c src/core/ffi.c
+#7 0.495 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/fiber.boot.o -c src/core/fiber.c
+#7 0.552 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/filewatch.boot.o -c src/core/filewatch.c
+#7 0.595 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/gc.boot.o -c src/core/gc.c
+#7 0.599 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/inttypes.boot.o -c src/core/inttypes.c
+#7 0.667 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/io.boot.o -c src/core/io.c
+#7 0.674 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/marsh.boot.o -c src/core/marsh.c
+#7 0.737 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/math.boot.o -c src/core/math.c
+#7 0.795 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/net.boot.o -c src/core/net.c
+#7 0.803 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/os.boot.o -c src/core/os.c
+#7 0.869 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/parse.boot.o -c src/core/parse.c
+#7 0.944 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/peg.boot.o -c src/core/peg.c
+#7 0.960 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/pp.boot.o -c src/core/pp.c
+#7 1.048 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/regalloc.boot.o -c src/core/regalloc.c
+#7 1.080 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/run.boot.o -c src/core/run.c
+#7 1.087 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/specials.boot.o -c src/core/specials.c
+#7 1.112 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/state.boot.o -c src/core/state.c
+#7 1.138 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/string.boot.o -c src/core/string.c
+#7 1.194 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/strtod.boot.o -c src/core/strtod.c
+#7 1.202 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/struct.boot.o -c src/core/struct.c
+#7 1.239 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/symcache.boot.o -c src/core/symcache.c
+#7 1.243 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/table.boot.o -c src/core/table.c
+#7 1.277 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/tuple.boot.o -c src/core/tuple.c
+#7 1.291 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/util.boot.o -c src/core/util.c
+#7 1.310 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/value.boot.o -c src/core/value.c
+#7 1.374 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/vector.boot.o -c src/core/vector.c
+#7 1.379 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/vm.boot.o -c src/core/vm.c
+#7 1.401 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/core/wrap.boot.o -c src/core/wrap.c
+#7 1.439 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/boot/array_test.boot.o -c src/boot/array_test.c
+#7 1.461 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/boot/boot.boot.o -c src/boot/boot.c
+#7 1.484 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/boot/buffer_test.boot.o -c src/boot/buffer_test.c
+#7 1.505 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/boot/number_test.boot.o -c src/boot/number_test.c
+#7 1.519 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/boot/system_test.boot.o -c src/boot/system_test.c
+#7 1.526 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/boot/table_test.boot.o -c src/boot/table_test.c
+#7 1.547 cp src/mainclient/shell.c build/c/shell.c
+#7 1.548 cc -O2 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -c build/c/shell.c -o build/shell.o
+#7 1.555 cc -DJANET_BOOTSTRAP -DJANET_BUILD="\"8dbe828\"" -O0 -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -g -o build/janet_boot build/core/abstract.boot.o build/core/array.boot.o build/core/asm.boot.o build/core/buffer.boot.o build/core/bytecode.boot.o build/core/capi.boot.o build/core/cfuns.boot.o build/core/compile.boot.o build/core/corelib.boot.o build/core/debug.boot.o build/core/emit.boot.o build/core/ev.boot.o build/core/ffi.boot.o build/core/fiber.boot.o build/core/filewatch.boot.o build/core/gc.boot.o build/core/inttypes.boot.o build/core/io.boot.o build/core/marsh.boot.o build/core/math.boot.o build/core/net.boot.o build/core/os.boot.o build/core/parse.boot.o build/core/peg.boot.o build/core/pp.boot.o build/core/regalloc.boot.o build/core/run.boot.o build/core/specials.boot.o build/core/state.boot.o build/core/string.boot.o build/core/strtod.boot.o build/core/struct.boot.o build/core/symcache.boot.o build/core/table.boot.o build/core/tuple.boot.o build/core/util.boot.o build/core/value.boot.o build/core/vector.boot.o build/core/vm.boot.o build/core/wrap.boot.o build/boot/array_test.boot.o build/boot/boot.boot.o build/boot/buffer_test.boot.o build/boot/number_test.boot.o build/boot/system_test.boot.o build/boot/table_test.boot.o -lm -lpthread -lrt -ldl
+#7 1.577 build/janet_boot . JANET_PATH '/usr/local/lib/janet' > build/c/janet.c
+#7 1.750 cksum build/c/janet.c
+#7 1.763 1703822152 3358075 build/c/janet.c
+#7 1.764 cc -O2 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -c build/c/janet.c -o build/janet.o
+#7 11.06 cc -rdynamic -O2 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/janet build/janet.o build/shell.o -lm -lpthread -lrt -ldl
+#7 11.07 ar rcs build/libjanet.a build/janet.o build/shell.o
+#7 11.07 cc -rdynamic -O2 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -Wl,-soname,libjanet.so.1.41 -shared -o build/libjanet.so build/janet.o build/shell.o -lm -lpthread -lrt -ldl
+#7 11.09 ./build/janet tools/patch-header.janet src/include/janet.h src/conf/janetconf.h build/janet.h
+#7 DONE 11.2s
+
+#8 [linux/arm64 5/7] RUN ./build/janet -e '(print "ok janet")' | tee /smoke.out     && grep -q '^ok janet' /smoke.out
+#8 0.048 ok janet
+#8 DONE 0.1s
+
+#9 [linux/arm64 6/7] RUN printf 'BINSIZE %s janet\n' "$(stat -c %s build/janet)"
+#9 0.033 BINSIZE 2310648 janet
+#9 DONE 0.0s
+
+#10 exporting to oci image format
+#10 exporting layers
+#10 exporting layers 5.4s done
+#10 exporting manifest sha256:48441abfaec06e367e987cb6eecae1952780b91e3f04f59e34fd2d1e42375b7c done
+#10 exporting config sha256:974c1cf874a5343b616885b24caa5ddf12db93cd23b0f9b4f90fc3a747961db7 done
+#10 exporting manifest list sha256:0566e3e3b449d894649ffc5f47effd9fbadb0eec302136e56def0ce5d418ab49 done
+#10 sending tarball
+#10 sending tarball 0.8s done
+#10 DONE 6.3s
+Successfully built tinylang/janet:latest

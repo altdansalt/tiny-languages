@@ -1,0 +1,11 @@
+{
+  "name": "femtolisp",
+  "outcome": "fail",
+  "build_exit": 1,
+  "build_seconds": 2,
+  "binary_bytes": 0,
+  "smoke": "",
+  "image_line": "",
+  "log": "results/femtolisp.log",
+  "reason": "Build fails on arm64/musl: llt/dtypes.h and utils.h only know __x86_64__ and __gnu_linux__; emits #error unknown platform/architecture. Candidate for amd64-emulation build."
+}

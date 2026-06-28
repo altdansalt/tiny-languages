@@ -1,0 +1,10 @@
+{
+  "name": "janet",
+  "outcome": "ok",
+  "build_exit": 0,
+  "build_seconds": 29,
+  "binary_bytes": 2310648,
+  "smoke": "ok janet ",
+  "image_line": "tinylang/janet                latest  0566e3e3b449d894649ffc5f...",
+  "log": "results/janet.log"
+}

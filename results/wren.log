@@ -1,0 +1,82 @@
+#1 [resolver] fetching image...docker.io/library/alpine:3.20
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 oci-layout://docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc
+#3 resolve docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc done
+#3 DONE 0.0s
+
+#4 [linux/arm64/v8 2/8] WORKDIR /src
+#4 CACHED
+
+#5 [linux/arm64 1/8] RUN apk add --no-cache build-base git
+#5 CACHED
+
+#6 [linux/arm64 3/8] RUN git clone --depth 1 https://github.com/wren-lang/wren .
+#6 CACHED
+
+#7 [linux/arm64 4/8] RUN sed -i 's/-m64//g; s/-m32//g' projects/make/*.make
+#7 DONE 0.0s
+
+#8 [linux/arm64 5/8] RUN make -C projects/make config=release_64bit wren_test -j"$(nproc)"
+#8 0.039 make: Entering directory '/src/projects/make'
+#8 0.040 ==== Building wren (release_64bit) ====
+#8 0.045 Creating obj/64bit/Release/wren
+#8 0.046 Creating ../../lib
+#8 0.047 wren_compiler.c
+#8 0.047 wren_core.c
+#8 0.666 wren_debug.c
+#8 0.732 wren_opt_meta.c
+#8 0.748 wren_opt_random.c
+#8 0.764 wren_primitive.c
+#8 0.790 wren_utils.c
+#8 0.821 wren_value.c
+#8 0.880 wren_vm.c
+#8 1.234 Linking wren
+#8 1.237 ==== Building wren_test (release_64bit) ====
+#8 1.245 Creating obj/64bit/Release/wren_test
+#8 1.246 Creating ../../bin
+#8 1.247 api_tests.c
+#8 1.247 benchmark.c
+#8 1.274 call.c
+#8 1.280 call_calls_foreign.c
+#8 1.306 call_wren_call_root.c
+#8 1.310 error.c
+#8 1.324 foreign_class.c
+#8 1.327 get_variable.c
+#8 1.355 handle.c
+#8 1.367 lists.c
+#8 1.374 main.c
+#8 1.394 maps.c
+#8 1.395 new_vm.c
+#8 1.423 reset_stack_after_call_abort.c
+#8 1.433 reset_stack_after_foreign_construct.c
+#8 1.442 resolution.c
+#8 1.457 slots.c
+#8 1.486 test.c
+#8 1.510 user_data.c
+#8 1.582 Linking wren_test
+#8 1.592 make: Leaving directory '/src/projects/make'
+#8 DONE 1.6s
+
+#9 [linux/arm64 6/8] RUN printf 'System.print("ok-wren")\n' > /smoke.wren     && ./bin/wren_test /smoke.wren | tee /smoke.out     && grep -q '^ok-wren' /smoke.out
+#9 0.044 ok-wren
+#9 DONE 0.0s
+
+#10 [linux/arm64 7/8] RUN printf 'BINSIZE %s wren_test\n' "$(stat -c %s bin/wren_test)"
+#10 0.038 BINSIZE 201000 wren_test
+#10 DONE 0.0s
+
+#11 exporting to oci image format
+#11 exporting layers
+#11 exporting layers 0.3s done
+#11 exporting manifest sha256:1569dc5195c24d9ac50e0286fd027fab6d1752591e8eb208360d2fbfa531b5a6 done
+#11 exporting config sha256:0fe8e2385a71bff4b1d81fcbfd77887073df6b4bbbfdf76c0323cd0be6497ee8 done
+#11 exporting manifest list sha256:0fc73784d40b2cf3d000d1787cd22a1a801564be65e732cc882fbaafe3517440 done
+#11 sending tarball
+#11 sending tarball 1.0s done
+#11 DONE 1.3s
+Successfully built tinylang/wren:latest
