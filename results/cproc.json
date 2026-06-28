@@ -1,11 +1,10 @@
 {
   "name": "cproc",
-  "outcome": "fail",
-  "build_exit": 1,
-  "build_seconds": 4,
-  "binary_bytes": 0,
-  "smoke": "",
-  "image_line": "",
-  "log": "results/cproc.log",
-  "reason": "Builds cproc+QBE, but qbe rejects IR keyword 'extern' that cproc emits (cproc/qbe version skew). Needs pinned matching commits."
+  "outcome": "ok",
+  "build_exit": 0,
+  "build_seconds": 12,
+  "binary_bytes": 87728,
+  "smoke": "ok-cproc ",
+  "image_line": "tinylang/cproc                latest         8d977fe527364f270044d4fa...",
+  "log": "results/cproc.log"
 }

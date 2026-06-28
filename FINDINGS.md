@@ -14,7 +14,7 @@ Running log of build/test outcomes. Machine-readable results live in `results/*.
 | brainfuck | ok | 5 | 73 KB | Hello World! |
 | chibi-scheme | ok | 16 | 234 KB | ok-chibi |
 | clox | ok | 6 | 74 KB | 3 |
-| cproc | fail | 4 | — |  |
+| cproc | ok | 12 | 86 KB | ok-cproc |
 | fe | ok | 3 | 74 KB | ok-fe |
 | femtolisp | ok | 23 | 203 KB | ok-femto |
 | goawk | ok | 16 | 3.9 MB | ok-goawk |
@@ -63,10 +63,16 @@ Running log of build/test outcomes. Machine-readable results live in `results/*.
   file = `amd64`). Also build the `release` target (default also runs the test
   suite, which exits 127 here). 203 KB. A native arm64/musl port would need
   header patches.
-- **cproc** ❌ (deferred) — builds cproc + QBE, but `qbe` rejects IR keyword
-  `extern` that the cproc frontend emits → cproc/qbe version skew. Need matching
-  pinned commits. (Also found: the `8l/qbe` mirror has a `$define` typo on its
-  aarch64 Makefile branch; `michaelforney/qbe` fixes that but the skew remains.)
+- **cproc** ✅ (rescued) — a complete tiny C toolchain: cproc (C11 frontend) →
+  **QBE** (SSA backend) → binutils `as`/`ld` → ELF. The skew: cproc HEAD's latest
+  commit is *"qbe: Use extern for globals with external linkage"* — it emits the
+  brand-new QBE `extern` IR keyword. The `8l/qbe` and `michaelforney/qbe` GitHub
+  mirrors lag and don't parse it (and `8l/qbe` has a `$define` aarch64 Makefile
+  typo). Fix: build QBE from **`omenos/mirror-qbe`** (tracks upstream `c9x.me`,
+  has `extern`, correct aarch64 Makefile). Newer QBE links to `./qbe` (repo root),
+  not `obj/qbe`; cproc's driver spawns `cproc-qbe` next to itself, so install both.
+  390 KB frontend. (Upstream `c9x.me/git/qbe.git` itself wouldn't clone — dumb-HTTP
+  shallow unsupported and a broken pack — hence the GitHub mirror.)
 
 #### Batch 3 — 13 more verified (20 green total)
 - ✅ **clox** (`make clox`), **fe** (`-DFE_STANDALONE`, single file), **picol**

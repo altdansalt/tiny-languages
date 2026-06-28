@@ -9,7 +9,7 @@ janet	https://github.com/janet-lang/janet	C	interpreter	make,meson	lisp,embeddab
 fe	https://github.com/rxi/fe	C	interpreter	cc	lisp,minimal	ok	~800 LOC Lisp by rxi
 tcc	https://repo.or.cz/tinycc.git	C	compiler	configure	c-compiler,fast	ok	Tiny C Compiler
 chibicc	https://github.com/rui314/chibicc	C	compiler	make	c-compiler,teaching	untried	Small C compiler by Rui Ueyama
-cproc	https://github.com/michaelforney/cproc	C	compiler	configure	c-compiler,qbe	fail	C11 compiler on QBE backend
+cproc	https://github.com/michaelforney/cproc	C	compiler	configure	c-compiler,qbe	ok	C11 compiler on QBE backend
 qbe	https://c9x.me/git/qbe.git	C	compiler	make	backend,ssa	untried	Compiler backend (used by cproc)
 lox-clox	https://github.com/munificent/craftinginterpreters	C	interpreter	make	teaching,bytecode	untried	clox bytecode VM from the book
 wasm3	https://github.com/wasm3/wasm3	C	interpreter	cmake	wasm,vm	ok	Fast WASM interpreter
