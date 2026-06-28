@@ -2,9 +2,9 @@
   "name": "stage0-posix",
   "outcome": "ok",
   "build_exit": 0,
-  "build_seconds": 6,
+  "build_seconds": 3,
   "binary_bytes": 526,
   "smoke": "M2-Planet v1.13.1 ",
-  "image_line": "tinylang/stage0-posix         latest         d7bd9ed1bf92b479fd8d981c...",
+  "image_line": "tinylang/stage0-posix         latest         09d02e358bddb96cd2017bdb...",
   "log": "results/stage0-posix.log"
 }

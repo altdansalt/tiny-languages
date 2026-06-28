@@ -20,6 +20,17 @@ RUN test -x AArch64/bin/M2-Planet && test -x AArch64/bin/M1 && test -x AArch64/b
 # proof 2: reproducibility — the bootstrapped binaries match the committed sums
 RUN sha256sum -c aarch64.answers | tee /smoke.out \
     && grep -q 'AArch64/bin/M2-Planet: OK' /smoke.out
+# proof 3 (the unbroken chain): the SEED-BUILT compiler compiles a C program to a
+# runnable ELF, using only seed-bootstrapped tools (M2-Planet -> M1 -> hex2).
+# 526 bytes of trust  =>  C compiler  =>  a working compiled binary.
+RUN printf 'int main() { return 42; }\n' > /return.c \
+    && AArch64/bin/M2-Planet --architecture aarch64 -f /return.c -o /return.M1 \
+    && AArch64/bin/M1 -f M2libc/aarch64/aarch64_defs.M1 -f M2libc/aarch64/libc-core.M1 \
+        -f /return.M1 --little-endian --architecture aarch64 -o /return.hex2 \
+    && AArch64/bin/hex2 -f M2libc/aarch64/ELF-aarch64.hex2 -f /return.hex2 \
+        --little-endian --architecture aarch64 --base-address 0x00400000 -o /return.elf \
+    && { /return.elf; [ $? -eq 42 ]; } \
+    && echo "the seed-built compiler produced a working binary (returned 42)"
 # the root of trust: how few bytes we had to trust to get here
 RUN printf 'BINSIZE %s hex0-seed\n' \
     "$(stat -c %s bootstrap-seeds/POSIX/AArch64/hex0-seed)"

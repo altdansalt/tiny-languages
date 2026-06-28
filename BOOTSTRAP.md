@@ -129,14 +129,20 @@ remaining gap below.
   program. ~8 min, 7.7 MB driver. The heavyweight seed of the whole stack.
   (Needed a 24 GB *builder* — `cc1plus` on `gimple-match-*.o` OOMs at the 2 GB
   default; see DECISIONS.)
-- **stage0-posix** ✅ (the floor — seed → C compiler) — the striking one. From a
-  **526-byte** hand-auditable seed binary (`hex0-seed`) and **no host C compiler**
-  (deps: just `bash` + coreutils + git), `kaem.aarch64` bootstraps the M1 assembler,
-  hex2 linker, **M2-Planet** (a C-subset compiler), *and* a set of POSIX coreutils.
-  We verify the bootstrapped binaries against the repo's committed reproducibility
-  checksums (`aarch64.answers` → `M2-Planet: OK`) and run the result (`M2-Planet
-  v1.13.1`). Native aarch64, no emulation. This is the bottom of the stack made
-  concrete: **526 bytes of trust ⇒ a working C compiler.**
+- **stage0-posix** ✅ (the floor — seed → C compiler → a compiled program). The
+  striking one. From a **526-byte** hand-auditable seed binary (`hex0-seed`) and
+  **no host C compiler** (deps: just `bash` + coreutils + git), `kaem.aarch64`
+  bootstraps the M1 assembler, hex2 linker, **M2-Planet** (a C-subset compiler),
+  *and* a set of POSIX coreutils. We then:
+  1. verify the bootstrapped binaries against the repo's committed reproducibility
+     checksums (`aarch64.answers` → `M2-Planet: OK`),
+  2. run the bootstrapped compiler (`M2-Planet v1.13.1`), and
+  3. **close the chain**: use the seed-built `M2-Planet → M1 → hex2` to compile a C
+     program (`int main(){return 42;}`) into a runnable aarch64 ELF that exits 42.
+
+  Native aarch64, no emulation. This is the bottom of the stack made concrete and
+  *unbroken*: **526 bytes of trust ⇒ a C compiler ⇒ a working compiled binary**,
+  with nothing pre-existing but a shell.
 
 ### The chain, end to end (all verified here)
 
@@ -150,9 +156,32 @@ remaining gap below.
    tcc ⇒ lua, and the other 29 languages   [recipes/]
 ```
 The one gap left in a *pure* chain: stage0's M2-Planet is a C **subset** compiler;
-reaching full GCC from it goes through GNU Mes → tcc → gcc (the live-bootstrap
-path). Each *link* here is verified; stitching M2-Planet⇒mes⇒tcc⇒gcc into one
-unbroken run is the remaining stretch.
+reaching full GCC from it goes through GNU Mes → tcc → gcc. Each *link* here is
+verified independently (seed⇒M2-Planet⇒program; tcc⇒tcc; gcc-from-source). What's
+*not* done is stitching `M2-Planet ⇒ mes ⇒ tcc ⇒ gcc` into one unbroken run.
+
+### Why the full seed⇒GCC run isn't done on this host (and how to)
+
+The canonical one-run implementation is **`fosslinux/live-bootstrap`**. Two hard
+blockers on *this* machine, both verified, not assumed:
+
+1. **It's x86/i386-only.** Its `rootfs.py` refuses anything but `--arch x86`
+   ("Only x86 is supported at the moment"); the seed binaries are 32-bit x86 hex0.
+2. **This host can't execute 32-bit x86.** The host is arm64; the amd64 path is
+   Rosetta, and **Rosetta does not run 32-bit x86** — confirmed directly:
+   `gcc -m32 hello.c` in an `--arch amd64` container builds, but the i386 binary
+   fails to exec (`/t32: not found` = bad interpreter/format). So the 32-bit seed
+   can't even start here.
+
+   Plus: reaching gcc-4.0.4 in live-bootstrap is **~80 sequential packages,
+   ~12–24 h, 15–20 GB** even on native x86.
+
+To actually run seed⇒GCC unbroken, use live-bootstrap on a **native x86-64 Linux
+host** (or a VM that supports 32-bit x86), `python3 rootfs.py --chroot --arch x86`,
+with `steps/manifest` truncated after the `gcc-4.0.4` step and a pre-seeded sources
+mirror (`./mirror.sh`). That's the reproducible path; it's just not this ARM/Rosetta
+box. The native-aarch64 chain above (seed ⇒ M2-Planet ⇒ compiled program) is the
+unbroken portion this host *can* prove end-to-end.
 
 ## Open frontiers (closing the bottom of the stack)
 

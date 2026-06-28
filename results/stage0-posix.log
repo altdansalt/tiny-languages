@@ -2,62 +2,45 @@
 #1 DONE 0.0s
 
 #2 [internal] load .dockerignore
-#2 transferring context: 2B done
+#2 transferring context: 2B 0.0s done
 #2 DONE 0.0s
 
 #3 oci-layout://docker.io/library/debian:bookworm-slim@sha256:60eac759739651111db372c07be67863818726f754804b8707c90979bda511df
 #3 resolve docker.io/library/debian:bookworm-slim@sha256:60eac759739651111db372c07be67863818726f754804b8707c90979bda511df done
 #3 DONE 0.0s
 
-#4 [linux/arm64/v8 2/8] WORKDIR /src
+#4 [linux/arm64 1/9] RUN apt-get update && apt-get install -y --no-install-recommends         git ca-certificates bash     && rm -rf /var/lib/apt/lists/*
 #4 CACHED
 
-#5 [linux/arm64 3/8] RUN git clone --depth 1 --recursive https://github.com/oriansj/stage0-posix .
+#5 [linux/arm64 3/9] RUN git clone --depth 1 --recursive https://github.com/oriansj/stage0-posix .
 #5 CACHED
 
-#6 [linux/arm64 1/8] RUN apt-get update && apt-get install -y --no-install-recommends         git ca-certificates bash     && rm -rf /var/lib/apt/lists/*
+#6 [linux/arm64/v8 2/9] WORKDIR /src
 #6 CACHED
 
-#7 [linux/arm64 4/8] RUN bash kaem.aarch64
+#7 [linux/arm64 4/9] RUN bash kaem.aarch64
 #7 CACHED
 
-#8 [linux/arm64 5/8] RUN test -x AArch64/bin/M2-Planet && test -x AArch64/bin/M1 && test -x AArch64/bin/hex2     && head -c4 AArch64/bin/M2-Planet | grep -qa 'ELF'     && echo "bootstrapped M2-Planet is an ELF executable"
-#8 0.039 bootstrapped M2-Planet is an ELF executable
-#8 DONE 0.0s
+#8 [linux/arm64 5/9] RUN test -x AArch64/bin/M2-Planet && test -x AArch64/bin/M1 && test -x AArch64/bin/hex2     && head -c4 AArch64/bin/M2-Planet | grep -qa 'ELF'     && echo "bootstrapped M2-Planet is an ELF executable"
+#8 CACHED
 
-#9 [linux/arm64 6/8] RUN sha256sum -c aarch64.answers | tee /smoke.out     && grep -q 'AArch64/bin/M2-Planet: OK' /smoke.out
-#9 0.045 AArch64/bin/blood-elf: OK
-#9 0.045 AArch64/bin/catm: OK
-#9 0.045 AArch64/bin/chmod: OK
-#9 0.046 AArch64/bin/cp: OK
-#9 0.046 AArch64/bin/get_machine: OK
-#9 0.047 AArch64/bin/hex2: OK
-#9 0.047 AArch64/bin/kaem: OK
-#9 0.048 AArch64/bin/M1: OK
-#9 0.049 AArch64/bin/M2-Mesoplanet: OK
-#9 0.052 AArch64/bin/M2-Planet: OK
-#9 0.052 AArch64/bin/match: OK
-#9 0.052 AArch64/bin/mkdir: OK
-#9 0.053 AArch64/bin/replace: OK
-#9 0.053 AArch64/bin/rm: OK
-#9 0.054 AArch64/bin/sha256sum: OK
-#9 0.054 AArch64/bin/ungz: OK
-#9 0.055 AArch64/bin/unbz2: OK
-#9 0.056 AArch64/bin/unxz: OK
-#9 0.056 AArch64/bin/untar: OK
-#9 DONE 0.1s
+#9 [linux/arm64 6/9] RUN sha256sum -c aarch64.answers | tee /smoke.out     && grep -q 'AArch64/bin/M2-Planet: OK' /smoke.out
+#9 CACHED
 
-#10 [linux/arm64 7/8] RUN printf 'BINSIZE %s hex0-seed\n'     "$(stat -c %s bootstrap-seeds/POSIX/AArch64/hex0-seed)"
-#10 0.036 BINSIZE 526 hex0-seed
-#10 DONE 0.0s
+#10 [linux/arm64 7/9] RUN printf 'int main() { return 42; }\n' > /return.c     && AArch64/bin/M2-Planet --architecture aarch64 -f /return.c -o /return.M1     && AArch64/bin/M1 -f M2libc/aarch64/aarch64_defs.M1 -f M2libc/aarch64/libc-core.M1         -f /return.M1 --little-endian --architecture aarch64 -o /return.hex2     && AArch64/bin/hex2 -f M2libc/aarch64/ELF-aarch64.hex2 -f /return.hex2         --little-endian --architecture aarch64 --base-address 0x00400000 -o /return.elf     && { /return.elf; [ $? -eq 42 ]; }     && echo "the seed-built compiler produced a working binary (returned 42)"
+#10 0.058 the seed-built compiler produced a working binary (returned 42)
+#10 DONE 0.1s
 
-#11 exporting to oci image format
-#11 exporting layers
-#11 exporting layers 2.4s done
-#11 exporting manifest sha256:ef619045d2323a95987e27a76a09155647fc980657e182efcba3541866b217dc done
-#11 exporting config sha256:abd68ce0ea797b30c8b4759e16d541ab49aca303442f36ba0d868741ac842263 done
-#11 exporting manifest list sha256:d7bd9ed1bf92b479fd8d981ceca0871ff7aeb48fba9e396ec721bcb92c907290 done
-#11 sending tarball
-#11 sending tarball 0.5s done
-#11 DONE 2.9s
+#11 [linux/arm64 8/9] RUN printf 'BINSIZE %s hex0-seed\n'     "$(stat -c %s bootstrap-seeds/POSIX/AArch64/hex0-seed)"
+#11 0.045 BINSIZE 526 hex0-seed
+#11 DONE 0.0s
+
+#12 exporting to oci image format
+#12 exporting layers 0.0s done
+#12 exporting manifest sha256:f8fa8c88007eb6b65f6505b11cb092c9543d9862e412fc42593e253fa6324f60 done
+#12 exporting config sha256:c04a3c182942becd0b6c6ac9a3997542783073feef32561c0f666fedf9785813 done
+#12 exporting manifest list sha256:09d02e358bddb96cd2017bdb96ace95aa696728f28cedb0892099b89f21d2e2d done
+#12 sending tarball
+#12 sending tarball 0.4s done
+#12 DONE 0.5s
 Successfully built tinylang/stage0-posix:latest
