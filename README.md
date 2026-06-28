@@ -65,8 +65,10 @@ host compiler), `scratch-aarch64` (the same in a 0-byte `FROM scratch` image),
 tcc), `tcc-builds-lua` (tcc ⇒ lua), `cproc-selfhost` (cproc rebuilt by cproc),
 `ocaml-selfhost` (OCaml reproduces its own bytecode seed to a fixpoint),
 `kernel-aarch64` (Linux 6.6.52 from source, booted under qemu to userspace), and
-`sectorforth` (a Forth in a 512-byte boot sector, booted under qemu). All build +
-smoke-test in a container.
+`sectorforth` (a Forth in a 512-byte boot sector, booted under qemu), and
+`mescc-aarch64` (a **new aarch64 backend for GNU Mes's MesCC** — compiles
+`int main(){return 42;}` to a native aarch64 ELF that runs; the first step of a
+native-arm64 path past M2-Planet). All build + smoke-test in a container.
 
 `PATHS.md` is the ranked menu of bootstrapping paths — distinct families (reduced-
 binary seeds, self-hosting languages, sector-sized seeds, whole-system emulators,

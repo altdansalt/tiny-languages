@@ -1,0 +1,84 @@
+#1 [resolver] fetching image...docker.io/library/debian:bookworm-slim
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 oci-layout://docker.io/library/debian:bookworm-slim@sha256:60eac759739651111db372c07be67863818726f754804b8707c90979bda511df
+#3 resolve docker.io/library/debian:bookworm-slim@sha256:60eac759739651111db372c07be67863818726f754804b8707c90979bda511df done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 transferring context: 5.79kB 0.0s done
+#4 DONE 0.0s
+
+#5 [linux/arm64  6/21] RUN git clone --depth 1 https://git.savannah.nongnu.org/git/nyacc.git /opt/nyacc
+#5 CACHED
+
+#6 [linux/arm64/v8  2/21] WORKDIR /b
+#6 CACHED
+
+#7 [linux/arm64 16/21] RUN cd /b/mes && ( guile -L module -L /opt/nyacc/module -L . /b/drive.scm --arch=aarch64 -S /b/main.c -o /b/main.s 2>&1 | tee /b/compile.log );     echo "================ emitted main.s ================"; cat /b/main.s 2>/dev/null || echo "(no main.s produced)"
+#7 CACHED
+
+#8 [linux/arm64/v8 11/21] COPY overlay/patch.sed /patch.sed
+#8 CACHED
+
+#9 [linux/arm64/v8  9/21] COPY overlay/as.scm   mes/module/mescc/aarch64/as.scm
+#9 CACHED
+
+#10 [linux/arm64  7/21] RUN mkdir -p mes/module/mescc/aarch64
+#10 CACHED
+
+#11 [linux/arm64  1/21] RUN apt-get update && apt-get install -y --no-install-recommends         git ca-certificates build-essential guile-3.0     && rm -rf /var/lib/apt/lists/*
+#11 CACHED
+
+#12 [linux/arm64  4/21] RUN git clone --depth 1 --recursive https://github.com/oriansj/mescc-tools mt     && make -C mt ;     for x in M1 hex2; do f="$(find mt -type f -name "$x" -perm -u+x | head -1)"; cp "$f" /usr/local/bin/; done     && command -v M1 && command -v hex2
+#12 CACHED
+
+#13 [linux/arm64 13/21] RUN cd mes && sed -i -f /patch.sed module/mescc/mescc.scm     && grep -q 'aarch64-info' module/mescc/mescc.scm && echo "mescc.scm patched"
+#13 CACHED
+
+#14 [linux/arm64  5/21] RUN git clone --depth 1 --recursive https://github.com/oriansj/stage0-posix s0
+#14 CACHED
+
+#15 [linux/arm64 14/21] RUN printf 'int main () { return 42; }\n' > /b/main.c
+#15 CACHED
+
+#16 [linux/arm64/v8 10/21] COPY overlay/crt1.M1  /b/crt1.M1
+#16 CACHED
+
+#17 [linux/arm64 12/21] RUN sed 's/^f3 00 /b7 00 /' mes/lib/linux/riscv64-mes/elf64-header.hex2 > /b/header.hex2     && grep -q '^b7 00 ' /b/header.hex2     && cp mes/lib/linux/riscv64-mes/elf64-footer-single-main.hex2 /b/footer.hex2
+#17 CACHED
+
+#18 [linux/arm64/v8  8/21] COPY overlay/info.scm mes/module/mescc/aarch64/info.scm
+#18 CACHED
+
+#19 [linux/arm64 17/21] RUN M1 --architecture aarch64 --little-endian         -f "/b/s0/M2libc/aarch64/aarch64_defs.M1" -f /b/crt1.M1 -f /b/main.s -o /b/code.hex2     && echo "M1 assembled crt1 + MesCC output"
+#19 CACHED
+
+#20 [linux/arm64  3/21] RUN git clone --depth 1 https://git.savannah.gnu.org/git/mes.git mes
+#20 CACHED
+
+#21 [linux/arm64 19/21] RUN /b/main.elf; rc=$?; echo "main.elf exit code = $rc"; [ "$rc" -eq 42 ]     && echo "SUCCESS: MesCC-aarch64 compiled and ran int main(){return 42;}"
+#21 CACHED
+
+#22 [linux/arm64 15/21] RUN printf '(use-modules (mescc))\n(mescc:main (command-line))\n' > /b/drive.scm
+#22 CACHED
+
+#23 [linux/arm64 18/21] RUN hex2 --architecture aarch64 --little-endian --base-address 0x00400000         -f /b/header.hex2 -f /b/code.hex2 -f /b/footer.hex2 -o /b/main.elf     && chmod +x /b/main.elf     && head -c4 /b/main.elf | grep -qa ELF && echo "linked a valid aarch64 ELF"
+#23 CACHED
+
+#24 [linux/arm64 20/21] RUN printf 'BINSIZE %s main.elf\n' "$(stat -c %s /b/main.elf)"
+#24 CACHED
+
+#25 exporting to oci image format
+#25 exporting layers done
+#25 exporting manifest sha256:bd8af5577b91e8b6ce327d4fdc430e24bf484335b140768aab45a070a9dafbd5 done
+#25 exporting config sha256:c504e4909e8bc18ab609e6c298832a7ed0e13307b2353d6f72c840033b13386b done
+#25 exporting manifest list sha256:f633b8385fe843fe8c09d00e2d54c796f8256ec7d5ea2524e0a706e4cffd3e56 done
+#25 sending tarball
+#25 sending tarball 1.1s done
+#25 DONE 1.1s
+Successfully built tinylang/mescc-aarch64:latest

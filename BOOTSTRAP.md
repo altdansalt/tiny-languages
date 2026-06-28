@@ -150,6 +150,19 @@ remaining gap below.
   cproc itself*. The cproc-built cproc then compiles+runs a program
   (`cproc-selfhost-ok`). Native arm64; a 76 KB driver. The cleanest small "real"
   compiler architecture in the repo, shown closing its own self-host loop.
+- **mescc-aarch64** ✅ (Milestone 1 — closing the native-arm64 gap below M2-Planet).
+  A brand-new **aarch64 code-generator backend for GNU Mes's MesCC** — the rung the
+  bootstrappable ecosystem is missing (MesCC ships only armv4/riscv64/x86_64, which is
+  *why* the native chain stalls at M2-Planet). It **compiles `int main(){return 42;}`
+  to a 940-byte native aarch64 ELF that runs and exits 42**, natively on this host.
+  Two new Scheme files (`module/mescc/aarch64/{info,as}.scm`) + a 3-line `mescc.scm`
+  patch + a tiny crt; it composes M2libc's already-tested aarch64 instruction macros
+  (so no new encodings) and links through the proven stage0/M2libc M1+hex2+ELF stack.
+  This is a *proof of concept*, not a self-hosting MesCC — see
+  `bootstrap/mescc-aarch64/README.md` for exactly what's done (a running program) and
+  what remains (~100 more codegen ops + a real libc to reach tcc). But it answers the
+  open question definitively: **a native-aarch64 path past M2-Planet is possible**, and
+  here is a running binary that walks the first step of it.
 - **cproc-capabilities** ✅ (what cproc can actually compile — an evidence gate). An
   expectation-encoded matrix: cproc handles near-complete C11 — `_Generic`,
   `_Static_assert`, compound literals/designated inits, varargs, VLAs, bitfields,

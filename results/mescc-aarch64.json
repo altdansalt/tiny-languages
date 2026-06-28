@@ -1,0 +1,10 @@
+{
+  "name": "mescc-aarch64",
+  "outcome": "ok",
+  "build_exit": 0,
+  "build_seconds": 2,
+  "binary_bytes": 0,
+  "smoke": "MesCC-aarch64 built main.elf; it returned 42 ",
+  "image_line": "tinylang/mescc-aarch64        latest         f633b8385fe843fe8c09d00e...",
+  "log": "results/mescc-aarch64.log"
+}

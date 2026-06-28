@@ -38,6 +38,7 @@ here** (needs 32-bit native, or a binary-only seed we won't trust).
 | 6 | **SectorFORTH under qemu** | sector-sized seed | a Forth from a 512-byte boot sector, booted | 512-byte hand-written x86 asm | qemu-i386-in-container | ✅ verified |
 | 7 | **GCC from source (self-contained)** | the heavyweight compiler | GCC 14.2 with gmp/mpfr/mpc/binutils *also* from source | a seed C compiler | native-arm64 | ◑ partial (apt prereqs) |
 | 8 | **M2-Planet → GNU Mes → tcc** | reduced-binary seed (cont.) | a *real* C compiler from the seed chain | the seed chain | amd64-via-Rosetta only | ◑ mes builds; chain unstitched |
+| 8b | **A native aarch64 MesCC backend** | reduced-binary seed (the missing rung) | MesCC compiling C natively on aarch64 → the bridge to tcc/gcc | the seed chain | native-arm64 | 🔨 Milestone 1 done (compiles+runs a program) |
 | 9 | **Project Oberon (RISC emulator)** | whole self-hosting system | Wirth's compiler+OS, self-recompiling | ~3 KB C emulator + disk image | qemu-less (native C emu) but needs GUI/headless | ○ proposed |
 | 10 | **SectorLISP under qemu** | sector-sized seed | a LISP REPL from a 512-byte boot sector | 512-byte hand-written x86 asm | qemu-i386-in-container | ○ proposed |
 | 11 | **Go / Rust / GHC / FPC self-host** | self-hosting language | their modern compilers | a *prior binary* of themselves | native-arm64 but **needs a binary seed** | ✗ rejected (see below) |
