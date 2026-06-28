@@ -1,10 +1,10 @@
 {
   "name": "gcc-from-source",
-  "outcome": "fail",
-  "build_exit": 133,
-  "build_seconds": 56,
-  "binary_bytes": 0,
-  "smoke": "",
-  "image_line": "",
+  "outcome": "ok",
+  "build_exit": 0,
+  "build_seconds": 498,
+  "binary_bytes": 7740784,
+  "smoke": "gcc (GCC) 14.2.0 Copyright (C) 2024 Free Software Foundation, Inc. This is free software; see the source for copying conditions.  There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  ",
+  "image_line": "tinylang/gcc-from-source      latest         4e3601a4c2f009979a88d88b...",
   "log": "results/gcc-from-source.log"
 }

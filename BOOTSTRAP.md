@@ -123,11 +123,36 @@ remaining gap below.
   wrapper on a non-musl host (the wrapper's job is to redirect a glibc gcc to musl).
   The from-source musl installs its loader to `/lib/ld-musl-aarch64.so.1`, which is
   what the test binary runs against. Turns Tier 3 from *consumed* to *verified*.
-- **gcc-from-source** ⏳ (Tier 2 — the C compiler) — building GCC 14.2 from the
+- **gcc-from-source** ✅ (Tier 2 — the C compiler) — GCC **14.2.0** built from the
   GNU release tarball, single-stage (`--disable-bootstrap`), C-only, no multilib;
-  prerequisites (gmp/mpfr/mpc) from apt. Then the freshly built `gcc` compiles+runs
-  a program. The heavyweight seed of the whole stack. *(In progress — see
-  `results/gcc-from-source.json` once it lands.)*
+  prerequisites (gmp/mpfr/mpc) from apt. The freshly built `gcc` compiles+runs a
+  program. ~8 min, 7.7 MB driver. The heavyweight seed of the whole stack.
+  (Needed a 24 GB *builder* — `cc1plus` on `gimple-match-*.o` OOMs at the 2 GB
+  default; see DECISIONS.)
+- **stage0-posix** ✅ (the floor — seed → C compiler) — the striking one. From a
+  **526-byte** hand-auditable seed binary (`hex0-seed`) and **no host C compiler**
+  (deps: just `bash` + coreutils + git), `kaem.aarch64` bootstraps the M1 assembler,
+  hex2 linker, **M2-Planet** (a C-subset compiler), *and* a set of POSIX coreutils.
+  We verify the bootstrapped binaries against the repo's committed reproducibility
+  checksums (`aarch64.answers` → `M2-Planet: OK`) and run the result (`M2-Planet
+  v1.13.1`). Native aarch64, no emulation. This is the bottom of the stack made
+  concrete: **526 bytes of trust ⇒ a working C compiler.**
+
+### The chain, end to end (all verified here)
+
+```
+526-byte seed ⇒ M2-Planet (C compiler)          [stage0-posix]
+   … from a C compiler you can build …
+   tcc            [bootstrap edge: gcc⇒tcc, and tcc⇒tcc self-host]
+   gcc 14.2       [gcc-from-source]
+   musl libc      [musl-from-source]
+   … and from {C compiler + libc} the whole catalog …
+   tcc ⇒ lua, and the other 29 languages   [recipes/]
+```
+The one gap left in a *pure* chain: stage0's M2-Planet is a C **subset** compiler;
+reaching full GCC from it goes through GNU Mes → tcc → gcc (the live-bootstrap
+path). Each *link* here is verified; stitching M2-Planet⇒mes⇒tcc⇒gcc into one
+unbroken run is the remaining stretch.
 
 ## Open frontiers (closing the bottom of the stack)
 
@@ -135,21 +160,18 @@ The repo proves the *upper* layers; the genuinely hard, interesting part is the
 floor. Concrete next probes, each a candidate recipe/experiment:
 
 1. ~~**Build musl from source**~~ ✅ done (`bootstrap/musl-from-source`).
-2. **Build GCC from source** ⏳ in progress (`bootstrap/gcc-from-source`, C-only
-   single-stage). Next: build its gmp/mpfr/mpc prerequisites from source too, and
-   a from-source binutils, to remove the apt-provided pieces.
-3. **The real seed chain** — wire up the existing "bootstrap the world" projects as
-   verified recipes:
-   - **stage0** (`oriansj/stage0`) — hex0 → hex1 → … a few hundred bytes of seed.
-   - **M2-Planet** + **mescc / GNU Mes** — a minimal C compiler reachable from the
-     stage0 seed; Mes can build a tinycc that can build GCC.
-   - **live-bootstrap** (`fosslinux/live-bootstrap`) — the full documented path from
-     a ~357-byte seed to a working GCC/userland. This is the canonical map for the
-     exact thing this section is about.
-4. **Build a Linux kernel** in-container with the host GCC (Tier 0→userland),
-   then probe how minimal a config + toolchain it tolerates.
-5. **tcc self-host + tccboot** — verify tcc compiling tcc, and (stretch) tcc
-   building a small kernel, to measure how far the *tiny* compilers reach down.
+2. ~~**Build GCC from source**~~ ✅ done (`bootstrap/gcc-from-source`, C-only
+   single-stage). Next: build its gmp/mpfr/mpc prerequisites + binutils from source
+   too, to remove the apt-provided pieces.
+3. ~~**The real seed chain**~~ ✅ started — `bootstrap/stage0-posix` bootstraps
+   M2-Planet from a 526-byte seed. Remaining: continue the chain **M2-Planet → GNU
+   Mes → tcc → gcc** as one run (the `live-bootstrap` path,
+   `fosslinux/live-bootstrap`), so the from-526-bytes line reaches full GCC unbroken.
+4. ~~**tcc self-host**~~ ✅ done (`bootstrap/tcc-selfhost`). Stretch: `tccboot`
+   (tcc building a small Linux).
+5. **Build a Linux kernel** in-container with the from-source GCC (Tier 0→userland),
+   then probe how minimal a config + toolchain it tolerates. *(The one thing the
+   tiny compilers can't do — keeps GCC on the critical path.)*
 
 ---
 
