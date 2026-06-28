@@ -36,15 +36,20 @@ build_one() {
     archrun="--arch $arch"
   fi
 
-  # optional per-recipe build resources (heavyweight builds like gcc)
-  local resflags=""
-  [[ -f "$dir/cpus" ]]   && resflags+=" --cpus $(tr -d '[:space:]' < "$dir/cpus")"
-  [[ -f "$dir/memory" ]] && resflags+=" --memory $(tr -d '[:space:]' < "$dir/memory")"
+  # Heavyweight builds (e.g. gcc) need a bigger BUILDER, not bigger build flags:
+  # `container build --cpus/--memory` is a no-op against the persistent builder.
+  # A recipe declares its needs via cpus/memory files; size the shared builder
+  # once per session with e.g.:  container builder start --cpus 8 --memory 24G
+  if [[ -f "$dir/memory" ]]; then
+    echo "  note: $name wants a $(tr -d '[:space:]' < "$dir/memory") builder" \
+         "(container builder start --cpus $(cat "$dir/cpus" 2>/dev/null || echo 8)" \
+         "--memory $(tr -d '[:space:]' < "$dir/memory"))"
+  fi
 
   echo "BUILD $name ${arch:+[$arch]}..."
   local start end status size smoke
   start=$(date +%s)
-  container build $archflag $resflags -t "$tag" -f "$dir/Dockerfile" "$dir" >"$log" 2>&1
+  container build $archflag -t "$tag" -f "$dir/Dockerfile" "$dir" >"$log" 2>&1
   status=$?
   end=$(date +%s)
 

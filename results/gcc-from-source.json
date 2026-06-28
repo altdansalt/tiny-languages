@@ -1,0 +1,10 @@
+{
+  "name": "gcc-from-source",
+  "outcome": "fail",
+  "build_exit": 133,
+  "build_seconds": 56,
+  "binary_bytes": 0,
+  "smoke": "",
+  "image_line": "",
+  "log": "results/gcc-from-source.log"
+}

@@ -64,6 +64,31 @@ genuinely needs glibc we use `debian:bookworm-slim` and say why in the recipe
 header. So far: **tcc** (musl `wchar_t` redefinition in its runtime lib) and
 **femtolisp** (`__gnu_linux__`).
 
+## 2026-06-28 — Bootstrapping the stack + heavy builds
+
+### Bootstrap probes live in `bootstrap/`, not `recipes/`
+`recipes/` is the tiny-language catalog; `bootstrap/` holds probes that verify a
+*tier* of the stack or a *bootstrap edge* (tcc self-host, tcc→lua, musl & gcc from
+source). `build.sh` resolves a name in either dir; `report.py`/`provenance.py` only
+count `recipes/` so the language stats stay clean. See `BOOTSTRAP.md`.
+
+### Heavyweight builds need a bigger *builder*, not build flags
+`container build --cpus/--memory` are **no-ops** against the persistent builder VM
+(it stayed at 2 CPU / 2048 MB no matter what we passed). GCC OOM-killed `cc1plus`
+on `gimple-match-*.o` (each needs ~2–3 GB) at the 2 GB default. The fix is to resize
+the shared builder once per session:
+```
+container builder stop && container builder start --cpus 8 --memory 24G
+```
+Restarting the builder **preserves the layer cache** (the GCC rebuild resumed from
+cached apt/configure layers). A recipe documents its needs via `cpus`/`memory`
+files; `build.sh` prints the reminder rather than passing the ignored flags.
+
+### GCC from source is single-stage, C-only
+`--disable-bootstrap --disable-multilib --enable-languages=c --disable-libsanitizer`
+keeps it tractable in a container, and `-j4` caps the gimple-match memory spike.
+A fuller bootstrap would also build gmp/mpfr/mpc + binutils from source.
+
 ## Roads not taken (so far)
 
 - **One mega-Dockerfile for everything** — rejected: poor caching, one failure
