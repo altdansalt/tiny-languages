@@ -1,0 +1,3 @@
+# keep result JSON and logs (evidence trail). Only ignore truly transient junk.
+scratchpad/
+*.tmp

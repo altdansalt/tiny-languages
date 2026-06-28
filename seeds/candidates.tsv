@@ -1,0 +1,33 @@
+name	repo	impl_lang	category	build	tags	status	notes
+lua	https://github.com/lua/lua	C	interpreter	make	classic,embeddable	untried	Canonical tiny language; pure C, no deps
+wren	https://github.com/wren-lang/wren	C	interpreter	make	embeddable,classes	untried	Small class-based scripting lang
+quickjs-ng	https://github.com/quickjs-ng/quickjs	C	interpreter	make,cmake	javascript,embeddable	untried	Maintained fork of Bellard QuickJS
+mruby	https://github.com/mruby/mruby	C	interpreter	rake	ruby,embeddable	untried	Minimal Ruby, ISO subset
+chibi-scheme	https://github.com/ashinn/chibi-scheme	C	interpreter	make	scheme,r7rs	untried	Small R7RS Scheme
+s7	https://github.com/dpsanders/s7	C	interpreter	cc	scheme,embeddable	untried	Single-file Scheme (also at ccrma)
+janet	https://github.com/janet-lang/janet	C	interpreter	make,meson	lisp,embeddable	untried	Small functional lang, single-file amalg
+fe	https://github.com/rxi/fe	C	interpreter	cc	lisp,minimal	untried	~800 LOC Lisp by rxi
+tcc	https://repo.or.cz/tinycc.git	C	compiler	configure	c-compiler,fast	untried	Tiny C Compiler
+chibicc	https://github.com/rui314/chibicc	C	compiler	make	c-compiler,teaching	untried	Small C compiler by Rui Ueyama
+cproc	https://github.com/michaelforney/cproc	C	compiler	configure	c-compiler,qbe	untried	C11 compiler on QBE backend
+qbe	https://c9x.me/git/qbe.git	C	compiler	make	backend,ssa	untried	Compiler backend (used by cproc)
+lox-clox	https://github.com/munificent/craftinginterpreters	C	interpreter	make	teaching,bytecode	untried	clox bytecode VM from the book
+wasm3	https://github.com/wasm3/wasm3	C	interpreter	cmake	wasm,vm	untried	Fast WASM interpreter
+gforth	https://github.com/forthy42/gforth	C	interpreter	configure	forth	untried	GNU Forth
+pforth	https://github.com/philburk/pforth	C	interpreter	make	forth,portable	untried	Portable Forth in ANSI C
+onetrueawk	https://github.com/onetrueawk/awk	C	interpreter	make	awk,unix	untried	The one true AWK (BWK)
+goawk	https://github.com/benhoyt/goawk	Go	interpreter	go	awk	untried	AWK in Go, also compiles to wasm
+berry	https://github.com/berry-lang/berry	C	interpreter	make	embedded,microcontroller	untried	Ultra-low footprint scripting
+pocketlang	https://github.com/PocketLang/pocketlang	C	interpreter	make,batch	embeddable,small	untried	Small, fast, embeddable
+umka	https://github.com/vtereshkov/umka-lang	C	interpreter	make	statically-typed,embeddable	untried	Statically typed embeddable lang
+squirrel	https://github.com/albertodemichelis/squirrel	C++	interpreter	cmake	game-scripting	untried	High-level OO scripting (games)
+gravity	https://github.com/marcobambini/gravity	C	interpreter	make	game-scripting	untried	Dynamically typed embeddable
+femtolisp	https://github.com/JeffBezanson/femtolisp	C	interpreter	make	lisp,scheme	untried	Small Scheme-like Lisp (used in Julia bootstrap)
+micropython	https://github.com/micropython/micropython	C	interpreter	make	python,microcontroller	untried	Python for microcontrollers; unix port
+tinypy	https://github.com/daniellimws/tinypy	C	interpreter	make	python,minimal	untried	Minimal Python subset
+m4	https://git.savannah.gnu.org/git/m4.git	C	interpreter	autotools	macro	untried	Macro processor (turing-complete)
+hoc	https://github.com/protocol-bsd/hoc	C	interpreter	make	calculator,kr	untried	K&R calculator language (may need alt repo)
+assemblyscript	https://github.com/AssemblyScript/assemblyscript	TypeScript	compiler	npm	wasm,typescript	untried	TS-to-WASM compiler
+grain	https://github.com/grain-lang/grain	Grain/OCaml	compiler	npm	wasm,functional	untried	Functional lang targeting WASM
+mal	https://github.com/kanaka/mal	many	interpreter	various	lisp,teaching	untried	Make-a-Lisp; 80+ tiny implementations
+picol	https://github.com/antirez/picol	C	interpreter	cc	tcl,minimal	untried	Tiny Tcl in ~500 lines

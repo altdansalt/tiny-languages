@@ -1,0 +1,9 @@
+{
+  "name": "lua",
+  "outcome": "ok",
+  "build_exit": 0,
+  "build_seconds": 61,
+  "smoke": "ok Lua 5.5 ",
+  "image_line": "tinylang/lua                  latest  074a4bd3300dc2220e4bb827...",
+  "log": "results/lua.log"
+}
