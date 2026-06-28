@@ -144,6 +144,22 @@ remaining gap below.
   *unbroken*: **526 bytes of trust ⇒ a C compiler ⇒ a working compiled binary**,
   with nothing pre-existing but a shell.
 
+- **scratch-aarch64** ✅ (smallest possible base — `FROM scratch`). Answer to
+  "what's the smallest arm64 image for bootstrapping?": **none at all.** The whole
+  seed⇒M2-Planet⇒compiled-program chain runs in a **0-byte base image** — no shell,
+  no libc, no `/dev`, no coreutils. exec-form `RUN` (no `/bin/sh` needed) drives the
+  static seed; kaem builds its own coreutils/M1/hex2/M2-Planet; then M2-Planet+M1+
+  hex2 compile a C program and the result **executes in the empty image**. Trust
+  base = the kernel + a **526-byte** static seed (+ ~2 MB of hex0/kaem/M2libc
+  *source*). The base image is genuinely empty.
+- **mes (x86_64, emulated)** ⚠️ — GNU Mes builds on x86_64 under Rosetta (the
+  interpreter compiled; the smoke invocation still needs fixing). Key finding:
+  **Mes has no aarch64 port** — MesCC backends are armv4/riscv64/x86_64 and lib
+  arch dirs are arm/riscv64/x86/x86_64 (its "ARM" is 32-bit armv7). That's *why*
+  the native-arm64 chain stops at M2-Planet: the next link (mes⇒MesCC⇒tcc) only
+  exists for x86_64/armv7/riscv64, and this Apple-silicon host can't run 32-bit x86
+  or 32-bit ARM. So continuing to tcc/gcc means x86_64 (emulated here, or a VM).
+
 ### The chain, end to end (all verified here)
 
 ```

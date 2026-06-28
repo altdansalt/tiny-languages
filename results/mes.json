@@ -1,0 +1,10 @@
+{
+  "name": "mes",
+  "outcome": "fail",
+  "build_exit": 1,
+  "build_seconds": 1303,
+  "binary_bytes": 0,
+  "smoke": "",
+  "image_line": "",
+  "log": "results/mes.log"
+}

@@ -1,0 +1,767 @@
+#1 [resolver] fetching image...docker.io/library/debian:bookworm-slim
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 oci-layout://docker.io/library/debian:bookworm-slim@sha256:60eac759739651111db372c07be67863818726f754804b8707c90979bda511df
+#3 resolve docker.io/library/debian:bookworm-slim@sha256:60eac759739651111db372c07be67863818726f754804b8707c90979bda511df done
+#3 DONE 0.0s
+
+#4 [linux/amd64  1/11] RUN apt-get update && apt-get install -y --no-install-recommends         build-essential git ca-certificates guile-3.0 guile-3.0-dev     && rm -rf /var/lib/apt/lists/*
+#4 CACHED
+
+#5 [linux/amd64  2/11] RUN git clone --depth 1 --recursive https://github.com/oriansj/mescc-tools /opt/mescc-tools     && make -C /opt/mescc-tools     && for b in M1 hex2 blood-elf catm get_machine; do          f="$(find /opt/mescc-tools -type f -name "$b" -perm -u+x | head -1)";          [ -n "$f" ] && cp "$f" /usr/local/bin/ || true;        done     && command -v M1 && command -v hex2 && command -v blood-elf
+#5 0.087 Cloning into '/opt/mescc-tools'...
+#5 1.072 Submodule 'M2libc' (https://github.com/oriansj/M2libc.git) registered for path 'M2libc'
+#5 1.117 Cloning into '/opt/mescc-tools/M2libc'...
+#5 2.000 Submodule path 'M2libc': checked out '5a7c12a7be39cbce113c5459d77467b829a1ecc5'
+#5 2.061 make: Entering directory '/opt/mescc-tools'
+#5 2.086 fatal: No names found, cannot describe anything.
+#5 2.093 mkdir -p bin
+#5 2.109 gcc  -D_GNU_SOURCE -std=c99 -ggdb -fno-common M1-macro.c \
+#5 2.109 stringify.c \
+#5 2.109 M2libc/bootstrappable.c \
+#5 2.109 -o bin/M1
+#5 3.056 gcc  -D_GNU_SOURCE -std=c99 -ggdb -fno-common hex2.c \
+#5 3.056 hex2_linker.c \
+#5 3.056 hex2_word.c \
+#5 3.056 M2libc/bootstrappable.c \
+#5 3.056 -o bin/hex2
+#5 4.307 gcc  -D_GNU_SOURCE -std=c99 -ggdb -fno-common get_machine.c \
+#5 4.307 M2libc/bootstrappable.c \
+#5 4.307 -o bin/get_machine
+#5 4.927 gcc  -D_GNU_SOURCE -std=c99 -ggdb -fno-common blood-elf.c \
+#5 4.927 stringify.c \
+#5 4.927 M2libc/bootstrappable.c \
+#5 4.927 -o bin/blood-elf
+#5 5.847 /usr/bin/make -C Kaem kaem
+#5 5.874 make[1]: Entering directory '/opt/mescc-tools/Kaem'
+#5 5.874 mkdir -p ../bin
+#5 5.891 gcc  -D_GNU_SOURCE -std=c99 -ggdb kaem.c \
+#5 5.891 kaem_globals.c \
+#5 5.891 variable.c  \
+#5 5.891 ../M2libc/bootstrappable.c \
+#5 5.891 -o ../bin/kaem
+#5 6.986 make[1]: Leaving directory '/opt/mescc-tools/Kaem'
+#5 6.987 gcc  -D_GNU_SOURCE -std=c99 -ggdb -fno-common catm.c -o bin/catm
+#5 7.339 make: Leaving directory '/opt/mescc-tools'
+#5 7.559 /usr/local/bin/M1
+#5 7.559 /usr/local/bin/hex2
+#5 7.559 /usr/local/bin/blood-elf
+#5 DONE 7.6s
+
+#6 [linux/amd64  3/11] RUN git clone --depth 1 https://git.savannah.nongnu.org/git/nyacc.git /opt/nyacc
+#6 0.078 Cloning into '/opt/nyacc'...
+#6 1.131 warning: redirecting to https://https.git.savannah.gnu.org/git/nyacc.git/
+#6 DONE 2.6s
+
+#7 [linux/amd64  4/11] WORKDIR /src
+#7 DONE 0.0s
+
+#8 [linux/amd64  5/11] RUN git clone --depth 1 https://git.savannah.gnu.org/git/mes.git .
+#8 0.073 Cloning into '.'...
+#8 0.937 warning: redirecting to https://https.git.savannah.gnu.org/git/mes.git/
+#8 DONE 2.3s
+
+#9 [linux/amd64  6/11] RUN ./configure
+#9 0.246 checking for hex2 [1.5.0]...  1.7.0
+#9 0.292 checking for M1 [1.5.0]...  1.7.0
+#9 0.337 checking for blood-elf [2.0.1]...  2.0.1
+#9 0.382 checking for kaem [1.5.0]... no 
+#9 0.415 checking for M2-Planet [1.11.0]... no 
+#9 0.449 checking for diff...  3.8
+#9 0.498 checking for guile-3.0 [2.0]...  3.0.8
+#9 0.604 checking for mes [0.22]... no 
+#9 0.636 checking for guix... no 
+#9 0.668 checking for ar [2.10]...  2.40
+#9 0.715 checking for sh... no 
+#9 0.760 checking for bash [2.0]...  5.2.15
+#9 0.808 checking for guild [2.0]...  3.0.8
+#9 1.284 checking for cc...  12.2.0
+#9 1.336 checking for gcc...  12.2.0
+#9 1.386 checking for mescc... no 
+#9 1.418 checking for mescc... no 
+#9 1.450 checking for tcc... no 
+#9 1.483 checking for tcc... no 
+#9 1.514 checking for cc...  12.2.0
+#9 1.566 checking for gmake...  4.3
+#9 1.614 checking for makeinfo [6]... no 
+#9 1.645 checking for dot... no 
+#9 1.677 checking for help2man [1.47]... no 
+#9 1.710 checking for perl [5]...  5.36.0
+#9 1.768 checking for nyacc [0.99.0]...  2.2.5
+#9 5.850 checking for limits.h... yes
+#9 5.951 checking for stdio.h... yes
+#9 6.053 checking for cc is GNU C... yes
+#9 6.185 checking for cc is Mes C... no
+#9 6.293 checking for cc is Tiny C... no
+#9 6.401 checking for whether cc can create executables... yes
+#9 7.341 'include/linux/x86_64/kernel-stat.h' -> 'include/arch/kernel-stat.h'
+#9 7.376 'include/linux/x86_64/signal.h' -> 'include/arch/signal.h'
+#9 7.411 'include/linux/x86_64/syscall.h' -> 'include/arch/syscall.h'
+#9 7.414 
+#9 7.414 GNU Mes is configured for
+#9 7.414    compiler:   gcc
+#9 7.414    cpu:        x86_64
+#9 7.414    bits:       64
+#9 7.414    libc:       mes
+#9 7.414    kernel:     linux
+#9 7.414    system:     x86_64-linux-mes
+#9 7.414    bootstrap:  no
+#9 7.414    courageous: no
+#9 7.414 
+#9 7.414 Run:
+#9 7.414   gmake           to build mes
+#9 7.414   gmake help      for help on other targets
+#9 DONE 7.4s
+
+#10 [linux/amd64  7/11] RUN make
+#10 0.087 GNUmakefile:190: skipping info: no makeinfo
+#10 0.088 GNUmakefile:196: skipping man: no help2man
+#10 0.088 GNUmakefile:226: info: graphvis missing: no images
+#10 0.162 /usr/bin/cat: .tarball-version: No such file or directory
+#10 0.164 GNUmakefile:363: update-hash: no guix
+#10 0.169 mkdir -p include/arch
+#10 0.278 /bin/bash build.sh
+#10 0.436   CCLD       lib/linux/x86_64-mes-gcc/exit-42.S
+#10 0.635   TEST       exit-42
+#10 0.666   HEX2       lib/linux/x86_64-mes/elf64-0exit-42.hex2
+#10 0.707   TEST       0exit-42
+#10 0.739   HEX2       lib/linux/x86_64-mes/elf64-body-exit-42.hex2
+#10 0.781   TEST       body-exit-42
+#10 0.813   CCLD       lib/linux/x86_64-mes-gcc/hello-mes.S
+#10 1.004   TEST       hello-mes
+#10 1.038 Hello, GNU Mes!
+#10 1.038   HEX2       lib/linux/x86_64-mes/elf64-0hello-mes.hex2
+#10 1.081   TEST       0hello-mes
+#10 1.112 Hello, GNU Mes!
+#10 1.113   HEX2       lib/linux/x86_64-mes/elf64-body-hello-mes.hex2
+#10 1.158   TEST       body-hello-mes
+#10 1.192 Hello, GNU Mes!
+#10 1.320   GUILEC     module/mes/getopt-long.scm
+#10 1.689 wrote `module/mes/getopt-long.go'
+#10 1.719   GUILEC     module/mes/guile.scm
+#10 1.918 wrote `module/mes/guile.go'
+#10 1.948   GUILEC     module/mes/mes-0.scm
+#10 2.141 wrote `module/mes/mes-0.go'
+#10 2.172   GUILEC     module/mes/misc.scm
+#10 2.385 wrote `module/mes/misc.go'
+#10 2.417   GUILEC     module/mes/test.scm
+#10 2.667 wrote `module/mes/test.go'
+#10 2.698   GUILEC     module/mescc/M1.scm
+#10 3.147 wrote `module/mescc/M1.go'
+#10 3.178   GUILEC     module/mescc/as.scm
+#10 3.495 wrote `module/mescc/as.go'
+#10 3.527   GUILEC     module/mescc/compile.scm
+#10 4.882 wrote `module/mescc/compile.go'
+#10 4.912   GUILEC     module/mescc/armv4/as.scm
+#10 5.322 wrote `module/mescc/armv4/as.go'
+#10 5.352   GUILEC     module/mescc/armv4/info.scm
+#10 5.678 wrote `module/mescc/armv4/info.go'
+#10 5.708   GUILEC     module/mescc/i386/as.scm
+#10 6.109 wrote `module/mescc/i386/as.go'
+#10 6.140   GUILEC     module/mescc/i386/info.scm
+#10 6.459 wrote `module/mescc/i386/info.go'
+#10 6.489   GUILEC     module/mescc/riscv64/as.scm
+#10 6.903 wrote `module/mescc/riscv64/as.go'
+#10 6.933   GUILEC     module/mescc/riscv64/info.scm
+#10 7.252 wrote `module/mescc/riscv64/info.go'
+#10 7.284   GUILEC     module/mescc/x86_64/as.scm
+#10 7.704 wrote `module/mescc/x86_64/as.go'
+#10 7.735   GUILEC     module/mescc/x86_64/info.scm
+#10 8.067 wrote `module/mescc/x86_64/info.go'
+#10 8.098   GUILEC     module/mescc/info.scm
+#10 8.657 wrote `module/mescc/info.go'
+#10 8.688   GUILEC     module/mescc.scm
+#10 9.645 wrote `module/mescc.go'
+#10 9.677   GUILEC     module/mescc/mescc.scm
+#10 10.69 wrote `module/mescc/mescc.go'
+#10 10.73   GUILEC     module/mescc/preprocess.scm
+#10 11.28 wrote `module/mescc/preprocess.go'
+#10 11.31   GUILEC     build-aux/mes-snarf.scm
+#10 11.66 wrote `build-aux/mes-snarf.go'
+#10 11.82   CC         crt1.c
+#10 12.32   CC         ../lib/mes/__init_io.c
+#10 12.84   CC         ../lib/mes/eputs.c
+#10 13.37   CC         ../lib/mes/oputs.c
+#10 13.94   CC         ../lib/mes/globals.c
+#10 14.30   CC         ../lib/stdlib/exit.c
+#10 14.86   CC         ../lib/linux/x86_64-mes-gcc/_exit.c
+#10 15.38   CC         ../lib/linux/x86_64-mes-gcc/_write.c
+#10 15.90   CC         ../lib/stdlib/puts.c
+#10 16.44   CC         ../lib/string/strlen.c
+#10 16.99   CC         ../lib/mes/write.c
+#10 17.49   AR         libc-mini.a
+#10 18.27   CC         ../lib/ctype/isnumber.c
+#10 18.83   CC         ../lib/mes/abtol.c
+#10 19.42   CC         ../lib/mes/cast.c
+#10 19.94   CC         ../lib/mes/eputc.c
+#10 20.47   CC         ../lib/mes/fdgetc.c
+#10 21.10   CC         ../lib/mes/fdputc.c
+#10 21.65   CC         ../lib/mes/fdputs.c
+#10 22.19   CC         ../lib/mes/fdungetc.c
+#10 22.74   CC         ../lib/mes/itoa.c
+#10 23.27   CC         ../lib/mes/ltoa.c
+#10 23.80   CC         ../lib/mes/ltoab.c
+#10 24.34   CC         ../lib/mes/mes_open.c
+#10 24.88   CC         ../lib/mes/ntoab.c
+#10 25.49   CC         ../lib/mes/oputc.c
+#10 26.03   CC         ../lib/mes/ultoa.c
+#10 26.57   CC         ../lib/mes/utoa.c
+#10 27.10   CC         ../lib/stub/__raise.c
+#10 27.61   CC         ../lib/ctype/isdigit.c
+#10 28.14   CC         ../lib/ctype/isspace.c
+#10 28.67   CC         ../lib/ctype/isxdigit.c
+#10 29.23   CC         ../lib/mes/assert_msg.c
+#10 29.77   CC         ../lib/posix/write.c
+#10 30.34   CC         ../lib/stdlib/atoi.c
+#10 30.89   CC         ../lib/linux/lseek.c
+#10 31.39   AR         libmes.a
+#10 31.63   CC         ../lib/linux/x86_64-mes-gcc/syscall-internal.c
+#10 32.12   AR         libmescc.a
+#10 34.59   CC         ../lib/dirent/__getdirentries.c
+#10 35.16   CC         ../lib/dirent/closedir.c
+#10 35.72   CC         ../lib/dirent/opendir.c
+#10 36.34   CC         ../lib/mes/__assert_fail.c
+#10 36.90   CC         ../lib/mes/__buffered_read.c
+#10 37.54   CC         ../lib/mes/__mes_debug.c
+#10 38.12   CC         ../lib/posix/execv.c
+#10 38.67   CC         ../lib/posix/getcwd.c
+#10 39.22   CC         ../lib/posix/getenv.c
+#10 39.81   CC         ../lib/posix/isatty.c
+#10 40.38   CC         ../lib/posix/open.c
+#10 40.98   CC         ../lib/posix/buffered-read.c
+#10 41.54   CC         ../lib/posix/setenv.c
+#10 42.14   CC         ../lib/posix/wait.c
+#10 42.67   CC         ../lib/stdio/fgetc.c
+#10 43.21   CC         ../lib/stdio/fputc.c
+#10 43.74   CC         ../lib/stdio/fputs.c
+#10 44.28   CC         ../lib/stdio/getc.c
+#10 44.82   CC         ../lib/stdio/getchar.c
+#10 45.34   CC         ../lib/stdio/putc.c
+#10 45.88   CC         ../lib/stdio/putchar.c
+#10 46.44   CC         ../lib/stdio/ungetc.c
+#10 46.97   CC         ../lib/stdlib/calloc.c
+#10 47.53   CC         ../lib/stdlib/free.c
+#10 48.02   CC         ../lib/stdlib/realloc.c
+#10 48.57   CC         ../lib/string/memchr.c
+#10 49.14   CC         ../lib/string/memcmp.c
+#10 49.69   CC         ../lib/string/memcpy.c
+#10 50.26   CC         ../lib/string/memmove.c
+#10 50.84   CC         ../lib/string/memset.c
+#10 51.42   CC         ../lib/string/strcmp.c
+#10 51.97   CC         ../lib/string/strcpy.c
+#10 52.52   CC         ../lib/string/strncmp.c
+#10 53.09   CC         ../lib/posix/raise.c
+#10 53.63   CC         ../lib/linux/access.c
+#10 54.18   CC         ../lib/linux/brk.c
+#10 54.72   CC         ../lib/linux/chdir.c
+#10 55.25   CC         ../lib/linux/chmod.c
+#10 55.80   CC         ../lib/linux/clock_gettime.c
+#10 56.34   CC         ../lib/linux/close.c
+#10 56.89   CC         ../lib/linux/dup.c
+#10 57.42   CC         ../lib/linux/dup2.c
+#10 57.96   CC         ../lib/linux/execve.c
+#10 58.49   CC         ../lib/linux/fcntl.c
+#10 59.07   CC         ../lib/linux/fork.c
+#10 59.60   CC         ../lib/linux/fstat.c
+#10 60.15   CC         ../lib/linux/fsync.c
+#10 60.68   CC         ../lib/linux/_getcwd.c
+#10 61.25   CC         ../lib/linux/getdents.c
+#10 61.78   CC         ../lib/linux/gettimeofday.c
+#10 62.32   CC         ../lib/linux/ioctl3.c
+#10 62.87   CC         ../lib/linux/link.c
+#10 63.41   CC         ../lib/linux/lstat.c
+#10 63.94   CC         ../lib/linux/_open3.c
+#10 64.52   CC         ../lib/linux/malloc.c
+#10 65.10   CC         ../lib/linux/mkdir.c
+#10 65.64   CC         ../lib/linux/nanosleep.c
+#10 66.18   CC         ../lib/linux/pipe.c
+#10 66.72   CC         ../lib/linux/_read.c
+#10 67.26   CC         ../lib/linux/readdir.c
+#10 67.86   CC         ../lib/linux/rename.c
+#10 68.40   CC         ../lib/linux/rmdir.c
+#10 68.93   CC         ../lib/linux/stat.c
+#10 69.46   CC         ../lib/linux/symlink.c
+#10 70.00   CC         ../lib/linux/time.c
+#10 70.57   CC         ../lib/linux/umask.c
+#10 71.12   CC         ../lib/linux/uname.c
+#10 71.66   CC         ../lib/linux/unlink.c
+#10 72.20   CC         ../lib/linux/utimensat.c
+#10 72.75   CC         ../lib/linux/wait4.c
+#10 73.29   CC         ../lib/linux/waitpid.c
+#10 73.84   CC         ../lib/linux/x86_64-mes-gcc/syscall.c
+#10 74.41   CC         ../lib/linux/getpid.c
+#10 74.96   CC         ../lib/linux/kill.c
+#10 75.42   AR         libc.a
+#10 83.19   CC         ../lib/ctype/islower.c
+#10 83.73   CC         ../lib/ctype/isupper.c
+#10 84.26   CC         ../lib/ctype/tolower.c
+#10 84.81   CC         ../lib/ctype/toupper.c
+#10 85.35   CC         ../lib/mes/abtod.c
+#10 85.96   CC         ../lib/mes/dtoab.c
+#10 86.58   CC         ../lib/mes/search-path.c
+#10 87.19   CC         ../lib/posix/execvp.c
+#10 87.78   CC         ../lib/stdio/fclose.c
+#10 88.32   CC         ../lib/stdio/fdopen.c
+#10 88.85   CC         ../lib/stdio/ferror.c
+#10 89.38   CC         ../lib/stdio/fflush.c
+#10 89.95   CC         ../lib/stdio/fopen.c
+#10 90.55   CC         ../lib/stdio/fprintf.c
+#10 91.11   CC         ../lib/stdio/fread.c
+#10 91.73   CC         ../lib/stdio/fseek.c
+#10 92.31   CC         ../lib/stdio/ftell.c
+#10 92.85   CC         ../lib/stdio/fwrite.c
+#10 93.44   CC         ../lib/stdio/printf.c
+#10 94.01   CC         ../lib/stdio/remove.c
+#10 94.59   CC         ../lib/stdio/snprintf.c
+#10 95.15   CC         ../lib/stdio/sprintf.c
+#10 95.71   CC         ../lib/stdio/sscanf.c
+#10 96.28   CC         ../lib/stdio/vfprintf.c
+#10 96.91   CC         ../lib/stdio/vprintf.c
+#10 97.46   CC         ../lib/stdio/vsnprintf.c
+#10 98.10   CC         ../lib/stdio/vsprintf.c
+#10 98.64   CC         ../lib/stdio/vsscanf.c
+#10 99.27   CC         ../lib/stdlib/qsort.c
+#10 99.87   CC         ../lib/stdlib/strtod.c
+#10 100.4   CC         ../lib/stdlib/strtof.c
+#10 101.0   CC         ../lib/stdlib/strtol.c
+#10 101.5   CC         ../lib/stdlib/strtold.c
+#10 102.1   CC         ../lib/stdlib/strtoll.c
+#10 102.6   CC         ../lib/stdlib/strtoul.c
+#10 103.2   CC         ../lib/stdlib/strtoull.c
+#10 103.7   CC         ../lib/string/memmem.c
+#10 104.3   CC         ../lib/string/strcat.c
+#10 104.9   CC         ../lib/string/strchr.c
+#10 105.4   CC         ../lib/string/strlwr.c
+#10 106.0   CC         ../lib/string/strncpy.c
+#10 106.5   CC         ../lib/string/strrchr.c
+#10 107.1   CC         ../lib/string/strstr.c
+#10 107.7   CC         ../lib/string/strupr.c
+#10 108.2   CC         ../lib/stub/sigaction.c
+#10 108.8   CC         ../lib/stub/ldexp.c
+#10 109.4   CC         ../lib/stub/mprotect.c
+#10 109.9   CC         ../lib/stub/localtime.c
+#10 110.5   CC         ../lib/stub/putenv.c
+#10 111.0   CC         ../lib/stub/realpath.c
+#10 111.6   CC         ../lib/stub/sigemptyset.c
+#10 112.1   CC         ../lib/x86_64-mes-gcc/setjmp.c
+#10 112.7   AR         libc+tcc.a
+#10 112.9   CC         ../lib/libtcc1.c
+#10 113.4   AR         libtcc1.a
+#10 113.6   CC         ../lib/posix/getopt.c
+#10 114.2   AR         libgetopt.a
+#10 125.5   CC         ../lib/ctype/isalnum.c
+#10 126.1   CC         ../lib/ctype/isalpha.c
+#10 126.6   CC         ../lib/ctype/isascii.c
+#10 127.2   CC         ../lib/ctype/iscntrl.c
+#10 127.7   CC         ../lib/ctype/isgraph.c
+#10 128.2   CC         ../lib/ctype/isprint.c
+#10 128.8   CC         ../lib/ctype/ispunct.c
+#10 129.3   CC         ../lib/math/ceil.c
+#10 129.9   CC         ../lib/math/fabs.c
+#10 130.4   CC         ../lib/math/floor.c
+#10 130.9   CC         ../lib/mes/fdgets.c
+#10 131.5   CC         ../lib/posix/alarm.c
+#10 132.1   CC         ../lib/posix/execl.c
+#10 132.7   CC         ../lib/posix/execlp.c
+#10 133.3   CC         ../lib/posix/mktemp.c
+#10 133.8   CC         ../lib/posix/pathconf.c
+#10 134.4   CC         ../lib/posix/sbrk.c
+#10 135.0   CC         ../lib/posix/sleep.c
+#10 135.5   CC         ../lib/posix/unsetenv.c
+#10 136.1   CC         ../lib/stdio/clearerr.c
+#10 136.6   CC         ../lib/stdio/feof.c
+#10 137.2   CC         ../lib/stdio/fgets.c
+#10 137.7   CC         ../lib/stdio/fileno.c
+#10 138.2   CC         ../lib/stdio/freopen.c
+#10 138.7   CC         ../lib/stdio/fscanf.c
+#10 139.3   CC         ../lib/stdio/perror.c
+#10 139.9   CC         ../lib/stdio/vfscanf.c
+#10 140.5   CC         ../lib/stdlib/__exit.c
+#10 141.0   CC         ../lib/stdlib/abort.c
+#10 141.6   CC         ../lib/stdlib/abs.c
+#10 142.1   CC         ../lib/stdlib/alloca.c
+#10 142.7   CC         ../lib/stdlib/atexit.c
+#10 143.2   CC         ../lib/stdlib/atof.c
+#10 143.8   CC         ../lib/stdlib/atol.c
+#10 144.3   CC         ../lib/stdlib/mbstowcs.c
+#10 144.9   CC         ../lib/string/bcmp.c
+#10 145.4   CC         ../lib/string/bcopy.c
+#10 145.9   CC         ../lib/string/bzero.c
+#10 146.4   CC         ../lib/string/index.c
+#10 147.0   CC         ../lib/string/rindex.c
+#10 147.5   CC         ../lib/string/strcspn.c
+#10 148.1   CC         ../lib/string/strdup.c
+#10 148.6   CC         ../lib/string/strerror.c
+#10 149.2   CC         ../lib/string/strncat.c
+#10 149.8   CC         ../lib/string/strpbrk.c
+#10 150.4   CC         ../lib/string/strspn.c
+#10 151.0   CC         ../lib/stub/__cleanup.c
+#10 151.5   CC         ../lib/stub/atan2.c
+#10 152.1   CC         ../lib/stub/bsearch.c
+#10 152.6   CC         ../lib/stub/chown.c
+#10 153.2   CC         ../lib/stub/cos.c
+#10 153.8   CC         ../lib/stub/ctime.c
+#10 154.4   CC         ../lib/stub/exp.c
+#10 154.9   CC         ../lib/stub/fpurge.c
+#10 155.5   CC         ../lib/stub/freadahead.c
+#10 156.1   CC         ../lib/stub/frexp.c
+#10 156.6   CC         ../lib/stub/getgrgid.c
+#10 157.2   CC         ../lib/stub/getgrnam.c
+#10 157.8   CC         ../lib/stub/getlogin.c
+#10 158.3   CC         ../lib/stub/getpgid.c
+#10 158.9   CC         ../lib/stub/getpgrp.c
+#10 159.5   CC         ../lib/stub/getpwnam.c
+#10 160.1   CC         ../lib/stub/getpwuid.c
+#10 160.6   CC         ../lib/stub/gmtime.c
+#10 161.2   CC         ../lib/stub/log.c
+#10 161.8   CC         ../lib/stub/mktime.c
+#10 162.3   CC         ../lib/stub/modf.c
+#10 162.9   CC         ../lib/stub/pclose.c
+#10 163.5   CC         ../lib/stub/popen.c
+#10 164.0   CC         ../lib/stub/pow.c
+#10 164.6   CC         ../lib/stub/rand.c
+#10 165.2   CC         ../lib/stub/rewind.c
+#10 165.7   CC         ../lib/stub/setbuf.c
+#10 166.3   CC         ../lib/stub/setgrent.c
+#10 166.8   CC         ../lib/stub/setlocale.c
+#10 167.4   CC         ../lib/stub/setvbuf.c
+#10 167.9   CC         ../lib/stub/sigaddset.c
+#10 168.4   CC         ../lib/stub/sigblock.c
+#10 169.0   CC         ../lib/stub/sigdelset.c
+#10 169.5   CC         ../lib/stub/sigsetmask.c
+#10 170.1   CC         ../lib/stub/sin.c
+#10 170.6   CC         ../lib/stub/sqrt.c
+#10 171.2   CC         ../lib/stub/strftime.c
+#10 171.8   CC         ../lib/stub/sys_siglist.c
+#10 172.3   CC         ../lib/stub/system.c
+#10 172.9   CC         ../lib/stub/times.c
+#10 173.5   CC         ../lib/stub/ttyname.c
+#10 174.0   CC         ../lib/stub/utime.c
+#10 174.6   CC         ../lib/linux/getegid.c
+#10 175.1   CC         ../lib/linux/geteuid.c
+#10 175.7   CC         ../lib/linux/getgid.c
+#10 176.2   CC         ../lib/linux/getppid.c
+#10 176.7   CC         ../lib/linux/getrusage.c
+#10 177.3   CC         ../lib/linux/getuid.c
+#10 177.8   CC         ../lib/linux/ioctl.c
+#10 178.4   CC         ../lib/linux/mknod.c
+#10 178.9   CC         ../lib/linux/readlink.c
+#10 179.4   CC         ../lib/linux/setgid.c
+#10 180.0   CC         ../lib/linux/settimer.c
+#10 180.5   CC         ../lib/linux/setuid.c
+#10 181.1   CC         ../lib/linux/signal.c
+#10 181.7   CC         ../lib/linux/sigprogmask.c
+#10 182.2   AR         libc+gnu.a
+#10 186.5   CC         src/builtins.c
+#10 187.2   CC         src/cc.c
+#10 187.7   CC         src/core.c
+#10 188.3   CC         src/display.c
+#10 188.9   CC         src/eval-apply.c
+#10 189.6   CC         src/gc.c
+#10 190.3   CC         src/globals.c
+#10 190.7   CC         src/hash.c
+#10 191.3   CC         src/lib.c
+#10 191.9   CC         src/math.c
+#10 192.5   CC         src/mes.c
+#10 193.1   CC         src/module.c
+#10 193.7   CC         src/posix.c
+#10 194.4   CC         src/reader.c
+#10 195.1   CC         src/stack.c
+#10 195.6   CC         src/string.c
+#10 196.3   CC         src/struct.c
+#10 196.9   CC         src/symbol.c
+#10 197.4   CC         src/variable.c
+#10 198.0   CC         src/vector.c
+#10 198.6   CCLD       bin/mes-gcc
+#10 199.0   CC         crt1.c
+#10 202.3   CC         ../lib/mes/__init_io.c
+#10 205.3   CC         ../lib/mes/eputs.c
+#10 208.9   CC         ../lib/mes/oputs.c
+#10 212.5   CC         ../lib/mes/globals.c
+#10 215.4   CC         ../lib/stdlib/exit.c
+#10 218.9   CC         ../lib/linux/x86_64-mes-mescc/_exit.c
+#10 221.7   CC         ../lib/linux/x86_64-mes-mescc/_write.c
+#10 224.5   CC         ../lib/stdlib/puts.c
+#10 227.8   CC         ../lib/string/strlen.c
+#10 231.2   CC         ../lib/mes/write.c
+#10 234.7   AR         libc-mini.a
+#10 235.9   CC         ../lib/ctype/isnumber.c
+#10 238.8   CC         ../lib/mes/abtol.c
+#10 242.8   CC         ../lib/mes/cast.c
+#10 246.3   CC         ../lib/mes/eputc.c
+#10 249.6   CC         ../lib/mes/fdgetc.c
+#10 255.9   CC         ../lib/mes/fdputc.c
+#10 259.3   CC         ../lib/mes/fdputs.c
+#10 263.3   CC         ../lib/mes/fdungetc.c
+#10 266.8   CC         ../lib/mes/itoa.c
+#10 270.1   CC         ../lib/mes/ltoa.c
+#10 273.5   CC         ../lib/mes/ltoab.c
+#10 276.9   CC         ../lib/mes/mes_open.c
+#10 281.1   CC         ../lib/mes/ntoab.c
+#10 286.2   CC         ../lib/mes/oputc.c
+#10 289.6   CC         ../lib/mes/ultoa.c
+#10 293.0   CC         ../lib/mes/utoa.c
+#10 296.3   CC         ../lib/stub/__raise.c
+#10 298.9   CC         ../lib/ctype/isdigit.c
+#10 302.3   CC         ../lib/ctype/isspace.c
+#10 305.7   CC         ../lib/ctype/isxdigit.c
+#10 309.3   CC         ../lib/mes/assert_msg.c
+#10 313.5   CC         ../lib/posix/write.c
+#10 318.5   CC         ../lib/stdlib/atoi.c
+#10 321.9   CC         ../lib/linux/lseek.c
+#10 326.5   AR         libmes.a
+#10 327.9   CC         ../lib/linux/x86_64-mes-mescc/syscall-internal.c
+#10 330.7   AR         libmescc.a
+#10 333.4   CC         ../lib/dirent/__getdirentries.c
+#10 339.3   CC         ../lib/dirent/closedir.c
+#10 344.9   CC         ../lib/dirent/opendir.c
+#10 352.8   CC         ../lib/mes/__assert_fail.c
+#10 356.4   CC         ../lib/mes/__buffered_read.c
+#10 361.6   CC         ../lib/mes/__mes_debug.c
+#10 365.9   CC         ../lib/posix/execv.c
+#10 370.0   CC         ../lib/posix/getcwd.c
+#10 374.3   CC         ../lib/posix/getenv.c
+#10 379.1   CC         ../lib/posix/isatty.c
+#10 384.2   CC         ../lib/posix/open.c
+#10 388.4   CC         ../lib/posix/buffered-read.c
+#10 392.1   CC         ../lib/posix/setenv.c
+#10 397.1   CC         ../lib/posix/wait.c
+#10 399.9   CC         ../lib/stdio/fgetc.c
+#10 404.0   CC         ../lib/stdio/fputc.c
+#10 408.1   CC         ../lib/stdio/fputs.c
+#10 412.2   CC         ../lib/stdio/getc.c
+#10 416.4   CC         ../lib/stdio/getchar.c
+#10 420.5   CC         ../lib/stdio/putc.c
+#10 424.6   CC         ../lib/stdio/putchar.c
+#10 428.9   CC         ../lib/stdio/ungetc.c
+#10 433.0   CC         ../lib/stdlib/calloc.c
+#10 436.9   CC         ../lib/stdlib/free.c
+#10 440.3   CC         ../lib/stdlib/realloc.c
+#10 444.2   CC         ../lib/string/memchr.c
+#10 447.5   CC         ../lib/string/memcmp.c
+#10 450.8   CC         ../lib/string/memcpy.c
+#10 454.9   CC         ../lib/string/memmove.c
+#10 458.2   CC         ../lib/string/memset.c
+#10 461.6   CC         ../lib/string/strcmp.c
+#10 464.9   CC         ../lib/string/strcpy.c
+#10 468.2   CC         ../lib/string/strncmp.c
+#10 471.6   CC         ../lib/posix/raise.c
+#10 475.7   CC         ../lib/linux/access.c
+#10 479.4   CC         ../lib/linux/brk.c
+#10 483.0   CC         ../lib/linux/chdir.c
+#10 485.8   CC         ../lib/linux/chmod.c
+#10 490.3   CC         ../lib/linux/clock_gettime.c
+#10 494.0   CC         ../lib/linux/close.c
+#10 497.6   CC         ../lib/linux/dup.c
+#10 500.4   CC         ../lib/linux/dup2.c
+#10 503.3   CC         ../lib/linux/execve.c
+#10 506.1   CC         ../lib/linux/fcntl.c
+#10 509.6   CC         ../lib/linux/fork.c
+#10 513.9   CC         ../lib/linux/fstat.c
+#10 517.5   CC         ../lib/linux/fsync.c
+#10 520.3   CC         ../lib/linux/_getcwd.c
+#10 523.9   CC         ../lib/linux/getdents.c
+#10 527.1   CC         ../lib/linux/gettimeofday.c
+#10 530.8   CC         ../lib/linux/ioctl3.c
+#10 534.4   CC         ../lib/linux/link.c
+#10 537.3   CC         ../lib/linux/lstat.c
+#10 541.1   CC         ../lib/linux/_open3.c
+#10 545.1   CC         ../lib/linux/malloc.c
+#10 550.4   CC         ../lib/linux/mkdir.c
+#10 554.2   CC         ../lib/linux/nanosleep.c
+#10 557.3   CC         ../lib/linux/pipe.c
+#10 561.0   CC         ../lib/linux/_read.c
+#10 564.7   CC         ../lib/linux/readdir.c
+#10 570.3   CC         ../lib/linux/rename.c
+#10 574.0   CC         ../lib/linux/rmdir.c
+#10 577.0   CC         ../lib/linux/stat.c
+#10 580.7   CC         ../lib/linux/symlink.c
+#10 584.4   CC         ../lib/linux/time.c
+#10 588.4   CC         ../lib/linux/umask.c
+#10 591.9   CC         ../lib/linux/uname.c
+#10 595.7   CC         ../lib/linux/unlink.c
+#10 599.4   CC         ../lib/linux/utimensat.c
+#10 602.4   CC         ../lib/linux/wait4.c
+#10 606.7   CC         ../lib/linux/waitpid.c
+#10 610.9   CC         ../lib/linux/x86_64-mes-mescc/syscall.c
+#10 614.4   CC         ../lib/linux/getpid.c
+#10 618.0   CC         ../lib/linux/kill.c
+#10 621.5   AR         libc.a
+#10 632.6   CC         ../lib/ctype/islower.c
+#10 635.4   CC         ../lib/ctype/isupper.c
+#10 638.1   CC         ../lib/ctype/tolower.c
+#10 640.9   CC         ../lib/ctype/toupper.c
+#10 643.7   CC         ../lib/mes/abtod.c
+#10 647.3   CC         ../lib/mes/dtoab.c
+#10 651.9   CC         ../lib/mes/search-path.c
+#10 657.6   CC         ../lib/posix/execvp.c
+#10 662.4   CC         ../lib/stdio/fclose.c
+#10 667.0   CC         ../lib/stdio/fdopen.c
+#10 671.1   CC         ../lib/stdio/ferror.c
+#10 675.3   CC         ../lib/stdio/fflush.c
+#10 680.6   CC         ../lib/stdio/fopen.c
+#10 686.5   CC         ../lib/stdio/fprintf.c
+#10 691.1   CC         ../lib/stdio/fread.c
+#10 697.6   CC         ../lib/stdio/fseek.c
+#10 702.5   CC         ../lib/stdio/ftell.c
+#10 707.3   CC         ../lib/stdio/fwrite.c
+#10 712.4   CC         ../lib/stdio/printf.c
+#10 717.1   CC         ../lib/stdio/remove.c
+#10 722.5   CC         ../lib/stdio/snprintf.c
+#10 727.2   CC         ../lib/stdio/sprintf.c
+#10 731.8   CC         ../lib/stdio/sscanf.c
+#10 736.5   CC         ../lib/stdio/vfprintf.c
+#10 744.1   CC         ../lib/stdio/vprintf.c
+#10 748.7   CC         ../lib/stdio/vsnprintf.c
+#10 756.1   CC         ../lib/stdio/vsprintf.c
+#10 759.6   CC         ../lib/stdio/vsscanf.c
+#10 766.1   CC         ../lib/stdlib/qsort.c
+#10 770.5   CC         ../lib/stdlib/strtod.c
+#10 775.3   CC         ../lib/stdlib/strtof.c
+#10 778.7   CC         ../lib/stdlib/strtol.c
+#10 783.5   CC         ../lib/stdlib/strtold.c
+#10 787.0   CC         ../lib/stdlib/strtoll.c
+#10 790.4   CC         ../lib/stdlib/strtoul.c
+#10 793.9   CC         ../lib/stdlib/strtoull.c
+#10 797.4   CC         ../lib/string/memmem.c
+#10 800.9   CC         ../lib/string/strcat.c
+#10 804.2   CC         ../lib/string/strchr.c
+#10 807.5   CC         ../lib/string/strlwr.c
+#10 811.0   CC         ../lib/string/strncpy.c
+#10 814.4   CC         ../lib/string/strrchr.c
+#10 817.8   CC         ../lib/string/strstr.c
+#10 821.7   CC         ../lib/string/strupr.c
+#10 825.2   CC         ../lib/stub/sigaction.c
+#10 829.5   CC         ../lib/stub/ldexp.c
+#10 833.1   CC         ../lib/stub/mprotect.c
+#10 837.1   CC         ../lib/stub/localtime.c
+#10 840.9   CC         ../lib/stub/putenv.c
+#10 845.3   CC         ../lib/stub/realpath.c
+#10 850.7   CC         ../lib/stub/sigemptyset.c
+#10 855.0   CC         ../lib/x86_64-mes-mescc/setjmp.c
+#10 858.7   AR         libc+tcc.a
+#10 864.1   CC         ../lib/libtcc1.c
+#10 868.4   AR         libtcc1.a
+#10 868.7   CC         ../lib/posix/getopt.c
+#10 876.1   AR         libgetopt.a
+#10 887.8   CC         ../lib/ctype/isalnum.c
+#10 890.6   CC         ../lib/ctype/isalpha.c
+#10 893.4   CC         ../lib/ctype/isascii.c
+#10 896.2   CC         ../lib/ctype/iscntrl.c
+#10 899.0   CC         ../lib/ctype/isgraph.c
+#10 901.7   CC         ../lib/ctype/isprint.c
+#10 904.5   CC         ../lib/ctype/ispunct.c
+#10 907.3   CC         ../lib/math/ceil.c
+#10 910.0   CC         ../lib/math/fabs.c
+#10 912.7   CC         ../lib/math/floor.c
+#10 915.4   CC         ../lib/mes/fdgets.c
+#10 919.8   CC         ../lib/posix/alarm.c
+#10 923.2   CC         ../lib/posix/execl.c
+#10 928.2   CC         ../lib/posix/execlp.c
+#10 932.7   CC         ../lib/posix/mktemp.c
+#10 936.7   CC         ../lib/posix/pathconf.c
+#10 941.3   CC         ../lib/posix/sbrk.c
+#10 946.0   CC         ../lib/posix/sleep.c
+#10 949.6   CC         ../lib/posix/unsetenv.c
+#10 954.2   CC         ../lib/stdio/clearerr.c
+#10 958.5   CC         ../lib/stdio/feof.c
+#10 962.7   CC         ../lib/stdio/fgets.c
+#10 966.9   CC         ../lib/stdio/fileno.c
+#10 971.0   CC         ../lib/stdio/freopen.c
+#10 975.1   CC         ../lib/stdio/fscanf.c
+#10 979.7   CC         ../lib/stdio/perror.c
+#10 984.4   CC         ../lib/stdio/vfscanf.c
+#10 990.8   CC         ../lib/stdlib/__exit.c
+#10 994.2   CC         ../lib/stdlib/abort.c
+#10 997.7   CC         ../lib/stdlib/abs.c
+#10 1001.1   CC         ../lib/stdlib/alloca.c
+#10 1005.5   CC         ../lib/stdlib/atexit.c
+#10 1009.6   CC         ../lib/stdlib/atof.c
+#10 1013.0   CC         ../lib/stdlib/atol.c
+#10 1016.3   CC         ../lib/stdlib/mbstowcs.c
+#10 1021.7   CC         ../lib/string/bcmp.c
+#10 1024.9   CC         ../lib/string/bcopy.c
+#10 1028.1   CC         ../lib/string/bzero.c
+#10 1032.0   CC         ../lib/string/index.c
+#10 1035.2   CC         ../lib/string/rindex.c
+#10 1038.4   CC         ../lib/string/strcspn.c
+#10 1041.6   CC         ../lib/string/strdup.c
+#10 1045.5   CC         ../lib/string/strerror.c
+#10 1049.8   CC         ../lib/string/strncat.c
+#10 1053.1   CC         ../lib/string/strpbrk.c
+#10 1056.4   CC         ../lib/string/strspn.c
+#10 1059.8   CC         ../lib/stub/__cleanup.c
+#10 1063.1   CC         ../lib/stub/atan2.c
+#10 1066.7   CC         ../lib/stub/bsearch.c
+#10 1070.9   CC         ../lib/stub/chown.c
+#10 1075.2   CC         ../lib/stub/cos.c
+#10 1078.7   CC         ../lib/stub/ctime.c
+#10 1082.3   CC         ../lib/stub/exp.c
+#10 1085.8   CC         ../lib/stub/fpurge.c
+#10 1090.2   CC         ../lib/stub/freadahead.c
+#10 1094.5   CC         ../lib/stub/frexp.c
+#10 1097.9   CC         ../lib/stub/getgrgid.c
+#10 1101.8   CC         ../lib/stub/getgrnam.c
+#10 1105.8   CC         ../lib/stub/getlogin.c
+#10 1110.0   CC         ../lib/stub/getpgid.c
+#10 1114.2   CC         ../lib/stub/getpgrp.c
+#10 1118.4   CC         ../lib/stub/getpwnam.c
+#10 1122.3   CC         ../lib/stub/getpwuid.c
+#10 1126.2   CC         ../lib/stub/gmtime.c
+#10 1129.9   CC         ../lib/stub/log.c
+#10 1133.4   CC         ../lib/stub/mktime.c
+#10 1137.1   CC         ../lib/stub/modf.c
+#10 1140.6   CC         ../lib/stub/pclose.c
+#10 1144.1   CC         ../lib/stub/popen.c
+#10 1147.5   CC         ../lib/stub/pow.c
+#10 1151.1   CC         ../lib/stub/rand.c
+#10 1154.5   CC         ../lib/stub/rewind.c
+#10 1158.0   CC         ../lib/stub/setbuf.c
+#10 1161.5   CC         ../lib/stub/setgrent.c
+#10 1165.1   CC         ../lib/stub/setlocale.c
+#10 1168.6   CC         ../lib/stub/setvbuf.c
+#10 1173.0   CC         ../lib/stub/sigaddset.c
+#10 1177.5   CC         ../lib/stub/sigblock.c
+#10 1181.9   CC         ../lib/stub/sigdelset.c
+#10 1186.4   CC         ../lib/stub/sigsetmask.c
+#10 1189.9   CC         ../lib/stub/sin.c
+#10 1193.4   CC         ../lib/stub/sqrt.c
+#10 1197.0   CC         ../lib/stub/strftime.c
+#10 1200.5   CC         ../lib/stub/sys_siglist.c
+#10 1204.0   CC         ../lib/stub/system.c
+#10 1207.4   CC         ../lib/stub/times.c
+#10 1211.0   CC         ../lib/stub/ttyname.c
+#10 1215.2   CC         ../lib/stub/utime.c
+#10 1218.7   CC         ../lib/linux/getegid.c
+#10 1222.2   CC         ../lib/linux/geteuid.c
+#10 1225.7   CC         ../lib/linux/getgid.c
+#10 1229.2   CC         ../lib/linux/getppid.c
+#10 1232.8   CC         ../lib/linux/getrusage.c
+#10 1235.8   CC         ../lib/linux/getuid.c
+#10 1239.3   CC         ../lib/linux/ioctl.c
+#10 1242.8   CC         ../lib/linux/mknod.c
+#10 1246.6   CC         ../lib/linux/readlink.c
+#10 1250.3   CC         ../lib/linux/setgid.c
+#10 1253.8   CC         ../lib/linux/settimer.c
+#10 1257.5   CC         ../lib/linux/setuid.c
+#10 1261.0   CC         ../lib/linux/signal.c
+#10 1265.6   CC         ../lib/linux/sigprogmask.c
+#10 1269.9   AR         libc+gnu.a
+#10 1282.3 timestamp=$({ git log --pretty=format:%ct -- doc/mes.texi || date +%s -r doc/mes.texi; } | sort -n -r | head -n 1);		\
+#10 1282.3 dmy=$(date --date="@$timestamp" "+%-d %B %Y");	\
+#10 1282.3 (echo "@set UPDATED $dmy";				\
+#10 1282.3 echo "@set UPDATED-MONTH $my";				\
+#10 1282.3 echo "@set EDITION 0.27.1";				\
+#10 1282.3 echo "@set VERSION 0.27.1") > doc/version.texi
+#10 DONE 1282.4s
+
+#11 [linux/amd64  8/11] RUN printf '(display (+ 40 2)) (display " mes-scheme-ok") (newline)\n' > /smoke.scm     && MES_PREFIX=/src ./bin/mes < /smoke.scm | tee /smoke.out     && grep -q '42 mes-scheme-ok' /smoke.out
+#11 ERROR: process "/bin/sh -c printf '(display (+ 40 2)) (display \" mes-scheme-ok\") (newline)\\n' > /smoke.scm     && MES_PREFIX=/src ./bin/mes < /smoke.scm | tee /smoke.out     && grep -q '42 mes-scheme-ok' /smoke.out" did not complete successfully: exit code: 1
+------
+ > [linux/amd64  8/11] RUN printf '(display (+ 40 2)) (display " mes-scheme-ok") (newline)\n' > /smoke.scm     && MES_PREFIX=/src ./bin/mes < /smoke.scm | tee /smoke.out     && grep -q '42 mes-scheme-ok' /smoke.out:
+------
+Error: unknown (2): failed to solve: process "/bin/sh -c printf '(display (+ 40 2)) (display \" mes-scheme-ok\") (newline)\\n' > /smoke.scm     && MES_PREFIX=/src ./bin/mes < /smoke.scm | tee /smoke.out     && grep -q '42 mes-scheme-ok' /smoke.out" did not complete successfully: exit code: 1
