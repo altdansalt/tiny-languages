@@ -1,0 +1,136 @@
+#1 [resolver] fetching image...docker.io/library/alpine:3.20
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 oci-layout://docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc
+#3 resolve docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc done
+#3 DONE 0.0s
+
+#4 [linux/arm64 1/9] RUN apk add --no-cache build-base git
+#4 CACHED
+
+#5 [linux/arm64 2/9] RUN apk add --no-cache cmake python3
+#5 0.054 fetch https://dl-cdn.alpinelinux.org/alpine/v3.20/main/aarch64/APKINDEX.tar.gz
+#5 0.233 fetch https://dl-cdn.alpinelinux.org/alpine/v3.20/community/aarch64/APKINDEX.tar.gz
+#5 0.422 (1/20) Installing libacl (2.3.2-r0)
+#5 0.438 (2/20) Installing libbz2 (1.0.8-r6)
+#5 0.460 (3/20) Installing lz4-libs (1.9.4-r5)
+#5 0.483 (4/20) Installing xz-libs (5.8.3-r0)
+#5 0.506 (5/20) Installing libarchive (3.8.3-r0)
+#5 0.529 (6/20) Installing rhash-libs (1.4.4-r0)
+#5 0.548 (7/20) Installing libuv (1.48.0-r0)
+#5 0.575 (8/20) Installing cmake (3.29.3-r0)
+#5 1.096 (9/20) Installing libffi (3.4.6-r0)
+#5 1.112 (10/20) Installing gdbm (1.23-r1)
+#5 1.135 (11/20) Installing mpdecimal (4.0.0-r0)
+#5 1.158 (12/20) Installing ncurses-terminfo-base (6.4_p20240420-r2)
+#5 1.178 (13/20) Installing libncursesw (6.4_p20240420-r2)
+#5 1.202 (14/20) Installing libpanelw (6.4_p20240420-r2)
+#5 1.226 (15/20) Installing readline (8.2.10-r0)
+#5 1.253 (16/20) Installing sqlite-libs (3.45.3-r3)
+#5 1.287 (17/20) Installing python3 (3.12.13-r0)
+#5 1.480 (18/20) Installing python3-pycache-pyc0 (3.12.13-r0)
+#5 1.581 (19/20) Installing pyc (3.12.13-r0)
+#5 1.599 (20/20) Installing python3-pyc (3.12.13-r0)
+#5 1.618 Executing busybox-1.36.1-r31.trigger
+#5 1.622 OK: 323 MiB in 67 packages
+#5 DONE 1.8s
+
+#6 [linux/arm64/v8 3/9] WORKDIR /src
+#6 DONE 0.0s
+
+#7 [linux/arm64 4/9] RUN git clone --depth 1 https://github.com/berry-lang/berry .
+#7 0.032 Cloning into '.'...
+#7 DONE 0.6s
+
+#8 [linux/arm64 5/9] RUN cmake -B build -DCMAKE_BUILD_TYPE=Release -DUSE_READLINE_LIB=0     && cmake --build build -j"$(nproc)"
+#8 0.071 -- The C compiler identification is GNU 13.2.1
+#8 0.078 -- Detecting C compiler ABI info
+#8 0.116 -- Detecting C compiler ABI info - done
+#8 0.128 -- Check for working C compiler: /usr/bin/cc - skipped
+#8 0.128 -- Detecting C compile features
+#8 0.129 -- Detecting C compile features - done
+#8 0.130 -- Configuring done (0.1s)
+#8 0.135 -- Generating done (0.0s)
+#8 0.135 CMake Warning:
+#8 0.135   Manually-specified variables were not used by the project:
+#8 0.135 
+#8 0.135     USE_READLINE_LIB
+#8 0.135 
+#8 0.135 
+#8 0.136 -- Build files have been written to: /src/build
+#8 0.155 [  2%] Generate coc objects
+#8 0.200 [  2%] Built target berry-coc
+#8 0.209 [  4%] Building C object CMakeFiles/libberry.dir/src/be_api.c.o
+#8 0.209 [  6%] Building C object CMakeFiles/libberry.dir/src/be_baselib.c.o
+#8 0.318 [  8%] Building C object CMakeFiles/libberry.dir/src/be_bytecode.c.o
+#8 0.446 [ 10%] Building C object CMakeFiles/libberry.dir/src/be_byteslib.c.o
+#8 0.467 [ 13%] Building C object CMakeFiles/libberry.dir/src/be_class.c.o
+#8 0.560 [ 15%] Building C object CMakeFiles/libberry.dir/src/be_code.c.o
+#8 0.932 [ 17%] Building C object CMakeFiles/libberry.dir/src/be_debug.c.o
+#8 0.947 [ 19%] Building C object CMakeFiles/libberry.dir/src/be_debuglib.c.o
+#8 1.013 [ 21%] Building C object CMakeFiles/libberry.dir/src/be_exec.c.o
+#8 1.034 [ 23%] Building C object CMakeFiles/libberry.dir/src/be_filelib.c.o
+#8 1.104 [ 26%] Building C object CMakeFiles/libberry.dir/src/be_func.c.o
+#8 1.144 [ 28%] Building C object CMakeFiles/libberry.dir/src/be_gc.c.o
+#8 1.161 [ 30%] Building C object CMakeFiles/libberry.dir/src/be_gclib.c.o
+#8 1.183 [ 32%] Building C object CMakeFiles/libberry.dir/src/be_globallib.c.o
+#8 1.219 [ 34%] Building C object CMakeFiles/libberry.dir/src/be_introspectlib.c.o
+#8 1.285 [ 36%] Building C object CMakeFiles/libberry.dir/src/be_jsonlib.c.o
+#8 1.303 [ 39%] Building C object CMakeFiles/libberry.dir/src/be_lexer.c.o
+#8 1.422 [ 41%] Building C object CMakeFiles/libberry.dir/src/be_libs.c.o
+#8 1.440 [ 43%] Building C object CMakeFiles/libberry.dir/src/be_list.c.o
+#8 1.506 [ 45%] Building C object CMakeFiles/libberry.dir/src/be_listlib.c.o
+#8 1.632 [ 47%] Building C object CMakeFiles/libberry.dir/src/be_map.c.o
+#8 1.687 [ 50%] Building C object CMakeFiles/libberry.dir/src/be_maplib.c.o
+#8 1.745 [ 52%] Building C object CMakeFiles/libberry.dir/src/be_mathlib.c.o
+#8 1.751 [ 54%] Building C object CMakeFiles/libberry.dir/src/be_mem.c.o
+#8 1.808 [ 56%] Building C object CMakeFiles/libberry.dir/src/be_module.c.o
+#8 1.836 [ 58%] Building C object CMakeFiles/libberry.dir/src/be_object.c.o
+#8 1.864 [ 60%] Building C object CMakeFiles/libberry.dir/src/be_oslib.c.o
+#8 1.899 [ 63%] Building C object CMakeFiles/libberry.dir/src/be_parser.c.o
+#8 1.933 [ 65%] Building C object CMakeFiles/libberry.dir/src/be_rangelib.c.o
+#8 1.975 [ 67%] Building C object CMakeFiles/libberry.dir/src/be_repl.c.o
+#8 2.015 [ 69%] Building C object CMakeFiles/libberry.dir/src/be_solidifylib.c.o
+#8 2.276 [ 71%] Building C object CMakeFiles/libberry.dir/src/be_strictlib.c.o
+#8 2.296 [ 73%] Building C object CMakeFiles/libberry.dir/src/be_string.c.o
+#8 2.402 [ 76%] Building C object CMakeFiles/libberry.dir/src/be_strlib.c.o
+#8 2.527 [ 78%] Building C object CMakeFiles/libberry.dir/src/be_syslib.c.o
+#8 2.546 [ 80%] Building C object CMakeFiles/libberry.dir/src/be_timelib.c.o
+#8 2.575 [ 82%] Building C object CMakeFiles/libberry.dir/src/be_undefinedlib.c.o
+#8 2.591 [ 84%] Building C object CMakeFiles/libberry.dir/src/be_var.c.o
+#8 2.635 [ 86%] Building C object CMakeFiles/libberry.dir/src/be_vector.c.o
+#8 2.679 [ 89%] Building C object CMakeFiles/libberry.dir/src/be_vm.c.o
+#8 3.091 [ 91%] Linking C static library lib/liblibberry.a
+#8 3.109 [ 91%] Built target libberry
+#8 3.116 [ 93%] Building C object CMakeFiles/berry.dir/default/be_modtab.c.o
+#8 3.116 [ 95%] Building C object CMakeFiles/berry.dir/default/be_port.c.o
+#8 3.130 [ 97%] Building C object CMakeFiles/berry.dir/default/berry.c.o
+#8 3.195 [100%] Linking C executable bin/berry
+#8 3.211 [100%] Built target berry
+#8 DONE 3.2s
+
+#9 [linux/arm64 6/9] RUN BIN=$(find build -type f -name berry -perm -u+x | head -1)     && cp "$BIN" /usr/local/bin/berry
+#9 DONE 0.0s
+
+#10 [linux/arm64 7/9] RUN printf "print('ok-berry')\n" > /smoke.be     && berry /smoke.be | tee /smoke.out && grep -q '^ok-berry' /smoke.out
+#10 0.025 ok-berry
+#10 DONE 0.0s
+
+#11 [linux/arm64 8/9] RUN printf 'BINSIZE %s berry\n' "$(stat -c %s /usr/local/bin/berry)"
+#11 0.022 BINSIZE 378472 berry
+#11 DONE 0.0s
+
+#12 exporting to oci image format
+#12 exporting layers
+#12 exporting layers 2.2s done
+#12 exporting manifest sha256:3f3e7bddce9fedf3c2299f0772c5f3a029ab1dce0602c8608137e1b1102d0e23 done
+#12 exporting config sha256:97bfba07464005245976e2519ac1092496a5beeaccc224b1ea65b3426fc5b332 done
+#12 exporting manifest list sha256:e8465718f4145b6a4eacdad3066300ad839680578d0026c6aff8eb49f0489cb6 done
+#12 sending tarball
+#12 sending tarball 0.8s done
+#12 DONE 3.0s
+Successfully built tinylang/berry:latest

@@ -1,0 +1,10 @@
+{
+  "name": "goawk",
+  "outcome": "ok",
+  "build_exit": 0,
+  "build_seconds": 16,
+  "binary_bytes": 4047871,
+  "smoke": "ok-goawk ",
+  "image_line": "tinylang/goawk                latest  0288722724eb20b4d733c681...",
+  "log": "results/goawk.log"
+}

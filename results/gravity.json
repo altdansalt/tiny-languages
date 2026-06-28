@@ -1,0 +1,10 @@
+{
+  "name": "gravity",
+  "outcome": "ok",
+  "build_exit": 0,
+  "build_seconds": 3,
+  "binary_bytes": 449008,
+  "smoke": "ok-gravity RESULT: NULL (in 0.0157 ms)  ",
+  "image_line": "tinylang/gravity              latest  21a73d9ea8eda673ff164d42...",
+  "log": "results/gravity.log"
+}

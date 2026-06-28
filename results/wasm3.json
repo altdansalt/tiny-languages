@@ -1,0 +1,10 @@
+{
+  "name": "wasm3",
+  "outcome": "ok",
+  "build_exit": 0,
+  "build_seconds": 4,
+  "binary_bytes": 241440,
+  "smoke": "Result: 55 ",
+  "image_line": "tinylang/wasm3                latest  fb51a519c363e2287bf968c2...",
+  "log": "results/wasm3.log"
+}

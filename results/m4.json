@@ -1,0 +1,10 @@
+{
+  "name": "m4",
+  "outcome": "ok",
+  "build_exit": 0,
+  "build_seconds": 36,
+  "binary_bytes": 1200744,
+  "smoke": "ok-m4 ",
+  "image_line": "tinylang/m4                   latest  572245dc64ac5943438fc7fc...",
+  "log": "results/m4.log"
+}

@@ -1,0 +1,71 @@
+#1 [resolver] fetching image...docker.io/library/alpine:3.20
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 oci-layout://docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc
+#3 resolve docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc done
+#3 DONE 0.0s
+
+#4 [linux/arm64 1/8] RUN apk add --no-cache build-base git
+#4 CACHED
+
+#5 [linux/arm64 2/8] RUN apk add --no-cache bison
+#5 0.042 fetch https://dl-cdn.alpinelinux.org/alpine/v3.20/main/aarch64/APKINDEX.tar.gz
+#5 0.326 fetch https://dl-cdn.alpinelinux.org/alpine/v3.20/community/aarch64/APKINDEX.tar.gz
+#5 0.666 (1/2) Installing m4 (1.4.19-r3)
+#5 0.693 (2/2) Installing bison (3.8.2-r1)
+#5 0.726 Executing busybox-1.36.1-r31.trigger
+#5 0.729 OK: 227 MiB in 49 packages
+#5 DONE 0.8s
+
+#6 [linux/arm64/v8 3/8] WORKDIR /src
+#6 DONE 0.0s
+
+#7 [linux/arm64 4/8] RUN git clone --depth 1 https://github.com/onetrueawk/awk .
+#7 0.025 Cloning into '.'...
+#7 DONE 0.7s
+
+#8 [linux/arm64 5/8] RUN make -j"$(nproc)" && cp a.out /usr/local/bin/awk
+#8 0.032 bison -d  awkgram.y
+#8 0.033 bison -d  awkgram.y
+#8 0.036 awkgram.y: warning: 44 shift/reduce conflicts [-Wconflicts-sr]
+#8 0.038 awkgram.y: warning: 85 reduce/reduce conflicts [-Wconflicts-rr]
+#8 0.038 awkgram.y: note: rerun with option '-Wcounterexamples' to generate conflict counterexamples
+#8 0.038 awkgram.y: warning: 44 shift/reduce conflicts [-Wconflicts-sr]
+#8 0.038 awkgram.y: warning: 85 reduce/reduce conflicts [-Wconflicts-rr]
+#8 0.038 awkgram.y: note: rerun with option '-Wcounterexamples' to generate conflict counterexamples
+#8 0.345 cc -g -Wall -pedantic -Wcast-qual   -O2   -c -o b.o b.c
+#8 0.349 cc -g -Wall -pedantic -Wcast-qual   -O2   -c -o main.o main.c
+#8 0.416 cc -g -Wall -pedantic -Wcast-qual   -O2   -c -o parse.o parse.c
+#8 0.497 cc -g -Wall -pedantic -Wcast-qual -O2 maketab.c -o maketab
+#8 0.544 cc -g -Wall -pedantic -Wcast-qual   -O2   -c -o tran.o tran.c
+#8 0.721 cc -g -Wall -pedantic -Wcast-qual   -O2   -c -o lib.o lib.c
+#8 0.733 cc -g -Wall -pedantic -Wcast-qual   -O2   -c -o run.o run.c
+#8 1.017 cc -g -Wall -pedantic -Wcast-qual   -O2   -c -o lex.o lex.c
+#8 1.236 cc -g -Wall -pedantic -Wcast-qual   -O2   -c -o awkgram.tab.o awkgram.tab.c
+#8 1.458 ./maketab awkgram.tab.h >proctab.c
+#8 1.459 cc -g -Wall -pedantic -Wcast-qual   -O2   -c -o proctab.o proctab.c
+#8 1.478 cc -g -Wall -pedantic -Wcast-qual   -O2 awkgram.tab.o b.o main.o parse.o proctab.o tran.o lib.o run.o lex.o   -lm
+#8 DONE 1.5s
+
+#9 [linux/arm64 6/8] RUN awk 'BEGIN{print "ok-awk"}' | tee /smoke.out && grep -q '^ok-awk' /smoke.out
+#9 0.022 ok-awk
+#9 DONE 0.0s
+
+#10 [linux/arm64 7/8] RUN printf 'BINSIZE %s awk\n' "$(stat -c %s /usr/local/bin/awk)"
+#10 0.036 BINSIZE 502560 awk
+#10 DONE 0.0s
+
+#11 exporting to oci image format
+#11 exporting layers
+#11 exporting layers 0.3s done
+#11 exporting manifest sha256:3d088182bac46be8f1ff6358a4f3b049017cb0892584b42ce031704c2858dbd3 done
+#11 exporting config sha256:f8495fb1c88cd901c460585b9a66ee83eba37ce60bfbd693f6c0dcd601bd5489 done
+#11 exporting manifest list sha256:57b3725a90df1c703707bc64fdad2fcbbe89f738561c0d0831b28c7958b4452a done
+#11 sending tarball
+#11 sending tarball 0.6s done
+#11 DONE 0.9s
+Successfully built tinylang/onetrueawk:latest

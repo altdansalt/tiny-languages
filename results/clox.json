@@ -1,0 +1,10 @@
+{
+  "name": "clox",
+  "outcome": "ok",
+  "build_exit": 0,
+  "build_seconds": 6,
+  "binary_bytes": 75752,
+  "smoke": "3 ",
+  "image_line": "tinylang/clox                 latest  697a9dfafbb935beeeb5fe7c...",
+  "log": "results/clox.log"
+}

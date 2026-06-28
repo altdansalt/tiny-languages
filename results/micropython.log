@@ -1,0 +1,303 @@
+#1 [resolver] fetching image...docker.io/library/alpine:3.20
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 oci-layout://docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc
+#3 resolve docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc done
+#3 DONE 0.0s
+
+#4 [linux/arm64  4/10] RUN git clone --depth 1 https://github.com/micropython/micropython .
+#4 CACHED
+
+#5 [linux/arm64  1/10] RUN apk add --no-cache build-base git
+#5 CACHED
+
+#6 [linux/arm64  2/10] RUN apk add --no-cache python3 pkgconf libffi-dev
+#6 CACHED
+
+#7 [linux/arm64/v8  3/10] WORKDIR /src
+#7 CACHED
+
+#8 [linux/arm64  5/10] RUN make -C mpy-cross -j"$(nproc)" || true
+#8 CACHED
+
+#9 [linux/arm64  6/10] RUN make -C ports/unix VARIANT=minimal -j"$(nproc)"
+#9 0.047 make: Entering directory '/src/ports/unix'
+#9 0.047 Use make V=1 or set BUILD_VERBOSE in your environment to increase build verbosity.
+#9 0.222 mkdir -p build-minimal/genhdr
+#9 0.224 mkdir -p build-minimal/
+#9 0.224 mkdir -p build-minimal/extmod/
+#9 0.224 mkdir -p build-minimal/extmod/mbedtls/
+#9 0.224 mkdir -p build-minimal/py/
+#9 0.225 mkdir -p build-minimal/shared/libc/
+#9 0.225 mkdir -p build-minimal/shared/runtime/
+#9 0.225 mkdir -p build-minimal/shared/timeutils/
+#9 0.256 GEN build-minimal/genhdr/mpversion.h
+#9 0.260 GEN build-minimal/genhdr/qstr.i.last
+#9 1.608 GEN build-minimal/genhdr/qstr.split
+#9 1.609 GEN build-minimal/genhdr/moduledefs.split
+#9 1.633 GEN build-minimal/genhdr/root_pointers.split
+#9 1.638 GEN build-minimal/genhdr/compressed.split
+#9 1.658 GEN build-minimal/genhdr/qstrdefs.collected.h
+#9 1.658 GEN build-minimal/genhdr/moduledefs.collected
+#9 1.679 Module registrations updated
+#9 1.679 QSTR updated
+#9 1.683 GEN build-minimal/genhdr/compressed.collected
+#9 1.683 GEN build-minimal/genhdr/root_pointers.collected
+#9 1.703 Root pointer registrations updated
+#9 1.703 Compressed data updated
+#9 1.707 GEN build-minimal/genhdr/qstrdefs.generated.h
+#9 1.708 GEN build-minimal/genhdr/moduledefs.h
+#9 1.726 GEN build-minimal/genhdr/root_pointers.h
+#9 1.739 GEN build-minimal/genhdr/compressed.data.h
+#9 1.754 CC ../../py/mpstate.c
+#9 1.755 CC ../../py/nlr.c
+#9 1.778 CC ../../py/nlrx86.c
+#9 1.788 CC ../../py/nlrx64.c
+#9 1.799 CC ../../py/nlrthumb.c
+#9 1.809 CC ../../py/nlraarch64.c
+#9 1.821 CC ../../py/nlrmips.c
+#9 1.835 CC ../../py/nlrpowerpc.c
+#9 1.842 CC ../../py/nlrxtensa.c
+#9 1.857 CC ../../py/nlrrv32.c
+#9 1.864 CC ../../py/nlrrv64.c
+#9 1.877 CC ../../py/nlrloong64.c
+#9 1.883 CC ../../py/nlrsetjmp.c
+#9 1.897 CC ../../py/malloc.c
+#9 1.903 CC ../../py/gc.c
+#9 1.929 CC ../../py/pystack.c
+#9 1.949 CC ../../py/qstr.c
+#9 2.027 CC ../../py/vstr.c
+#9 2.083 CC ../../py/mpprint.c
+#9 2.088 CC ../../py/unicode.c
+#9 2.127 CC ../../py/mpz.c
+#9 2.143 CC ../../py/reader.c
+#9 2.184 CC ../../py/lexer.c
+#9 2.192 CC ../../py/parse.c
+#9 2.312 CC ../../py/scope.c
+#9 2.361 CC ../../py/compile.c
+#9 2.392 CC ../../py/emitcommon.c
+#9 2.440 CC ../../py/emitbc.c
+#9 2.606 CC ../../py/asmbase.c
+#9 2.634 CC ../../py/asmx64.c
+#9 2.649 CC ../../py/emitnx64.c
+#9 2.664 CC ../../py/asmx86.c
+#9 2.679 CC ../../py/emitnx86.c
+#9 2.703 CC ../../py/asmthumb.c
+#9 2.721 CC ../../py/emitnthumb.c
+#9 2.736 CC ../../py/emitinlinethumb.c
+#9 2.761 CC ../../py/asmarm.c
+#9 2.778 CC ../../py/emitnarm.c
+#9 2.791 CC ../../py/asmxtensa.c
+#9 2.812 CC ../../py/emitnxtensa.c
+#9 2.825 CC ../../py/emitinlinextensa.c
+#9 2.848 CC ../../py/emitnxtensawin.c
+#9 2.862 CC ../../py/asmrv32.c
+#9 2.884 CC ../../py/emitnrv32.c
+#9 2.898 CC ../../py/emitinlinerv32.c
+#9 2.901 CC ../../py/emitndebug.c
+#9 2.915 CC ../../py/formatfloat.c
+#9 2.920 CC ../../py/parsenumbase.c
+#9 2.932 CC ../../py/parsenum.c
+#9 2.944 CC ../../py/emitglue.c
+#9 2.976 CC ../../py/persistentcode.c
+#9 2.984 CC ../../py/runtime.c
+#9 2.999 CC ../../py/runtime_utils.c
+#9 3.027 CC ../../py/scheduler.c
+#9 3.059 CC ../../py/nativeglue.c
+#9 3.083 CC ../../py/pairheap.c
+#9 3.120 CC ../../py/ringbuf.c
+#9 3.159 CC ../../py/cstack.c
+#9 3.188 CC ../../py/stackctrl.c
+#9 3.218 CC ../../py/argcheck.c
+#9 3.258 CC ../../py/warning.c
+#9 3.262 CC ../../py/profile.c
+#9 3.282 CC ../../py/map.c
+#9 3.284 CC ../../py/obj.c
+#9 3.340 CC ../../py/objarray.c
+#9 3.364 CC ../../py/objattrtuple.c
+#9 3.399 CC ../../py/objbool.c
+#9 3.400 CC ../../py/objboundmeth.c
+#9 3.434 CC ../../py/objcell.c
+#9 3.439 CC ../../py/objclosure.c
+#9 3.459 CC ../../py/objcode.c
+#9 3.476 CC ../../py/objcomplex.c
+#9 3.482 CC ../../py/objdeque.c
+#9 3.499 CC ../../py/objdict.c
+#9 3.503 CC ../../py/objenumerate.c
+#9 3.525 CC ../../py/objexcept.c
+#9 3.612 CC ../../py/objfilter.c
+#9 3.622 CC ../../py/objfloat.c
+#9 3.633 CC ../../py/objfun.c
+#9 3.645 CC ../../py/objgenerator.c
+#9 3.695 CC ../../py/objgetitemiter.c
+#9 3.713 CC ../../py/objint.c
+#9 3.729 CC ../../py/objint_longlong.c
+#9 3.754 CC ../../py/objint_mpz.c
+#9 3.776 CC ../../py/objlist.c
+#9 3.814 CC ../../py/objmap.c
+#9 3.848 CC ../../py/objmodule.c
+#9 3.894 CC ../../py/objobject.c
+#9 3.898 CC ../../py/objpolyiter.c
+#9 3.925 CC ../../py/objproperty.c
+#9 3.927 CC ../../py/objnone.c
+#9 3.949 CC ../../py/objnamedtuple.c
+#9 3.952 CC ../../py/objrange.c
+#9 3.973 CC ../../py/objreversed.c
+#9 3.996 CC ../../py/objringio.c
+#9 4.005 CC ../../py/objset.c
+#9 4.012 CC ../../py/objsingleton.c
+#9 4.028 CC ../../py/objslice.c
+#9 4.041 CC ../../py/objstr.c
+#9 4.053 CC ../../py/objstrunicode.c
+#9 4.078 CC ../../py/objstringio.c
+#9 4.106 CC ../../py/objtemplate.c
+#9 4.128 CC ../../py/objtuple.c
+#9 4.197 CC ../../py/objtype.c
+#9 4.384 CC ../../py/objzip.c
+#9 4.409 CC ../../py/opmethods.c
+#9 4.420 CC ../../py/sequence.c
+#9 4.440 CC ../../py/stream.c
+#9 4.476 CC ../../py/binary.c
+#9 4.535 CC ../../py/builtinimport.c
+#9 4.546 CC ../../py/builtinevex.c
+#9 4.583 CC ../../py/builtinhelp.c
+#9 4.605 CC ../../py/modarray.c
+#9 4.611 CC ../../py/modbuiltins.c
+#9 4.627 CC ../../py/modcollections.c
+#9 4.648 CC ../../py/modgc.c
+#9 4.669 CC ../../py/modio.c
+#9 4.692 CC ../../py/modmath.c
+#9 4.706 CC ../../py/modcmath.c
+#9 4.715 CC ../../py/modmicropython.c
+#9 4.728 CC ../../py/modstring.c
+#9 4.738 CC ../../py/modstruct.c
+#9 4.747 CC ../../py/modsys.c
+#9 4.759 CC ../../py/moderrno.c
+#9 4.779 CC ../../py/modthread.c
+#9 4.783 CC ../../py/modweakref.c
+#9 4.803 CC ../../py/vm.c
+#9 4.803 CC ../../py/bc.c
+#9 4.889 CC ../../py/showbc.c
+#9 4.914 CC ../../py/repl.c
+#9 4.996 CC ../../py/smallint.c
+#9 5.020 CC ../../py/frozenmod.c
+#9 5.035 CC ../../extmod/machine_adc.c
+#9 5.048 CC ../../extmod/machine_adc_block.c
+#9 5.060 CC ../../extmod/machine_bitstream.c
+#9 5.072 CC ../../extmod/machine_can.c
+#9 5.083 CC ../../extmod/machine_i2c.c
+#9 5.096 CC ../../extmod/machine_i2c_target.c
+#9 5.106 CC ../../extmod/machine_i2s.c
+#9 5.124 CC ../../extmod/machine_mem.c
+#9 5.131 CC ../../extmod/machine_pinbase.c
+#9 5.150 CC ../../extmod/machine_pulse.c
+#9 5.154 CC ../../extmod/machine_pwm.c
+#9 5.173 CC ../../extmod/machine_signal.c
+#9 5.179 CC ../../extmod/machine_spi.c
+#9 5.197 CC ../../extmod/machine_timer.c
+#9 5.203 CC ../../extmod/machine_uart.c
+#9 5.219 CC ../../extmod/machine_usb_device.c
+#9 5.229 CC ../../extmod/machine_wdt.c
+#9 5.234 CC ../../extmod/modasyncio.c
+#9 5.251 CC ../../extmod/modbinascii.c
+#9 5.255 CC ../../extmod/modbluetooth.c
+#9 5.273 CC ../../extmod/modbtree.c
+#9 5.280 CC ../../extmod/modcryptolib.c
+#9 5.293 CC ../../extmod/moddeflate.c
+#9 5.295 CC ../../extmod/modframebuf.c
+#9 5.316 CC ../../extmod/modhashlib.c
+#9 5.316 CC ../../extmod/modheapq.c
+#9 5.338 CC ../../extmod/modjson.c
+#9 5.342 CC ../../extmod/modlwip.c
+#9 5.362 CC ../../extmod/modmachine.c
+#9 5.368 CC ../../extmod/modmarshal.c
+#9 5.386 CC ../../extmod/modnetwork.c
+#9 5.390 CC ../../extmod/modonewire.c
+#9 5.409 CC ../../extmod/modopenamp.c
+#9 5.412 CC ../../extmod/modopenamp_remoteproc.c
+#9 5.421 CC ../../extmod/modopenamp_remoteproc_store.c
+#9 5.429 CC ../../extmod/modos.c
+#9 5.432 CC ../../extmod/modplatform.c
+#9 5.452 CC ../../extmod/modrandom.c
+#9 5.454 CC ../../extmod/modre.c
+#9 5.474 CC ../../extmod/modselect.c
+#9 5.476 CC ../../extmod/modsocket.c
+#9 5.496 CC ../../extmod/modtls_axtls.c
+#9 5.497 CC ../../extmod/modtls_mbedtls.c
+#9 5.514 CC ../../extmod/mbedtls/mbedtls_alt.c
+#9 5.517 CC ../../extmod/modtime.c
+#9 5.530 CC ../../extmod/moductypes.c
+#9 5.540 CC ../../extmod/modvfs.c
+#9 5.552 CC ../../extmod/modwebrepl.c
+#9 5.562 CC ../../extmod/modwebsocket.c
+#9 5.576 CC ../../extmod/network_cyw43.c
+#9 5.584 CC ../../extmod/network_esp_hosted.c
+#9 5.597 CC ../../extmod/network_lwip.c
+#9 5.603 CC ../../extmod/network_ninaw10.c
+#9 5.619 CC ../../extmod/network_ppp_lwip.c
+#9 5.624 CC ../../extmod/network_wiznet5k.c
+#9 5.641 CC ../../extmod/os_dupterm.c
+#9 5.646 CC ../../extmod/vfs.c
+#9 5.663 CC ../../extmod/vfs_blockdev.c
+#9 5.711 CC ../../extmod/vfs_fat.c
+#9 5.730 CC ../../extmod/vfs_fat_diskio.c
+#9 5.744 CC ../../extmod/vfs_fat_file.c
+#9 5.759 CC ../../extmod/vfs_lfs.c
+#9 5.762 CC ../../extmod/vfs_rom.c
+#9 5.782 CC ../../extmod/vfs_rom_file.c
+#9 5.786 CC ../../extmod/vfs_posix.c
+#9 5.807 CC ../../extmod/vfs_posix_file.c
+#9 5.861 CC ../../extmod/vfs_reader.c
+#9 5.872 CC ../../extmod/virtpin.c
+#9 5.902 CC ../../shared/libc/abort_.c
+#9 5.906 CC ../../shared/libc/printf.c
+#9 5.932 CC main.c
+#9 5.943 CC gccollect.c
+#9 5.969 CC unix_mphal.c
+#9 6.021 CC mpthreadport.c
+#9 6.043 CC input.c
+#9 6.049 CC alloc.c
+#9 6.074 CC fatfs_port.c
+#9 6.074 CC mpbthciport.c
+#9 6.095 CC mpbtstackport_common.c
+#9 6.097 CC mpbtstackport_h4.c
+#9 6.115 CC mpbtstackport_usb.c
+#9 6.117 CC mpnimbleport.c
+#9 6.129 CC modtermios.c
+#9 6.140 CC modsocket.c
+#9 6.143 CC modffi.c
+#9 6.154 CC modjni.c
+#9 6.165 CC ../../shared/runtime/gchelper_generic.c
+#9 6.177 CC ../../shared/runtime/pyexec.c
+#9 6.195 CC ../../shared/timeutils/timeutils.c
+#9 6.256 LINK build-minimal/micropython
+#9 6.303    text	   data	    bss	    dec	    hex	filename
+#9 6.303  191837	  14368	   1216	 207421	  32a3d	build-minimal/micropython
+#9 6.304 make: Leaving directory '/src/ports/unix'
+#9 DONE 6.3s
+
+#10 [linux/arm64  7/10] RUN BIN=$(find ports/unix -type f -name micropython -perm -u+x | head -1)     && cp "$BIN" /usr/local/bin/micropython
+#10 DONE 0.0s
+
+#11 [linux/arm64  8/10] RUN micropython -c 'print("ok-mpy")' | tee /smoke.out && grep -q '^ok-mpy' /smoke.out
+#11 0.046 ok-mpy
+#11 DONE 0.0s
+
+#12 [linux/arm64  9/10] RUN printf 'BINSIZE %s micropython\n' "$(stat -c %s /usr/local/bin/micropython)"
+#12 0.036 BINSIZE 263984 micropython
+#12 DONE 0.0s
+
+#13 exporting to oci image format
+#13 exporting layers
+#13 exporting layers 1.4s done
+#13 exporting manifest sha256:330d223af6944144838e87ee15a5f783100b60b738dd1502bb3677e41e7702e0 done
+#13 exporting config sha256:ac600166e45e113ea0de51eda621b43461975444ba02ede88a2ce145c130d353 done
+#13 exporting manifest list sha256:97a25d4770c8221d9fb82edc03645986d9a0ff8efccad178be6c53016b5db126 done
+#13 sending tarball
+#13 sending tarball 0.8s done
+#13 DONE 2.2s
+Successfully built tinylang/micropython:latest

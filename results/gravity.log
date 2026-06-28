@@ -1,0 +1,47 @@
+#1 [resolver] fetching image...docker.io/library/alpine:3.20
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 transferring context: 2B 0.0s done
+#2 DONE 0.0s
+
+#3 oci-layout://docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc
+#3 resolve docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc done
+#3 DONE 0.0s
+
+#4 [linux/arm64 1/8] RUN apk add --no-cache build-base git
+#4 CACHED
+
+#5 [linux/arm64/v8 2/8] WORKDIR /src
+#5 CACHED
+
+#6 [linux/arm64 3/8] RUN git clone --depth 1 https://github.com/marcobambini/gravity .
+#6 CACHED
+
+#7 [linux/arm64 4/8] RUN make -j"$(nproc)"
+#7 CACHED
+
+#8 [linux/arm64 5/8] RUN BIN=$(find . -maxdepth 2 -type f -name gravity -perm -u+x | head -1)     && cp "$BIN" /usr/local/bin/gravity
+#8 CACHED
+
+#9 [linux/arm64 6/8] RUN printf 'func main() { System.print("ok-gravity"); }\n' > /smoke.gravity     && gravity /smoke.gravity | tee /smoke.out && grep -q '^ok-gravity' /smoke.out
+#9 0.050 ok-gravity
+#9 0.050 RESULT: NULL (in 0.0217 ms)
+#9 0.050 
+#9 DONE 0.1s
+
+#10 [linux/arm64 7/8] RUN printf 'BINSIZE %s gravity\n' "$(stat -c %s /usr/local/bin/gravity)"
+#10 0.043 BINSIZE 449008 gravity
+#10 DONE 0.0s
+
+#11 exporting to oci image format
+#11 exporting layers
+#11 exporting layers 0.3s done
+#11 exporting manifest sha256:9a6a8290e304b3856ef981cba022101959bf383c74d9b39bc1b2e9ebafd917e4
+#11 exporting manifest sha256:9a6a8290e304b3856ef981cba022101959bf383c74d9b39bc1b2e9ebafd917e4 done
+#11 exporting config sha256:8cd3ce5a4b55ecc4b8ae143e9d86435289e4940a05c79343f62ce3029c0923d4 done
+#11 exporting manifest list sha256:21a73d9ea8eda673ff164d427855ae96b0c8abb4f53851578dc70fa464290c20 done
+#11 sending tarball
+#11 sending tarball 0.6s done
+#11 DONE 0.9s
+Successfully built tinylang/gravity:latest

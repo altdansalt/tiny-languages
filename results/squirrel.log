@@ -1,0 +1,516 @@
+#1 [resolver] fetching image...docker.io/library/alpine:3.20
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 oci-layout://docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc
+#3 resolve docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc done
+#3 DONE 0.0s
+
+#4 [linux/arm64 1/9] RUN apk add --no-cache build-base git
+#4 CACHED
+
+#5 [linux/arm64 2/9] RUN apk add --no-cache cmake
+#5 CACHED
+
+#6 [linux/arm64/v8 3/9] WORKDIR /src
+#6 CACHED
+
+#7 [linux/arm64 4/9] RUN git clone --depth 1 https://github.com/albertodemichelis/squirrel .
+#7 0.033 Cloning into '.'...
+#7 DONE 0.7s
+
+#8 [linux/arm64 5/9] RUN cmake -B build -DCMAKE_BUILD_TYPE=Release && cmake --build build -j"$(nproc)"
+#8 0.080 -- The C compiler identification is GNU 13.2.1
+#8 0.111 -- The CXX compiler identification is GNU 13.2.1
+#8 0.118 -- Detecting C compiler ABI info
+#8 0.156 -- Detecting C compiler ABI info - done
+#8 0.167 -- Check for working C compiler: /usr/bin/cc - skipped
+#8 0.167 -- Detecting C compile features
+#8 0.167 -- Detecting C compile features - done
+#8 0.170 -- Detecting CXX compiler ABI info
+#8 0.211 -- Detecting CXX compiler ABI info - done
+#8 0.223 -- Check for working CXX compiler: /usr/bin/c++ - skipped
+#8 0.224 -- Detecting CXX compile features
+#8 0.224 -- Detecting CXX compile features - done
+#8 0.230 -- Configuring done (0.2s)
+#8 0.239 -- Generating done (0.0s)
+#8 0.240 -- Build files have been written to: /src/build
+#8 0.260 [  4%] Building CXX object squirrel/CMakeFiles/squirrel.dir/sqapi.cpp.o
+#8 0.260 [  4%] Building CXX object squirrel/CMakeFiles/squirrel_static.dir/sqapi.cpp.o
+#8 0.295 In file included from /src/squirrel/sqapi.cpp:5:
+#8 0.295 /src/squirrel/sqvm.h: In copy constructor 'SQExceptionTrap::SQExceptionTrap(const SQExceptionTrap&)':
+#8 0.295 /src/squirrel/sqvm.h:23:60: warning: implicitly-declared 'SQExceptionTrap& SQExceptionTrap::operator=(const SQExceptionTrap&)' is deprecated [-Wdeprecated-copy]
+#8 0.295    23 |     SQExceptionTrap(const SQExceptionTrap &et) { (*this) = et;  }
+#8 0.295       |                                                            ^~
+#8 0.295 In file included from /src/squirrel/sqapi.cpp:5:
+#8 0.295 /src/squirrel/sqvm.h: In copy constructor 'SQExceptionTrap::SQExceptionTrap(const SQExceptionTrap&)':
+#8 0.295 /src/squirrel/sqvm.h:23:60: warning: implicitly-declared 'SQExceptionTrap& SQExceptionTrap::operator=(const SQExceptionTrap&)' is deprecated [-Wdeprecated-copy]
+#8 0.295    23 |     SQExceptionTrap(const SQExceptionTrap &et) { (*this) = et;  }
+#8 0.295       |                                                            ^~
+#8 0.295 /src/squirrel/sqvm.h:23:5: note: because 'SQExceptionTrap' has user-provided 'SQExceptionTrap::SQExceptionTrap(const SQExceptionTrap&)'
+#8 0.295    23 |     SQExceptionTrap(const SQExceptionTrap &et) { (*this) = et;  }
+#8 0.295       |     ^~~~~~~~~~~~~~~
+#8 0.295 /src/squirrel/sqvm.h:23:5: note: because 'SQExceptionTrap' has user-provided 'SQExceptionTrap::SQExceptionTrap(const SQExceptionTrap&)'
+#8 0.295    23 |     SQExceptionTrap(const SQExceptionTrap &et) { (*this) = et;  }
+#8 0.295       |     ^~~~~~~~~~~~~~~
+#8 0.957 [  6%] Building CXX object squirrel/CMakeFiles/squirrel.dir/sqbaselib.cpp.o
+#8 0.982 In file included from /src/squirrel/sqbaselib.cpp:5:
+#8 0.982 /src/squirrel/sqvm.h: In copy constructor 'SQExceptionTrap::SQExceptionTrap(const SQExceptionTrap&)':
+#8 0.982 /src/squirrel/sqvm.h:23:60: warning: implicitly-declared 'SQExceptionTrap& SQExceptionTrap::operator=(const SQExceptionTrap&)' is deprecated [-Wdeprecated-copy]
+#8 0.982    23 |     SQExceptionTrap(const SQExceptionTrap &et) { (*this) = et;  }
+#8 0.982       |                                                            ^~
+#8 0.987 /src/squirrel/sqvm.h:23:5: note: because 'SQExceptionTrap' has user-provided 'SQExceptionTrap::SQExceptionTrap(const SQExceptionTrap&)'
+#8 0.987    23 |     SQExceptionTrap(const SQExceptionTrap &et) { (*this) = et;  }
+#8 0.987       |     ^~~~~~~~~~~~~~~
+#8 1.055 [  8%] Building CXX object squirrel/CMakeFiles/squirrel_static.dir/sqbaselib.cpp.o
+#8 1.080 In file included from /src/squirrel/sqbaselib.cpp:5:
+#8 1.080 /src/squirrel/sqvm.h: In copy constructor 'SQExceptionTrap::SQExceptionTrap(const SQExceptionTrap&)':
+#8 1.080 /src/squirrel/sqvm.h:23:60: warning: implicitly-declared 'SQExceptionTrap& SQExceptionTrap::operator=(const SQExceptionTrap&)' is deprecated [-Wdeprecated-copy]
+#8 1.080    23 |     SQExceptionTrap(const SQExceptionTrap &et) { (*this) = et;  }
+#8 1.080       |                                                            ^~
+#8 1.080 /src/squirrel/sqvm.h:23:5: note: because 'SQExceptionTrap' has user-provided 'SQExceptionTrap::SQExceptionTrap(const SQExceptionTrap&)'
+#8 1.080    23 |     SQExceptionTrap(const SQExceptionTrap &et) { (*this) = et;  }
+#8 1.080       |     ^~~~~~~~~~~~~~~
+#8 1.635 [ 10%] Building CXX object squirrel/CMakeFiles/squirrel.dir/sqclass.cpp.o
+#8 1.656 In file included from /src/squirrel/sqclass.cpp:5:
+#8 1.656 /src/squirrel/sqvm.h: In copy constructor 'SQExceptionTrap::SQExceptionTrap(const SQExceptionTrap&)':
+#8 1.656 /src/squirrel/sqvm.h:23:60: warning: implicitly-declared 'SQExceptionTrap& SQExceptionTrap::operator=(const SQExceptionTrap&)' is deprecated [-Wdeprecated-copy]
+#8 1.656    23 |     SQExceptionTrap(const SQExceptionTrap &et) { (*this) = et;  }
+#8 1.656       |                                                            ^~
+#8 1.656 /src/squirrel/sqvm.h:23:5: note: because 'SQExceptionTrap' has user-provided 'SQExceptionTrap::SQExceptionTrap(const SQExceptionTrap&)'
+#8 1.656    23 |     SQExceptionTrap(const SQExceptionTrap &et) { (*this) = et;  }
+#8 1.656       |     ^~~~~~~~~~~~~~~
+#8 1.739 [ 12%] Building CXX object squirrel/CMakeFiles/squirrel_static.dir/sqclass.cpp.o
+#8 1.761 In file included from /src/squirrel/sqclass.cpp:5:
+#8 1.761 /src/squirrel/sqvm.h: In copy constructor 'SQExceptionTrap::SQExceptionTrap(const SQExceptionTrap&)':
+#8 1.761 /src/squirrel/sqvm.h:23:60: warning: implicitly-declared 'SQExceptionTrap& SQExceptionTrap::operator=(const SQExceptionTrap&)' is deprecated [-Wdeprecated-copy]
+#8 1.761    23 |     SQExceptionTrap(const SQExceptionTrap &et) { (*this) = et;  }
+#8 1.761       |                                                            ^~
+#8 1.761 /src/squirrel/sqvm.h:23:5: note: because 'SQExceptionTrap' has user-provided 'SQExceptionTrap::SQExceptionTrap(const SQExceptionTrap&)'
+#8 1.761    23 |     SQExceptionTrap(const SQExceptionTrap &et) { (*this) = et;  }
+#8 1.761       |     ^~~~~~~~~~~~~~~
+#8 1.884 [ 14%] Building CXX object squirrel/CMakeFiles/squirrel.dir/sqcompiler.cpp.o
+#8 1.911 In file included from /src/squirrel/sqcompiler.cpp:14:
+#8 1.911 /src/squirrel/sqvm.h: In copy constructor 'SQExceptionTrap::SQExceptionTrap(const SQExceptionTrap&)':
+#8 1.911 /src/squirrel/sqvm.h:23:60: warning: implicitly-declared 'SQExceptionTrap& SQExceptionTrap::operator=(const SQExceptionTrap&)' is deprecated [-Wdeprecated-copy]
+#8 1.911    23 |     SQExceptionTrap(const SQExceptionTrap &et) { (*this) = et;  }
+#8 1.911       |                                                            ^~
+#8 1.911 /src/squirrel/sqvm.h:23:5: note: because 'SQExceptionTrap' has user-provided 'SQExceptionTrap::SQExceptionTrap(const SQExceptionTrap&)'
+#8 1.911    23 |     SQExceptionTrap(const SQExceptionTrap &et) { (*this) = et;  }
+#8 1.911       |     ^~~~~~~~~~~~~~~
+#8 1.929 /src/squirrel/sqcompiler.cpp: In member function 'void SQCompiler::ParseTableOrClass(SQInteger, SQInteger)':
+#8 1.929 /src/squirrel/sqcompiler.cpp:1013:17: warning: this statement may fall through [-Wimplicit-fallthrough=]
+#8 1.929  1013 |                 if(separator == ',') { //only works for tables
+#8 1.929       |                 ^~
+#8 1.929 /src/squirrel/sqcompiler.cpp:1018:13: note: here
+#8 1.929  1018 |             default :
+#8 1.929       |             ^~~~~~~
+#8 2.007 [ 16%] Building CXX object squirrel/CMakeFiles/squirrel_static.dir/sqcompiler.cpp.o
+#8 2.038 In file included from /src/squirrel/sqcompiler.cpp:14:
+#8 2.038 /src/squirrel/sqvm.h: In copy constructor 'SQExceptionTrap::SQExceptionTrap(const SQExceptionTrap&)':
+#8 2.038 /src/squirrel/sqvm.h:23:60: warning: implicitly-declared 'SQExceptionTrap& SQExceptionTrap::operator=(const SQExceptionTrap&)' is deprecated [-Wdeprecated-copy]
+#8 2.038    23 |     SQExceptionTrap(const SQExceptionTrap &et) { (*this) = et;  }
+#8 2.038       |                                                            ^~
+#8 2.038 /src/squirrel/sqvm.h:23:5: note: because 'SQExceptionTrap' has user-provided 'SQExceptionTrap::SQExceptionTrap(const SQExceptionTrap&)'
+#8 2.038    23 |     SQExceptionTrap(const SQExceptionTrap &et) { (*this) = et;  }
+#8 2.038       |     ^~~~~~~~~~~~~~~
+#8 2.057 /src/squirrel/sqcompiler.cpp: In member function 'void SQCompiler::ParseTableOrClass(SQInteger, SQInteger)':
+#8 2.057 /src/squirrel/sqcompiler.cpp:1013:17: warning: this statement may fall through [-Wimplicit-fallthrough=]
+#8 2.057  1013 |                 if(separator == ',') { //only works for tables
+#8 2.057       |                 ^~
+#8 2.057 /src/squirrel/sqcompiler.cpp:1018:13: note: here
+#8 2.057  1018 |             default :
+#8 2.057       |             ^~~~~~~
+#8 2.901 [ 18%] Building CXX object squirrel/CMakeFiles/squirrel.dir/sqdebug.cpp.o
+#8 2.923 In file included from /src/squirrel/sqdebug.cpp:6:
+#8 2.923 /src/squirrel/sqvm.h: In copy constructor 'SQExceptionTrap::SQExceptionTrap(const SQExceptionTrap&)':
+#8 2.923 /src/squirrel/sqvm.h:23:60: warning: implicitly-declared 'SQExceptionTrap& SQExceptionTrap::operator=(const SQExceptionTrap&)' is deprecated [-Wdeprecated-copy]
+#8 2.923    23 |     SQExceptionTrap(const SQExceptionTrap &et) { (*this) = et;  }
+#8 2.923       |                                                            ^~
+#8 2.923 /src/squirrel/sqvm.h:23:5: note: because 'SQExceptionTrap' has user-provided 'SQExceptionTrap::SQExceptionTrap(const SQExceptionTrap&)'
+#8 2.923    23 |     SQExceptionTrap(const SQExceptionTrap &et) { (*this) = et;  }
+#8 2.923       |     ^~~~~~~~~~~~~~~
+#8 2.992 [ 20%] Building CXX object squirrel/CMakeFiles/squirrel.dir/sqfuncstate.cpp.o
+#8 3.021 /src/squirrel/sqfuncstate.cpp: In member function 'SQFunctionProto* SQFuncState::BuildProto()':
+#8 3.021 /src/squirrel/sqfuncstate.cpp:614:104: warning: implicitly-declared 'SQOuterVar& SQOuterVar::operator=(const SQOuterVar&)' is deprecated [-Wdeprecated-copy]
+#8 3.021   614 |     for(SQUnsignedInteger no = 0; no < _outervalues.size(); no++) f->_outervalues[no] = _outervalues[no];
+#8 3.021       |                                                                                                        ^
+#8 3.022 In file included from /src/squirrel/sqfuncstate.cpp:8:
+#8 3.022 /src/squirrel/sqfuncproto.h:22:5: note: because 'SQOuterVar' has user-provided 'SQOuterVar::SQOuterVar(const SQOuterVar&)'
+#8 3.022    22 |     SQOuterVar(const SQOuterVar &ov)
+#8 3.022       |     ^~~~~~~~~~
+#8 3.022 /src/squirrel/sqfuncstate.cpp:615:110: warning: implicitly-declared 'SQLocalVarInfo& SQLocalVarInfo::operator=(const SQLocalVarInfo&)' is deprecated [-Wdeprecated-copy]
+#8 3.022   615 |     for(SQUnsignedInteger nl = 0; nl < _localvarinfos.size(); nl++) f->_localvarinfos[nl] = _localvarinfos[nl];
+#8 3.022       |                                                                                                              ^
+#8 3.022 /src/squirrel/sqfuncproto.h:36:5: note: because 'SQLocalVarInfo' has user-provided 'SQLocalVarInfo::SQLocalVarInfo(const SQLocalVarInfo&)'
+#8 3.022    36 |     SQLocalVarInfo(const SQLocalVarInfo &lvi)
+#8 3.022       |     ^~~~~~~~~~~~~~
+#8 3.042 [ 22%] Building CXX object squirrel/CMakeFiles/squirrel_static.dir/sqdebug.cpp.o
+#8 3.063 In file included from /src/squirrel/sqdebug.cpp:6:
+#8 3.063 /src/squirrel/sqvm.h: In copy constructor 'SQExceptionTrap::SQExceptionTrap(const SQExceptionTrap&)':
+#8 3.063 /src/squirrel/sqvm.h:23:60: warning: implicitly-declared 'SQExceptionTrap& SQExceptionTrap::operator=(const SQExceptionTrap&)' is deprecated [-Wdeprecated-copy]
+#8 3.063    23 |     SQExceptionTrap(const SQExceptionTrap &et) { (*this) = et;  }
+#8 3.063       |                                                            ^~
+#8 3.064 /src/squirrel/sqvm.h:23:5: note: because 'SQExceptionTrap' has user-provided 'SQExceptionTrap::SQExceptionTrap(const SQExceptionTrap&)'
+#8 3.064    23 |     SQExceptionTrap(const SQExceptionTrap &et) { (*this) = et;  }
+#8 3.064       |     ^~~~~~~~~~~~~~~
+#8 3.138 [ 25%] Building CXX object squirrel/CMakeFiles/squirrel_static.dir/sqfuncstate.cpp.o
+#8 3.169 /src/squirrel/sqfuncstate.cpp: In member function 'SQFunctionProto* SQFuncState::BuildProto()':
+#8 3.169 /src/squirrel/sqfuncstate.cpp:614:104: warning: implicitly-declared 'SQOuterVar& SQOuterVar::operator=(const SQOuterVar&)' is deprecated [-Wdeprecated-copy]
+#8 3.169   614 |     for(SQUnsignedInteger no = 0; no < _outervalues.size(); no++) f->_outervalues[no] = _outervalues[no];
+#8 3.169       |                                                                                                        ^
+#8 3.169 In file included from /src/squirrel/sqfuncstate.cpp:8:
+#8 3.169 /src/squirrel/sqfuncproto.h:22:5: note: because 'SQOuterVar' has user-provided 'SQOuterVar::SQOuterVar(const SQOuterVar&)'
+#8 3.169    22 |     SQOuterVar(const SQOuterVar &ov)
+#8 3.169       |     ^~~~~~~~~~
+#8 3.169 /src/squirrel/sqfuncstate.cpp:615:110: warning: implicitly-declared 'SQLocalVarInfo& SQLocalVarInfo::operator=(const SQLocalVarInfo&)' is deprecated [-Wdeprecated-copy]
+#8 3.169   615 |     for(SQUnsignedInteger nl = 0; nl < _localvarinfos.size(); nl++) f->_localvarinfos[nl] = _localvarinfos[nl];
+#8 3.169       |                                                                                                              ^
+#8 3.169 /src/squirrel/sqfuncproto.h:36:5: note: because 'SQLocalVarInfo' has user-provided 'SQLocalVarInfo::SQLocalVarInfo(const SQLocalVarInfo&)'
+#8 3.169    36 |     SQLocalVarInfo(const SQLocalVarInfo &lvi)
+#8 3.169       |     ^~~~~~~~~~~~~~
+#8 3.290 [ 27%] Building CXX object squirrel/CMakeFiles/squirrel.dir/sqlexer.cpp.o
+#8 3.320 /src/squirrel/sqlexer.cpp: In member function 'void SQLexer::LexBlockComment()':
+#8 3.320 /src/squirrel/sqlexer.cpp:118:37: warning: this statement may fall through [-Wimplicit-fallthrough=]
+#8 3.320   118 |             case SQUIRREL_EOB: Error(_SC("missing \"*/\" in comment"));
+#8 3.320       |                                ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#8 3.320 /src/squirrel/sqlexer.cpp:119:13: note: here
+#8 3.320   119 |             default: NEXT();
+#8 3.320       |             ^~~~~~~
+#8 3.321 /src/squirrel/sqlexer.cpp: In member function 'SQInteger SQLexer::Lex()':
+#8 3.321 /src/squirrel/sqlexer.cpp:208:18: warning: this statement may fall through [-Wimplicit-fallthrough=]
+#8 3.321   208 |             Error(_SC("error parsing the string"));
+#8 3.321       |             ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#8 3.321 /src/squirrel/sqlexer.cpp:210:9: note: here
+#8 3.321   210 |         case _SC('"'):
+#8 3.321       |         ^~~~
+#8 3.321 /src/squirrel/sqlexer.cpp:216:18: warning: this statement may fall through [-Wimplicit-fallthrough=]
+#8 3.321   216 |             Error(_SC("error parsing the string"));
+#8 3.321       |             ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#8 3.321 /src/squirrel/sqlexer.cpp:218:9: note: here
+#8 3.321   218 |         case _SC('{'): case _SC('}'): case _SC('('): case _SC(')'): case _SC('['): case _SC(']'):
+#8 3.321       |         ^~~~
+#8 3.494 [ 29%] Building CXX object squirrel/CMakeFiles/squirrel_static.dir/sqlexer.cpp.o
+#8 3.524 /src/squirrel/sqlexer.cpp: In member function 'void SQLexer::LexBlockComment()':
+#8 3.524 /src/squirrel/sqlexer.cpp:118:37: warning: this statement may fall through [-Wimplicit-fallthrough=]
+#8 3.524   118 |             case SQUIRREL_EOB: Error(_SC("missing \"*/\" in comment"));
+#8 3.524       |                                ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#8 3.524 /src/squirrel/sqlexer.cpp:119:13: note: here
+#8 3.524   119 |             default: NEXT();
+#8 3.524       |             ^~~~~~~
+#8 3.524 /src/squirrel/sqlexer.cpp: In member function 'SQInteger SQLexer::Lex()':
+#8 3.524 /src/squirrel/sqlexer.cpp:208:18: warning: this statement may fall through [-Wimplicit-fallthrough=]
+#8 3.524   208 |             Error(_SC("error parsing the string"));
+#8 3.524       |             ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#8 3.524 /src/squirrel/sqlexer.cpp:210:9: note: here
+#8 3.524   210 |         case _SC('"'):
+#8 3.524       |         ^~~~
+#8 3.524 /src/squirrel/sqlexer.cpp:216:18: warning: this statement may fall through [-Wimplicit-fallthrough=]
+#8 3.524   216 |             Error(_SC("error parsing the string"));
+#8 3.524       |             ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#8 3.525 /src/squirrel/sqlexer.cpp:218:9: note: here
+#8 3.525   218 |         case _SC('{'): case _SC('}'): case _SC('('): case _SC(')'): case _SC('['): case _SC(']'):
+#8 3.525       |         ^~~~
+#8 3.759 [ 31%] Building CXX object squirrel/CMakeFiles/squirrel.dir/sqmem.cpp.o
+#8 3.790 [ 33%] Building CXX object squirrel/CMakeFiles/squirrel.dir/sqobject.cpp.o
+#8 3.811 In file included from /src/squirrel/sqobject.cpp:5:
+#8 3.811 /src/squirrel/sqvm.h: In copy constructor 'SQExceptionTrap::SQExceptionTrap(const SQExceptionTrap&)':
+#8 3.811 /src/squirrel/sqvm.h:23:60: warning: implicitly-declared 'SQExceptionTrap& SQExceptionTrap::operator=(const SQExceptionTrap&)' is deprecated [-Wdeprecated-copy]
+#8 3.811    23 |     SQExceptionTrap(const SQExceptionTrap &et) { (*this) = et;  }
+#8 3.811       |                                                            ^~
+#8 3.811 /src/squirrel/sqvm.h:23:5: note: because 'SQExceptionTrap' has user-provided 'SQExceptionTrap::SQExceptionTrap(const SQExceptionTrap&)'
+#8 3.811    23 |     SQExceptionTrap(const SQExceptionTrap &et) { (*this) = et;  }
+#8 3.811       |     ^~~~~~~~~~~~~~~
+#8 3.825 /src/squirrel/sqobject.cpp: In static member function 'static bool SQFunctionProto::Load(SQVM*, SQUserPointer, SQREADFUNC, SQObjectPtr&)':
+#8 3.825 /src/squirrel/sqobject.cpp:525:66: warning: implicitly-declared 'SQOuterVar& SQOuterVar::operator=(const SQOuterVar&)' is deprecated [-Wdeprecated-copy]
+#8 3.825   525 |         f->_outervalues[i] = SQOuterVar(name,o, (SQOuterType)type);
+#8 3.825       |                                                                  ^
+#8 3.825 In file included from /src/squirrel/sqobject.cpp:10:
+#8 3.825 /src/squirrel/sqfuncproto.h:22:5: note: because 'SQOuterVar' has user-provided 'SQOuterVar::SQOuterVar(const SQOuterVar&)'
+#8 3.825    22 |     SQOuterVar(const SQOuterVar &ov)
+#8 3.825       |     ^~~~~~~~~~
+#8 3.826 /src/squirrel/sqobject.cpp:535:32: warning: implicitly-declared 'SQLocalVarInfo& SQLocalVarInfo::operator=(const SQLocalVarInfo&)' is deprecated [-Wdeprecated-copy]
+#8 3.826   535 |         f->_localvarinfos[i] = lvi;
+#8 3.826       |                                ^~~
+#8 3.826 /src/squirrel/sqfuncproto.h:36:5: note: because 'SQLocalVarInfo' has user-provided 'SQLocalVarInfo::SQLocalVarInfo(const SQLocalVarInfo&)'
+#8 3.826    36 |     SQLocalVarInfo(const SQLocalVarInfo &lvi)
+#8 3.826       |     ^~~~~~~~~~~~~~
+#8 4.103 [ 35%] Building CXX object squirrel/CMakeFiles/squirrel_static.dir/sqmem.cpp.o
+#8 4.133 [ 37%] Building CXX object squirrel/CMakeFiles/squirrel_static.dir/sqobject.cpp.o
+#8 4.155 In file included from /src/squirrel/sqobject.cpp:5:
+#8 4.155 /src/squirrel/sqvm.h: In copy constructor 'SQExceptionTrap::SQExceptionTrap(const SQExceptionTrap&)':
+#8 4.155 /src/squirrel/sqvm.h:23:60: warning: implicitly-declared 'SQExceptionTrap& SQExceptionTrap::operator=(const SQExceptionTrap&)' is deprecated [-Wdeprecated-copy]
+#8 4.155    23 |     SQExceptionTrap(const SQExceptionTrap &et) { (*this) = et;  }
+#8 4.155       |                                                            ^~
+#8 4.155 /src/squirrel/sqvm.h:23:5: note: because 'SQExceptionTrap' has user-provided 'SQExceptionTrap::SQExceptionTrap(const SQExceptionTrap&)'
+#8 4.155    23 |     SQExceptionTrap(const SQExceptionTrap &et) { (*this) = et;  }
+#8 4.155       |     ^~~~~~~~~~~~~~~
+#8 4.169 /src/squirrel/sqobject.cpp: In static member function 'static bool SQFunctionProto::Load(SQVM*, SQUserPointer, SQREADFUNC, SQObjectPtr&)':
+#8 4.169 /src/squirrel/sqobject.cpp:525:66: warning: implicitly-declared 'SQOuterVar& SQOuterVar::operator=(const SQOuterVar&)' is deprecated [-Wdeprecated-copy]
+#8 4.169   525 |         f->_outervalues[i] = SQOuterVar(name,o, (SQOuterType)type);
+#8 4.169       |                                                                  ^
+#8 4.169 In file included from /src/squirrel/sqobject.cpp:10:
+#8 4.169 /src/squirrel/sqfuncproto.h:22:5: note: because 'SQOuterVar' has user-provided 'SQOuterVar::SQOuterVar(const SQOuterVar&)'
+#8 4.169    22 |     SQOuterVar(const SQOuterVar &ov)
+#8 4.169       |     ^~~~~~~~~~
+#8 4.170 /src/squirrel/sqobject.cpp:535:32: warning: implicitly-declared 'SQLocalVarInfo& SQLocalVarInfo::operator=(const SQLocalVarInfo&)' is deprecated [-Wdeprecated-copy]
+#8 4.170   535 |         f->_localvarinfos[i] = lvi;
+#8 4.170       |                                ^~~
+#8 4.170 /src/squirrel/sqfuncproto.h:36:5: note: because 'SQLocalVarInfo' has user-provided 'SQLocalVarInfo::SQLocalVarInfo(const SQLocalVarInfo&)'
+#8 4.170    36 |     SQLocalVarInfo(const SQLocalVarInfo &lvi)
+#8 4.170       |     ^~~~~~~~~~~~~~
+#8 4.331 [ 39%] Building CXX object squirrel/CMakeFiles/squirrel.dir/sqstate.cpp.o
+#8 4.354 In file included from /src/squirrel/sqstate.cpp:6:
+#8 4.354 /src/squirrel/sqvm.h: In copy constructor 'SQExceptionTrap::SQExceptionTrap(const SQExceptionTrap&)':
+#8 4.354 /src/squirrel/sqvm.h:23:60: warning: implicitly-declared 'SQExceptionTrap& SQExceptionTrap::operator=(const SQExceptionTrap&)' is deprecated [-Wdeprecated-copy]
+#8 4.354    23 |     SQExceptionTrap(const SQExceptionTrap &et) { (*this) = et;  }
+#8 4.354       |                                                            ^~
+#8 4.354 /src/squirrel/sqvm.h:23:5: note: because 'SQExceptionTrap' has user-provided 'SQExceptionTrap::SQExceptionTrap(const SQExceptionTrap&)'
+#8 4.354    23 |     SQExceptionTrap(const SQExceptionTrap &et) { (*this) = et;  }
+#8 4.354       |     ^~~~~~~~~~~~~~~
+#8 4.779 [ 41%] Building CXX object squirrel/CMakeFiles/squirrel_static.dir/sqstate.cpp.o
+#8 4.792 [ 43%] Building CXX object squirrel/CMakeFiles/squirrel.dir/sqtable.cpp.o
+#8 4.803 In file included from /src/squirrel/sqstate.cpp:6:
+#8 4.803 /src/squirrel/sqvm.h: In copy constructor 'SQExceptionTrap::SQExceptionTrap(const SQExceptionTrap&)':
+#8 4.803 /src/squirrel/sqvm.h:23:60: warning: implicitly-declared 'SQExceptionTrap& SQExceptionTrap::operator=(const SQExceptionTrap&)' is deprecated [-Wdeprecated-copy]
+#8 4.803    23 |     SQExceptionTrap(const SQExceptionTrap &et) { (*this) = et;  }
+#8 4.803       |                                                            ^~
+#8 4.803 /src/squirrel/sqvm.h:23:5: note: because 'SQExceptionTrap' has user-provided 'SQExceptionTrap::SQExceptionTrap(const SQExceptionTrap&)'
+#8 4.803    23 |     SQExceptionTrap(const SQExceptionTrap &et) { (*this) = et;  }
+#8 4.803       |     ^~~~~~~~~~~~~~~
+#8 4.814 In file included from /src/squirrel/sqtable.cpp:5:
+#8 4.814 /src/squirrel/sqvm.h: In copy constructor 'SQExceptionTrap::SQExceptionTrap(const SQExceptionTrap&)':
+#8 4.814 /src/squirrel/sqvm.h:23:60: warning: implicitly-declared 'SQExceptionTrap& SQExceptionTrap::operator=(const SQExceptionTrap&)' is deprecated [-Wdeprecated-copy]
+#8 4.814    23 |     SQExceptionTrap(const SQExceptionTrap &et) { (*this) = et;  }
+#8 4.814       |                                                            ^~
+#8 4.814 /src/squirrel/sqvm.h:23:5: note: because 'SQExceptionTrap' has user-provided 'SQExceptionTrap::SQExceptionTrap(const SQExceptionTrap&)'
+#8 4.814    23 |     SQExceptionTrap(const SQExceptionTrap &et) { (*this) = et;  }
+#8 4.814       |     ^~~~~~~~~~~~~~~
+#8 4.953 [ 45%] Building CXX object squirrel/CMakeFiles/squirrel.dir/sqvm.cpp.o
+#8 4.990 In file included from /src/squirrel/sqvm.cpp:8:
+#8 4.990 /src/squirrel/sqvm.h: In copy constructor 'SQExceptionTrap::SQExceptionTrap(const SQExceptionTrap&)':
+#8 4.990 /src/squirrel/sqvm.h:23:60: warning: implicitly-declared 'SQExceptionTrap& SQExceptionTrap::operator=(const SQExceptionTrap&)' is deprecated [-Wdeprecated-copy]
+#8 4.990    23 |     SQExceptionTrap(const SQExceptionTrap &et) { (*this) = et;  }
+#8 4.990       |                                                            ^~
+#8 4.991 /src/squirrel/sqvm.h:23:5: note: because 'SQExceptionTrap' has user-provided 'SQExceptionTrap::SQExceptionTrap(const SQExceptionTrap&)'
+#8 4.991    23 |     SQExceptionTrap(const SQExceptionTrap &et) { (*this) = et;  }
+#8 4.991       |     ^~~~~~~~~~~~~~~
+#8 5.025 /src/squirrel/sqvm.cpp: In member function 'bool SQVM::ObjCmp(const SQObjectPtr&, const SQObjectPtr&, SQInteger&)':
+#8 5.025 /src/squirrel/sqvm.cpp:236:13: warning: this statement may fall through [-Wimplicit-fallthrough=]
+#8 5.025   236 |             }
+#8 5.025       |             ^
+#8 5.025 /src/squirrel/sqvm.cpp:238:9: note: here
+#8 5.025   238 |         default:
+#8 5.025       |         ^~~~~~~
+#8 5.026 /src/squirrel/sqvm.cpp: In member function 'bool SQVM::ToString(const SQObjectPtr&, SQObjectPtr&)':
+#8 5.026 /src/squirrel/sqvm.cpp:317:9: warning: this statement may fall through [-Wimplicit-fallthrough=]
+#8 5.026   317 |         }
+#8 5.026       |         ^
+#8 5.026 /src/squirrel/sqvm.cpp:318:5: note: here
+#8 5.026   318 |     default:
+#8 5.026       |     ^~~~~~~
+#8 5.027 /src/squirrel/sqvm.cpp: In member function 'bool SQVM::FOREACH_OP(SQObjectPtr&, SQObjectPtr&, SQObjectPtr&, SQObjectPtr&, SQInteger, int, int&)':
+#8 5.027 /src/squirrel/sqvm.cpp:579:9: warning: this statement may fall through [-Wimplicit-fallthrough=]
+#8 5.027   579 |         }
+#8 5.027       |         ^
+#8 5.027 /src/squirrel/sqvm.cpp:580:5: note: here
+#8 5.027   580 |     default:
+#8 5.027       |     ^~~~~~~
+#8 5.029 /src/squirrel/sqvm.cpp: In member function 'bool SQVM::Execute(SQObjectPtr&, SQInteger, SQInteger, SQObjectPtr&, SQBool, ExecutionType)':
+#8 5.029 /src/squirrel/sqvm.cpp:834:23: warning: this statement may fall through [-Wimplicit-fallthrough=]
+#8 5.029   834 |                       }
+#8 5.029       |                       ^
+#8 5.029 /src/squirrel/sqvm.cpp:835:21: note: here
+#8 5.029   835 |                     default:
+#8 5.029       |                     ^~~~~~~
+#8 5.030 /src/squirrel/sqvm.cpp:771:31: warning: this statement may fall through [-Wimplicit-fallthrough=]
+#8 5.030   771 |                               }
+#8 5.030       |                               ^
+#8 5.030 /src/squirrel/sqvm.cpp:772:13: note: here
+#8 5.030   772 |             case _OP_CALL: {
+#8 5.030       |             ^~~~
+#8 5.033 /src/squirrel/sqvm.cpp: In member function 'SQInteger SQVM::FallBackGet(const SQObjectPtr&, const SQObjectPtr&, SQObjectPtr&)':
+#8 5.033 /src/squirrel/sqvm.cpp:1348:9: warning: this statement may fall through [-Wimplicit-fallthrough=]
+#8 5.033  1348 |         if(_delegable(self)->_delegate) {
+#8 5.033       |         ^~
+#8 5.035 /src/squirrel/sqvm.cpp:1355:5: note: here
+#8 5.035  1355 |     case OT_INSTANCE: {
+#8 5.035       |     ^~~~
+#8 5.035 /src/squirrel/sqvm.cpp: In member function 'SQInteger SQVM::FallBackSet(const SQObjectPtr&, const SQObjectPtr&, const SQObjectPtr&)':
+#8 5.035 /src/squirrel/sqvm.cpp:1419:9: warning: this statement may fall through [-Wimplicit-fallthrough=]
+#8 5.035  1419 |         if(_table(self)->_delegate) {
+#8 5.035       |         ^~
+#8 5.035 /src/squirrel/sqvm.cpp:1423:5: note: here
+#8 5.035  1423 |     case OT_INSTANCE:
+#8 5.035       |     ^~~~
+#8 5.302 [ 47%] Building CXX object squirrel/CMakeFiles/squirrel_static.dir/sqtable.cpp.o
+#8 5.324 In file included from /src/squirrel/sqtable.cpp:5:
+#8 5.324 /src/squirrel/sqvm.h: In copy constructor 'SQExceptionTrap::SQExceptionTrap(const SQExceptionTrap&)':
+#8 5.324 /src/squirrel/sqvm.h:23:60: warning: implicitly-declared 'SQExceptionTrap& SQExceptionTrap::operator=(const SQExceptionTrap&)' is deprecated [-Wdeprecated-copy]
+#8 5.324    23 |     SQExceptionTrap(const SQExceptionTrap &et) { (*this) = et;  }
+#8 5.324       |                                                            ^~
+#8 5.324 /src/squirrel/sqvm.h:23:5: note: because 'SQExceptionTrap' has user-provided 'SQExceptionTrap::SQExceptionTrap(const SQExceptionTrap&)'
+#8 5.324    23 |     SQExceptionTrap(const SQExceptionTrap &et) { (*this) = et;  }
+#8 5.324       |     ^~~~~~~~~~~~~~~
+#8 5.492 [ 50%] Building CXX object squirrel/CMakeFiles/squirrel_static.dir/sqvm.cpp.o
+#8 5.526 In file included from /src/squirrel/sqvm.cpp:8:
+#8 5.526 /src/squirrel/sqvm.h: In copy constructor 'SQExceptionTrap::SQExceptionTrap(const SQExceptionTrap&)':
+#8 5.526 /src/squirrel/sqvm.h:23:60: warning: implicitly-declared 'SQExceptionTrap& SQExceptionTrap::operator=(const SQExceptionTrap&)' is deprecated [-Wdeprecated-copy]
+#8 5.526    23 |     SQExceptionTrap(const SQExceptionTrap &et) { (*this) = et;  }
+#8 5.526       |                                                            ^~
+#8 5.526 /src/squirrel/sqvm.h:23:5: note: because 'SQExceptionTrap' has user-provided 'SQExceptionTrap::SQExceptionTrap(const SQExceptionTrap&)'
+#8 5.526    23 |     SQExceptionTrap(const SQExceptionTrap &et) { (*this) = et;  }
+#8 5.526       |     ^~~~~~~~~~~~~~~
+#8 5.559 /src/squirrel/sqvm.cpp: In member function 'bool SQVM::ObjCmp(const SQObjectPtr&, const SQObjectPtr&, SQInteger&)':
+#8 5.559 /src/squirrel/sqvm.cpp:236:13: warning: this statement may fall through [-Wimplicit-fallthrough=]
+#8 5.559   236 |             }
+#8 5.559       |             ^
+#8 5.559 /src/squirrel/sqvm.cpp:238:9: note: here
+#8 5.559   238 |         default:
+#8 5.559       |         ^~~~~~~
+#8 5.560 /src/squirrel/sqvm.cpp: In member function 'bool SQVM::ToString(const SQObjectPtr&, SQObjectPtr&)':
+#8 5.560 /src/squirrel/sqvm.cpp:317:9: warning: this statement may fall through [-Wimplicit-fallthrough=]
+#8 5.560   317 |         }
+#8 5.560       |         ^
+#8 5.560 /src/squirrel/sqvm.cpp:318:5: note: here
+#8 5.560   318 |     default:
+#8 5.560       |     ^~~~~~~
+#8 5.561 /src/squirrel/sqvm.cpp: In member function 'bool SQVM::FOREACH_OP(SQObjectPtr&, SQObjectPtr&, SQObjectPtr&, SQObjectPtr&, SQInteger, int, int&)':
+#8 5.561 /src/squirrel/sqvm.cpp:579:9: warning: this statement may fall through [-Wimplicit-fallthrough=]
+#8 5.561   579 |         }
+#8 5.561       |         ^
+#8 5.561 /src/squirrel/sqvm.cpp:580:5: note: here
+#8 5.561   580 |     default:
+#8 5.561       |     ^~~~~~~
+#8 5.563 /src/squirrel/sqvm.cpp: In member function 'bool SQVM::Execute(SQObjectPtr&, SQInteger, SQInteger, SQObjectPtr&, SQBool, ExecutionType)':
+#8 5.563 /src/squirrel/sqvm.cpp:834:23: warning: this statement may fall through [-Wimplicit-fallthrough=]
+#8 5.563   834 |                       }
+#8 5.563       |                       ^
+#8 5.563 /src/squirrel/sqvm.cpp:835:21: note: here
+#8 5.563   835 |                     default:
+#8 5.563       |                     ^~~~~~~
+#8 5.565 /src/squirrel/sqvm.cpp:771:31: warning: this statement may fall through [-Wimplicit-fallthrough=]
+#8 5.565   771 |                               }
+#8 5.565       |                               ^
+#8 5.565 /src/squirrel/sqvm.cpp:772:13: note: here
+#8 5.565   772 |             case _OP_CALL: {
+#8 5.565       |             ^~~~
+#8 5.568 /src/squirrel/sqvm.cpp: In member function 'SQInteger SQVM::FallBackGet(const SQObjectPtr&, const SQObjectPtr&, SQObjectPtr&)':
+#8 5.568 /src/squirrel/sqvm.cpp:1348:9: warning: this statement may fall through [-Wimplicit-fallthrough=]
+#8 5.568  1348 |         if(_delegable(self)->_delegate) {
+#8 5.568       |         ^~
+#8 5.568 /src/squirrel/sqvm.cpp:1355:5: note: here
+#8 5.568  1355 |     case OT_INSTANCE: {
+#8 5.568       |     ^~~~
+#8 5.568 /src/squirrel/sqvm.cpp: In member function 'SQInteger SQVM::FallBackSet(const SQObjectPtr&, const SQObjectPtr&, const SQObjectPtr&)':
+#8 5.568 /src/squirrel/sqvm.cpp:1419:9: warning: this statement may fall through [-Wimplicit-fallthrough=]
+#8 5.568  1419 |         if(_table(self)->_delegate) {
+#8 5.568       |         ^~
+#8 5.568 /src/squirrel/sqvm.cpp:1423:5: note: here
+#8 5.568  1423 |     case OT_INSTANCE:
+#8 5.568       |     ^~~~
+#8 6.067 [ 52%] Linking CXX shared library ../lib/libsquirrel.so
+#8 6.090 [ 52%] Built target squirrel
+#8 6.097 [ 54%] Building CXX object sqstdlib/CMakeFiles/sqstdlib_static.dir/sqstdaux.cpp.o
+#8 6.145 [ 56%] Building CXX object sqstdlib/CMakeFiles/sqstdlib_static.dir/sqstdblob.cpp.o
+#8 6.186 /src/sqstdlib/sqstdblob.cpp: In function 'SQInteger _g_blob_castf2i(HSQUIRRELVM)':
+#8 6.186 /src/sqstdlib/sqstdblob.cpp:200:19: warning: array subscript 'const SQInteger {aka const long long int}[0]' is partly outside array bounds of 'SQFloat [1]' {aka 'float [1]'} [-Warray-bounds=]
+#8 6.186   200 |     sq_pushinteger(v,*((const SQInteger *)&f));
+#8 6.186       |     ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#8 6.186 /src/sqstdlib/sqstdblob.cpp:198:13: note: object 'f' of size 4
+#8 6.186   198 |     SQFloat f;
+#8 6.186       |             ^
+#8 6.293 [ 58%] Building CXX object sqstdlib/CMakeFiles/sqstdlib_static.dir/sqstdio.cpp.o
+#8 6.416 [ 60%] Building CXX object sqstdlib/CMakeFiles/sqstdlib_static.dir/sqstdmath.cpp.o
+#8 6.488 [ 62%] Building CXX object sqstdlib/CMakeFiles/sqstdlib_static.dir/sqstdrex.cpp.o
+#8 6.505 /src/sqstdlib/sqstdrex.cpp: In function 'SQInteger sqstd_rex_charnode(SQRex*, SQBool)':
+#8 6.505 /src/sqstdlib/sqstdrex.cpp:166:17: warning: this statement may fall through [-Wimplicit-fallthrough=]
+#8 6.505   166 |                 } //else default
+#8 6.505       |                 ^
+#8 6.505 /src/sqstdlib/sqstdrex.cpp:167:13: note: here
+#8 6.505   167 |             default:
+#8 6.505       |             ^~~~~~~
+#8 6.675 [ 64%] Building CXX object sqstdlib/CMakeFiles/sqstdlib_static.dir/sqstdstream.cpp.o
+#8 6.720 [ 66%] Linking CXX static library ../lib/libsquirrel_static.a
+#8 6.736 [ 66%] Built target squirrel_static
+#8 6.744 [ 68%] Building CXX object sqstdlib/CMakeFiles/sqstdlib.dir/sqstdaux.cpp.o
+#8 6.792 [ 70%] Building CXX object sqstdlib/CMakeFiles/sqstdlib.dir/sqstdblob.cpp.o
+#8 6.834 /src/sqstdlib/sqstdblob.cpp: In function 'SQInteger _g_blob_castf2i(HSQUIRRELVM)':
+#8 6.834 /src/sqstdlib/sqstdblob.cpp:200:19: warning: array subscript 'const SQInteger {aka const long long int}[0]' is partly outside array bounds of 'SQFloat [1]' {aka 'float [1]'} [-Warray-bounds=]
+#8 6.834   200 |     sq_pushinteger(v,*((const SQInteger *)&f));
+#8 6.834       |     ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#8 6.835 /src/sqstdlib/sqstdblob.cpp:198:13: note: object 'f' of size 4
+#8 6.835   198 |     SQFloat f;
+#8 6.835       |             ^
+#8 6.942 [ 72%] Building CXX object sqstdlib/CMakeFiles/sqstdlib.dir/sqstdio.cpp.o
+#8 6.968 [ 75%] Building CXX object sqstdlib/CMakeFiles/sqstdlib_static.dir/sqstdstring.cpp.o
+#8 6.986 /src/sqstdlib/sqstdstring.cpp: In function 'SQInteger sqstd_register_stringlib(HSQUIRRELVM)':
+#8 6.986 /src/sqstdlib/sqstdstring.cpp:527:23: warning: cast from type 'const SQRegFunction*' {aka 'const tagSQRegFunction*'} to type 'SQUserPointer' {aka 'void*'} casts away qualifiers [-Wcast-qual]
+#8 6.986   527 |         rex_typetag = (SQUserPointer)rexobj_funcs;
+#8 6.986       |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+#8 6.987 /src/sqstdlib/sqstdstring.cpp: In function 'SQRESULT sqstd_format(HSQUIRRELVM, SQInteger, SQInteger*, SQChar**)':
+#8 6.987 /src/sqstdlib/sqstdstring.cpp:124:29: warning: this statement may fall through [-Wimplicit-fallthrough=]
+#8 6.987   124 |                 fmt[fpos++] = _SC('\0');
+#8 6.987       |                             ^
+#8 6.987 /src/sqstdlib/sqstdstring.cpp:127:13: note: here
+#8 6.987   127 |             case 'c':
+#8 6.987       |             ^~~~
+#8 7.056 [ 77%] Building CXX object sqstdlib/CMakeFiles/sqstdlib.dir/sqstdmath.cpp.o
+#8 7.112 [ 79%] Building CXX object sqstdlib/CMakeFiles/sqstdlib_static.dir/sqstdsystem.cpp.o
+#8 7.131 [ 81%] Building CXX object sqstdlib/CMakeFiles/sqstdlib.dir/sqstdrex.cpp.o
+#8 7.149 /src/sqstdlib/sqstdrex.cpp: In function 'SQInteger sqstd_rex_charnode(SQRex*, SQBool)':
+#8 7.149 /src/sqstdlib/sqstdrex.cpp:166:17: warning: this statement may fall through [-Wimplicit-fallthrough=]
+#8 7.149   166 |                 } //else default
+#8 7.149       |                 ^
+#8 7.149 /src/sqstdlib/sqstdrex.cpp:167:13: note: here
+#8 7.149   167 |             default:
+#8 7.149       |             ^~~~~~~
+#8 7.160 [ 83%] Linking CXX static library ../lib/libsqstdlib_static.a
+#8 7.173 [ 83%] Built target sqstdlib_static
+#8 7.176 [ 85%] Building CXX object sqstdlib/CMakeFiles/sqstdlib.dir/sqstdstream.cpp.o
+#8 7.320 [ 87%] Building C object sq/CMakeFiles/sq_static.dir/sq.c.o
+#8 7.390 [ 89%] Linking CXX executable ../bin/sq_static
+#8 7.412 [ 89%] Built target sq_static
+#8 7.415 [ 91%] Building CXX object sqstdlib/CMakeFiles/sqstdlib.dir/sqstdstring.cpp.o
+#8 7.434 /src/sqstdlib/sqstdstring.cpp: In function 'SQInteger sqstd_register_stringlib(HSQUIRRELVM)':
+#8 7.434 /src/sqstdlib/sqstdstring.cpp:527:23: warning: cast from type 'const SQRegFunction*' {aka 'const tagSQRegFunction*'} to type 'SQUserPointer' {aka 'void*'} casts away qualifiers [-Wcast-qual]
+#8 7.434   527 |         rex_typetag = (SQUserPointer)rexobj_funcs;
+#8 7.434       |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+#8 7.435 /src/sqstdlib/sqstdstring.cpp: In function 'SQRESULT sqstd_format(HSQUIRRELVM, SQInteger, SQInteger*, SQChar**)':
+#8 7.435 /src/sqstdlib/sqstdstring.cpp:124:29: warning: this statement may fall through [-Wimplicit-fallthrough=]
+#8 7.435   124 |                 fmt[fpos++] = _SC('\0');
+#8 7.435       |                             ^
+#8 7.436 /src/sqstdlib/sqstdstring.cpp:127:13: note: here
+#8 7.436   127 |             case 'c':
+#8 7.436       |             ^~~~
+#8 7.476 [ 93%] Building CXX object sqstdlib/CMakeFiles/sqstdlib.dir/sqstdsystem.cpp.o
+#8 7.565 [ 95%] Linking CXX shared library ../lib/libsqstdlib.so
+#8 7.589 [ 95%] Built target sqstdlib
+#8 7.596 [ 97%] Building C object sq/CMakeFiles/sq.dir/sq.c.o
+#8 7.667 [100%] Linking C executable ../bin/sq
+#8 7.684 [100%] Built target sq
+#8 DONE 7.7s
+
+#9 [linux/arm64 6/9] RUN BIN=$(find build -type f -name sq -perm -u+x | head -1) && cp "$BIN" /usr/local/bin/sq
+#9 DONE 0.0s
+
+#10 [linux/arm64 7/9] RUN printf 'print("ok-squirrel\\n")\n' > /smoke.nut     && sq /smoke.nut | tee /smoke.out && grep -q '^ok-squirrel' /smoke.out
+#10 0.029 ok-squirrel
+#10 DONE 0.0s
+
+#11 [linux/arm64 8/9] RUN printf 'BINSIZE %s sq\n' "$(stat -c %s /usr/local/bin/sq)"
+#11 0.026 BINSIZE 74800 sq
+#11 DONE 0.0s
+
+#12 exporting to oci image format
+#12 exporting layers 0.1s done
+#12 exporting manifest sha256:3bd21705f1784f06ee534f8b716e450de607ac15af8353b922a037cdda72a8cf done
+#12 exporting config sha256:b973d978079a25cb27b23301f2cfd0246669410f9d2fbcc264f97b3990b762ed done
+#12 exporting manifest list sha256:d9ffdab57f604c9ce8728fbeb10dfb9bf0648756d0f4325e50f2ac45a9ae4035 done
+#12 sending tarball
+#12 sending tarball 0.7s done
+#12 DONE 0.8s
+Successfully built tinylang/squirrel:latest

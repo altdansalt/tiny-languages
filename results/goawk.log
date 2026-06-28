@@ -1,0 +1,65 @@
+#1 [resolver] fetching image...docker.io/library/alpine:3.20
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 transferring context: 2B 0.0s done
+#2 DONE 0.0s
+
+#3 oci-layout://docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc
+#3 resolve docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc done
+#3 CACHED
+
+#4 [linux/arm64 1/7] RUN apk add --no-cache git go
+#4 0.046 fetch https://dl-cdn.alpinelinux.org/alpine/v3.20/main/aarch64/APKINDEX.tar.gz
+#4 0.343 fetch https://dl-cdn.alpinelinux.org/alpine/v3.20/community/aarch64/APKINDEX.tar.gz
+#4 0.740 (1/18) Installing ca-certificates (20260413-r0)
+#4 0.765 (2/18) Installing brotli-libs (1.1.0-r2)
+#4 0.801 (3/18) Installing c-ares (1.33.1-r0)
+#4 0.818 (4/18) Installing libunistring (1.2-r0)
+#4 0.849 (5/18) Installing libidn2 (2.3.7-r0)
+#4 0.869 (6/18) Installing nghttp2-libs (1.62.1-r0)
+#4 0.889 (7/18) Installing libpsl (0.21.5-r1)
+#4 0.910 (8/18) Installing zstd-libs (1.5.6-r0)
+#4 0.940 (9/18) Installing libcurl (8.14.1-r2)
+#4 0.971 (10/18) Installing libexpat (2.8.1-r0)
+#4 0.992 (11/18) Installing pcre2 (10.43-r0)
+#4 1.023 (12/18) Installing git (2.45.4-r0)
+#4 1.116 (13/18) Installing git-init-template (2.45.4-r0)
+#4 1.132 (14/18) Installing libgcc (13.2.1_git20240309-r1)
+#4 1.154 (15/18) Installing jansson (2.14-r4)
+#4 1.173 (16/18) Installing libstdc++ (13.2.1_git20240309-r1)
+#4 1.213 (17/18) Installing binutils-gold (2.42-r1)
+#4 1.273 (18/18) Installing go (1.22.10-r0)
+#4 2.666 Executing busybox-1.36.1-r31.trigger
+#4 2.669 Executing ca-certificates-20260413-r0.trigger
+#4 2.686 OK: 210 MiB in 32 packages
+#4 DONE 2.8s
+
+#5 [linux/arm64/v8 2/7] WORKDIR /src
+#5 DONE 0.0s
+
+#6 [linux/arm64 3/7] RUN git clone --depth 1 https://github.com/benhoyt/goawk .
+#6 0.034 Cloning into '.'...
+#6 DONE 0.8s
+
+#7 [linux/arm64 4/7] RUN go build -o /usr/local/bin/goawk .
+#7 DONE 3.9s
+
+#8 [linux/arm64 5/7] RUN goawk 'BEGIN{print "ok-goawk"}' | tee /smoke.out && grep -q '^ok-goawk' /smoke.out
+#8 0.036 ok-goawk
+#8 DONE 0.0s
+
+#9 [linux/arm64 6/7] RUN printf 'BINSIZE %s goawk\n' "$(stat -c %s /usr/local/bin/goawk)"
+#9 0.040 BINSIZE 4047871 goawk
+#9 DONE 0.0s
+
+#10 exporting to oci image format
+#10 exporting layers
+#10 exporting layers 5.2s done
+#10 exporting manifest sha256:c1a8706cdd86ebf7238645f7b89d91c990c9208aa190c62660e375ea7e0f4cb0 done
+#10 exporting config sha256:671c9195f447d4a53c86bdaed2ad1f5cf4bc3e1eba0f9dc32bc92584d059f455 done
+#10 exporting manifest list sha256:0288722724eb20b4d733c681710ff5f92d2e7cd907567e7b4ce9544616ad7de1 done
+#10 sending tarball
+#10 sending tarball 0.6s done
+#10 DONE 5.8s
+Successfully built tinylang/goawk:latest

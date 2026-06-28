@@ -1,0 +1,679 @@
+#1 [resolver] fetching image...docker.io/library/alpine:3.20
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 oci-layout://docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc
+#3 resolve docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc done
+#3 DONE 0.0s
+
+#4 [linux/arm64 1/9] RUN apk add --no-cache build-base git
+#4 CACHED
+
+#5 [linux/arm64 2/9] RUN apk add --no-cache ruby ruby-rake
+#5 0.063 fetch https://dl-cdn.alpinelinux.org/alpine/v3.20/main/aarch64/APKINDEX.tar.gz
+#5 0.244 fetch https://dl-cdn.alpinelinux.org/alpine/v3.20/community/aarch64/APKINDEX.tar.gz
+#5 0.422 (1/6) Installing libffi (3.4.6-r0)
+#5 0.504 (2/6) Installing yaml (0.2.5-r2)
+#5 0.526 (3/6) Installing ruby-libs (3.3.10-r0)
+#5 0.741 (4/6) Installing libucontext (1.2-r3)
+#5 0.756 (5/6) Installing ruby (3.3.10-r0)
+#5 0.775 (6/6) Installing ruby-rake (13.2.1-r0)
+#5 0.800 Executing busybox-1.36.1-r31.trigger
+#5 0.804 OK: 249 MiB in 53 packages
+#5 DONE 0.9s
+
+#6 [linux/arm64/v8 3/9] WORKDIR /src
+#6 DONE 0.0s
+
+#7 [linux/arm64 4/9] RUN git clone --depth 1 https://github.com/mruby/mruby .
+#7 0.034 Cloning into '.'...
+#7 DONE 1.0s
+
+#8 [linux/arm64 5/9] RUN rake -j"$(nproc)"
+#8 0.152 Submodule 'mrbgems/mruby-compiler/lib/prism' (https://github.com/ruby/prism) registered for path 'lib/prism'
+#8 0.153 Cloning into '/src/mrbgems/mruby-compiler/lib/prism'...
+#8 4.895 Submodule path 'lib/prism': checked out 'c0e37816e97e23e92524a4070e1b99a4025bc63f'
+#8 5.063 CPP   mrbgems/mruby-bigint/core/bigint.c -> build/host/mrbgems/mruby-bigint/core/bigint.pi
+#8 5.085 CPP   src/allocf.c -> build/host/src/allocf.pi
+#8 5.097 CPP   src/array.c -> build/host/src/array.pi
+#8 5.116 CPP   src/backtrace.c -> build/host/src/backtrace.pi
+#8 5.131 CPP   src/cdump.c -> build/host/src/cdump.pi
+#8 5.144 CPP   src/class.c -> build/host/src/class.pi
+#8 5.164 CPP   src/codedump.c -> build/host/src/codedump.pi
+#8 5.186 CPP   src/debug.c -> build/host/src/debug.pi
+#8 5.199 CPP   src/dump.c -> build/host/src/dump.pi
+#8 5.212 CPP   src/enum.c -> build/host/src/enum.pi
+#8 5.224 CPP   src/error.c -> build/host/src/error.pi
+#8 5.239 CPP   src/etc.c -> build/host/src/etc.pi
+#8 5.253 CPP   src/fp_uscale.c -> build/host/src/fp_uscale.pi
+#8 5.266 CPP   src/gc.c -> build/host/src/gc.pi
+#8 5.284 CPP   src/hash.c -> build/host/src/hash.pi
+#8 5.302 CPP   src/init.c -> build/host/src/init.pi
+#8 5.315 CPP   src/kernel.c -> build/host/src/kernel.pi
+#8 5.331 CPP   src/load.c -> build/host/src/load.pi
+#8 5.346 CPP   src/mempool.c -> build/host/src/mempool.pi
+#8 5.360 CPP   src/numeric.c -> build/host/src/numeric.pi
+#8 5.378 CPP   src/numops.c -> build/host/src/numops.pi
+#8 5.392 CPP   src/object.c -> build/host/src/object.pi
+#8 5.408 CPP   src/print.c -> build/host/src/print.pi
+#8 5.420 CPP   src/proc.c -> build/host/src/proc.pi
+#8 5.435 CPP   src/range.c -> build/host/src/range.pi
+#8 5.450 CPP   src/readint.c -> build/host/src/readint.pi
+#8 5.462 CPP   src/readnum.c -> build/host/src/readnum.pi
+#8 5.475 CPP   src/state.c -> build/host/src/state.pi
+#8 5.489 CPP   src/string.c -> build/host/src/string.pi
+#8 5.512 CPP   src/symbol.c -> build/host/src/symbol.pi
+#8 5.527 CPP   src/variable.c -> build/host/src/variable.pi
+#8 5.546 CPP   src/version.c -> build/host/src/version.pi
+#8 5.558 CPP   src/vm.c -> build/host/src/vm.pi
+#8 5.601 CPP   src/allocf.c -> build/host/mrbc/src/allocf.pi
+#8 5.615 CPP   src/array.c -> build/host/mrbc/src/array.pi
+#8 5.634 CPP   src/backtrace.c -> build/host/mrbc/src/backtrace.pi
+#8 5.648 CPP   src/cdump.c -> build/host/mrbc/src/cdump.pi
+#8 5.661 CPP   src/class.c -> build/host/mrbc/src/class.pi
+#8 5.682 CPP   src/codedump.c -> build/host/mrbc/src/codedump.pi
+#8 5.704 CPP   src/debug.c -> build/host/mrbc/src/debug.pi
+#8 5.716 CPP   src/dump.c -> build/host/mrbc/src/dump.pi
+#8 5.729 CPP   src/enum.c -> build/host/mrbc/src/enum.pi
+#8 5.742 CPP   src/error.c -> build/host/mrbc/src/error.pi
+#8 5.757 CPP   src/etc.c -> build/host/mrbc/src/etc.pi
+#8 5.771 CPP   src/fp_uscale.c -> build/host/mrbc/src/fp_uscale.pi
+#8 5.784 CPP   src/gc.c -> build/host/mrbc/src/gc.pi
+#8 5.800 CPP   src/hash.c -> build/host/mrbc/src/hash.pi
+#8 5.818 CPP   src/init.c -> build/host/mrbc/src/init.pi
+#8 5.830 CPP   src/kernel.c -> build/host/mrbc/src/kernel.pi
+#8 5.845 CPP   src/load.c -> build/host/mrbc/src/load.pi
+#8 5.859 CPP   src/mempool.c -> build/host/mrbc/src/mempool.pi
+#8 5.871 CPP   src/numeric.c -> build/host/mrbc/src/numeric.pi
+#8 5.888 CPP   src/numops.c -> build/host/mrbc/src/numops.pi
+#8 5.901 CPP   src/object.c -> build/host/mrbc/src/object.pi
+#8 5.915 CPP   src/print.c -> build/host/mrbc/src/print.pi
+#8 5.928 CPP   src/proc.c -> build/host/mrbc/src/proc.pi
+#8 5.943 CPP   src/range.c -> build/host/mrbc/src/range.pi
+#8 5.958 CPP   src/readint.c -> build/host/mrbc/src/readint.pi
+#8 5.970 CPP   src/readnum.c -> build/host/mrbc/src/readnum.pi
+#8 5.981 CPP   src/state.c -> build/host/mrbc/src/state.pi
+#8 5.993 CPP   src/string.c -> build/host/mrbc/src/string.pi
+#8 6.015 CPP   src/symbol.c -> build/host/mrbc/src/symbol.pi
+#8 6.030 CPP   src/variable.c -> build/host/mrbc/src/variable.pi
+#8 6.046 CPP   src/version.c -> build/host/mrbc/src/version.pi
+#8 6.058 CPP   src/vm.c -> build/host/mrbc/src/vm.pi
+#8 6.094 CPP   mrbgems/mruby-bin-mrbc/tools/mrbc/mrbc.c -> build/host/mrbc/mrbgems/mruby-bin-mrbc/tools/mrbc/mrbc.pi
+#8 6.112 CPP   mrbgems/mruby-compiler/src/ccontext.c -> build/host/mrbc/mrbgems/mruby-compiler/src/ccontext.pi
+#8 6.128 CPP   mrbgems/mruby-compiler/src/cdump.c -> build/host/mrbc/mrbgems/mruby-compiler/src/cdump.pi
+#8 6.145 CPP   mrbgems/mruby-compiler/src/codedump.c -> build/host/mrbc/mrbgems/mruby-compiler/src/codedump.pi
+#8 6.170 CPP   mrbgems/mruby-compiler/src/codegen.c -> build/host/mrbc/mrbgems/mruby-compiler/src/codegen.pi
+#8 6.201 CPP   mrbgems/mruby-compiler/src/compile.c -> build/host/mrbc/mrbgems/mruby-compiler/src/compile.pi
+#8 6.219 CPP   mrbgems/mruby-compiler/src/debug.c -> build/host/mrbc/mrbgems/mruby-compiler/src/debug.pi
+#8 6.236 CPP   mrbgems/mruby-compiler/src/diagnostic.c -> build/host/mrbc/mrbgems/mruby-compiler/src/diagnostic.pi
+#8 6.253 CPP   mrbgems/mruby-compiler/src/dump.c -> build/host/mrbc/mrbgems/mruby-compiler/src/dump.pi
+#8 6.271 CPP   mrbgems/mruby-compiler/src/irep.c -> build/host/mrbc/mrbgems/mruby-compiler/src/irep.pi
+#8 6.289 CPP   mrbgems/mruby-compiler/src/mrc_presym.c -> build/host/mrbc/mrbgems/mruby-compiler/src/mrc_presym.pi
+#8 6.307 CPP   mrbgems/mruby-compiler/src/parser_util.c -> build/host/mrbc/mrbgems/mruby-compiler/src/parser_util.pi
+#8 6.325 CPP   mrbgems/mruby-compiler/src/pool.c -> build/host/mrbc/mrbgems/mruby-compiler/src/pool.pi
+#8 6.358 GEN   build/host/mrbc/include/mruby/presym/id.h 
+#8 6.358 GEN   build/host/mrbc/include/mruby/presym/table.h 
+#8 6.358 GEN   build/host/mrbc/presym 
+#8 6.358 CC    mrbgems/mruby-bin-mrbc/tools/mrbc/mrbc.c -> build/host/mrbc/mrbgems/mruby-bin-mrbc/tools/mrbc/mrbc.o
+#8 6.464 CC    mrbgems/mruby-compiler/src/ccontext.c -> build/host/mrbc/mrbgems/mruby-compiler/src/ccontext.o
+#8 6.516 CC    mrbgems/mruby-compiler/src/cdump.c -> build/host/mrbc/mrbgems/mruby-compiler/src/cdump.o
+#8 6.713 CC    mrbgems/mruby-compiler/src/codedump.c -> build/host/mrbc/mrbgems/mruby-compiler/src/codedump.o
+#8 7.245 CC    mrbgems/mruby-compiler/src/codegen.c -> build/host/mrbc/mrbgems/mruby-compiler/src/codegen.o
+#8 9.628 CC    mrbgems/mruby-compiler/src/compile.c -> build/host/mrbc/mrbgems/mruby-compiler/src/compile.o
+#8 9.740 CC    mrbgems/mruby-compiler/src/debug.c -> build/host/mrbc/mrbgems/mruby-compiler/src/debug.o
+#8 9.828 CC    mrbgems/mruby-compiler/src/diagnostic.c -> build/host/mrbc/mrbgems/mruby-compiler/src/diagnostic.o
+#8 9.885 CC    mrbgems/mruby-compiler/src/dump.c -> build/host/mrbc/mrbgems/mruby-compiler/src/dump.o
+#8 10.19 CC    mrbgems/mruby-compiler/src/irep.c -> build/host/mrbc/mrbgems/mruby-compiler/src/irep.o
+#8 10.26 CC    mrbgems/mruby-compiler/src/mrc_presym.c -> build/host/mrbc/mrbgems/mruby-compiler/src/mrc_presym.o
+#8 10.29 CC    mrbgems/mruby-compiler/src/parser_util.c -> build/host/mrbc/mrbgems/mruby-compiler/src/parser_util.o
+#8 10.33 CC    mrbgems/mruby-compiler/src/pool.c -> build/host/mrbc/mrbgems/mruby-compiler/src/pool.o
+#8 10.38 CC    mrbgems/mruby-compiler/lib/prism/src/diagnostic.c -> build/host/mrbc/mrbgems/mruby-compiler/lib/diagnostic.o
+#8 10.47 CC    mrbgems/mruby-compiler/lib/prism/src/encoding.c -> build/host/mrbc/mrbgems/mruby-compiler/lib/encoding.o
+#8 10.60 CC    mrbgems/mruby-compiler/lib/prism/src/node.c -> build/host/mrbc/mrbgems/mruby-compiler/lib/node.o
+#8 11.02 CC    mrbgems/mruby-compiler/lib/prism/src/options.c -> build/host/mrbc/mrbgems/mruby-compiler/lib/options.o
+#8 11.11 CC    mrbgems/mruby-compiler/lib/prism/src/pack.c -> build/host/mrbc/mrbgems/mruby-compiler/lib/pack.o
+#8 11.13 CC    mrbgems/mruby-compiler/lib/prism/src/prettyprint.c -> build/host/mrbc/mrbgems/mruby-compiler/lib/prettyprint.o
+#8 11.16 CC    mrbgems/mruby-compiler/lib/prism/src/prism.c -> build/host/mrbc/mrbgems/mruby-compiler/lib/prism.o
+#8 18.80 CC    mrbgems/mruby-compiler/lib/prism/src/regexp.c -> build/host/mrbc/mrbgems/mruby-compiler/lib/regexp.o
+#8 18.95 CC    mrbgems/mruby-compiler/lib/prism/src/serialize.c -> build/host/mrbc/mrbgems/mruby-compiler/lib/serialize.o
+#8 18.98 CC    mrbgems/mruby-compiler/lib/prism/src/static_literals.c -> build/host/mrbc/mrbgems/mruby-compiler/lib/static_literals.o
+#8 19.19 CC    mrbgems/mruby-compiler/lib/prism/src/token_type.c -> build/host/mrbc/mrbgems/mruby-compiler/lib/token_type.o
+#8 19.26 CC    mrbgems/mruby-compiler/lib/prism/src/util/pm_buffer.c -> build/host/mrbc/mrbgems/mruby-compiler/lib/pm_buffer.o
+#8 19.48 CC    mrbgems/mruby-compiler/lib/prism/src/util/pm_char.c -> build/host/mrbc/mrbgems/mruby-compiler/lib/pm_char.o
+#8 19.55 CC    mrbgems/mruby-compiler/lib/prism/src/util/pm_constant_pool.c -> build/host/mrbc/mrbgems/mruby-compiler/lib/pm_constant_pool.o
+#8 19.68 CC    mrbgems/mruby-compiler/lib/prism/src/util/pm_integer.c -> build/host/mrbc/mrbgems/mruby-compiler/lib/pm_integer.o
+#8 19.88 CC    mrbgems/mruby-compiler/lib/prism/src/util/pm_list.c -> build/host/mrbc/mrbgems/mruby-compiler/lib/pm_list.o
+#8 19.91 CC    mrbgems/mruby-compiler/lib/prism/src/util/pm_memchr.c -> build/host/mrbc/mrbgems/mruby-compiler/lib/pm_memchr.o
+#8 19.93 CC    mrbgems/mruby-compiler/lib/prism/src/util/pm_newline_list.c -> build/host/mrbc/mrbgems/mruby-compiler/lib/pm_newline_list.o
+#8 19.98 CC    mrbgems/mruby-compiler/lib/prism/src/util/pm_string.c -> build/host/mrbc/mrbgems/mruby-compiler/lib/pm_string.o
+#8 20.04 CC    mrbgems/mruby-compiler/lib/prism/src/util/pm_strncasecmp.c -> build/host/mrbc/mrbgems/mruby-compiler/lib/pm_strncasecmp.o
+#8 20.07 CC    mrbgems/mruby-compiler/lib/prism/src/util/pm_strpbrk.c -> build/host/mrbc/mrbgems/mruby-compiler/lib/pm_strpbrk.o
+#8 20.14 LD    build/host/mrbc/bin/mrbc 
+#8 20.17 GEN   build/host/mrbgems/mruby-compar-ext/gem_init.c 
+#8 20.17       MRBC mrbgems/mruby-compar-ext/mrblib/compar.rb 
+#8 20.17 CPP   build/host/mrbgems/mruby-compar-ext/gem_init.c -> build/host/mrbgems/mruby-compar-ext/gem_init.pi
+#8 20.18 GEN   build/host/mrbgems/mruby-enum-ext/gem_init.c 
+#8 20.18       MRBC mrbgems/mruby-enum-ext/mrblib/enum.rb 
+#8 20.19 CPP   build/host/mrbgems/mruby-enum-ext/gem_init.c -> build/host/mrbgems/mruby-enum-ext/gem_init.pi
+#8 20.21 CPP   mrbgems/mruby-string-ext/src/string.c -> build/host/mrbgems/mruby-string-ext/src/string.pi
+#8 20.23 GEN   build/host/mrbgems/mruby-string-ext/gem_init.c 
+#8 20.23       MRBC mrbgems/mruby-string-ext/mrblib/string.rb 
+#8 20.23 CPP   build/host/mrbgems/mruby-string-ext/gem_init.c -> build/host/mrbgems/mruby-string-ext/gem_init.pi
+#8 20.25 CPP   mrbgems/mruby-numeric-ext/src/numeric_ext.c -> build/host/mrbgems/mruby-numeric-ext/src/numeric_ext.pi
+#8 20.26 GEN   build/host/mrbgems/mruby-numeric-ext/gem_init.c 
+#8 20.26       MRBC mrbgems/mruby-numeric-ext/mrblib/numeric_ext.rb 
+#8 20.26 CPP   build/host/mrbgems/mruby-numeric-ext/gem_init.c -> build/host/mrbgems/mruby-numeric-ext/gem_init.pi
+#8 20.28 CPP   mrbgems/mruby-array-ext/src/array.c -> build/host/mrbgems/mruby-array-ext/src/array.pi
+#8 20.30 GEN   build/host/mrbgems/mruby-array-ext/gem_init.c 
+#8 20.30       MRBC mrbgems/mruby-array-ext/mrblib/array.rb 
+#8 20.30 CPP   build/host/mrbgems/mruby-array-ext/gem_init.c -> build/host/mrbgems/mruby-array-ext/gem_init.pi
+#8 20.32 CPP   mrbgems/mruby-hash-ext/src/hash_ext.c -> build/host/mrbgems/mruby-hash-ext/src/hash_ext.pi
+#8 20.33 GEN   build/host/mrbgems/mruby-hash-ext/gem_init.c 
+#8 20.33       MRBC mrbgems/mruby-hash-ext/mrblib/hash.rb 
+#8 20.34 CPP   build/host/mrbgems/mruby-hash-ext/gem_init.c -> build/host/mrbgems/mruby-hash-ext/gem_init.pi
+#8 20.35 CPP   mrbgems/mruby-range-ext/src/range.c -> build/host/mrbgems/mruby-range-ext/src/range.pi
+#8 20.37 GEN   build/host/mrbgems/mruby-range-ext/gem_init.c 
+#8 20.37       MRBC mrbgems/mruby-range-ext/mrblib/range.rb 
+#8 20.37 CPP   build/host/mrbgems/mruby-range-ext/gem_init.c -> build/host/mrbgems/mruby-range-ext/gem_init.pi
+#8 20.39 CPP   mrbgems/mruby-proc-ext/src/proc.c -> build/host/mrbgems/mruby-proc-ext/src/proc.pi
+#8 20.40 GEN   build/host/mrbgems/mruby-proc-ext/gem_init.c 
+#8 20.40       MRBC mrbgems/mruby-proc-ext/mrblib/proc.rb 
+#8 20.40 CPP   build/host/mrbgems/mruby-proc-ext/gem_init.c -> build/host/mrbgems/mruby-proc-ext/gem_init.pi
+#8 20.42 CPP   mrbgems/mruby-symbol-ext/src/symbol.c -> build/host/mrbgems/mruby-symbol-ext/src/symbol.pi
+#8 20.43 GEN   build/host/mrbgems/mruby-symbol-ext/gem_init.c 
+#8 20.43       MRBC mrbgems/mruby-symbol-ext/mrblib/symbol.rb 
+#8 20.43 CPP   build/host/mrbgems/mruby-symbol-ext/gem_init.c -> build/host/mrbgems/mruby-symbol-ext/gem_init.pi
+#8 20.45 CPP   mrbgems/mruby-object-ext/src/object.c -> build/host/mrbgems/mruby-object-ext/src/object.pi
+#8 20.46 GEN   build/host/mrbgems/mruby-object-ext/gem_init.c 
+#8 20.46       MRBC mrbgems/mruby-object-ext/mrblib/object.rb 
+#8 20.46 CPP   build/host/mrbgems/mruby-object-ext/gem_init.c -> build/host/mrbgems/mruby-object-ext/gem_init.pi
+#8 20.48 CPP   mrbgems/mruby-regexp/src/re_compile.c -> build/host/mrbgems/mruby-regexp/src/re_compile.pi
+#8 20.49 CPP   mrbgems/mruby-regexp/src/re_exec.c -> build/host/mrbgems/mruby-regexp/src/re_exec.pi
+#8 20.50 CPP   mrbgems/mruby-regexp/src/re_utf8.c -> build/host/mrbgems/mruby-regexp/src/re_utf8.pi
+#8 20.51 CPP   mrbgems/mruby-regexp/src/regexp.c -> build/host/mrbgems/mruby-regexp/src/regexp.pi
+#8 20.53 GEN   build/host/mrbgems/mruby-regexp/gem_init.c 
+#8 20.53       MRBC mrbgems/mruby-regexp/mrblib/regexp.rb 
+#8 20.53            mrbgems/mruby-regexp/mrblib/string_regexp.rb 
+#8 20.53 CPP   build/host/mrbgems/mruby-regexp/gem_init.c -> build/host/mrbgems/mruby-regexp/gem_init.pi
+#8 20.55 CPP   mrbgems/mruby-objectspace/src/mruby_objectspace.c -> build/host/mrbgems/mruby-objectspace/src/mruby_objectspace.pi
+#8 20.56 GEN   build/host/mrbgems/mruby-objectspace/gem_init.c 
+#8 20.56 CPP   build/host/mrbgems/mruby-objectspace/gem_init.c -> build/host/mrbgems/mruby-objectspace/gem_init.pi
+#8 20.57 CPP   mrbgems/mruby-set/src/set.c -> build/host/mrbgems/mruby-set/src/set.pi
+#8 20.59 GEN   build/host/mrbgems/mruby-set/gem_init.c 
+#8 20.59       MRBC mrbgems/mruby-set/mrblib/set.rb 
+#8 20.59 CPP   build/host/mrbgems/mruby-set/gem_init.c -> build/host/mrbgems/mruby-set/gem_init.pi
+#8 20.61 CPP   mrbgems/mruby-fiber/src/fiber.c -> build/host/mrbgems/mruby-fiber/src/fiber.pi
+#8 20.62 GEN   build/host/mrbgems/mruby-fiber/gem_init.c 
+#8 20.62 CPP   build/host/mrbgems/mruby-fiber/gem_init.c -> build/host/mrbgems/mruby-fiber/gem_init.pi
+#8 20.64 GEN   build/host/mrbgems/mruby-enumerator/gem_init.c 
+#8 20.64       MRBC mrbgems/mruby-enumerator/mrblib/enumerator.rb 
+#8 20.64 CPP   build/host/mrbgems/mruby-enumerator/gem_init.c -> build/host/mrbgems/mruby-enumerator/gem_init.pi
+#8 20.66 GEN   build/host/mrbgems/mruby-enum-lazy/gem_init.c 
+#8 20.66       MRBC mrbgems/mruby-enum-lazy/mrblib/lazy.rb 
+#8 20.66 CPP   build/host/mrbgems/mruby-enum-lazy/gem_init.c -> build/host/mrbgems/mruby-enum-lazy/gem_init.pi
+#8 20.68 GEN   build/host/mrbgems/mruby-enum-chain/gem_init.c 
+#8 20.68       MRBC mrbgems/mruby-enum-chain/mrblib/chain.rb 
+#8 20.68 CPP   build/host/mrbgems/mruby-enum-chain/gem_init.c -> build/host/mrbgems/mruby-enum-chain/gem_init.pi
+#8 20.69 GEN   build/host/mrbgems/mruby-toplevel-ext/gem_init.c 
+#8 20.69       MRBC mrbgems/mruby-toplevel-ext/mrblib/toplevel.rb 
+#8 20.70 CPP   build/host/mrbgems/mruby-toplevel-ext/gem_init.c -> build/host/mrbgems/mruby-toplevel-ext/gem_init.pi
+#8 20.71 CPP   mrbgems/mruby-kernel-ext/src/kernel.c -> build/host/mrbgems/mruby-kernel-ext/src/kernel.pi
+#8 20.73 GEN   build/host/mrbgems/mruby-kernel-ext/gem_init.c 
+#8 20.73 CPP   build/host/mrbgems/mruby-kernel-ext/gem_init.c -> build/host/mrbgems/mruby-kernel-ext/gem_init.pi
+#8 20.74 CPP   mrbgems/mruby-class-ext/src/class.c -> build/host/mrbgems/mruby-class-ext/src/class.pi
+#8 20.76 GEN   build/host/mrbgems/mruby-class-ext/gem_init.c 
+#8 20.76 CPP   build/host/mrbgems/mruby-class-ext/gem_init.c -> build/host/mrbgems/mruby-class-ext/gem_init.pi
+#8 20.77 CPP   mrbgems/mruby-catch/src/catch.c -> build/host/mrbgems/mruby-catch/src/catch.pi
+#8 20.78 GEN   build/host/mrbgems/mruby-catch/gem_init.c 
+#8 20.78       MRBC mrbgems/mruby-catch/mrblib/catch.rb 
+#8 20.78 CPP   build/host/mrbgems/mruby-catch/gem_init.c -> build/host/mrbgems/mruby-catch/gem_init.pi
+#8 20.80 CPP   mrbgems/mruby-pack/src/pack.c -> build/host/mrbgems/mruby-pack/src/pack.pi
+#8 20.82 GEN   build/host/mrbgems/mruby-pack/gem_init.c 
+#8 20.82 CPP   build/host/mrbgems/mruby-pack/gem_init.c -> build/host/mrbgems/mruby-pack/gem_init.pi
+#8 20.83 CPP   mrbgems/mruby-sprintf/src/sprintf.c -> build/host/mrbgems/mruby-sprintf/src/sprintf.pi
+#8 20.84 GEN   build/host/mrbgems/mruby-sprintf/gem_init.c 
+#8 20.84       MRBC mrbgems/mruby-sprintf/mrblib/string.rb 
+#8 20.84 CPP   build/host/mrbgems/mruby-sprintf/gem_init.c -> build/host/mrbgems/mruby-sprintf/gem_init.pi
+#8 20.86 CPP   mrbgems/mruby-time/src/time.c -> build/host/mrbgems/mruby-time/src/time.pi
+#8 20.87 GEN   build/host/mrbgems/mruby-time/gem_init.c 
+#8 20.87 CPP   build/host/mrbgems/mruby-time/gem_init.c -> build/host/mrbgems/mruby-time/gem_init.pi
+#8 20.89 CPP   mrbgems/mruby-struct/src/struct.c -> build/host/mrbgems/mruby-struct/src/struct.pi
+#8 20.90 GEN   build/host/mrbgems/mruby-struct/gem_init.c 
+#8 20.90       MRBC mrbgems/mruby-struct/mrblib/struct.rb 
+#8 20.91 CPP   build/host/mrbgems/mruby-struct/gem_init.c -> build/host/mrbgems/mruby-struct/gem_init.pi
+#8 20.92 CPP   mrbgems/mruby-data/src/data.c -> build/host/mrbgems/mruby-data/src/data.pi
+#8 20.94 GEN   build/host/mrbgems/mruby-data/gem_init.c 
+#8 20.94 CPP   build/host/mrbgems/mruby-data/gem_init.c -> build/host/mrbgems/mruby-data/gem_init.pi
+#8 20.95 CPP   mrbgems/mruby-random/src/random.c -> build/host/mrbgems/mruby-random/src/random.pi
+#8 20.96 GEN   build/host/mrbgems/mruby-random/gem_init.c 
+#8 20.96 CPP   build/host/mrbgems/mruby-random/gem_init.c -> build/host/mrbgems/mruby-random/gem_init.pi
+#8 20.97 CPP   mrbgems/mruby-io/src/file.c -> build/host/mrbgems/mruby-io/src/file.pi
+#8 20.99 CPP   mrbgems/mruby-io/src/file_test.c -> build/host/mrbgems/mruby-io/src/file_test.pi
+#8 21.01 CPP   mrbgems/mruby-io/src/io.c -> build/host/mrbgems/mruby-io/src/io.pi
+#8 21.03 CPP   mrbgems/mruby-io/src/mruby_io_gem.c -> build/host/mrbgems/mruby-io/src/mruby_io_gem.pi
+#8 21.04 CPP   mrbgems/mruby-io/ports/posix/io_hal.c -> build/host/mrbgems/mruby-io/ports/posix/io_hal.pi
+#8 21.05 GEN   build/host/mrbgems/mruby-io/gem_init.c 
+#8 21.05       MRBC mrbgems/mruby-io/mrblib/file.rb 
+#8 21.05            mrbgems/mruby-io/mrblib/file_constants.rb 
+#8 21.05            mrbgems/mruby-io/mrblib/io.rb 
+#8 21.05            mrbgems/mruby-io/mrblib/kernel.rb 
+#8 21.06 CPP   build/host/mrbgems/mruby-io/gem_init.c -> build/host/mrbgems/mruby-io/gem_init.pi
+#8 21.07 CPP   mrbgems/mruby-socket/src/socket.c -> build/host/mrbgems/mruby-socket/src/socket.pi
+#8 21.09 CPP   mrbgems/mruby-socket/ports/posix/socket_hal.c -> build/host/mrbgems/mruby-socket/ports/posix/socket_hal.pi
+#8 21.11 GEN   build/host/mrbgems/mruby-socket/gem_init.c 
+#8 21.11       MRBC mrbgems/mruby-socket/mrblib/socket.rb 
+#8 21.11 CPP   build/host/mrbgems/mruby-socket/gem_init.c -> build/host/mrbgems/mruby-socket/gem_init.pi
+#8 21.13 CPP   mrbgems/mruby-errno/src/errno.c -> build/host/mrbgems/mruby-errno/src/errno.pi
+#8 21.15 GEN   build/host/mrbgems/mruby-errno/gem_init.c 
+#8 21.15       MRBC mrbgems/mruby-errno/mrblib/errno.rb 
+#8 21.15 CPP   build/host/mrbgems/mruby-errno/gem_init.c -> build/host/mrbgems/mruby-errno/gem_init.pi
+#8 21.16 CPP   mrbgems/mruby-dir/src/dir.c -> build/host/mrbgems/mruby-dir/src/dir.pi
+#8 21.18 CPP   mrbgems/mruby-dir/ports/posix/dir_hal.c -> build/host/mrbgems/mruby-dir/ports/posix/dir_hal.pi
+#8 21.19 GEN   build/host/mrbgems/mruby-dir/gem_init.c 
+#8 21.19       MRBC mrbgems/mruby-dir/mrblib/dir.rb 
+#8 21.19 CPP   build/host/mrbgems/mruby-dir/gem_init.c -> build/host/mrbgems/mruby-dir/gem_init.pi
+#8 21.21 CPP   mrbgems/mruby-env/src/env.c -> build/host/mrbgems/mruby-env/src/env.pi
+#8 21.23 GEN   build/host/mrbgems/mruby-env/gem_init.c 
+#8 21.23       MRBC mrbgems/mruby-env/mrblib/env.rb 
+#8 21.23 CPP   build/host/mrbgems/mruby-env/gem_init.c -> build/host/mrbgems/mruby-env/gem_init.pi
+#8 21.25 CPP   mrbgems/mruby-math/src/math.c -> build/host/mrbgems/mruby-math/src/math.pi
+#8 21.26 GEN   build/host/mrbgems/mruby-math/gem_init.c 
+#8 21.26 CPP   build/host/mrbgems/mruby-math/gem_init.c -> build/host/mrbgems/mruby-math/gem_init.pi
+#8 21.27 CPP   mrbgems/mruby-rational/src/rational.c -> build/host/mrbgems/mruby-rational/src/rational.pi
+#8 21.29 GEN   build/host/mrbgems/mruby-rational/gem_init.c 
+#8 21.29       MRBC mrbgems/mruby-rational/mrblib/rational.rb 
+#8 21.29 CPP   build/host/mrbgems/mruby-rational/gem_init.c -> build/host/mrbgems/mruby-rational/gem_init.pi
+#8 21.30 CPP   mrbgems/mruby-complex/src/complex.c -> build/host/mrbgems/mruby-complex/src/complex.pi
+#8 21.32 GEN   build/host/mrbgems/mruby-complex/gem_init.c 
+#8 21.32       MRBC mrbgems/mruby-complex/mrblib/complex.rb 
+#8 21.32 CPP   build/host/mrbgems/mruby-complex/gem_init.c -> build/host/mrbgems/mruby-complex/gem_init.pi
+#8 21.34 CPP   mrbgems/mruby-metaprog/src/metaprog.c -> build/host/mrbgems/mruby-metaprog/src/metaprog.pi
+#8 21.35 GEN   build/host/mrbgems/mruby-metaprog/gem_init.c 
+#8 21.35 CPP   build/host/mrbgems/mruby-metaprog/gem_init.c -> build/host/mrbgems/mruby-metaprog/gem_init.pi
+#8 21.37 CPP   mrbgems/mruby-method/src/method.c -> build/host/mrbgems/mruby-method/src/method.pi
+#8 21.38 GEN   build/host/mrbgems/mruby-method/gem_init.c 
+#8 21.38       MRBC mrbgems/mruby-method/mrblib/method.rb 
+#8 21.39 CPP   build/host/mrbgems/mruby-method/gem_init.c -> build/host/mrbgems/mruby-method/gem_init.pi
+#8 21.40 CPP   mrbgems/mruby-eval/src/eval.c -> build/host/mrbgems/mruby-eval/src/eval.pi
+#8 21.42 GEN   build/host/mrbgems/mruby-eval/gem_init.c 
+#8 21.42 CPP   build/host/mrbgems/mruby-eval/gem_init.c -> build/host/mrbgems/mruby-eval/gem_init.pi
+#8 21.43 CPP   mrbgems/mruby-binding/src/binding.c -> build/host/mrbgems/mruby-binding/src/binding.pi
+#8 21.45 GEN   build/host/mrbgems/mruby-binding/gem_init.c 
+#8 21.45 CPP   build/host/mrbgems/mruby-binding/gem_init.c -> build/host/mrbgems/mruby-binding/gem_init.pi
+#8 21.46 CPP   mrbgems/mruby-proc-binding/src/proc_binding.c -> build/host/mrbgems/mruby-proc-binding/src/proc_binding.pi
+#8 21.47 GEN   build/host/mrbgems/mruby-proc-binding/gem_init.c 
+#8 21.47 CPP   build/host/mrbgems/mruby-proc-binding/gem_init.c -> build/host/mrbgems/mruby-proc-binding/gem_init.pi
+#8 21.49 CPP   mrbgems/mruby-compiler/src/ccontext.c -> build/host/mrbgems/mruby-compiler/src/ccontext.pi
+#8 21.50 CPP   mrbgems/mruby-compiler/src/cdump.c -> build/host/mrbgems/mruby-compiler/src/cdump.pi
+#8 21.52 CPP   mrbgems/mruby-compiler/src/codedump.c -> build/host/mrbgems/mruby-compiler/src/codedump.pi
+#8 21.55 CPP   mrbgems/mruby-compiler/src/codegen.c -> build/host/mrbgems/mruby-compiler/src/codegen.pi
+#8 21.58 CPP   mrbgems/mruby-compiler/src/compile.c -> build/host/mrbgems/mruby-compiler/src/compile.pi
+#8 21.60 CPP   mrbgems/mruby-compiler/src/debug.c -> build/host/mrbgems/mruby-compiler/src/debug.pi
+#8 21.62 CPP   mrbgems/mruby-compiler/src/diagnostic.c -> build/host/mrbgems/mruby-compiler/src/diagnostic.pi
+#8 21.64 CPP   mrbgems/mruby-compiler/src/dump.c -> build/host/mrbgems/mruby-compiler/src/dump.pi
+#8 21.66 CPP   mrbgems/mruby-compiler/src/irep.c -> build/host/mrbgems/mruby-compiler/src/irep.pi
+#8 21.67 CPP   mrbgems/mruby-compiler/src/mrc_presym.c -> build/host/mrbgems/mruby-compiler/src/mrc_presym.pi
+#8 21.69 CPP   mrbgems/mruby-compiler/src/mruby_compat.c -> build/host/mrbgems/mruby-compiler/src/mruby_compat.pi
+#8 21.72 CPP   mrbgems/mruby-compiler/src/parser_util.c -> build/host/mrbgems/mruby-compiler/src/parser_util.pi
+#8 21.74 CPP   mrbgems/mruby-compiler/src/pool.c -> build/host/mrbgems/mruby-compiler/src/pool.pi
+#8 21.76 GEN   build/host/mrbgems/mruby-compiler/gem_init.c 
+#8 21.76 CPP   build/host/mrbgems/mruby-compiler/gem_init.c -> build/host/mrbgems/mruby-compiler/gem_init.pi
+#8 21.77 CPP   mrbgems/mruby-error/src/exception.c -> build/host/mrbgems/mruby-error/src/exception.pi
+#8 21.79 GEN   build/host/mrbgems/mruby-error/gem_init.c 
+#8 21.79 CPP   build/host/mrbgems/mruby-error/gem_init.c -> build/host/mrbgems/mruby-error/gem_init.pi
+#8 21.80 GEN   mrblib/*.rb -> build/host/mrblib/mrblib.c
+#8 21.80       MRBC mrblib/10error.rb 
+#8 21.80            mrblib/array.rb 
+#8 21.80            mrblib/compar.rb 
+#8 21.80            mrblib/enum.rb 
+#8 21.80            mrblib/hash.rb 
+#8 21.80            mrblib/kernel.rb 
+#8 21.80            mrblib/numeric.rb 
+#8 21.80            mrblib/range.rb 
+#8 21.80            mrblib/string.rb 
+#8 21.80            mrblib/symbol.rb 
+#8 21.80 CPP   build/host/mrblib/mrblib.c -> build/host/mrblib/mrblib.pi
+#8 21.82 CPP   build/host/mrbgems/gem_init.c -> build/host/mrbgems/gem_init.pi
+#8 21.84 CPP   mrbgems/mruby-bin-mrbc/tools/mrbc/mrbc.c -> build/host/mrbgems/mruby-bin-mrbc/tools/mrbc/mrbc.pi
+#8 21.86 CPP   mrbgems/mruby-bin-debugger/tools/mrdb/apibreak.c -> build/host/mrbgems/mruby-bin-debugger/tools/mrdb/apibreak.pi
+#8 21.87 CPP   mrbgems/mruby-bin-debugger/tools/mrdb/apilist.c -> build/host/mrbgems/mruby-bin-debugger/tools/mrdb/apilist.pi
+#8 21.89 CPP   mrbgems/mruby-bin-debugger/tools/mrdb/apiprint.c -> build/host/mrbgems/mruby-bin-debugger/tools/mrdb/apiprint.pi
+#8 21.90 CPP   mrbgems/mruby-bin-debugger/tools/mrdb/apistring.c -> build/host/mrbgems/mruby-bin-debugger/tools/mrdb/apistring.pi
+#8 21.91 CPP   mrbgems/mruby-bin-debugger/tools/mrdb/cmdbreak.c -> build/host/mrbgems/mruby-bin-debugger/tools/mrdb/cmdbreak.pi
+#8 21.93 CPP   mrbgems/mruby-bin-debugger/tools/mrdb/cmdmisc.c -> build/host/mrbgems/mruby-bin-debugger/tools/mrdb/cmdmisc.pi
+#8 21.94 CPP   mrbgems/mruby-bin-debugger/tools/mrdb/cmdprint.c -> build/host/mrbgems/mruby-bin-debugger/tools/mrdb/cmdprint.pi
+#8 21.95 CPP   mrbgems/mruby-bin-debugger/tools/mrdb/cmdrun.c -> build/host/mrbgems/mruby-bin-debugger/tools/mrdb/cmdrun.pi
+#8 21.97 CPP   mrbgems/mruby-bin-debugger/tools/mrdb/mrdb.c -> build/host/mrbgems/mruby-bin-debugger/tools/mrdb/mrdb.pi
+#8 21.98 CPP   mrbgems/mruby-bin-mirb/tools/mirb/mirb.c -> build/host/mrbgems/mruby-bin-mirb/tools/mirb/mirb.pi
+#8 22.00 CPP   mrbgems/mruby-bin-mirb/tools/mirb/mirb_buffer.c -> build/host/mrbgems/mruby-bin-mirb/tools/mirb/mirb_buffer.pi
+#8 22.01 CPP   mrbgems/mruby-bin-mirb/tools/mirb/mirb_completion.c -> build/host/mrbgems/mruby-bin-mirb/tools/mirb/mirb_completion.pi
+#8 22.03 CPP   mrbgems/mruby-bin-mirb/tools/mirb/mirb_editor.c -> build/host/mrbgems/mruby-bin-mirb/tools/mirb/mirb_editor.pi
+#8 22.04 CPP   mrbgems/mruby-bin-mirb/tools/mirb/mirb_highlight.c -> build/host/mrbgems/mruby-bin-mirb/tools/mirb/mirb_highlight.pi
+#8 22.05 CPP   mrbgems/mruby-bin-mirb/tools/mirb/mirb_history.c -> build/host/mrbgems/mruby-bin-mirb/tools/mirb/mirb_history.pi
+#8 22.07 CPP   mrbgems/mruby-bin-mirb/tools/mirb/mirb_term.c -> build/host/mrbgems/mruby-bin-mirb/tools/mirb/mirb_term.pi
+#8 22.08 CPP   mrbgems/mruby-bin-mruby/tools/mruby/mruby.c -> build/host/mrbgems/mruby-bin-mruby/tools/mruby/mruby.pi
+#8 22.09 CPP   mrbgems/mruby-bin-strip/tools/mruby-strip/mruby_strip.c -> build/host/mrbgems/mruby-bin-strip/tools/mruby-strip/mruby_strip.pi
+#8 22.15 GEN   build/host/include/mruby/presym/id.h 
+#8 22.15 GEN   build/host/include/mruby/presym/table.h 
+#8 22.15 GEN   build/host/presym 
+#8 22.15 CC    mrbgems/mruby-bigint/core/bigint.c -> build/host/mrbgems/mruby-bigint/core/bigint.o
+#8 24.76 CC    src/allocf.c -> build/host/src/allocf.o
+#8 24.78 CC    src/array.c -> build/host/src/array.o
+#8 25.54 CC    src/backtrace.c -> build/host/src/backtrace.o
+#8 25.64 CC    src/cdump.c -> build/host/src/cdump.o
+#8 25.79 CC    src/class.c -> build/host/src/class.o
+#8 26.83 CC    src/codedump.c -> build/host/src/codedump.o
+#8 27.37 CC    src/debug.c -> build/host/src/debug.o
+#8 27.47 CC    src/dump.c -> build/host/src/dump.o
+#8 27.76 CC    src/enum.c -> build/host/src/enum.o
+#8 27.79 CC    src/error.c -> build/host/src/error.o
+#8 28.01 CC    src/etc.c -> build/host/src/etc.o
+#8 28.07 CC    src/fp_uscale.c -> build/host/src/fp_uscale.o
+#8 28.52 CC    src/gc.c -> build/host/src/gc.o
+#8 28.90 CC    src/hash.c -> build/host/src/hash.o
+#8 29.68 CC    src/init.c -> build/host/src/init.o
+#8 29.71 CC    src/kernel.c -> build/host/src/kernel.o
+#8 29.86 CC    src/load.c -> build/host/src/load.o
+#8 30.14 CC    src/mempool.c -> build/host/src/mempool.o
+#8 30.18 CC    src/numeric.c -> build/host/src/numeric.o
+#8 30.92 CC    src/numops.c -> build/host/src/numops.o
+#8 30.98 CC    src/object.c -> build/host/src/object.o
+#8 31.17 CC    src/print.c -> build/host/src/print.o
+#8 31.22 CC    src/proc.c -> build/host/src/proc.o
+#8 31.39 CC    src/range.c -> build/host/src/range.o
+#8 31.59 CC    src/readint.c -> build/host/src/readint.o
+#8 31.62 CC    src/readnum.c -> build/host/src/readnum.o
+#8 31.65 CC    src/state.c -> build/host/src/state.o
+#8 31.72 CC    src/string.c -> build/host/src/string.o
+#8 32.85 CC    src/symbol.c -> build/host/src/symbol.o
+#8 33.20 CC    src/variable.c -> build/host/src/variable.o
+#8 33.75 CC    src/version.c -> build/host/src/version.o
+#8 33.78 CC    src/vm.c -> build/host/src/vm.o
+#8 36.71 CC    build/host/mrbgems/mruby-compar-ext/gem_init.c -> build/host/mrbgems/mruby-compar-ext/gem_init.o
+#8 36.74 CC    build/host/mrbgems/mruby-enum-ext/gem_init.c -> build/host/mrbgems/mruby-enum-ext/gem_init.o
+#8 36.79 CC    mrbgems/mruby-string-ext/src/string.c -> build/host/mrbgems/mruby-string-ext/src/string.o
+#8 37.34 CC    build/host/mrbgems/mruby-string-ext/gem_init.c -> build/host/mrbgems/mruby-string-ext/gem_init.o
+#8 37.38 CC    mrbgems/mruby-numeric-ext/src/numeric_ext.c -> build/host/mrbgems/mruby-numeric-ext/src/numeric_ext.o
+#8 37.62 CC    build/host/mrbgems/mruby-numeric-ext/gem_init.c -> build/host/mrbgems/mruby-numeric-ext/gem_init.o
+#8 37.65 CC    mrbgems/mruby-array-ext/src/array.c -> build/host/mrbgems/mruby-array-ext/src/array.o
+#8 38.28 CC    build/host/mrbgems/mruby-array-ext/gem_init.c -> build/host/mrbgems/mruby-array-ext/gem_init.o
+#8 38.32 CC    mrbgems/mruby-hash-ext/src/hash_ext.c -> build/host/mrbgems/mruby-hash-ext/src/hash_ext.o
+#8 38.40 CC    build/host/mrbgems/mruby-hash-ext/gem_init.c -> build/host/mrbgems/mruby-hash-ext/gem_init.o
+#8 38.44 CC    mrbgems/mruby-range-ext/src/range.c -> build/host/mrbgems/mruby-range-ext/src/range.o
+#8 38.51 CC    build/host/mrbgems/mruby-range-ext/gem_init.c -> build/host/mrbgems/mruby-range-ext/gem_init.o
+#8 38.55 CC    mrbgems/mruby-proc-ext/src/proc.c -> build/host/mrbgems/mruby-proc-ext/src/proc.o
+#8 38.64 CC    build/host/mrbgems/mruby-proc-ext/gem_init.c -> build/host/mrbgems/mruby-proc-ext/gem_init.o
+#8 38.67 CC    mrbgems/mruby-symbol-ext/src/symbol.c -> build/host/mrbgems/mruby-symbol-ext/src/symbol.o
+#8 38.71 CC    build/host/mrbgems/mruby-symbol-ext/gem_init.c -> build/host/mrbgems/mruby-symbol-ext/gem_init.o
+#8 38.74 CC    mrbgems/mruby-object-ext/src/object.c -> build/host/mrbgems/mruby-object-ext/src/object.o
+#8 38.78 CC    build/host/mrbgems/mruby-object-ext/gem_init.c -> build/host/mrbgems/mruby-object-ext/gem_init.o
+#8 38.81 CC    mrbgems/mruby-regexp/src/re_compile.c -> build/host/mrbgems/mruby-regexp/src/re_compile.o
+#8 39.38 CC    mrbgems/mruby-regexp/src/re_exec.c -> build/host/mrbgems/mruby-regexp/src/re_exec.o
+#8 39.72 CC    mrbgems/mruby-regexp/src/re_utf8.c -> build/host/mrbgems/mruby-regexp/src/re_utf8.o
+#8 39.76 CC    mrbgems/mruby-regexp/src/regexp.c -> build/host/mrbgems/mruby-regexp/src/regexp.o
+#8 40.11 CC    build/host/mrbgems/mruby-regexp/gem_init.c -> build/host/mrbgems/mruby-regexp/gem_init.o
+#8 40.14 CC    mrbgems/mruby-objectspace/src/mruby_objectspace.c -> build/host/mrbgems/mruby-objectspace/src/mruby_objectspace.o
+#8 40.21 CC    build/host/mrbgems/mruby-objectspace/gem_init.c -> build/host/mrbgems/mruby-objectspace/gem_init.o
+#8 40.23 CC    mrbgems/mruby-set/src/set.c -> build/host/mrbgems/mruby-set/src/set.o
+#8 40.80 CC    build/host/mrbgems/mruby-set/gem_init.c -> build/host/mrbgems/mruby-set/gem_init.o
+#8 40.84 CC    mrbgems/mruby-fiber/src/fiber.c -> build/host/mrbgems/mruby-fiber/src/fiber.o
+#8 40.98 CC    build/host/mrbgems/mruby-fiber/gem_init.c -> build/host/mrbgems/mruby-fiber/gem_init.o
+#8 41.01 CC    build/host/mrbgems/mruby-enumerator/gem_init.c -> build/host/mrbgems/mruby-enumerator/gem_init.o
+#8 41.05 CC    build/host/mrbgems/mruby-enum-lazy/gem_init.c -> build/host/mrbgems/mruby-enum-lazy/gem_init.o
+#8 41.08 CC    build/host/mrbgems/mruby-enum-chain/gem_init.c -> build/host/mrbgems/mruby-enum-chain/gem_init.o
+#8 41.12 CC    build/host/mrbgems/mruby-toplevel-ext/gem_init.c -> build/host/mrbgems/mruby-toplevel-ext/gem_init.o
+#8 41.15 CC    mrbgems/mruby-kernel-ext/src/kernel.c -> build/host/mrbgems/mruby-kernel-ext/src/kernel.o
+#8 41.23 CC    build/host/mrbgems/mruby-kernel-ext/gem_init.c -> build/host/mrbgems/mruby-kernel-ext/gem_init.o
+#8 41.25 CC    mrbgems/mruby-class-ext/src/class.c -> build/host/mrbgems/mruby-class-ext/src/class.o
+#8 41.33 CC    build/host/mrbgems/mruby-class-ext/gem_init.c -> build/host/mrbgems/mruby-class-ext/gem_init.o
+#8 41.35 CC    mrbgems/mruby-catch/src/catch.c -> build/host/mrbgems/mruby-catch/src/catch.o
+#8 41.40 CC    build/host/mrbgems/mruby-catch/gem_init.c -> build/host/mrbgems/mruby-catch/gem_init.o
+#8 41.43 CC    mrbgems/mruby-pack/src/pack.c -> build/host/mrbgems/mruby-pack/src/pack.o
+#8 42.05 CC    build/host/mrbgems/mruby-pack/gem_init.c -> build/host/mrbgems/mruby-pack/gem_init.o
+#8 42.07 CC    mrbgems/mruby-sprintf/src/sprintf.c -> build/host/mrbgems/mruby-sprintf/src/sprintf.o
+#8 42.54 CC    build/host/mrbgems/mruby-sprintf/gem_init.c -> build/host/mrbgems/mruby-sprintf/gem_init.o
+#8 42.57 CC    mrbgems/mruby-time/src/time.c -> build/host/mrbgems/mruby-time/src/time.o
+#8 42.86 CC    build/host/mrbgems/mruby-time/gem_init.c -> build/host/mrbgems/mruby-time/gem_init.o
+#8 42.88 CC    mrbgems/mruby-struct/src/struct.c -> build/host/mrbgems/mruby-struct/src/struct.o
+#8 43.11 CC    build/host/mrbgems/mruby-struct/gem_init.c -> build/host/mrbgems/mruby-struct/gem_init.o
+#8 43.14 CC    mrbgems/mruby-data/src/data.c -> build/host/mrbgems/mruby-data/src/data.o
+#8 43.32 CC    build/host/mrbgems/mruby-data/gem_init.c -> build/host/mrbgems/mruby-data/gem_init.o
+#8 43.34 CC    mrbgems/mruby-random/src/random.c -> build/host/mrbgems/mruby-random/src/random.o
+#8 44.17 CC    build/host/mrbgems/mruby-random/gem_init.c -> build/host/mrbgems/mruby-random/gem_init.o
+#8 44.20 CC    mrbgems/mruby-io/src/file.c -> build/host/mrbgems/mruby-io/src/file.o
+#8 44.42 CC    mrbgems/mruby-io/src/file_test.c -> build/host/mrbgems/mruby-io/src/file_test.o
+#8 44.51 CC    mrbgems/mruby-io/src/io.c -> build/host/mrbgems/mruby-io/src/io.o
+#8 45.08 CC    mrbgems/mruby-io/src/mruby_io_gem.c -> build/host/mrbgems/mruby-io/src/mruby_io_gem.o
+#8 45.11 CC    mrbgems/mruby-io/ports/posix/io_hal.c -> build/host/mrbgems/mruby-io/ports/posix/io_hal.o
+#8 45.21 CC    build/host/mrbgems/mruby-io/gem_init.c -> build/host/mrbgems/mruby-io/gem_init.o
+#8 45.26 CC    mrbgems/mruby-socket/src/socket.c -> build/host/mrbgems/mruby-socket/src/socket.o
+#8 45.65 CC    mrbgems/mruby-socket/ports/posix/socket_hal.c -> build/host/mrbgems/mruby-socket/ports/posix/socket_hal.o
+#8 45.70 CC    build/host/mrbgems/mruby-socket/gem_init.c -> build/host/mrbgems/mruby-socket/gem_init.o
+#8 45.75 CC    mrbgems/mruby-errno/src/errno.c -> build/host/mrbgems/mruby-errno/src/errno.o
+#8 45.85 CC    build/host/mrbgems/mruby-errno/gem_init.c -> build/host/mrbgems/mruby-errno/gem_init.o
+#8 45.88 CC    mrbgems/mruby-dir/src/dir.c -> build/host/mrbgems/mruby-dir/src/dir.o
+#8 45.98 CC    mrbgems/mruby-dir/ports/posix/dir_hal.c -> build/host/mrbgems/mruby-dir/ports/posix/dir_hal.o
+#8 46.03 CC    build/host/mrbgems/mruby-dir/gem_init.c -> build/host/mrbgems/mruby-dir/gem_init.o
+#8 46.06 CC    mrbgems/mruby-env/src/env.c -> build/host/mrbgems/mruby-env/src/env.o
+#8 46.14 CC    build/host/mrbgems/mruby-env/gem_init.c -> build/host/mrbgems/mruby-env/gem_init.o
+#8 46.18 CC    mrbgems/mruby-math/src/math.c -> build/host/mrbgems/mruby-math/src/math.o
+#8 46.28 CC    build/host/mrbgems/mruby-math/gem_init.c -> build/host/mrbgems/mruby-math/gem_init.o
+#8 46.30 CC    mrbgems/mruby-rational/src/rational.c -> build/host/mrbgems/mruby-rational/src/rational.o
+#8 46.68 CC    build/host/mrbgems/mruby-rational/gem_init.c -> build/host/mrbgems/mruby-rational/gem_init.o
+#8 46.72 CC    mrbgems/mruby-complex/src/complex.c -> build/host/mrbgems/mruby-complex/src/complex.o
+#8 46.88 CC    build/host/mrbgems/mruby-complex/gem_init.c -> build/host/mrbgems/mruby-complex/gem_init.o
+#8 46.91 CC    mrbgems/mruby-metaprog/src/metaprog.c -> build/host/mrbgems/mruby-metaprog/src/metaprog.o
+#8 47.21 CC    build/host/mrbgems/mruby-metaprog/gem_init.c -> build/host/mrbgems/mruby-metaprog/gem_init.o
+#8 47.24 CC    mrbgems/mruby-method/src/method.c -> build/host/mrbgems/mruby-method/src/method.o
+#8 47.44 CC    build/host/mrbgems/mruby-method/gem_init.c -> build/host/mrbgems/mruby-method/gem_init.o
+#8 47.48 CC    mrbgems/mruby-eval/src/eval.c -> build/host/mrbgems/mruby-eval/src/eval.o
+#8 47.58 CC    build/host/mrbgems/mruby-eval/gem_init.c -> build/host/mrbgems/mruby-eval/gem_init.o
+#8 47.61 CC    mrbgems/mruby-binding/src/binding.c -> build/host/mrbgems/mruby-binding/src/binding.o
+#8 47.73 CC    build/host/mrbgems/mruby-binding/gem_init.c -> build/host/mrbgems/mruby-binding/gem_init.o
+#8 47.75 CC    mrbgems/mruby-proc-binding/src/proc_binding.c -> build/host/mrbgems/mruby-proc-binding/src/proc_binding.o
+#8 47.79 CC    build/host/mrbgems/mruby-proc-binding/gem_init.c -> build/host/mrbgems/mruby-proc-binding/gem_init.o
+#8 47.82 CC    mrbgems/mruby-compiler/src/ccontext.c -> build/host/mrbgems/mruby-compiler/src/ccontext.o
+#8 47.87 CC    mrbgems/mruby-compiler/src/cdump.c -> build/host/mrbgems/mruby-compiler/src/cdump.o
+#8 48.07 CC    mrbgems/mruby-compiler/src/codedump.c -> build/host/mrbgems/mruby-compiler/src/codedump.o
+#8 48.62 CC    mrbgems/mruby-compiler/src/codegen.c -> build/host/mrbgems/mruby-compiler/src/codegen.o
+#8 51.04 CC    mrbgems/mruby-compiler/src/compile.c -> build/host/mrbgems/mruby-compiler/src/compile.o
+#8 51.16 CC    mrbgems/mruby-compiler/src/debug.c -> build/host/mrbgems/mruby-compiler/src/debug.o
+#8 51.25 CC    mrbgems/mruby-compiler/src/diagnostic.c -> build/host/mrbgems/mruby-compiler/src/diagnostic.o
+#8 51.31 CC    mrbgems/mruby-compiler/src/dump.c -> build/host/mrbgems/mruby-compiler/src/dump.o
+#8 51.62 CC    mrbgems/mruby-compiler/src/irep.c -> build/host/mrbgems/mruby-compiler/src/irep.o
+#8 51.69 CC    mrbgems/mruby-compiler/src/mrc_presym.c -> build/host/mrbgems/mruby-compiler/src/mrc_presym.o
+#8 51.73 CC    mrbgems/mruby-compiler/src/mruby_compat.c -> build/host/mrbgems/mruby-compiler/src/mruby_compat.o
+#8 52.15 CC    mrbgems/mruby-compiler/src/parser_util.c -> build/host/mrbgems/mruby-compiler/src/parser_util.o
+#8 52.18 CC    mrbgems/mruby-compiler/src/pool.c -> build/host/mrbgems/mruby-compiler/src/pool.o
+#8 52.24 CC    mrbgems/mruby-compiler/lib/prism/src/diagnostic.c -> build/host/mrbgems/mruby-compiler/lib/diagnostic.o
+#8 52.33 CC    mrbgems/mruby-compiler/lib/prism/src/encoding.c -> build/host/mrbgems/mruby-compiler/lib/encoding.o
+#8 52.45 CC    mrbgems/mruby-compiler/lib/prism/src/node.c -> build/host/mrbgems/mruby-compiler/lib/node.o
+#8 52.87 CC    mrbgems/mruby-compiler/lib/prism/src/options.c -> build/host/mrbgems/mruby-compiler/lib/options.o
+#8 52.96 CC    mrbgems/mruby-compiler/lib/prism/src/pack.c -> build/host/mrbgems/mruby-compiler/lib/pack.o
+#8 52.99 CC    mrbgems/mruby-compiler/lib/prism/src/prettyprint.c -> build/host/mrbgems/mruby-compiler/lib/prettyprint.o
+#8 53.02 CC    mrbgems/mruby-compiler/lib/prism/src/prism.c -> build/host/mrbgems/mruby-compiler/lib/prism.o
+#8 60.62 CC    mrbgems/mruby-compiler/lib/prism/src/regexp.c -> build/host/mrbgems/mruby-compiler/lib/regexp.o
+#8 60.77 CC    mrbgems/mruby-compiler/lib/prism/src/serialize.c -> build/host/mrbgems/mruby-compiler/lib/serialize.o
+#8 60.80 CC    mrbgems/mruby-compiler/lib/prism/src/static_literals.c -> build/host/mrbgems/mruby-compiler/lib/static_literals.o
+#8 61.01 CC    mrbgems/mruby-compiler/lib/prism/src/token_type.c -> build/host/mrbgems/mruby-compiler/lib/token_type.o
+#8 61.08 CC    mrbgems/mruby-compiler/lib/prism/src/util/pm_buffer.c -> build/host/mrbgems/mruby-compiler/lib/pm_buffer.o
+#8 61.30 CC    mrbgems/mruby-compiler/lib/prism/src/util/pm_char.c -> build/host/mrbgems/mruby-compiler/lib/pm_char.o
+#8 61.39 CC    mrbgems/mruby-compiler/lib/prism/src/util/pm_constant_pool.c -> build/host/mrbgems/mruby-compiler/lib/pm_constant_pool.o
+#8 61.52 CC    mrbgems/mruby-compiler/lib/prism/src/util/pm_integer.c -> build/host/mrbgems/mruby-compiler/lib/pm_integer.o
+#8 61.73 CC    mrbgems/mruby-compiler/lib/prism/src/util/pm_list.c -> build/host/mrbgems/mruby-compiler/lib/pm_list.o
+#8 61.76 CC    mrbgems/mruby-compiler/lib/prism/src/util/pm_memchr.c -> build/host/mrbgems/mruby-compiler/lib/pm_memchr.o
+#8 61.79 CC    mrbgems/mruby-compiler/lib/prism/src/util/pm_newline_list.c -> build/host/mrbgems/mruby-compiler/lib/pm_newline_list.o
+#8 61.84 CC    mrbgems/mruby-compiler/lib/prism/src/util/pm_string.c -> build/host/mrbgems/mruby-compiler/lib/pm_string.o
+#8 61.90 CC    mrbgems/mruby-compiler/lib/prism/src/util/pm_strncasecmp.c -> build/host/mrbgems/mruby-compiler/lib/pm_strncasecmp.o
+#8 61.93 CC    mrbgems/mruby-compiler/lib/prism/src/util/pm_strpbrk.c -> build/host/mrbgems/mruby-compiler/lib/pm_strpbrk.o
+#8 62.00 CC    build/host/mrbgems/mruby-compiler/gem_init.c -> build/host/mrbgems/mruby-compiler/gem_init.o
+#8 62.02 CC    mrbgems/mruby-error/src/exception.c -> build/host/mrbgems/mruby-error/src/exception.o
+#8 62.06 CC    build/host/mrbgems/mruby-error/gem_init.c -> build/host/mrbgems/mruby-error/gem_init.o
+#8 62.09 CC    build/host/mrblib/mrblib.c -> build/host/mrblib/mrblib.o
+#8 62.13 CC    build/host/mrbgems/gem_init.c -> build/host/mrbgems/gem_init.o
+#8 62.17 AR    build/host/lib/libmruby.a 
+#8 62.17 ar: creating /src/build/host/lib/libmruby.a
+#8 62.20 GEN   build/host/bin/mruby-config -> bin/mruby-config
+#8 62.20 AR    build/host/lib/libmruby_core.a 
+#8 62.21 ar: creating /src/build/host/lib/libmruby_core.a
+#8 62.22 CC    mrbgems/mruby-bin-mrbc/tools/mrbc/mrbc.c -> build/host/mrbgems/mruby-bin-mrbc/tools/mrbc/mrbc.o
+#8 62.32 LD    build/host/bin/mrbc 
+#8 62.35 GEN   build/host/bin/mrbc -> bin/mrbc
+#8 62.35 CC    mrbgems/mruby-bin-debugger/tools/mrdb/apibreak.c -> build/host/mrbgems/mruby-bin-debugger/tools/mrdb/apibreak.o
+#8 62.48 CC    mrbgems/mruby-bin-debugger/tools/mrdb/apilist.c -> build/host/mrbgems/mruby-bin-debugger/tools/mrdb/apilist.o
+#8 62.55 CC    mrbgems/mruby-bin-debugger/tools/mrdb/apiprint.c -> build/host/mrbgems/mruby-bin-debugger/tools/mrdb/apiprint.o
+#8 62.59 CC    mrbgems/mruby-bin-debugger/tools/mrdb/apistring.c -> build/host/mrbgems/mruby-bin-debugger/tools/mrdb/apistring.o
+#8 62.62 CC    mrbgems/mruby-bin-debugger/tools/mrdb/cmdbreak.c -> build/host/mrbgems/mruby-bin-debugger/tools/mrdb/cmdbreak.o
+#8 62.75 CC    mrbgems/mruby-bin-debugger/tools/mrdb/cmdmisc.c -> build/host/mrbgems/mruby-bin-debugger/tools/mrdb/cmdmisc.o
+#8 62.84 CC    mrbgems/mruby-bin-debugger/tools/mrdb/cmdprint.c -> build/host/mrbgems/mruby-bin-debugger/tools/mrdb/cmdprint.o
+#8 62.89 CC    mrbgems/mruby-bin-debugger/tools/mrdb/cmdrun.c -> build/host/mrbgems/mruby-bin-debugger/tools/mrdb/cmdrun.o
+#8 62.92 CC    mrbgems/mruby-bin-debugger/tools/mrdb/mrdb.c -> build/host/mrbgems/mruby-bin-debugger/tools/mrdb/mrdb.o
+#8 63.11 LD    build/host/bin/mrdb 
+#8 63.19 GEN   build/host/bin/mrdb -> bin/mrdb
+#8 63.19 CC    mrbgems/mruby-bin-mirb/tools/mirb/mirb.c -> build/host/mrbgems/mruby-bin-mirb/tools/mirb/mirb.o
+#8 63.37 CC    mrbgems/mruby-bin-mirb/tools/mirb/mirb_buffer.c -> build/host/mrbgems/mruby-bin-mirb/tools/mirb/mirb_buffer.o
+#8 63.60 CC    mrbgems/mruby-bin-mirb/tools/mirb/mirb_completion.c -> build/host/mrbgems/mruby-bin-mirb/tools/mirb/mirb_completion.o
+#8 63.78 CC    mrbgems/mruby-bin-mirb/tools/mirb/mirb_editor.c -> build/host/mrbgems/mruby-bin-mirb/tools/mirb/mirb_editor.o
+#8 64.04 CC    mrbgems/mruby-bin-mirb/tools/mirb/mirb_highlight.c -> build/host/mrbgems/mruby-bin-mirb/tools/mirb/mirb_highlight.o
+#8 64.21 CC    mrbgems/mruby-bin-mirb/tools/mirb/mirb_history.c -> build/host/mrbgems/mruby-bin-mirb/tools/mirb/mirb_history.o
+#8 64.25 CC    mrbgems/mruby-bin-mirb/tools/mirb/mirb_term.c -> build/host/mrbgems/mruby-bin-mirb/tools/mirb/mirb_term.o
+#8 64.34 LD    build/host/bin/mirb 
+#8 64.42 GEN   build/host/bin/mirb -> bin/mirb
+#8 64.42 CC    mrbgems/mruby-bin-mruby/tools/mruby/mruby.c -> build/host/mrbgems/mruby-bin-mruby/tools/mruby/mruby.o
+#8 64.53 LD    build/host/bin/mruby 
+#8 64.61 GEN   build/host/bin/mruby -> bin/mruby
+#8 64.61 CC    mrbgems/mruby-bin-strip/tools/mruby-strip/mruby_strip.c -> build/host/mrbgems/mruby-bin-strip/tools/mruby-strip/mruby_strip.o
+#8 64.65 LD    build/host/bin/mruby-strip 
+#8 64.73 GEN   build/host/bin/mruby-strip -> bin/mruby-strip
+#8 64.73 CC    src/allocf.c -> build/host/mrbc/src/allocf.o
+#8 64.76 CC    src/array.c -> build/host/mrbc/src/array.o
+#8 65.52 CC    src/backtrace.c -> build/host/mrbc/src/backtrace.o
+#8 65.62 CC    src/cdump.c -> build/host/mrbc/src/cdump.o
+#8 65.77 CC    src/class.c -> build/host/mrbc/src/class.o
+#8 66.81 CC    src/codedump.c -> build/host/mrbc/src/codedump.o
+#8 67.35 CC    src/debug.c -> build/host/mrbc/src/debug.o
+#8 67.44 CC    src/dump.c -> build/host/mrbc/src/dump.o
+#8 67.73 CC    src/enum.c -> build/host/mrbc/src/enum.o
+#8 67.76 CC    src/error.c -> build/host/mrbc/src/error.o
+#8 67.99 CC    src/etc.c -> build/host/mrbc/src/etc.o
+#8 68.05 CC    src/fp_uscale.c -> build/host/mrbc/src/fp_uscale.o
+#8 68.49 CC    src/gc.c -> build/host/mrbc/src/gc.o
+#8 68.86 CC    src/hash.c -> build/host/mrbc/src/hash.o
+#8 69.62 CC    src/init.c -> build/host/mrbc/src/init.o
+#8 69.64 CC    src/kernel.c -> build/host/mrbc/src/kernel.o
+#8 69.80 CC    src/load.c -> build/host/mrbc/src/load.o
+#8 70.09 CC    src/mempool.c -> build/host/mrbc/src/mempool.o
+#8 70.13 CC    src/numeric.c -> build/host/mrbc/src/numeric.o
+#8 70.66 CC    src/numops.c -> build/host/mrbc/src/numops.o
+#8 70.71 CC    src/object.c -> build/host/mrbc/src/object.o
+#8 70.88 CC    src/print.c -> build/host/mrbc/src/print.o
+#8 70.94 CC    src/proc.c -> build/host/mrbc/src/proc.o
+#8 71.12 CC    src/range.c -> build/host/mrbc/src/range.o
+#8 71.31 CC    src/readint.c -> build/host/mrbc/src/readint.o
+#8 71.33 CC    src/readnum.c -> build/host/mrbc/src/readnum.o
+#8 71.36 CC    src/state.c -> build/host/mrbc/src/state.o
+#8 71.43 CC    src/string.c -> build/host/mrbc/src/string.o
+#8 72.55 CC    src/symbol.c -> build/host/mrbc/src/symbol.o
+#8 72.89 CC    src/variable.c -> build/host/mrbc/src/variable.o
+#8 73.44 CC    src/version.c -> build/host/mrbc/src/version.o
+#8 73.47 CC    src/vm.c -> build/host/mrbc/src/vm.o
+#8 76.29 AR    build/host/mrbc/lib/libmruby_core.a 
+#8 76.30 ar: creating /src/build/host/mrbc/lib/libmruby_core.a
+#8 76.31 
+#8 76.31 Build summary:
+#8 76.31 
+#8 76.31 ================================================
+#8 76.31       Config Name: host
+#8 76.31  Output Directory: build/host
+#8 76.31          Binaries: mrbc
+#8 76.31     Included Gems:
+#8 76.31              mruby-array-ext - Array class extension
+#8 76.31              mruby-bigint - Integer class extension to multiple-precision
+#8 76.31              mruby-bin-config - mruby-config command
+#8 76.31              mruby-bin-debugger - mruby debugger command
+#8 76.31                - Binaries: mrdb
+#8 76.31              mruby-bin-mirb - mirb command using Prism compiler
+#8 76.31                - Binaries: mirb
+#8 76.31              mruby-bin-mrbc - mruby compiler executable using Prism
+#8 76.31              mruby-bin-mruby - mruby command using Prism compiler
+#8 76.31                - Binaries: mruby
+#8 76.31              mruby-bin-strip - irep dump debug section remover command
+#8 76.31                - Binaries: mruby-strip
+#8 76.31              mruby-binding - Binding class (core features only)
+#8 76.31              mruby-catch - Catch / Throw non-local Jump
+#8 76.31              mruby-class-ext - class/module extension
+#8 76.31              mruby-compar-ext - Comparable module extension
+#8 76.31              mruby-compiler - mruby compiler using Prism
+#8 76.31              mruby-complex - Complex class
+#8 76.31              mruby-data - standard Data class
+#8 76.31              mruby-dir
+#8 76.31              mruby-enum-chain - Enumerator::Chain class
+#8 76.31              mruby-enum-ext - Enumerable module extension
+#8 76.31              mruby-enum-lazy - Enumerator::Lazy class
+#8 76.31              mruby-enumerator - Enumerator class
+#8 76.31              mruby-env - ENV object for environment variable access
+#8 76.31              mruby-errno - Errno module and SystemCallError class
+#8 76.31              mruby-error - extensional error handling
+#8 76.31              mruby-eval - standard Kernel#eval method using Prism compiler
+#8 76.31              mruby-fiber - Fiber class
+#8 76.31              mruby-hash-ext - Hash class extension
+#8 76.31              mruby-io - IO and File class
+#8 76.31              mruby-kernel-ext - extensional function-like methods
+#8 76.31              mruby-math - standard Math module
+#8 76.31              mruby-metaprog - Meta-programming features for mruby
+#8 76.31              mruby-method - Method and UnboundMethod class
+#8 76.31              mruby-numeric-ext - Numeric class extension
+#8 76.31              mruby-object-ext - extensional methods shared by all objects
+#8 76.31              mruby-objectspace - ObjectSpace class
+#8 76.31              mruby-pack - Array#pack and String#unpack method
+#8 76.31              mruby-proc-binding - Proc#binding method
+#8 76.31              mruby-proc-ext - Proc class extension
+#8 76.31              mruby-random - Random class
+#8 76.31              mruby-range-ext - Range class extension
+#8 76.31              mruby-rational - Rational class
+#8 76.31              mruby-regexp - Regexp class (built-in NFA engine)
+#8 76.31              mruby-set - Set class
+#8 76.31              mruby-socket - standard socket class
+#8 76.31              mruby-sprintf - standard Kernel#sprintf method
+#8 76.31              mruby-string-ext - String class extension
+#8 76.31              mruby-struct - standard Struct class
+#8 76.31              mruby-symbol-ext - Symbol class extension
+#8 76.31              mruby-time - standard Time class
+#8 76.31              mruby-toplevel-ext - toplevel object (main) methods extension
+#8 76.31 ================================================
+#8 76.31 
+#8 76.31 ================================================
+#8 76.31       Config Name: host/mrbc
+#8 76.31  Output Directory: build/host/mrbc
+#8 76.31          Binaries: mrbc
+#8 76.31     Included Gems:
+#8 76.31              mruby-bin-mrbc - mruby compiler executable using Prism
+#8 76.31              mruby-compiler - mruby compiler using Prism
+#8 76.31 ================================================
+#8 76.31 
+#8 DONE 76.5s
+
+#9 [linux/arm64 6/9] RUN BIN=$(find build -type f -name mruby -perm -u+x | head -1) && cp "$BIN" /usr/local/bin/mruby
+#9 DONE 0.1s
+
+#10 [linux/arm64 7/9] RUN mruby -e 'puts "ok-mruby"' | tee /smoke.out && grep -q '^ok-mruby' /smoke.out
+#10 0.032 ok-mruby
+#10 DONE 0.0s
+
+#11 [linux/arm64 8/9] RUN printf 'BINSIZE %s mruby\n' "$(stat -c %s /usr/local/bin/mruby)"
+#11 0.021 BINSIZE 9452312 mruby
+#11 DONE 0.0s
+
+#12 exporting to oci image format
+#12 exporting layers
+#12 exporting layers 5.0s done
+#12 exporting manifest sha256:596305575fdd33c391c5f5894e270f4e6d2995977e7afd145b0219c7ee2325d9 done
+#12 exporting config sha256:a9e8ee48d6b36f7bc13202db588c7687736d54c48386daadf3b005f7f32c78a0 done
+#12 exporting manifest list sha256:da7a041bd652915cbded36cb3b26b76b02219ccbe956bbd2ec6e1f2acf83ca91 done
+#12 sending tarball
+#12 sending tarball 1.2s done
+#12 DONE 6.2s
+Successfully built tinylang/mruby:latest

@@ -1,0 +1,41 @@
+#1 [resolver] fetching image...docker.io/library/alpine:3.20
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 oci-layout://docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc
+#3 resolve docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc done
+#3 DONE 0.0s
+
+#4 [linux/arm64 1/7] RUN apk add --no-cache build-base git
+#4 CACHED
+
+#5 [linux/arm64/v8 2/7] WORKDIR /src
+#5 CACHED
+
+#6 [linux/arm64 3/7] RUN git clone --depth 1 https://github.com/antirez/picol .
+#6 0.033 Cloning into '.'...
+#6 DONE 0.4s
+
+#7 [linux/arm64 4/7] RUN cc -O2 picol.c -o picol
+#7 DONE 0.3s
+
+#8 [linux/arm64 5/7] RUN printf 'puts ok-picol\n' > /smoke.tcl     && ./picol /smoke.tcl | tee /smoke.out && grep -q '^ok-picol' /smoke.out
+#8 0.029 ok-picol
+#8 DONE 0.0s
+
+#9 [linux/arm64 6/7] RUN printf 'BINSIZE %s picol\n' "$(stat -c %s ./picol)"
+#9 0.028 BINSIZE 75136 picol
+#9 DONE 0.0s
+
+#10 exporting to oci image format
+#10 exporting layers 0.0s done
+#10 exporting manifest sha256:84152087aaf734579e05ecb7c5d841fd9e7c15e693d2283400f8ef6aa7a165ba done
+#10 exporting config sha256:4717b0110d5a1b86122fee7d5827f6c1daeca6184e1f85d12fd7bf0035d27556 done
+#10 exporting manifest list sha256:7f6a2c4ec1fc120cb175ba35f60a71f01b4423604e00d6432e138c1966861335 done
+#10 sending tarball
+#10 sending tarball 0.5s done
+#10 DONE 0.6s
+Successfully built tinylang/picol:latest

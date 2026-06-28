@@ -1,0 +1,10 @@
+{
+  "name": "fe",
+  "outcome": "ok",
+  "build_exit": 0,
+  "build_seconds": 3,
+  "binary_bytes": 75264,
+  "smoke": "ok-fe ",
+  "image_line": "tinylang/fe                   latest  10a3ce1446083e50e06d25b8...",
+  "log": "results/fe.log"
+}

@@ -1,0 +1,10 @@
+{
+  "name": "pforth",
+  "outcome": "ok",
+  "build_exit": 0,
+  "build_seconds": 5,
+  "binary_bytes": 278760,
+  "smoke": "PForth V2.2.0, LE, built Jun 28 2026 14:02:33 (static)  : t 42 . ;  t 42    ok Stack<10>  bye  ",
+  "image_line": "tinylang/pforth               latest  19ac77f4bb0279ba181f1d45...",
+  "log": "results/pforth.log"
+}

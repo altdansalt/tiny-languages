@@ -1,0 +1,10 @@
+{
+  "name": "micropython",
+  "outcome": "ok",
+  "build_exit": 0,
+  "build_seconds": 11,
+  "binary_bytes": 263984,
+  "smoke": "ok-mpy ",
+  "image_line": "tinylang/micropython          latest  97a25d4770c8221d9fb82edc...",
+  "log": "results/micropython.log"
+}

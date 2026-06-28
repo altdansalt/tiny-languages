@@ -1,0 +1,10 @@
+{
+  "name": "umka",
+  "outcome": "ok",
+  "build_exit": 0,
+  "build_seconds": 12,
+  "binary_bytes": 329480,
+  "smoke": "ok-umka ",
+  "image_line": "tinylang/umka                 latest  144e72f6eabeac13069ff365...",
+  "log": "results/umka.log"
+}

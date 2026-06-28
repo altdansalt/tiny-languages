@@ -1,0 +1,130 @@
+#1 [resolver] fetching image...docker.io/library/alpine:3.20
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 oci-layout://docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc
+#3 resolve docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc done
+#3 DONE 0.0s
+
+#4 [linux/arm64 2/9] RUN apk add --no-cache cmake
+#4 CACHED
+
+#5 [linux/arm64 1/9] RUN apk add --no-cache build-base git
+#5 CACHED
+
+#6 [linux/arm64/v8 3/9] WORKDIR /src
+#6 CACHED
+
+#7 [linux/arm64 4/9] RUN git clone --depth 1 https://github.com/quickjs-ng/quickjs .
+#7 0.041 Cloning into '.'...
+#7 DONE 0.7s
+
+#8 [linux/arm64 5/9] RUN cmake -B build -DCMAKE_BUILD_TYPE=Release && cmake --build build -j"$(nproc)"
+#8 0.071 -- The C compiler identification is GNU 13.2.1
+#8 0.078 -- Detecting C compiler ABI info
+#8 0.118 -- Detecting C compiler ABI info - done
+#8 0.130 -- Check for working C compiler: /usr/bin/cc - skipped
+#8 0.130 -- Detecting C compile features
+#8 0.131 -- Detecting C compile features - done
+#8 0.133 --   BUILD_SHARED_LIBS: OFF
+#8 0.133 --   QJS_ENABLE_INSTALL: ON
+#8 0.133 --   QJS_BUILD_WERROR: OFF
+#8 0.133 --   QJS_BUILD_EXAMPLES: OFF
+#8 0.133 --   QJS_BUILD_CLI_STATIC: OFF
+#8 0.134 --   QJS_BUILD_CLI_WITH_MIMALLOC: OFF
+#8 0.134 --   QJS_BUILD_CLI_WITH_STATIC_MIMALLOC: OFF
+#8 0.134 --   QJS_DISABLE_PARSER: OFF
+#8 0.134 --   QJS_ENABLE_ASAN: OFF
+#8 0.134 --   QJS_ENABLE_MSAN: OFF
+#8 0.134 --   QJS_ENABLE_TSAN: OFF
+#8 0.134 --   QJS_ENABLE_UBSAN: OFF
+#8 0.134 -- Building in Release mode
+#8 0.134 -- Building with GNU 13.2.1 on Linux-6.12.28
+#8 0.134 -- Performing Test COMPILER_SUPPORTS_Wall
+#8 0.172 -- Performing Test COMPILER_SUPPORTS_Wall - Success
+#8 0.173 -- Performing Test COMPILER_SUPPORTS_Wextra
+#8 0.207 -- Performing Test COMPILER_SUPPORTS_Wextra - Success
+#8 0.208 -- Performing Test COMPILER_SUPPORTS_Wformat=2
+#8 0.243 -- Performing Test COMPILER_SUPPORTS_Wformat=2 - Success
+#8 0.243 -- Performing Test COMPILER_SUPPORTS_Wnoimplicitfallthrough
+#8 0.282 -- Performing Test COMPILER_SUPPORTS_Wnoimplicitfallthrough - Success
+#8 0.283 -- Performing Test COMPILER_SUPPORTS_Wnosigncompare
+#8 0.320 -- Performing Test COMPILER_SUPPORTS_Wnosigncompare - Success
+#8 0.321 -- Performing Test COMPILER_SUPPORTS_Wnomissingfieldinitializers
+#8 0.357 -- Performing Test COMPILER_SUPPORTS_Wnomissingfieldinitializers - Success
+#8 0.358 -- Performing Test COMPILER_SUPPORTS_Wnounusedparameter
+#8 0.398 -- Performing Test COMPILER_SUPPORTS_Wnounusedparameter - Success
+#8 0.398 -- Performing Test COMPILER_SUPPORTS_Wnounusedbutsetvariable
+#8 0.431 -- Performing Test COMPILER_SUPPORTS_Wnounusedbutsetvariable - Success
+#8 0.432 -- Performing Test COMPILER_SUPPORTS_Wnounusedresult
+#8 0.466 -- Performing Test COMPILER_SUPPORTS_Wnounusedresult - Success
+#8 0.467 -- Performing Test COMPILER_SUPPORTS_Wnostringoptruncation
+#8 0.504 -- Performing Test COMPILER_SUPPORTS_Wnostringoptruncation - Success
+#8 0.505 -- Performing Test COMPILER_SUPPORTS_Wnoarraybounds
+#8 0.540 -- Performing Test COMPILER_SUPPORTS_Wnoarraybounds - Success
+#8 0.540 -- Performing Test COMPILER_SUPPORTS_funsignedchar
+#8 0.573 -- Performing Test COMPILER_SUPPORTS_funsignedchar - Success
+#8 0.573 --   QJS_BUILD_LIBC: OFF
+#8 0.576 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+#8 0.610 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+#8 0.611 -- Found Threads: TRUE
+#8 0.613 -- Configuring done (0.6s)
+#8 0.621 -- Generating done (0.0s)
+#8 0.621 -- Build files have been written to: /src/build
+#8 0.640 [  8%] Building C object CMakeFiles/qjs.dir/dtoa.c.o
+#8 0.640 [  8%] Building C object CMakeFiles/lre-test.dir/lre-test.c.o
+#8 0.664 [ 13%] Building C object CMakeFiles/lre-test.dir/libregexp.c.o
+#8 1.004 [ 17%] Building C object CMakeFiles/qjs.dir/libregexp.c.o
+#8 1.940 [ 21%] Building C object CMakeFiles/lre-test.dir/libunicode.c.o
+#8 2.291 [ 26%] Building C object CMakeFiles/qjs.dir/libunicode.c.o
+#8 2.609 [ 30%] Linking C executable lre-test
+#8 2.620 [ 30%] Built target lre-test
+#8 2.624 [ 34%] Building C object CMakeFiles/qjs.dir/quickjs.c.o
+#8 27.77 [ 39%] Linking C static library libqjs.a
+#8 27.79 [ 39%] Built target qjs
+#8 27.80 [ 47%] Building C object CMakeFiles/qjs-libc.dir/quickjs-libc.c.o
+#8 27.80 [ 47%] Building C object CMakeFiles/api-test.dir/api-test.c.o
+#8 28.20 [ 52%] Linking C executable api-test
+#8 28.22 [ 52%] Built target api-test
+#8 28.82 [ 56%] Linking C static library libqjs-libc.a
+#8 28.83 [ 56%] Built target qjs-libc
+#8 28.84 [ 65%] Building C object CMakeFiles/qjsc.dir/qjsc.c.o
+#8 28.84 [ 65%] Building C object CMakeFiles/qjs_exe.dir/gen/repl.c.o
+#8 28.87 [ 69%] Building C object CMakeFiles/qjs_exe.dir/gen/standalone.c.o
+#8 28.88 [ 73%] Building C object CMakeFiles/qjs_exe.dir/qjs.c.o
+#8 29.02 [ 78%] Linking C executable qjsc
+#8 29.04 [ 78%] Built target qjsc
+#8 29.05 [ 82%] Building C object CMakeFiles/run-test262.dir/run-test262.c.o
+#8 29.06 [ 86%] Linking C executable qjs
+#8 29.08 [ 86%] Built target qjs_exe
+#8 29.09 [ 91%] Building C object CMakeFiles/function_source.dir/gen/function_source.c.o
+#8 29.12 [ 95%] Linking C executable function_source
+#8 29.14 [ 95%] Built target function_source
+#8 29.69 [100%] Linking C executable run-test262
+#8 29.71 [100%] Built target run-test262
+#8 DONE 29.8s
+
+#9 [linux/arm64 6/9] RUN BIN=$(find build -type f -name qjs -perm -u+x | head -1) && cp "$BIN" /usr/local/bin/qjs
+#9 DONE 0.0s
+
+#10 [linux/arm64 7/9] RUN qjs -e 'print("ok-qjs")' | tee /smoke.out && grep -q '^ok-qjs' /smoke.out
+#10 0.038 ok-qjs
+#10 DONE 0.0s
+
+#11 [linux/arm64 8/9] RUN printf 'BINSIZE %s qjs\n' "$(stat -c %s /usr/local/bin/qjs)"
+#11 0.030 BINSIZE 1401328 qjs
+#11 DONE 0.0s
+
+#12 exporting to oci image format
+#12 exporting layers
+#12 exporting layers 0.4s done
+#12 exporting manifest sha256:a2dae0b89e4a081158c091f070b44b2a8451b870e82aba01d1d534d33eea6e81 done
+#12 exporting config sha256:87fa175bc1f6d6c7dcc9c33d8ade537f316da86eca5ec506306f96f88b825837 done
+#12 exporting manifest list sha256:9bf11b81cc1bfe6468fcfd7ffa22b391e0d40091d4e11f0eafc46707ecb93610 done
+#12 sending tarball
+#12 sending tarball 1.0s done
+#12 DONE 1.4s
+Successfully built tinylang/quickjs-ng:latest

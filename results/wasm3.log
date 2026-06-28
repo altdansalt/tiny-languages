@@ -1,0 +1,47 @@
+#1 [resolver] fetching image...docker.io/library/alpine:3.20
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 oci-layout://docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc
+#3 resolve docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc done
+#3 DONE 0.0s
+
+#4 [linux/arm64/v8 3/9] WORKDIR /src
+#4 CACHED
+
+#5 [linux/arm64 2/9] RUN apk add --no-cache cmake
+#5 CACHED
+
+#6 [linux/arm64 5/9] RUN cmake -B build -DCMAKE_BUILD_TYPE=Release -DBUILD_NATIVE=OFF -DBUILD_WASI=none     && cmake --build build -j"$(nproc)"
+#6 CACHED
+
+#7 [linux/arm64 4/9] RUN git clone --depth 1 https://github.com/wasm3/wasm3 .
+#7 CACHED
+
+#8 [linux/arm64 1/9] RUN apk add --no-cache build-base git
+#8 CACHED
+
+#9 [linux/arm64 6/9] RUN BIN=$(find build -type f -name wasm3 -perm -u+x | head -1) && cp "$BIN" /usr/local/bin/wasm3
+#9 CACHED
+
+#10 [linux/arm64 7/9] RUN wasm3 --func fib test/lang/fib32.wasm 10 2>&1 | tee /smoke.out && grep -q '55' /smoke.out
+#10 0.039 Result: 55
+#10 DONE 0.0s
+
+#11 [linux/arm64 8/9] RUN printf 'BINSIZE %s wasm3\n' "$(stat -c %s /usr/local/bin/wasm3)"
+#11 0.028 BINSIZE 241440 wasm3
+#11 DONE 0.0s
+
+#12 exporting to oci image format
+#12 exporting layers
+#12 exporting layers 0.2s done
+#12 exporting manifest sha256:6920fe26cbd92acb2d9f7dd2166915c6d9fdd36c6966048f19add0d1eeb83ccb done
+#12 exporting config sha256:4213ff444ee62173b4a7ac93b318917e1f49478b5ea42b0364889850d85ee413 done
+#12 exporting manifest list sha256:fb51a519c363e2287bf968c264f6ad8189d5848b784252d0a8607ed10bc65326 done
+#12 sending tarball
+#12 sending tarball 0.7s done
+#12 DONE 1.0s
+Successfully built tinylang/wasm3:latest

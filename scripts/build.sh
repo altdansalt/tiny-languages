@@ -26,10 +26,18 @@ build_one() {
     return 2
   fi
 
-  echo "BUILD $name ..."
+  # optional per-recipe arch override (e.g. file contains "amd64" for x86-only langs)
+  local archflag="" archrun="" arch=""
+  if [[ -f "$dir/arch" ]]; then
+    arch=$(tr -d '[:space:]' < "$dir/arch")
+    archflag="--arch $arch"
+    archrun="--arch $arch"
+  fi
+
+  echo "BUILD $name ${arch:+[$arch]}..."
   local start end status size smoke
   start=$(date +%s)
-  container build -t "$tag" -f "$dir/Dockerfile" "$dir" >"$log" 2>&1
+  container build $archflag -t "$tag" -f "$dir/Dockerfile" "$dir" >"$log" 2>&1
   status=$?
   end=$(date +%s)
 
@@ -38,7 +46,7 @@ build_one() {
   local binsize=0
   if [[ $status -eq 0 ]]; then
     # capture smoke output by re-running the recipe's CMD
-    smoke=$(container run --rm "$tag" 2>/dev/null | tr '\n' ' ' | head -c 400)
+    smoke=$(container run --rm $archrun "$tag" 2>/dev/null | tr '\n' ' ' | head -c 400)
     # image size as reported by the runtime
     size=$(container image ls 2>/dev/null | awk -v t="$tag" '$1==t {print $0}' | head -1)
     # binary size from the recipe's "BINSIZE <bytes> <name>" marker

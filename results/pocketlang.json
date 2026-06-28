@@ -1,0 +1,10 @@
+{
+  "name": "pocketlang",
+  "outcome": "ok",
+  "build_exit": 0,
+  "build_seconds": 3,
+  "binary_bytes": 1139664,
+  "smoke": "ok-pocket ",
+  "image_line": "tinylang/pocketlang           latest  016122874818ee77bb3496c2...",
+  "log": "results/pocketlang.log"
+}

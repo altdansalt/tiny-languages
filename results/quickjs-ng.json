@@ -1,0 +1,10 @@
+{
+  "name": "quickjs-ng",
+  "outcome": "ok",
+  "build_exit": 0,
+  "build_seconds": 34,
+  "binary_bytes": 1401328,
+  "smoke": "ok-qjs ",
+  "image_line": "tinylang/quickjs-ng           latest  9bf11b81cc1bfe6468fcfd7f...",
+  "log": "results/quickjs-ng.log"
+}

@@ -1,0 +1,44 @@
+#1 [resolver] fetching image...docker.io/library/alpine:3.20
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 transferring context: 2B 0.0s done
+#2 DONE 0.0s
+
+#3 oci-layout://docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc
+#3 resolve docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc done
+#3 DONE 0.0s
+
+#4 [linux/arm64 1/8] RUN apk add --no-cache build-base git
+#4 CACHED
+
+#5 [linux/arm64/v8 2/8] WORKDIR /src
+#5 CACHED
+
+#6 [linux/arm64 3/8] RUN git clone --depth 1 https://github.com/ThakeeNathees/pocketlang .
+#6 CACHED
+
+#7 [linux/arm64 4/8] RUN make -j"$(nproc)"
+#7 CACHED
+
+#8 [linux/arm64 5/8] RUN BIN=$(find build bin . -maxdepth 3 -type f -name pocket -perm -u+x 2>/dev/null | head -1)     && cp "$BIN" /usr/local/bin/pocket
+#8 CACHED
+
+#9 [linux/arm64 6/8] RUN printf 'print("ok-pocket")\n' > /smoke.pk     && pocket /smoke.pk | tee /smoke.out && grep -q '^ok-pocket' /smoke.out
+#9 0.059 ok-pocket
+#9 DONE 0.1s
+
+#10 [linux/arm64 7/8] RUN printf 'BINSIZE %s pocket\n' "$(stat -c %s /usr/local/bin/pocket)"
+#10 0.031 BINSIZE 1139664 pocket
+#10 DONE 0.0s
+
+#11 exporting to oci image format
+#11 exporting layers
+#11 exporting layers 0.3s done
+#11 exporting manifest sha256:e1c9d18392add9cb8eb395e594dddceea71fd173d8e72a307fdc6e16aebec095 done
+#11 exporting config sha256:cde375265de2d522383125608806121257965c5d141b285bff9b71b579829ff7 done
+#11 exporting manifest list sha256:016122874818ee77bb3496c2274fb50bceec4fcd466b52f7bc7ba50d9e53344e done
+#11 sending tarball
+#11 sending tarball 0.6s done
+#11 DONE 1.0s
+Successfully built tinylang/pocketlang:latest

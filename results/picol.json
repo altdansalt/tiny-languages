@@ -1,0 +1,10 @@
+{
+  "name": "picol",
+  "outcome": "ok",
+  "build_exit": 0,
+  "build_seconds": 4,
+  "binary_bytes": 75136,
+  "smoke": "ok-picol ",
+  "image_line": "tinylang/picol                latest  7f6a2c4ec1fc120cb175ba35...",
+  "log": "results/picol.log"
+}

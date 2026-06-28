@@ -1,0 +1,10 @@
+{
+  "name": "mruby",
+  "outcome": "ok",
+  "build_exit": 0,
+  "build_seconds": 88,
+  "binary_bytes": 9452312,
+  "smoke": "ok-mruby ",
+  "image_line": "tinylang/mruby                latest  da7a041bd652915cbded36cb...",
+  "log": "results/mruby.log"
+}

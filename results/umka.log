@@ -1,0 +1,77 @@
+#1 [resolver] fetching image...docker.io/library/alpine:3.20
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 transferring context: 2B 0.0s done
+#2 DONE 0.0s
+
+#3 oci-layout://docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc
+#3 resolve docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc done
+#3 DONE 0.0s
+
+#4 [linux/arm64 1/9] RUN apk add --no-cache build-base git
+#4 CACHED
+
+#5 [linux/arm64/v8 2/9] WORKDIR /src
+#5 CACHED
+
+#6 [linux/arm64 3/9] RUN git clone --depth 1 https://github.com/vtereshkov/umka-lang .
+#6 CACHED
+
+#7 [linux/arm64 4/9] RUN sed -i 's/-malign-double//g' Makefile
+#7 DONE 0.1s
+
+#8 [linux/arm64 5/9] RUN make -j"$(nproc)"
+#8 0.047 CC obj/umka_static.o
+#8 0.048 CC obj/umka_api_static.o
+#8 0.103 CC obj/umka_common_static.o
+#8 0.149 CC obj/umka_compiler_static.o
+#8 0.231 CC obj/umka_const_static.o
+#8 0.260 CC obj/umka_decl_static.o
+#8 0.374 CC obj/umka_expr_static.o
+#8 0.475 CC obj/umka_gen_static.o
+#8 0.865 CC obj/umka_ident_static.o
+#8 1.025 CC obj/umka_lexer_static.o
+#8 1.089 CC obj/umka_runtime_static.o
+#8 1.174 CC obj/umka_stmt_static.o
+#8 1.250 CC obj/umka_types_static.o
+#8 1.447 CC obj/umka_vm_static.o
+#8 1.551 CC obj/umka_api_dynamic.o
+#8 1.637 CC obj/umka_common_dynamic.o
+#8 1.783 CC obj/umka_compiler_dynamic.o
+#8 1.897 CC obj/umka_const_dynamic.o
+#8 2.037 CC obj/umka_decl_dynamic.o
+#8 2.252 CC obj/umka_expr_dynamic.o
+#8 3.007 CC obj/umka_gen_dynamic.o
+#8 3.578 CC obj/umka_ident_dynamic.o
+#8 3.729 CC obj/umka_lexer_dynamic.o
+#8 3.954 CC obj/umka_runtime_dynamic.o
+#8 4.042 CC obj/umka_stmt_dynamic.o
+#8 4.364 CC obj/umka_types_dynamic.o
+#8 4.743 CC obj/umka_vm_dynamic.o
+#8 5.266 AR build/libumka.a
+#8 5.269 LD build/umka
+#8 8.548 LD build/libumka.so
+#8 DONE 8.6s
+
+#9 [linux/arm64 6/9] RUN BIN=$(find . -type f -name umka -perm -u+x | head -1) && cp "$BIN" /usr/local/bin/umka
+#9 DONE 0.0s
+
+#10 [linux/arm64 7/9] RUN printf 'fn main() { printf("ok-umka\\n") }\n' > /smoke.um     && umka /smoke.um | tee /smoke.out && grep -q '^ok-umka' /smoke.out
+#10 0.031 ok-umka
+#10 DONE 0.0s
+
+#11 [linux/arm64 8/9] RUN printf 'BINSIZE %s umka\n' "$(stat -c %s /usr/local/bin/umka)"
+#11 0.042 BINSIZE 329480 umka
+#11 DONE 0.0s
+
+#12 exporting to oci image format
+#12 exporting layers
+#12 exporting layers 0.2s done
+#12 exporting manifest sha256:7ba39ecd69625f9e294ee51a9ab82c76c3bfa7955318da7cba099ad5621e7857 done
+#12 exporting config sha256:293f211b6b7c51b6ffa714c0514d43ca7fa8eb9450024e8ca4769b9ae92b5cba done
+#12 exporting manifest list sha256:144e72f6eabeac13069ff365777b638afc1b9ddf27b4fe51ce0a43864f2a5d03 done
+#12 sending tarball
+#12 sending tarball 0.7s done
+#12 DONE 0.9s
+Successfully built tinylang/umka:latest

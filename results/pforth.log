@@ -1,0 +1,51 @@
+#1 [resolver] fetching image...docker.io/library/alpine:3.20
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 transferring context: 2B 0.0s done
+#2 DONE 0.0s
+
+#3 oci-layout://docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc
+#3 resolve docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc done
+#3 DONE 0.0s
+
+#4 [linux/arm64 1/9] RUN apk add --no-cache build-base git
+#4 CACHED
+
+#5 [linux/arm64 2/9] RUN apk add --no-cache cmake
+#5 CACHED
+
+#6 [linux/arm64 4/9] RUN git clone --depth 1 https://github.com/philburk/pforth .
+#6 CACHED
+
+#7 [linux/arm64/v8 3/9] WORKDIR /src
+#7 CACHED
+
+#8 [linux/arm64 5/9] RUN cmake -B build -DCMAKE_BUILD_TYPE=Release && cmake --build build -j"$(nproc)"
+#8 CACHED
+
+#9 [linux/arm64 6/9] RUN BIN=$(find . -type f -name 'pforth_standalone' -perm -u+x | head -1)     && cp "$BIN" /usr/local/bin/pforth
+#9 DONE 0.1s
+
+#10 [linux/arm64 7/9] RUN printf ': t 42 . ;  t\nbye\n' | pforth | tee /smoke.out && grep -q '42' /smoke.out
+#10 0.027 PForth V2.2.0, LE, built Jun 28 2026 14:02:33 (static)
+#10 0.027 
+#10 0.027 : t 42 . ;  t 42    ok
+#10 0.027 Stack<10> 
+#10 0.027 bye 
+#10 DONE 0.0s
+
+#11 [linux/arm64 8/9] RUN printf 'BINSIZE %s pforth\n' "$(stat -c %s /usr/local/bin/pforth)"
+#11 0.039 BINSIZE 278760 pforth
+#11 DONE 0.0s
+
+#12 exporting to oci image format
+#12 exporting layers
+#12 exporting layers 1.2s done
+#12 exporting manifest sha256:e76e2fcda9e87de909f1d14b8f0c8720dbca78db1599a2f41e6b71f68a96c07c done
+#12 exporting config sha256:02afb079c2fe0b108b211b2b06de975ca9769a5fccf4e85afcdb11361231b97a done
+#12 exporting manifest list sha256:19ac77f4bb0279ba181f1d45f23797369c9ed9fc6e54528ec77ad4c3a7ffb7d1 done
+#12 sending tarball
+#12 sending tarball 0.7s done
+#12 DONE 2.0s
+Successfully built tinylang/pforth:latest
