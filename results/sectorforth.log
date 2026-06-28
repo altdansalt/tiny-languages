@@ -1,0 +1,64 @@
+#1 [resolver] fetching image...docker.io/library/debian:bookworm-slim
+#1 DONE 0.0s
+
+#2 oci-layout://docker.io/library/debian:bookworm-slim@sha256:60eac759739651111db372c07be67863818726f754804b8707c90979bda511df
+#2 resolve docker.io/library/debian:bookworm-slim@sha256:60eac759739651111db372c07be67863818726f754804b8707c90979bda511df done
+#2 CACHED
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [linux/arm64 1/8] RUN apt-get update && apt-get install -y --no-install-recommends         nasm make git ca-certificates xxd qemu-system-x86     && rm -rf /var/lib/apt/lists/*
+#4 CACHED
+
+#5 [linux/arm64/v8 2/8] WORKDIR /src
+#5 CACHED
+
+#6 [linux/arm64 3/8] RUN git clone --depth 1 https://github.com/cesarblum/sectorforth .
+#6 CACHED
+
+#7 [linux/arm64 4/8] RUN make && ls -l sectorforth.bin sectorforth.img
+#7 0.072 nasm -f bin -o sectorforth.bin -l sectorforth.lst sectorforth.asm
+#7 0.078 dd if=sectorforth.bin of=boot.img bs=512
+#7 0.080 1+0 records in
+#7 0.080 1+0 records out
+#7 0.080 512 bytes copied, 3.9e-05 s, 13.1 MB/s
+#7 0.080 dd if=/dev/zero of=zero.img bs=512 count=2879
+#7 0.084 2879+0 records in
+#7 0.084 2879+0 records out
+#7 0.084 1474048 bytes (1.5 MB, 1.4 MiB) copied, 0.00429833 s, 343 MB/s
+#7 0.085 cat boot.img zero.img > sectorforth.img
+#7 0.087 rm -f boot.img zero.img
+#7 0.088 -rw-r--r-- 1 root root     512 Jun 28 19:49 sectorforth.bin
+#7 0.088 -rw-r--r-- 1 root root 1474560 Jun 28 19:49 sectorforth.img
+#7 DONE 0.6s
+
+#8 [linux/arm64 5/8] RUN sz=$(stat -c %s sectorforth.bin); echo "boot code = $sz bytes";     [ "$sz" -eq 512 ]     && xxd -s 510 -l 2 -p sectorforth.bin | grep -qi '55aa'     && echo "valid 512-byte boot sector (signature 0x55AA)"
+#8 0.075 boot code = 512 bytes
+#8 0.076 valid 512-byte boot sector (signature 0x55AA)
+#8 DONE 0.1s
+
+#9 [linux/arm64 6/8] RUN timeout 5 qemu-system-i386 -fda sectorforth.img -display none -no-reboot;     rc=$?; echo "qemu exit = $rc";     [ "$rc" -eq 124 ] && echo "booted-and-running (512-byte Forth is live)"
+#9 0.120 WARNING: Image format was not specified for 'sectorforth.img' and probing guessed raw.
+#9 0.120          Automatically detecting the format is dangerous for raw images, write operations on block 0 will be restricted.
+#9 0.120          Specify the 'raw' format explicitly to remove the restrictions.
+#9 5.084 qemu-system-i386: terminating on signal 15 from pid 7 (timeout)
+#9 5.091 qemu exit = 124
+#9 5.091 booted-and-running (512-byte Forth is live)
+#9 DONE 5.4s
+
+#10 [linux/arm64 7/8] RUN printf 'BINSIZE %s sectorforth.bin\n' "$(stat -c %s sectorforth.bin)"
+#10 0.102 BINSIZE 512 sectorforth.bin
+#10 DONE 0.1s
+
+#11 exporting to oci image format
+#11 exporting layers
+#11 exporting layers 5.7s done
+#11 exporting manifest sha256:99ff88227b1e8bef01a23595fee6b483b372e62e5f0a78897a7ae8f909b740bf done
+#11 exporting config sha256:9d49079c64a23c632f6f04d812b85918e3d3b0de6ea2bb739086b1e1f1a68535 done
+#11 exporting manifest list sha256:5b341f76b238dc356a145c1fcc4e54450edc94ec22694a6c4858aeb632477180 done
+#11 sending tarball
+#11 sending tarball 2.0s done
+#11 DONE 7.7s
+Successfully built tinylang/sectorforth:latest

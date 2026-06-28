@@ -1,0 +1,10 @@
+{
+  "name": "sectorforth",
+  "outcome": "ok",
+  "build_exit": 0,
+  "build_seconds": 21,
+  "binary_bytes": 512,
+  "smoke": "512-byte bootable Forth; signature 55aa ",
+  "image_line": "tinylang/sectorforth          latest         5b341f76b238dc356a145c1f...",
+  "log": "results/sectorforth.log"
+}

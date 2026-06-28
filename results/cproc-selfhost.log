@@ -1,0 +1,72 @@
+#1 [resolver] fetching image...docker.io/library/alpine:3.20
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 transferring context:
+#2 transferring context: 2B 0.0s done
+#2 DONE 0.1s
+
+#3 oci-layout://docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc
+#3 resolve docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc 0.0s done
+#3 DONE 0.0s
+
+#4 [linux/arm64 1/9] RUN apk add --no-cache build-base git binutils musl-dev
+#4 CACHED
+
+#5 [linux/arm64/v8 2/9] WORKDIR /src
+#5 CACHED
+
+#6 [linux/arm64 3/9] RUN git clone --depth 1 https://github.com/omenos/mirror-qbe qbe     && make -C qbe -j"$(nproc)"     && cp qbe/qbe /usr/local/bin/qbe
+#6 CACHED
+
+#7 [linux/arm64 4/9] RUN git clone --depth 1 https://github.com/michaelforney/cproc cproc
+#7 CACHED
+
+#8 [linux/arm64 5/9] RUN cd cproc && ./configure --with-qbe=/usr/local/bin/qbe && make -j"$(nproc)"     && cp cproc cproc-qbe /usr/local/bin/     && cp cproc /usr/local/bin/cproc-stage1
+#8 CACHED
+
+#9 [linux/arm64 6/9] RUN cd cproc && make clean     && make CC=/usr/local/bin/cproc CFLAGS= -j"$(nproc)"     && cp cproc cproc-qbe /usr/local/bin/     && echo "cproc rebuilt itself (the cproc now on PATH was compiled by cproc)"     && { cmp -s /usr/local/bin/cproc /usr/local/bin/cproc-stage1          && echo "note: stage1/stage2 identical"          || echo "note: stage2 differs from gcc-built stage1 (expected)"; }
+#9 0.056 rm -rf cproc ./driver.o ./util.o cproc-qbe ./attr.o ./decl.o ./eval.o ./expr.o ./init.o ./main.o ./map.o ./pp.o ./scan.o ./scope.o ./stmt.o ./targ.o ./token.o ./tree.o ./type.o ./utf.o ./util.o ./qbe.o stage2 stage3
+#9 0.075 /usr/local/bin/cproc  -c -o driver.o driver.c
+#9 0.075 /usr/local/bin/cproc  -c -o util.o util.c
+#9 0.076 /usr/local/bin/cproc  -c -o attr.o attr.c
+#9 0.076 /usr/local/bin/cproc  -c -o decl.o decl.c
+#9 0.077 /usr/local/bin/cproc  -c -o eval.o eval.c
+#9 0.077 /usr/local/bin/cproc  -c -o expr.o expr.c
+#9 0.078 /usr/local/bin/cproc  -c -o init.o init.c
+#9 0.079 /usr/local/bin/cproc  -c -o main.o main.c
+#9 0.114 /usr/local/bin/cproc  -c -o map.o map.c
+#9 0.122 /usr/local/bin/cproc  -c -o pp.o pp.c
+#9 0.124 /usr/local/bin/cproc  -c -o scan.o scan.c
+#9 0.138 /usr/local/bin/cproc  -c -o scope.o scope.c
+#9 0.145 /usr/local/bin/cproc  -c -o stmt.o stmt.c
+#9 0.149 /usr/local/bin/cproc  -c -o targ.o targ.c
+#9 0.171 /usr/local/bin/cproc  -c -o token.o token.c
+#9 0.179 /usr/local/bin/cproc  -c -o tree.o tree.c
+#9 0.187 /usr/local/bin/cproc  -c -o type.o type.c
+#9 0.201 /usr/local/bin/cproc  -c -o utf.o utf.c
+#9 0.201 /usr/local/bin/cproc  -c -o qbe.o qbe.c
+#9 0.218 /usr/local/bin/cproc  -o cproc ./driver.o ./util.o
+#9 0.313 /usr/local/bin/cproc  -o cproc-qbe ./attr.o ./decl.o ./eval.o ./expr.o ./init.o ./main.o ./map.o ./pp.o ./scan.o ./scope.o ./stmt.o ./targ.o ./token.o ./tree.o ./type.o ./utf.o ./util.o ./qbe.o
+#9 0.329 cproc rebuilt itself (the cproc now on PATH was compiled by cproc)
+#9 0.330 note: stage2 differs from gcc-built stage1 (expected)
+#9 DONE 0.4s
+
+#10 [linux/arm64 7/9] RUN printf '#include <stdio.h>\nint main(){puts("cproc-selfhost-ok");return 0;}\n' > /smoke.c     && cproc -o /smoke /smoke.c && /smoke | tee /smoke.out     && grep -q '^cproc-selfhost-ok' /smoke.out
+#10 0.125 cproc-selfhost-ok
+#10 DONE 0.1s
+
+#11 [linux/arm64 8/9] RUN printf 'BINSIZE %s cproc(stage2)\n' "$(stat -c %s /usr/local/bin/cproc)"
+#11 0.086 BINSIZE 76568 cproc(stage2)
+#11 DONE 0.1s
+
+#12 exporting to oci image format
+#12 exporting layers
+#12 exporting layers 6.2s done
+#12 exporting manifest sha256:f9b55d2cd8f06491d0a02c65881dfa6f33158ec175cf1d90083b3bbaf8a80d42 done
+#12 exporting config sha256:adc0e99349ddd4652a1b9467472cdac7c9b2512ae4a1581033fe7b77136e0740 done
+#12 exporting manifest list sha256:3bfd79643fc632cab56772dc13a28331f740d9b9e0c21ba6233fff7cbcaab5bd done
+#12 sending tarball
+#12 sending tarball 1.4s done
+#12 DONE 7.6s
+Successfully built tinylang/cproc-selfhost:latest

@@ -1,0 +1,10 @@
+{
+  "name": "kernel-aarch64",
+  "outcome": "ok",
+  "build_exit": 0,
+  "build_seconds": 60,
+  "binary_bytes": 41867776,
+  "smoke": "Linux 6.6.52 aarch64, built from source tiny-kernel-userspace-ok arch=aarch64 kver=6.6.52 ",
+  "image_line": "tinylang/kernel-aarch64       latest         8eb30018d2d00d2e3152f309...",
+  "log": "results/kernel-aarch64.log"
+}

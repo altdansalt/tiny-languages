@@ -144,6 +144,34 @@ remaining gap below.
   *unbroken*: **526 bytes of trust ⇒ a C compiler ⇒ a working compiled binary**,
   with nothing pre-existing but a shell.
 
+- **cproc-selfhost** ✅ (self-hosting C compiler — the clean one). cproc is a small
+  C11 front end emitting QBE SSA IR; QBE lowers to native aarch64 and `as`+`ld`
+  finish. Stage 1: gcc builds cproc. Stage 2: `make CC=cproc` rebuilds cproc *with
+  cproc itself*. The cproc-built cproc then compiles+runs a program
+  (`cproc-selfhost-ok`). Native arm64; a 76 KB driver. The cleanest small "real"
+  compiler architecture in the repo, shown closing its own self-host loop.
+- **ocaml-selfhost** ✅ (self-hosting *language*, native arm64 — the one the C-seed
+  chain can't do on arm64). OCaml ships a ~2 MB architecture-neutral bytecode
+  compiler in `boot/`. `make` builds the full compiler *from* that seed; `make
+  bootstrap` then rebuilds `boot/` *with* the fresh compiler and iterates to a
+  **fixpoint** — the compiler reproduces the very seed it came from. Deps: just a C
+  compiler + make. ~310 s; the installed `ocamlc` compiles+runs a program
+  (`ocaml-selfhost-ok 5.2.0`). The "self-hosting language" path (PATHS.md #2) where
+  the C-chain stalls on arm64.
+- **kernel-aarch64** ✅ (Tier 0 — the one thing the tiny compilers *can't* build).
+  **Linux 6.6.52** compiled from source (`make ARCH=arm64 defconfig … Image`) to a
+  41 MB aarch64 `Image`, then **booted under qemu-system-aarch64** (`-M virt`, TCG,
+  no KVM in a container) with a one-static-BusyBox initramfs, reaching a userspace
+  process that prints `tiny-kernel-userspace-ok arch=aarch64 kver=6.6.52` and powers
+  the machine off. From-source kernel → booted to ring 3, end to end. Keeps GCC on
+  the critical path (a modern kernel needs GCC + extensions; tcc/cproc can't).
+- **sectorforth** ✅ (the smallest root of trust — a *sector-sized* seed). A
+  **512-byte** hand-written x86 boot sector (~430 lines of asm, eight primitives)
+  that is a complete Forth — no C compiler involved at all. We assert it's a valid
+  512-byte boot sector (`0x55AA` signature) and **boot it under qemu-system-i386**
+  (full-system emulation — Rosetta can't run 16-bit x86); qemu staying live past the
+  timeout proves the Forth booted and is looping in its REPL. PATHS.md #6; also the
+  repo's first qemu-full-system-in-container probe.
 - **scratch-aarch64** ✅ (smallest possible base — `FROM scratch`). Answer to
   "what's the smallest arm64 image for bootstrapping?": **none at all.** The whole
   seed⇒M2-Planet⇒compiled-program chain runs in a **0-byte base image** — no shell,
@@ -214,9 +242,14 @@ floor. Concrete next probes, each a candidate recipe/experiment:
    `fosslinux/live-bootstrap`), so the from-526-bytes line reaches full GCC unbroken.
 4. ~~**tcc self-host**~~ ✅ done (`bootstrap/tcc-selfhost`). Stretch: `tccboot`
    (tcc building a small Linux).
-5. **Build a Linux kernel** in-container with the from-source GCC (Tier 0→userland),
-   then probe how minimal a config + toolchain it tolerates. *(The one thing the
-   tiny compilers can't do — keeps GCC on the critical path.)*
+5. ~~**Build a Linux kernel**~~ ✅ done (`bootstrap/kernel-aarch64` — Linux 6.6.52
+   from source, booted under qemu to userspace). Stretch: minimize the config
+   (tinyconfig + a curated console/initramfs enable list) to shrink the 41 MB Image,
+   and drive it with the *from-source* GCC rather than the apt one.
+
+See **PATHS.md** for the full ranked menu of bootstrapping paths (self-hosting
+languages, sector-sized seeds, whole-system emulators, cross-bootstrap) with a
+feasibility verdict for each on this host, and which became probes here.
 
 ---
 
