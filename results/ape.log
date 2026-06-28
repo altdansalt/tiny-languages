@@ -1,0 +1,45 @@
+#1 [resolver] fetching image...docker.io/library/alpine:3.20
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 oci-layout://docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc
+#3 resolve docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc done
+#3 DONE 0.0s
+
+#4 [linux/arm64 1/8] RUN apk add --no-cache build-base git
+#4 CACHED
+
+#5 [linux/arm64/v8 2/8] WORKDIR /src
+#5 CACHED
+
+#6 [linux/arm64 3/8] RUN git clone --depth 1 https://github.com/kgabis/ape .
+#6 0.033 Cloning into '.'...
+#6 DONE 0.5s
+
+#7 [linux/arm64 4/8] RUN cd examples && make ape
+#7 0.036 gcc -O0 -std=c11 -I.. -o ape ape.c ../ape.c -lm
+#7 DONE 0.5s
+
+#8 [linux/arm64 5/8] RUN BIN=$(find . -type f -name ape -perm -u+x | head -1) && cp "$BIN" /usr/local/bin/ape
+#8 DONE 0.0s
+
+#9 [linux/arm64 6/8] RUN printf 'println("ok-ape")\n' > /smoke.ape     && ape /smoke.ape | tee /smoke.out && grep -q '^ok-ape' /smoke.out
+#9 0.019 ok-ape
+#9 DONE 0.0s
+
+#10 [linux/arm64 7/8] RUN printf 'BINSIZE %s ape\n' "$(stat -c %s /usr/local/bin/ape)"
+#10 0.025 BINSIZE 235400 ape
+#10 DONE 0.0s
+
+#11 exporting to oci image format
+#11 exporting layers 0.1s done
+#11 exporting manifest sha256:fc0d21f05e6628883c6d017adad4d5fcdedc3eaae32e28235f45318998e27acb done
+#11 exporting config sha256:c35b734bdc1e7502c9ad615b1f36668a9dc6612b605980f48ccdc142223e7e15 done
+#11 exporting manifest list sha256:82da4d7ba9efaa2541276f2f92031fc79fd170331cdade599f046679309ca415 done
+#11 sending tarball
+#11 sending tarball 0.5s done
+#11 DONE 0.6s
+Successfully built tinylang/ape:latest

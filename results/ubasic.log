@@ -1,0 +1,48 @@
+#1 [resolver] fetching image...docker.io/library/alpine:3.20
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 oci-layout://docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc
+#3 resolve docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc done
+#3 DONE 0.0s
+
+#4 [linux/arm64 1/8] RUN apk add --no-cache build-base git
+#4 CACHED
+
+#5 [linux/arm64/v8 2/8] WORKDIR /src
+#5 CACHED
+
+#6 [internal] load build context
+#6 transferring context: 646B done
+#6 DONE 0.0s
+
+#7 [linux/arm64 3/8] RUN git clone --depth 1 https://github.com/adamdunkels/ubasic .
+#7 0.033 Cloning into '.'...
+#7 DONE 0.4s
+
+#8 [linux/arm64/v8 4/8] COPY main.c /src/driver.c
+#8 DONE 0.0s
+
+#9 [linux/arm64 5/8] RUN cc -O2 -I. driver.c ubasic.c tokenizer.c -o ubasic
+#9 DONE 0.2s
+
+#10 [linux/arm64 6/8] RUN printf '10 print 42\n20 end\n' > /smoke.bas     && ./ubasic /smoke.bas | tee /smoke.out && grep -q '42' /smoke.out
+#10 0.032 42
+#10 DONE 0.0s
+
+#11 [linux/arm64 7/8] RUN printf 'BINSIZE %s ubasic\n' "$(stat -c %s ./ubasic)"
+#11 0.018 BINSIZE 75296 ubasic
+#11 DONE 0.0s
+
+#12 exporting to oci image format
+#12 exporting layers 0.1s done
+#12 exporting manifest sha256:691b14f139a13d2ea59cddba4f16f50cfb270ac3cf87cf70981ed4edd59a4267 done
+#12 exporting config sha256:9a7517002b4e056715083f463f7f885bd3baa77d2aec5bf973036ea0db54ace0 done
+#12 exporting manifest list sha256:eb4dfd14c521c85aa023cb84df65b51d5bb22da3bb7e628636e2c09f9dd6567b done
+#12 sending tarball
+#12 sending tarball 0.6s done
+#12 DONE 0.6s
+Successfully built tinylang/ubasic:latest

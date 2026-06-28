@@ -1,0 +1,11 @@
+{
+  "name": "atto",
+  "outcome": "fail",
+  "build_exit": 1,
+  "build_seconds": 10,
+  "binary_bytes": 0,
+  "smoke": "",
+  "image_line": "",
+  "log": "results/atto.log",
+  "reason": "Rust build fails: pinned 'nix' crate (via rustyline) doesn't compile on alpine/musl with current toolchain. Needs dep/toolchain pinning."
+}

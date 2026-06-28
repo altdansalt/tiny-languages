@@ -1,0 +1,10 @@
+{
+  "name": "yoctolisp",
+  "outcome": "ok",
+  "build_exit": 0,
+  "build_seconds": 2,
+  "binary_bytes": 87808,
+  "smoke": "42 ",
+  "image_line": "tinylang/yoctolisp            latest         eddc40cc3093046a9563ede3...",
+  "log": "results/yoctolisp.log"
+}

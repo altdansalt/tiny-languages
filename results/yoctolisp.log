@@ -1,0 +1,40 @@
+#1 [resolver] fetching image...docker.io/library/alpine:3.20
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 transferring context: 2B 0.0s done
+#2 DONE 0.0s
+
+#3 oci-layout://docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc
+#3 resolve docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc done
+#3 DONE 0.0s
+
+#4 [linux/arm64 3/7] RUN git clone --depth 1 https://github.com/fragglet/yoctolisp .
+#4 CACHED
+
+#5 [linux/arm64 1/7] RUN apk add --no-cache build-base git
+#5 CACHED
+
+#6 [linux/arm64/v8 2/7] WORKDIR /src
+#6 CACHED
+
+#7 [linux/arm64 4/7] RUN make
+#7 CACHED
+
+#8 [linux/arm64 5/7] RUN printf '(print (+ 40 2))\n' > /smoke.yl     && ./yoctolisp /smoke.yl 2>&1 | tee /smoke.out && grep -q '42' /smoke.out
+#8 0.045 42
+#8 DONE 0.1s
+
+#9 [linux/arm64 6/7] RUN printf 'BINSIZE %s yoctolisp\n' "$(stat -c %s ./yoctolisp)"
+#9 0.036 BINSIZE 87808 yoctolisp
+#9 DONE 0.0s
+
+#10 exporting to oci image format
+#10 exporting layers 0.0s done
+#10 exporting manifest sha256:d3c99c41a9215bda07dd2060795d256dbb4afa2c50414c4d9ae9b8c50c5a1780 done
+#10 exporting config sha256:0f7ea1cece896687d64ab21db78cd3c1270df16bdb0dd344376285c1608b079a done
+#10 exporting manifest list sha256:eddc40cc3093046a9563ede3f19cc06e07e18d5bcb4f2c389d23b4ca9128bf3f done
+#10 sending tarball
+#10 sending tarball 0.6s done
+#10 DONE 0.6s
+Successfully built tinylang/yoctolisp:latest

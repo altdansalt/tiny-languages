@@ -8,7 +8,10 @@ Running log of build/test outcomes. Machine-readable results live in `results/*.
 <!-- REPORT:BEGIN -->
 | name | outcome | build (s) | binary | smoke |
 |------|---------|-----------|--------|-------|
+| ape | ok | 3 | 230 KB | ok-ape |
+| atto | fail | 10 | — |  |
 | berry | ok | 11 | 370 KB | ok-berry |
+| brainfuck | ok | 5 | 73 KB | Hello World! |
 | chibi-scheme | ok | 16 | 234 KB | ok-chibi |
 | clox | ok | 6 | 74 KB | 3 |
 | cproc | fail | 4 | — |  |
@@ -17,20 +20,25 @@ Running log of build/test outcomes. Machine-readable results live in `results/*.
 | goawk | ok | 16 | 3.9 MB | ok-goawk |
 | gravity | ok | 3 | 438 KB | ok-gravity RESULT: NULL (in 0.0157 ms) |
 | janet | ok | 29 | 2.2 MB | ok janet |
+| lci | ok | 9 | 1.6 MB | ok-lci |
 | lua | ok | 3 | 362 KB | ok Lua 5.5 |
 | m4 | ok | 36 | 1.1 MB | ok-m4 |
+| mac | ok | 3 | 73 KB | popped 11 done |
 | micropython | ok | 11 | 258 KB | ok-mpy |
 | mruby | ok | 88 | 9.0 MB | ok-mruby |
 | onetrueawk | ok | 6 | 491 KB | ok-awk |
+| partcl | ok | 4 | 73 KB | result> 42 |
 | pforth | ok | 5 | 272 KB | PForth V2.2.0, LE, built Jun 28 2026 14:02:33 (s |
 | picol | ok | 4 | 73 KB | ok-picol |
 | pocketlang | ok | 3 | 1.1 MB | ok-pocket |
 | quickjs-ng | ok | 34 | 1.3 MB | ok-qjs |
 | squirrel | ok | 12 | 73 KB | ok-squirrel |
 | tcc | ok | 15 | 418 KB | ok-tcc |
+| ubasic | ok | 4 | 74 KB | 42 |
 | umka | ok | 12 | 322 KB | ok-umka |
 | wasm3 | ok | 4 | 236 KB | Result: 55 |
 | wren | ok | 6 | 196 KB | ok-wren |
+| yoctolisp | ok | 2 | 86 KB | 42 |
 <!-- REPORT:END -->
 
 ## Narrative log
@@ -82,3 +90,20 @@ Running log of build/test outcomes. Machine-readable results live in `results/*.
   unexpected (`find`-and-copy beats guessing the path).
 - Toolchain notes: mruby needs `ruby-rake` (Alpine's `ruby` pkg omits rake);
   onetrueawk's "yacc" is `bison`.
+
+#### Batch 4 — mined from `data/shortlist.tsv` (29 green total)
+First batch sourced from the **list-mining pipeline** rather than memory.
+- ✅ **partcl** (zserge micro-Tcl, single file, built-in stdin REPL), **ubasic**
+  (Adam Dunkels tiny BASIC — library-only, so we add `recipes/ubasic/main.c` to
+  run a `.bas` file), **ape** (single-file amalgamation; CLI via `examples/`),
+  **brainfuck** (fabianishere, cmake; run a committed `hello*.bf`), **yoctolisp**
+  (builtin is `print`, not `display`), **lci** (LOLCODE; needs
+  `readline-dev`+`ncurses-dev`), **mac** (bytecode VM demo; runs a hardcoded 5+6).
+- All tiny: most binaries 73–86 KB; lci is 1.6 MB (readline/ncurses).
+- ❌ **atto** (Rust) — pinned `nix` crate (via rustyline) won't compile on
+  alpine/musl with the current toolchain. Needs dep/toolchain pinning.
+- Skipped this round (noted for later): **c4 / write-a-C-interpreter** store
+  pointers in `int` (assume ILP32 — segfault on any 64-bit target, arch-independent);
+  **wac** hardcodes `-m32` *and* needs Binaryen for a `.wasm`; **gforth** from git
+  needs an existing gforth to bootstrap (use a release tarball); **uxn** moved off
+  GitHub (now `git.sr.ht/~rabbits/uxn`); **streem** is an experimental prototype.

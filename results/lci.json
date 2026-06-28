@@ -1,0 +1,10 @@
+{
+  "name": "lci",
+  "outcome": "ok",
+  "build_exit": 0,
+  "build_seconds": 9,
+  "binary_bytes": 1703768,
+  "smoke": "ok-lci ",
+  "image_line": "tinylang/lci                  latest         38deb25ae13b9958ad39254c...",
+  "log": "results/lci.log"
+}

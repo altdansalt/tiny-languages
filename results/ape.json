@@ -1,0 +1,10 @@
+{
+  "name": "ape",
+  "outcome": "ok",
+  "build_exit": 0,
+  "build_seconds": 3,
+  "binary_bytes": 235400,
+  "smoke": "ok-ape ",
+  "image_line": "tinylang/ape                  latest         82da4d7ba9efaa2541276f2f...",
+  "log": "results/ape.log"
+}

@@ -1,0 +1,10 @@
+{
+  "name": "mac",
+  "outcome": "ok",
+  "build_exit": 0,
+  "build_seconds": 3,
+  "binary_bytes": 74480,
+  "smoke": "popped 11 done ",
+  "image_line": "tinylang/mac                  latest         66859b0f1683260d222ca2b7...",
+  "log": "results/mac.log"
+}

@@ -1,0 +1,46 @@
+#1 [resolver] fetching image...docker.io/library/alpine:3.20
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 oci-layout://docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc
+#3 resolve docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc 0.0s done
+#3 DONE 0.0s
+
+#4 [linux/arm64 1/8] RUN apk add --no-cache build-base git
+#4 CACHED
+
+#5 [linux/arm64/v8 2/8] WORKDIR /src
+#5 CACHED
+
+#6 [linux/arm64 3/8] RUN git clone --depth 1 https://github.com/felixangell/mac .
+#6 0.039 Cloning into '.'...
+#6 DONE 0.3s
+
+#7 [linux/arm64 4/8] RUN make
+#7 0.050 cc -Wall -Wextra -g -std=c11    mac.c   -o mac
+#7 DONE 0.1s
+
+#8 [linux/arm64 5/8] RUN BIN=$(find . -maxdepth 2 -type f -name mac -perm -u+x | head -1)     && cp "$BIN" /usr/local/bin/mac
+#8 DONE 0.0s
+
+#9 [linux/arm64 6/8] RUN mac | tee /smoke.out && grep -qi 'done\|popped' /smoke.out
+#9 0.031 popped 11
+#9 0.031 done
+#9 DONE 0.0s
+
+#10 [linux/arm64 7/8] RUN printf 'BINSIZE %s mac\n' "$(stat -c %s /usr/local/bin/mac)"
+#10 0.030 BINSIZE 74480 mac
+#10 DONE 0.0s
+
+#11 exporting to oci image format
+#11 exporting layers 0.1s done
+#11 exporting manifest sha256:e161d0989eca46b7af5b249ea89a1c22b0d5375d6cba5408a2bc0319e893a534 done
+#11 exporting config sha256:7173cf521d81dabeabcb1e07cb39e764feaf7cdd2a7014fe31ead4bc2974f7c6 done
+#11 exporting manifest list sha256:66859b0f1683260d222ca2b7e6c82ee9718c9b1c7e681e7ae36f5bbc1e008893 done
+#11 sending tarball
+#11 sending tarball 0.5s done
+#11 DONE 0.6s
+Successfully built tinylang/mac:latest

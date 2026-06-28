@@ -31,3 +31,11 @@ assemblyscript	https://github.com/AssemblyScript/assemblyscript	TypeScript	compi
 grain	https://github.com/grain-lang/grain	Grain/OCaml	compiler	npm	wasm,functional	untried	Functional lang targeting WASM
 mal	https://github.com/kanaka/mal	many	interpreter	various	lisp,teaching	untried	Make-a-Lisp; 80+ tiny implementations
 picol	https://github.com/antirez/picol	C	interpreter	cc	tcl,minimal	ok	Tiny Tcl in ~500 lines
+partcl	https://github.com/zserge/partcl	C	interpreter	cc	tcl,minimal	ok	Micro Tcl in ~600 LOC (zserge); built-in stdin REPL
+ubasic	https://github.com/adamdunkels/ubasic	C	interpreter	make	basic,minimal	ok	Tiny BASIC by Adam Dunkels; lib + our file-running driver
+ape	https://github.com/kgabis/ape	C	interpreter	make	embeddable,single-file	ok	Ape language, single-file amalgamation
+brainfuck	https://github.com/fabianishere/brainfuck	C	interpreter	cmake	esolang,brainfuck	ok	Feature-rich Brainfuck interpreter
+yoctolisp	https://github.com/fragglet/yoctolisp	C	interpreter	make	lisp,scheme	ok	Tiny Scheme-like Lisp "written in a weekend"
+lci	https://github.com/justinmeza/lci	C	interpreter	cmake	lolcode,esolang	ok	LOLCODE interpreter (needs readline/ncurses)
+mac	https://github.com/felixangell/mac	C	interpreter	make	bytecode,vm,demo	ok	Tiny bytecode VM; runs a hardcoded program
+atto	https://github.com/zesterer/atto	Rust	interpreter	cargo	functional,minimal	fail	Rust dep 'nix' fails to build on musl

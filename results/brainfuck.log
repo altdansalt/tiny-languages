@@ -1,0 +1,92 @@
+#1 [resolver] fetching image...docker.io/library/alpine:3.20
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 oci-layout://docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc
+#3 resolve docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc done
+#3 DONE 0.0s
+
+#4 [linux/arm64 1/9] RUN apk add --no-cache build-base git
+#4 CACHED
+
+#5 [linux/arm64 2/9] RUN apk add --no-cache cmake
+#5 CACHED
+
+#6 [linux/arm64/v8 3/9] WORKDIR /src
+#6 CACHED
+
+#7 [linux/arm64 4/9] RUN git clone --depth 1 https://github.com/fabianishere/brainfuck .
+#7 0.035 Cloning into '.'...
+#7 DONE 0.9s
+
+#8 [linux/arm64 5/9] RUN cmake -B build -DENABLE_CLI=ON -DENABLE_EDITLINE=OFF -DCMAKE_BUILD_TYPE=Release     && cmake --build build -j"$(nproc)"
+#8 0.080 -- The C compiler identification is GNU 13.2.1
+#8 0.088 -- Detecting C compiler ABI info
+#8 0.129 -- Detecting C compiler ABI info - done
+#8 0.140 -- Check for working C compiler: /usr/bin/cc - skipped
+#8 0.140 -- Detecting C compile features
+#8 0.141 -- Detecting C compile features - done
+#8 0.147 -- Configuring done (0.1s)
+#8 0.159 -- Generating done (0.0s)
+#8 0.160 -- Build files have been written to: /src/build
+#8 0.182 [ 16%] Building C object CMakeFiles/brainfuck.dir/src/brainfuck.c.o
+#8 0.192 /src/src/brainfuck.c: In function 'brainfuck_parse_stream_until':
+#8 0.192 /src/src/brainfuck.c:221:24: warning: comparison is always false due to limited range of data type [-Wtype-limits]
+#8 0.192   221 |                 if (ch == EOF || feof(stream)) { break; }
+#8 0.192       |                        ^~
+#8 0.192 /src/src/brainfuck.c:260:17: warning: case label value is less than minimum value for type [-Wswitch-outside-range]
+#8 0.192   260 |                 case BRAINFUCK_TOKEN_BREAK:
+#8 0.192       |                 ^~~~
+#8 0.193 /src/src/brainfuck.c: In function 'brainfuck_parse_substring_incremental':
+#8 0.193 /src/src/brainfuck.c:366:25: warning: case label value is less than minimum value for type [-Wswitch-outside-range]
+#8 0.193   366 |                         case BRAINFUCK_TOKEN_BREAK:
+#8 0.193       |                         ^~~~
+#8 0.193 /src/src/brainfuck.c: In function 'brainfuck_parse_character':
+#8 0.193 /src/src/brainfuck.c:401:9: warning: case label value is less than minimum value for type [-Wswitch-outside-range]
+#8 0.193   401 |         case BRAINFUCK_TOKEN_BREAK:
+#8 0.193       |         ^~~~
+#8 0.193 /src/src/brainfuck.c: In function 'brainfuck_execute':
+#8 0.193 /src/src/brainfuck.c:507:43: warning: comparison is always false due to limited range of data type [-Wtype-limits]
+#8 0.193   507 |                                 if (input == EOF) {
+#8 0.193       |                                           ^~
+#8 0.194 /src/src/brainfuck.c:519:17: warning: case label value is less than minimum value for type [-Wswitch-outside-range]
+#8 0.194   519 |                 case BRAINFUCK_TOKEN_BREAK: {
+#8 0.194       |                 ^~~~
+#8 0.194 /src/src/brainfuck.c: In function 'brainfuck_getchar':
+#8 0.194 /src/src/brainfuck.c:568:45: warning: comparison is always true due to limited range of data type [-Wtype-limits]
+#8 0.194   568 |         while ((t = getchar()) != '\n' && t != EOF) { } /* Clear stdin */
+#8 0.194       |                                             ^~
+#8 0.280 [ 33%] Linking C static library libbrainfuck.a
+#8 0.296 [ 33%] Built target brainfuck
+#8 0.304 [ 66%] Building C object tests/CMakeFiles/test-smoke.dir/smoke.c.o
+#8 0.304 [ 66%] Building C object CMakeFiles/brainfuck-cli.dir/src/main.c.o
+#8 0.323 [ 83%] Linking C executable test-smoke
+#8 0.336 [ 83%] Built target test-smoke
+#8 0.346 [100%] Linking C executable brainfuck
+#8 0.358 [100%] Built target brainfuck-cli
+#8 DONE 0.4s
+
+#9 [linux/arm64 6/9] RUN BIN=$(find build -type f -name brainfuck -perm -u+x | head -1)     && cp "$BIN" /usr/local/bin/brainfuck
+#9 DONE 0.0s
+
+#10 [linux/arm64 7/9] RUN SAMPLE=$(find . -name 'hello*.bf' | head -1) && echo "using $SAMPLE"     && brainfuck "$SAMPLE" | tee /smoke.out && grep -qi 'hello' /smoke.out
+#10 0.034 using ./examples/hello-short.bf
+#10 0.034 Hello World!
+#10 DONE 0.0s
+
+#11 [linux/arm64 8/9] RUN printf 'BINSIZE %s brainfuck\n' "$(stat -c %s /usr/local/bin/brainfuck)"
+#11 0.031 BINSIZE 75120 brainfuck
+#11 DONE 0.0s
+
+#12 exporting to oci image format
+#12 exporting layers 0.1s done
+#12 exporting manifest sha256:b3be2a78d7df4307c3f235c75fd345809e15d6885337ec893000b6f3e62bfa8f done
+#12 exporting config sha256:16071890ef10524546372378636cffadd37d6036cf25a6520900f44471c41621 done
+#12 exporting manifest list sha256:9d3e115a9d4a001932d1be3bed5c021fbb7bd2c15e4f198ebff36b9c3b888236 done
+#12 sending tarball
+#12 sending tarball 0.7s done
+#12 DONE 0.8s
+Successfully built tinylang/brainfuck:latest

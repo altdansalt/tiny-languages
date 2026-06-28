@@ -1,0 +1,117 @@
+#1 [resolver] fetching image...docker.io/library/alpine:3.20
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 oci-layout://docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc
+#3 resolve docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc done
+#3 DONE 0.0s
+
+#4 [linux/arm64 1/9] RUN apk add --no-cache build-base git
+#4 CACHED
+
+#5 [linux/arm64 2/9] RUN apk add --no-cache cmake readline-dev ncurses-dev
+#5 0.052 fetch https://dl-cdn.alpinelinux.org/alpine/v3.20/main/aarch64/APKINDEX.tar.gz
+#5 0.346 fetch https://dl-cdn.alpinelinux.org/alpine/v3.20/community/aarch64/APKINDEX.tar.gz
+#5 0.620 (1/19) Installing libacl (2.3.2-r0)
+#5 0.639 (2/19) Installing libbz2 (1.0.8-r6)
+#5 0.662 (3/19) Installing lz4-libs (1.9.4-r5)
+#5 0.688 (4/19) Installing xz-libs (5.8.3-r0)
+#5 0.715 (5/19) Installing libarchive (3.8.3-r0)
+#5 0.743 (6/19) Installing rhash-libs (1.4.4-r0)
+#5 0.798 (7/19) Installing libuv (1.48.0-r0)
+#5 0.821 (8/19) Installing cmake (3.29.3-r0)
+#5 1.264 (9/19) Installing ncurses-terminfo-base (6.4_p20240420-r2)
+#5 1.285 (10/19) Installing libncursesw (6.4_p20240420-r2)
+#5 1.307 (11/19) Installing libformw (6.4_p20240420-r2)
+#5 1.330 (12/19) Installing libmenuw (6.4_p20240420-r2)
+#5 1.352 (13/19) Installing libpanelw (6.4_p20240420-r2)
+#5 1.373 (14/19) Installing libncurses++ (6.4_p20240420-r2)
+#5 1.394 (15/19) Installing pkgconf (2.2.0-r0)
+#5 1.416 (16/19) Installing ncurses-dev (6.4_p20240420-r2)
+#5 1.440 (17/19) Installing libhistory (8.2.10-r0)
+#5 1.458 (18/19) Installing readline (8.2.10-r0)
+#5 1.489 (19/19) Installing readline-dev (8.2.10-r0)
+#5 1.516 Executing busybox-1.36.1-r31.trigger
+#5 1.523 OK: 283 MiB in 66 packages
+#5 DONE 1.7s
+
+#6 [linux/arm64/v8 3/9] WORKDIR /src
+#6 DONE 0.0s
+
+#7 [linux/arm64 4/9] RUN git clone --depth 1 https://github.com/justinmeza/lci .
+#7 0.042 Cloning into '.'...
+#7 DONE 0.6s
+
+#8 [linux/arm64 5/9] RUN cmake -B build -DCMAKE_BUILD_TYPE=Release && cmake --build build -j"$(nproc)"
+#8 0.057 CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+#8 0.057   Compatibility with CMake < 3.5 will be removed from a future version of
+#8 0.057   CMake.
+#8 0.057 
+#8 0.057   Update the VERSION argument <min> value or use a ...<max> suffix to tell
+#8 0.057   CMake that the project does not need compatibility with older versions.
+#8 0.057 
+#8 0.057 
+#8 0.096 -- The C compiler identification is GNU 13.2.1
+#8 0.135 -- The CXX compiler identification is GNU 13.2.1
+#8 0.144 -- Detecting C compiler ABI info
+#8 0.183 -- Detecting C compiler ABI info - done
+#8 0.196 -- Check for working C compiler: /usr/bin/cc - skipped
+#8 0.196 -- Detecting C compile features
+#8 0.196 -- Detecting C compile features - done
+#8 0.200 -- Detecting CXX compiler ABI info
+#8 0.241 -- Detecting CXX compiler ABI info - done
+#8 0.253 -- Check for working CXX compiler: /usr/bin/c++ - skipped
+#8 0.253 -- Detecting CXX compile features
+#8 0.254 -- Detecting CXX compile features - done
+#8 0.381 -- Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE) 
+#8 0.381 CMake Warning at CMakeLists.txt:63 (message):
+#8 0.381   Couldn't find doxygen.  You won't be able to generate documentation now
+#8 0.381 
+#8 0.382 
+#8 0.423 -- Configuring done (0.4s)
+#8 0.577 -- Generating done (0.1s)
+#8 0.591 -- Build files have been written to: /src/build
+#8 0.633 [ 10%] Building C object CMakeFiles/lci.dir/interpreter.c.o
+#8 0.633 [ 20%] Building C object CMakeFiles/lci.dir/lexer.c.o
+#8 0.774 [ 30%] Building C object CMakeFiles/lci.dir/main.c.o
+#8 0.827 [ 40%] Building C object CMakeFiles/lci.dir/parser.c.o
+#8 1.356 [ 50%] Building C object CMakeFiles/lci.dir/tokenizer.c.o
+#8 1.466 [ 60%] Building C object CMakeFiles/lci.dir/unicode.c.o
+#8 1.632 [ 70%] Building C object CMakeFiles/lci.dir/error.c.o
+#8 1.657 [ 80%] Building C object CMakeFiles/lci.dir/binding.c.o
+#8 1.739 [ 90%] Building C object CMakeFiles/lci.dir/inet.c.o
+#8 1.755 /src/inet.c: In function 'inet_setup':
+#8 1.755 /src/inet.c:19:23: warning: comparison between pointer and zero character constant [-Wpointer-compare]
+#8 1.755    19 |                 (addr == IN_ADDR_ANY ? IN_ADDR_ANY : inet_addr(addr));
+#8 1.755       |                       ^~
+#8 1.755 /src/inet.c:19:18: note: did you mean to dereference the pointer?
+#8 1.755    19 |                 (addr == IN_ADDR_ANY ? IN_ADDR_ANY : inet_addr(addr));
+#8 1.755       |                  ^
+#8 1.798 [100%] Linking C executable lci
+#8 1.835 [100%] Built target lci
+#8 DONE 1.9s
+
+#9 [linux/arm64 6/9] RUN BIN=$(find build . -maxdepth 2 -type f -name lci -perm -u+x | head -1)     && cp "$BIN" /usr/local/bin/lci
+#9 DONE 0.1s
+
+#10 [linux/arm64 7/9] RUN printf 'HAI 1.4\nVISIBLE "ok-lci"\nKTHXBYE\n' > /smoke.lol     && lci /smoke.lol | tee /smoke.out && grep -q '^ok-lci' /smoke.out
+#10 0.034 ok-lci
+#10 DONE 0.0s
+
+#11 [linux/arm64 8/9] RUN printf 'BINSIZE %s lci\n' "$(stat -c %s /usr/local/bin/lci)"
+#11 0.037 BINSIZE 1703768 lci
+#11 DONE 0.0s
+
+#12 exporting to oci image format
+#12 exporting layers
+#12 exporting layers 1.4s done
+#12 exporting manifest sha256:d845b323424916c01cd04d6cef1bb70445c57a1529093a009b1b8fab26cf02b6 done
+#12 exporting config sha256:208145fc5a46439a575506e1e4156be8532a6ba8802650e711918ab2e5056c5f done
+#12 exporting manifest list sha256:38deb25ae13b9958ad39254c8f63c89c11847e280d6880f62b8ae1d42b7ce969 done
+#12 sending tarball
+#12 sending tarball 0.7s done
+#12 DONE 2.1s
+Successfully built tinylang/lci:latest
