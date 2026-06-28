@@ -15,8 +15,13 @@ CANDIDATES = ROOT / "seeds" / "candidates.tsv"
 
 
 def load_results():
+    # bootstrap probes live in bootstrap/ and are reported separately, not as
+    # languages — exclude them from the language summary.
+    bootstrap = {p.name for p in (ROOT / "bootstrap").glob("*") if p.is_dir()}
     out = {}
     for f in sorted(RESULTS.glob("*.json")):
+        if f.stem in bootstrap:
+            continue
         try:
             out[f.stem] = json.loads(f.read_text())
         except Exception as e:  # noqa

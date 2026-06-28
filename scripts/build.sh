@@ -16,7 +16,9 @@ mkdir -p "$RESULTS"
 
 build_one() {
   local name="$1"
+  # resolve a recipe in recipes/ (languages) or bootstrap/ (bootstrap probes)
   local dir="$RECIPES/$name"
+  [[ -f "$dir/Dockerfile" ]] || dir="$ROOT/bootstrap/$name"
   local log="$RESULTS/$name.log"
   local json="$RESULTS/$name.json"
   local tag="tinylang/$name"

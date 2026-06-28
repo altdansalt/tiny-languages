@@ -1,0 +1,10 @@
+{
+  "name": "tcc-builds-lua",
+  "outcome": "ok",
+  "build_exit": 0,
+  "build_seconds": 9,
+  "binary_bytes": 501022,
+  "smoke": "ok-tcc-built-lua Lua 5.5 ",
+  "image_line": "tinylang/tcc-builds-lua       latest         0ac80d5b06a544cb3783fca9...",
+  "log": "results/tcc-builds-lua.log"
+}

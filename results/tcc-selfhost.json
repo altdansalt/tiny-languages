@@ -1,0 +1,10 @@
+{
+  "name": "tcc-selfhost",
+  "outcome": "ok",
+  "build_exit": 0,
+  "build_seconds": 8,
+  "binary_bytes": 564502,
+  "smoke": "ok-selfhost ",
+  "image_line": "tinylang/tcc-selfhost         latest         03be0739ed9f3655c77d2cb5...",
+  "log": "results/tcc-selfhost.log"
+}

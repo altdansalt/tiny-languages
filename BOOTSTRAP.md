@@ -99,6 +99,24 @@ Takeaway for bootstrapping: the runtime requirement for most of the catalog is
 *just a C library*. Pick musl and almost the whole set is a single static-ish
 dependency away from running anywhere.
 
+## Verified bootstrap edges (`bootstrap/`)
+
+Demonstrated, not just argued — each is a container probe with a smoke test
+(`scripts/build.sh <name>`, results in `results/`):
+
+- **tcc-selfhost** ✅ — build tcc with gcc (stage 1), then rebuild tcc *using the
+  stage-1 tcc* (`./configure --cc=/tcc-stage1`), then show the stage-2 tcc (a tcc
+  built by tcc) compiles and runs a program. The self-hosting edge: the compiler
+  reproduces itself.
+- **tcc-builds-lua** ✅ — use tcc (not gcc) as `CC` to compile Lua from source, and
+  run it → `ok-tcc-built-lua Lua 5.5`. A concrete edge **tcc → lua**: once you have a
+  tiny C compiler, you can build a tiny language with it (gcc only seeds the tcc).
+
+Together these show the interesting middle of the bootstrap graph working with the
+*tiny* compiler, not GCC: `gcc ⇒ tcc ⇒ {tcc, lua, …}`. Replacing the `gcc ⇒ tcc`
+seed step with a from-scratch chain (stage0 → M2-Planet → mes → tcc) is the
+remaining gap below.
+
 ## Open frontiers (closing the bottom of the stack)
 
 The repo proves the *upper* layers; the genuinely hard, interesting part is the

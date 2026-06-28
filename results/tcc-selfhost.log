@@ -1,0 +1,145 @@
+#1 [resolver] fetching image...docker.io/library/debian:bookworm-slim
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 oci-layout://docker.io/library/debian:bookworm-slim@sha256:60eac759739651111db372c07be67863818726f754804b8707c90979bda511df
+#3 resolve docker.io/library/debian:bookworm-slim@sha256:60eac759739651111db372c07be67863818726f754804b8707c90979bda511df done
+#3 DONE 0.0s
+
+#4 [linux/arm64 1/8] RUN apt-get update && apt-get install -y --no-install-recommends         build-essential git ca-certificates     && rm -rf /var/lib/apt/lists/*
+#4 CACHED
+
+#5 [linux/arm64/v8 2/8] WORKDIR /src
+#5 CACHED
+
+#6 [linux/arm64 3/8] RUN git clone --depth 1 https://github.com/TinyCC/tinycc .
+#6 0.036 Cloning into '.'...
+#6 DONE 0.7s
+
+#7 [linux/arm64 4/8] RUN ./configure && make -j"$(nproc)" && make install     && cp tcc /tcc-stage1 && tcc --version
+#7 0.081 Binary directory    /usr/local/bin
+#7 0.081 TinyCC directory    /usr/local/lib/tcc
+#7 0.081 Library directory   /usr/local/lib
+#7 0.081 Include directory   /usr/local/include
+#7 0.081 Manual directory    /usr/local/share/man
+#7 0.081 Info directory      /usr/local/share/info
+#7 0.081 Doc directory       /usr/local/share/doc
+#7 0.081 Source path         /src
+#7 0.082 Build OS            Linux aarch64
+#7 0.082 C compiler          gcc (12.2)
+#7 0.082 Target OS           Linux
+#7 0.082 CPU                 arm64
+#7 0.082 Triplet             aarch64-linux-gnu
+#7 0.082 Creating config.mak and config.h
+#7 0.101 gcc -o tcc.o -c tcc.c -I. -DONE_SOURCE=0 -DTCC_GITHASH="\"2026-06-13 mob@a338258\"" -Wall -O2 -Wdeclaration-after-statement -Wno-unused-result
+#7 0.102 gcc -o libtcc.o -c libtcc.c -I. -DONE_SOURCE=0 -Wall -O2 -Wdeclaration-after-statement -Wno-unused-result
+#7 0.262 gcc -DC2STR conftest.c -o c2str.exe
+#7 0.290 gcc -o tccgen.o -c tccgen.c -I. -Wall -O2 -Wdeclaration-after-statement -Wno-unused-result
+#7 0.380 gcc -o tccdbg.o -c tccdbg.c -I. -Wall -O2 -Wdeclaration-after-statement -Wno-unused-result
+#7 0.890 gcc -o tccelf.o -c tccelf.c -I. -Wall -O2 -Wdeclaration-after-statement -Wno-unused-result
+#7 1.590 gcc -o tccasm.o -c tccasm.c -I. -Wall -O2 -Wdeclaration-after-statement -Wno-unused-result
+#7 1.728 gcc -o tccrun.o -c tccrun.c -I. -Wall -O2 -Wdeclaration-after-statement -Wno-unused-result
+#7 1.836 gcc -o arm64-gen.o -c arm64-gen.c -I. -Wall -O2 -Wdeclaration-after-statement -Wno-unused-result
+#7 1.999 gcc -o arm64-link.o -c arm64-link.c -I. -Wall -O2 -Wdeclaration-after-statement -Wno-unused-result
+#7 2.032 arm64-link.c: In function 'relocate':
+#7 2.032 arm64-link.c:384:13: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+#7 2.032   384 |             int64_t tp_offset = val - tls_start + 16;
+#7 2.032       |             ^~~~~~~
+#7 2.090 gcc -o arm64-asm.o -c arm64-asm.c -I. -Wall -O2 -Wdeclaration-after-statement -Wno-unused-result
+#7 2.317 ./c2str.exe include/tccdefs.h tccdefs_.h
+#7 2.318 gcc -o tccpp.o -c tccpp.c -I. -Wall -O2 -Wdeclaration-after-statement -Wno-unused-result
+#7 3.025 ar rcs libtcc.a libtcc.o tccpp.o tccgen.o tccdbg.o tccelf.o tccasm.o tccrun.o arm64-gen.o arm64-link.o arm64-asm.o
+#7 3.029 gcc -o tcc tcc.o libtcc.a -lm -ldl -lpthread
+#7 3.048 make[1]: Entering directory '/src/lib'
+#7 3.048 ../tcc -c lib-arm64.c -o lib-arm64.o -B.. -I..
+#7 3.048 ../tcc -c stdatomic.c -o stdatomic.o -B.. -I..
+#7 3.050 ../tcc -c atomic.S -o atomic.o -B.. -I..
+#7 3.050 ../tcc -c builtin.c -o builtin.o -B.. -I..
+#7 3.051 ../tcc -c alloca.S -o alloca.o -B.. -I..
+#7 3.051 ../tcc -c alloca-bt.S -o alloca-bt.o -B.. -I..
+#7 3.051 ../tcc -c tcov.c -o tcov.o -B.. -I..
+#7 3.052 ../tcc -c armflush.c -o armflush.o -B.. -I..
+#7 3.052 ../tcc -c dsohandle.c -o dsohandle.o -B.. -I..
+#7 3.052 ../tcc -c runmain.c -o ../runmain.o -B.. -I..
+#7 3.053 ../tcc -c bt-exe.c -o ../bt-exe.o -B.. -I..
+#7 3.054 ../tcc -c bt-log.c -o ../bt-log.o -B.. -I..
+#7 3.055 ../tcc -c bcheck.c -o ../bcheck.o -B.. -I.. -bt
+#7 3.061 ../tcc -ar rcs ../libtcc1.a lib-arm64.o stdatomic.o atomic.o builtin.o alloca.o alloca-bt.o tcov.o armflush.o dsohandle.o
+#7 3.063 make[1]: Leaving directory '/src/lib'
+#7 3.092 -> /usr/local/bin : tcc
+#7 3.094 -> /usr/local/lib/tcc : libtcc1.a runmain.o bt-exe.o bt-log.o bcheck.o
+#7 3.095 -> /usr/local/lib/tcc/include : ./include/*.h ./tcclib.h
+#7 3.096 -> /usr/local/lib : libtcc.a
+#7 3.097 -> /usr/local/include : ./libtcc.h
+#7 3.100 tcc version 0.9.28rc 2026-06-13 mob@a338258 (AArch64 Linux)
+#7 DONE 3.1s
+
+#8 [linux/arm64 5/8] RUN make clean     && ./configure --cc=/tcc-stage1     && make -j"$(nproc)"     && cp tcc /tcc-stage2
+#8 0.063 Binary directory    /usr/local/bin
+#8 0.063 TinyCC directory    /usr/local/lib/tcc
+#8 0.063 Library directory   /usr/local/lib
+#8 0.063 Include directory   /usr/local/include
+#8 0.063 Manual directory    /usr/local/share/man
+#8 0.063 Info directory      /usr/local/share/info
+#8 0.063 Doc directory       /usr/local/share/doc
+#8 0.063 Source path         /src
+#8 0.063 Build OS            Linux aarch64
+#8 0.063 C compiler          /tcc-stage1 (0.928)
+#8 0.063 Target OS           Linux
+#8 0.063 CPU                 arm64
+#8 0.063 Triplet             aarch64-linux-gnu
+#8 0.063 Creating config.mak and config.h
+#8 0.085 /tcc-stage1 -o tcc.o -c tcc.c -I. -DONE_SOURCE=0 -DTCC_GITHASH="\"2026-06-13 mob@a338258\"" -Wall -O2
+#8 0.085 /tcc-stage1 -o libtcc.o -c libtcc.c -I. -DONE_SOURCE=0 -Wall -O2
+#8 0.095 /tcc-stage1 -DC2STR conftest.c -o c2str.exe
+#8 0.095 /tcc-stage1 -o tccgen.o -c tccgen.c -I. -Wall -O2
+#8 0.097 /tcc-stage1 -o tccdbg.o -c tccdbg.c -I. -Wall -O2
+#8 0.108 /tcc-stage1 -o tccelf.o -c tccelf.c -I. -Wall -O2
+#8 0.109 /tcc-stage1 -o tccasm.o -c tccasm.c -I. -Wall -O2
+#8 0.118 /tcc-stage1 -o tccrun.o -c tccrun.c -I. -Wall -O2
+#8 0.122 /tcc-stage1 -o arm64-gen.o -c arm64-gen.c -I. -Wall -O2
+#8 0.128 /tcc-stage1 -o arm64-link.o -c arm64-link.c -I. -Wall -O2
+#8 0.129 /tcc-stage1 -o arm64-asm.o -c arm64-asm.c -I. -Wall -O2
+#8 0.139 ./c2str.exe include/tccdefs.h tccdefs_.h
+#8 0.140 /tcc-stage1 -o tccpp.o -c tccpp.c -I. -Wall -O2
+#8 0.151 /tcc-stage1 -ar rcs libtcc.a libtcc.o tccpp.o tccgen.o tccdbg.o tccelf.o tccasm.o tccrun.o arm64-gen.o arm64-link.o arm64-asm.o
+#8 0.152 /tcc-stage1 -o tcc tcc.o libtcc.a -lm -ldl -lpthread
+#8 0.156 make[1]: Entering directory '/src/lib'
+#8 0.156 ../tcc -c lib-arm64.c -o lib-arm64.o -B.. -I..
+#8 0.158 ../tcc -c stdatomic.c -o stdatomic.o -B.. -I..
+#8 0.158 ../tcc -c atomic.S -o atomic.o -B.. -I..
+#8 0.159 ../tcc -c builtin.c -o builtin.o -B.. -I..
+#8 0.159 ../tcc -c alloca.S -o alloca.o -B.. -I..
+#8 0.160 ../tcc -c alloca-bt.S -o alloca-bt.o -B.. -I..
+#8 0.161 ../tcc -c tcov.c -o tcov.o -B.. -I..
+#8 0.162 ../tcc -c armflush.c -o armflush.o -B.. -I..
+#8 0.163 ../tcc -c dsohandle.c -o dsohandle.o -B.. -I..
+#8 0.163 ../tcc -c runmain.c -o ../runmain.o -B.. -I..
+#8 0.165 ../tcc -c bt-exe.c -o ../bt-exe.o -B.. -I..
+#8 0.166 ../tcc -c bt-log.c -o ../bt-log.o -B.. -I..
+#8 0.169 ../tcc -c bcheck.c -o ../bcheck.o -B.. -I.. -bt
+#8 0.181 ../tcc -ar rcs ../libtcc1.a lib-arm64.o stdatomic.o atomic.o builtin.o alloca.o alloca-bt.o tcov.o armflush.o dsohandle.o
+#8 0.190 make[1]: Leaving directory '/src/lib'
+#8 DONE 0.2s
+
+#9 [linux/arm64 6/8] RUN printf '#include <stdio.h>\nint main(){printf("ok-selfhost\\n");return 0;}\n' > /h.c     && /tcc-stage2 -run /h.c | tee /smoke.out && grep -q '^ok-selfhost' /smoke.out
+#9 0.037 ok-selfhost
+#9 DONE 0.0s
+
+#10 [linux/arm64 7/8] RUN printf 'BINSIZE %s tcc-stage2\n' "$(stat -c %s /tcc-stage2)"
+#10 0.025 BINSIZE 564502 tcc-stage2
+#10 DONE 0.0s
+
+#11 exporting to oci image format
+#11 exporting layers
+#11 exporting layers 0.2s done
+#11 exporting manifest sha256:271024f6424b4adbb7186e111629b147f9edab316f97b46929be33dc6096b191 done
+#11 exporting config sha256:4c9ca4f06f0fc9f42ce8d0d36c3a515d5337bd9a6e3ada2c5b08da4b463c10e6 done
+#11 exporting manifest list sha256:03be0739ed9f3655c77d2cb59eea179391ed5ea4cb264eec96556d4e1fe57a1a done
+#11 sending tarball
+#11 sending tarball 1.2s done
+#11 DONE 1.4s
+Successfully built tinylang/tcc-selfhost:latest
