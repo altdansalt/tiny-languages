@@ -36,6 +36,7 @@ Every "known-working" claim in this repo is backed by an actual container build+
 | `FINDINGS.md` | Running log of what worked and what didn't |
 | `BOOTSTRAP.md` | Dependency/provenance map: what each language needs to *exist* |
 | `data/provenance.tsv` | Per-language build provenance (impl lang, libc, deps) |
+| `data/runtime_libs.tsv` | Per-language runtime linkage (`ldd` of each binary) |
 
 ## Environment
 

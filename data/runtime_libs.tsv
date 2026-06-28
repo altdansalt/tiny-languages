@@ -1,0 +1,31 @@
+name	libs
+ape	ld-musl-aarch64.so.1 libc.musl-aarch64.so.1 
+berry	ld-musl-aarch64.so.1 libc.musl-aarch64.so.1 
+brainfuck	ld-musl-aarch64.so.1 libc.musl-aarch64.so.1 
+chibi-scheme	ld-musl-aarch64.so.1 libc.musl-aarch64.so.1 libchibi-scheme.so.0 
+clox	ld-musl-aarch64.so.1 libc.musl-aarch64.so.1 
+cproc	ld-musl-aarch64.so.1 libc.musl-aarch64.so.1 
+fe	ld-musl-aarch64.so.1 libc.musl-aarch64.so.1 
+femtolisp	libc.so.6 libm.so.6 
+goawk	(static or none)
+gravity	ld-musl-aarch64.so.1 libc.musl-aarch64.so.1 
+janet	ld-musl-aarch64.so.1 libc.musl-aarch64.so.1 
+lci	ld-musl-aarch64.so.1 libc.musl-aarch64.so.1 libncursesw.so.6 libreadline.so.8 
+lua	ld-musl-aarch64.so.1 libc.musl-aarch64.so.1 
+m4	ld-musl-aarch64.so.1 libc.musl-aarch64.so.1 
+mac	ld-musl-aarch64.so.1 libc.musl-aarch64.so.1 
+micropython	ld-musl-aarch64.so.1 libc.musl-aarch64.so.1 
+mruby	ld-musl-aarch64.so.1 libc.musl-aarch64.so.1 
+onetrueawk	ld-musl-aarch64.so.1 libc.musl-aarch64.so.1 
+partcl	ld-musl-aarch64.so.1 libc.musl-aarch64.so.1 
+pforth	ld-musl-aarch64.so.1 libc.musl-aarch64.so.1 
+picol	ld-musl-aarch64.so.1 libc.musl-aarch64.so.1 
+pocketlang	ld-musl-aarch64.so.1 libc.musl-aarch64.so.1 
+quickjs-ng	ld-musl-aarch64.so.1 libc.musl-aarch64.so.1 
+squirrel	ld-musl-aarch64.so.1 libc.musl-aarch64.so.1 libgcc_s.so.1 libsqstdlib.so.0 libsquirrel.so.0 libstdc++.so.6 
+tcc	libc.so.6 libm.so.6 
+ubasic	ld-musl-aarch64.so.1 libc.musl-aarch64.so.1 
+umka	ld-musl-aarch64.so.1 libc.musl-aarch64.so.1 
+wasm3	ld-musl-aarch64.so.1 libc.musl-aarch64.so.1 
+wren	ld-musl-aarch64.so.1 libc.musl-aarch64.so.1 
+yoctolisp	ld-musl-aarch64.so.1 libc.musl-aarch64.so.1 

@@ -78,6 +78,27 @@ Every cell is reachable from a C compiler. The one thing the *tiny* compilers he
 specific extensions; tcc/cproc are not drop-in replacements. So "build a kernel"
 keeps GCC on the critical path even though everything else can shed it.
 
+## Runtime footprint — what they actually link
+
+Captured with `ldd` inside each built image (`scripts/runtime_deps.sh` →
+`data/runtime_libs.tsv`). This is the *use*-time counterpart to the build table:
+
+- **22 of 30 link nothing but the C library** (musl `libc` + its loader; musl folds
+  `libm` into `libc`). That is the strongest possible "tiny / bare-Pi / sandbox"
+  signal — drop the binary next to a libc and it runs.
+- **goawk** is **fully static** (Go links everything in) — zero shared-lib deps at all.
+- Heavier linkers, and why:
+  - **lci** → `libreadline` + `libncursesw` (interactive REPL).
+  - **squirrel** → `libstdc++` + `libgcc_s` (it's C++), plus its own
+    `libsquirrel`/`libsqstdlib`.
+  - **chibi-scheme** → its own `libchibi-scheme.so` (installed shared runtime).
+  - **tcc**, **femtolisp** → glibc (`libc.so.6`, `libm.so.6`) because they're the
+    two builds on a Debian base; on glibc `libm` is a separate object.
+
+Takeaway for bootstrapping: the runtime requirement for most of the catalog is
+*just a C library*. Pick musl and almost the whole set is a single static-ish
+dependency away from running anywhere.
+
 ## Open frontiers (closing the bottom of the stack)
 
 The repo proves the *upper* layers; the genuinely hard, interesting part is the
