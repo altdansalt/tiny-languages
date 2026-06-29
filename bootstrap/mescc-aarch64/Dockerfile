@@ -50,6 +50,7 @@ COPY overlay/run-tests.sh /b/run-tests.sh
 COPY overlay/libc-tiny.M1 /b/libc-tiny.M1
 COPY overlay/hello.c      /b/hello.c
 COPY overlay/primes.c     /b/primes.c
+COPY overlay/calc.c       /b/calc.c
 ENV MES_PREFIX=/b/mes
 
 # --- smoke: compile + run a battery of C programs through the new backend ---
@@ -79,4 +80,16 @@ RUN cd /b/mes \
     && out="$(/b/primes.elf)" \
     && echo "primes.elf says: $out" \
     && [ "$out" = "2 3 5 7 11 13 17 19 23 29 31 37 " ]
+
+# --- capstone: a recursive-descent expression evaluator (a mini-compiler) ---
+# Parses & evaluates integer expressions with precedence and parentheses via
+# mutual recursion, then prints each result. Asserts the three outputs.
+RUN cd /b/mes \
+    && guile -L module -L /opt/nyacc/module -L . /b/drive.scm --arch=aarch64 -S /b/calc.c -o /b/calc.s \
+    && M1 --architecture aarch64 --little-endian -f /b/defs.M1 -f /b/crt1.M1 -f /b/libc-tiny.M1 -f /b/calc.s -o /b/calc.hex2 \
+    && hex2 --architecture aarch64 --little-endian --base-address 0x00400000 \
+         -f /b/header.hex2 -f /b/calc.hex2 -f /b/footer.hex2 -o /b/calc.elf \
+    && out="$(/b/calc.elf)" \
+    && printf 'calc.elf evaluated:\n%s\n' "$out" \
+    && [ "$out" = "$(printf '42\n42\n21')" ]
 CMD ["sh", "/b/run-tests.sh"]
