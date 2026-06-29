@@ -42,3 +42,17 @@ DEFINE SET_X0_FROM_X13 e0030daa   # mov x0, x13
 DEFINE SET_X1_FROM_X13 e1030daa   # mov x1, x13
 DEFINE STR_X0_[X13]    a00100f9   # str x0, [x13]
 DEFINE STR_X1_[X13]    a10100f9   # str x1, [x13]
+
+### --- function calls (Milestone 3) ---
+DEFINE SET_X16_FROM_X1 f00301aa   # mov x16, x1   (indirect-call target)
+### x13 = BP + |offset| : parameters live ABOVE BP, so local addressing adds for
+### negative MesCC offsets (LOAD_W16 zero-extends, so we always load |offset|).
+DEFINE ADD_X13_X13_X16 ad01108b   # add x13, x13, x16
+### swap-r-stack: access the top stack word [x18] (PUSH pre-decrements x18).
+DEFINE LDR_X13_[SP]    4d0240f9   # ldr x13, [x18]
+DEFINE STR_X0_[SP]     400200f9   # str x0,  [x18]
+DEFINE STR_X1_[SP]     410200f9   # str x1,  [x18]
+### M2libc's ADD_SP_X16_SP is mis-encoded as `add x18, x8, x18` (Rn=x8, not x16),
+### so post-call argument cleanup added garbage and never popped — corrupting any
+### value spilled across a call (e.g. the n in `n*fact(n-1)`). Correct version:
+DEFINE ADD_SP_SP_X16_OK 5202108b  # add x18, x18, x16  (pop n arg words)

@@ -35,5 +35,11 @@ check 'int main(){int s;int i;s=0;i=1;while(i<=5){s=s+i;i=i+1;}return s;}' 15
 check 'int main(){int i;i=0;if(i<3){i=7;}return i;}'                    7
 check 'int main(){int i;i=9;if(i<3){i=7;}return i;}'                    9
 check 'int main(){int n;int f;n=5;f=1;while(n>1){f=f*n;n=n-1;}return f;}' 120
+# --- Milestone 3: functions, arguments, recursion ---
+check 'int f(int a,int b){return a+b;} int main(){return f(40,2);}'      42
+check 'int sq(int x){return x*x;} int main(){return sq(7);}'            49
+check 'int add3(int a,int b,int c){return a+b+c;} int main(){return add3(10,20,12);}' 42
+check 'int fact(int n){if(n<2){return 1;}return n*fact(n-1);}int main(){return fact(5);}' 120
+check 'int fib(int n){if(n<2){return n;}return fib(n-1)+fib(n-2);}int main(){return fib(10);}' 55
 echo "=== $([ $fail -eq 0 ] && echo 'ALL PASS' || echo 'SOME FAILED') ==="
 [ $fail -eq 0 ]

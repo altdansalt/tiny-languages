@@ -110,22 +110,27 @@
 (define (first-r info)
   (car (if (pair? (.allocated info)) (.allocated info) (.registers info))))
 
-;; r = local#n  (value at [BP - 8n]).  The address is built in the x13 scratch so
-;; the other working register (the live operand of a binary op) is never touched.
+;; address of local#n into x13:  x13 = BP - 8n.  Locals have n>0 (below BP);
+;; function parameters come through with n<0 (above BP).  LOAD_W16 zero-extends,
+;; so load |offset| and pick SUB (below) or ADD (above) by sign — never clobbering
+;; the working pair x0/x1 (the other operand of a binary op may be live there).
+(define (addr-x13 n)
+  (let ((off (* 8 n)))
+    `(("SET_X13_FROM_BP")
+      ,@(load-x16 (abs off))
+      (,(if (>= off 0) "SUB_X13_X13_X16" "ADD_X13_X13_X16")))))
+
+;; r = local#n  (value at [BP - 8n])
 (define (aarch64:local->r info n)
   (let ((r (string-upcase (first-r info))))
-    `(("SET_X13_FROM_BP")
-      ,@(load-x16 (* 8 n))
-      ("SUB_X13_X13_X16")              ; x13 = BP - 8n  (address)
+    `(,@(addr-x13 n)
       (,(string-append "SET_" r "_FROM_X13"))
       (,(string-append "DEREF_" r)))))  ; r = [address]
 
-;; local#n = r  (store r at [BP - 8n]); address via x13, value straight from r.
+;; local#n = r  (store r at [BP - 8n])
 (define (aarch64:r->local info n)
   (let ((r (string-upcase (get-r info))))
-    `(("SET_X13_FROM_BP")
-      ,@(load-x16 (* 8 n))
-      ("SUB_X13_X13_X16")              ; x13 = address
+    `(,@(addr-x13 n)
       (,(string-append "STR_" r "_[X13]")))))
 
 ;; register moves between the working pair
@@ -189,8 +194,53 @@
 (define (aarch64:eq?->r info) (aarch64:cmp->r info "EQ"))  ; condx == condy
 (define (aarch64:ne?->r info) (aarch64:cmp->r info "NE"))  ; condx != condy
 
+;; --- function calls (Milestone 3) -------------------------------------------
+;; Calling convention (matches MesCC's other backends): the caller PUSHes each
+;; argument onto the x18 stack, then calls; after return the caller pops the n
+;; argument words (x18 += 8n).  The callee reads its parameters as locals at
+;; positive BP offsets (above the saved LR/BP that function-preamble pushes).
+(define (aarch64:r->arg info i)
+  `((,(aarch64:push (get-r info)))))
+
+(define (aarch64:label->arg info label i)
+  `(("LOAD_W16_AHEAD") ("SKIP_32_DATA")
+    (,(string-append "&" (label->s label)))
+    ("PUSH_X16")))
+
+;; pop n argument words off the x18 stack after a call (x18 += 8n).  Uses the
+;; corrected add — M2libc's ADD_SP_X16_SP is mis-encoded (see extra.M1).
+(define (args-cleanup n)
+  (if (> n 0) `(,@(load-x16 (* 8 n)) ("ADD_SP_SP_X16_OK")) '()))
+
+(define (aarch64:call-label info label n)
+  `(("LOAD_W16_AHEAD") ("SKIP_32_DATA")
+    (,(string-append "&" (label->s label)))
+    ("BLR_X16")
+    ,@(args-cleanup n)))
+
+(define (aarch64:call-r info n)
+  (let ((r (string-upcase (get-r info))))
+    `((,(string-append "SET_X16_FROM_" r))
+      ("BLR_X16")
+      ,@(args-cleanup n))))
+
+;; swap a working register with the top word of the x18 stack (used to reorder
+;; operands spilled across a call, e.g. fib(n-1)+fib(n-2)).  x13 is a free scratch.
+(define (swap-with-stack r)
+  `(("LDR_X13_[SP]")                          ; tmp = [x18]
+    (,(string-append "STR_" r "_[SP]"))       ; [x18] = r
+    (,(string-append "SET_" r "_FROM_X13")))) ; r = tmp
+(define (aarch64:swap-r-stack info)  (swap-with-stack (string-upcase (get-r info))))
+(define (aarch64:swap-r1-stack info) (swap-with-stack (string-upcase (get-r0 info))))
+
 (define aarch64:instructions
   `((function-preamble . ,aarch64:function-preamble)
+    (r->arg . ,aarch64:r->arg)
+    (swap-r-stack . ,aarch64:swap-r-stack)
+    (swap-r1-stack . ,aarch64:swap-r1-stack)
+    (label->arg . ,aarch64:label->arg)
+    (call-label . ,aarch64:call-label)
+    (call-r . ,aarch64:call-r)
     (function-locals . ,aarch64:function-locals)
     (value->r . ,aarch64:value->r)
     (value->r0 . ,aarch64:value->r0)

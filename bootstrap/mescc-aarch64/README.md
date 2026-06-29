@@ -19,12 +19,22 @@ compiler **natively on aarch64** (see PATHS.md #8 / BOOTSTRAP.md "the gap").
   `SUBS`+`B.cond` over an absolute `BR`, 32→64 sign-extension via `SXTW`, and a
   rewrite of local-variable addressing to use the **x13 scratch** so a live operand
   in x0/x1 survives while the other is loaded (the bug that made `s=s+i`→`2i`).
+- **Milestone 3** ✅ — **functions, arguments, and recursion**: multi-argument
+  calls (`add3(10,20,12)`→42), and real recursion — `fact(5)`→120 and
+  `fib(10)`→55. Adds the stack-based calling convention (`r->arg` pushes each
+  argument, `call-label`/`call-r` call via `BLR` then pop the args), parameter
+  access at positive BP offsets (negative MesCC offsets → `ADD` not `SUB`), and
+  `swap-r-stack`/`swap-r1-stack` for reordering operands spilled across a call.
 
-**Bug found in M2libc en route:** its `ADD_X0_X16_X0` macro is mis-encoded as
-`add x0, x0, x0, lsl #8` (`0020008b`) — a latent bug, since M2-Planet only ever
-accumulates into x1 and so never emits the x0 form. `extra.M1` defines the correct
-`ADD_X0_X16_X0_OK` (`0002008b`) and the backend routes around it. (Worth reporting
-upstream.)
+**Two latent M2libc bugs found en route** (both in macros M2-Planet itself never
+emits, so never exercised before — `extra.M1` defines corrected versions and the
+backend routes around them; worth reporting upstream):
+1. `ADD_X0_X16_X0` is mis-encoded as `add x0, x0, x0, lsl #8` (`0020008b`); the
+   correct `add x0, x16, x0` is `0002008b` (`ADD_X0_X16_X0_OK`).
+2. `ADD_SP_X16_SP` is mis-encoded as `add x18, x8, x18` (Rn=x8, not x16). Since x8
+   is 0, post-call argument cleanup popped nothing — silently corrupting any value
+   spilled across a call (`n*fact(n-1)` returned `(n-1)!`). Corrected to
+   `add x18, x18, x16` = `5202108b` (`ADD_SP_SP_X16_OK`).
 
 ## Why this matters
 
