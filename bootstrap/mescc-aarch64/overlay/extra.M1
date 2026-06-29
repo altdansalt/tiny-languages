@@ -29,6 +29,15 @@ DEFINE CSET_X0_GE      e0b79f9a   # cset x0, ge
 DEFINE CSET_X0_EQ      e0179f9a   # cset x0, eq
 DEFINE CSET_X0_NE      e0079f9a   # cset x0, ne
 DEFINE CSET_X14_EQ     ee179f9a   # cset x14, eq   (for xor-zf: condx = condx==condy)
+### unsigned comparisons (HI=above, HS=above-eq, LO=below, LS=below-eq)
+DEFINE CSET_X0_HI      e0979f9a   # cset x0, hi
+DEFINE CSET_X0_HS      e0379f9a   # cset x0, hs
+DEFINE CSET_X0_LO      e0279f9a   # cset x0, lo
+DEFINE CSET_X0_LS      e0879f9a   # cset x0, ls
+DEFINE CSET_X1_HI      e1979f9a   # cset x1, hi
+DEFINE CSET_X1_HS      e1379f9a   # cset x1, hs
+DEFINE CSET_X1_LO      e1279f9a   # cset x1, lo
+DEFINE CSET_X1_LS      e1879f9a   # cset x1, ls
 ### sxtw xD, wD : sign-extend 32-bit -> 64-bit  (sbfm xD, xD, #0, #31)
 DEFINE SXTW_X0_X0      007c4093   # sxtw x0, w0
 DEFINE SXTW_X1_X1      217c4093   # sxtw x1, w1

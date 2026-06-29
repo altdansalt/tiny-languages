@@ -73,5 +73,7 @@ check 'int x=7;int main(){return x*6;}'                                 42
 check 'int a[3]={10,20,12};int main(){return a[0]+a[1]+a[2];}'          42
 check 'int add(int a,int b){return a+b;}int main(){int(*f)(int,int);f=add;return f(40,2);}' 42
 check 'struct P{int a;int b;};struct P arr[3];int main(){arr[2].b=42;return arr[2].b;}' 42
+check 'int main(){unsigned int a;a=4000000000;if(a>1000000000)return 42;return 0;}' 42
+check 'int ack(int m,int n){if(m==0)return n+1;if(n==0)return ack(m-1,1);return ack(m-1,ack(m,n-1));}int main(){return ack(2,3);}' 9
 echo "=== $([ $fail -eq 0 ] && echo 'ALL PASS' || echo 'SOME FAILED') ==="
 [ $fail -eq 0 ]

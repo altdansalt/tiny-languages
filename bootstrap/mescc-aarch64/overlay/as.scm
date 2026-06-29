@@ -298,6 +298,11 @@
 (define (aarch64:ge?->r info) (aarch64:cmp->r info "GE"))  ; condx >= condy
 (define (aarch64:eq?->r info) (aarch64:cmp->r info "EQ"))  ; condx == condy
 (define (aarch64:ne?->r info) (aarch64:cmp->r info "NE"))  ; condx != condy
+;; unsigned comparisons
+(define (aarch64:a?->r info)  (aarch64:cmp->r info "HI"))  ; condx >  condy (unsigned)
+(define (aarch64:ae?->r info) (aarch64:cmp->r info "HS"))  ; condx >= condy
+(define (aarch64:b?->r info)  (aarch64:cmp->r info "LO"))  ; condx <  condy
+(define (aarch64:be?->r info) (aarch64:cmp->r info "LS"))  ; condx <= condy
 
 ;; --- function calls (Milestone 3) -------------------------------------------
 ;; Calling convention (matches MesCC's other backends): the caller PUSHes each
@@ -382,6 +387,10 @@
     (le?->r . ,aarch64:le?->r)
     (eq?->r . ,aarch64:eq?->r)
     (ne?->r . ,aarch64:ne?->r)
+    (a?->r . ,aarch64:a?->r)
+    (ae?->r . ,aarch64:ae?->r)
+    (b?->r . ,aarch64:b?->r)
+    (be?->r . ,aarch64:be?->r)
     (r0-and-r1 . ,aarch64:r0-and-r1)
     (r0-or-r1 . ,aarch64:r0-or-r1)
     (r0-xor-r1 . ,aarch64:r0-xor-r1)
