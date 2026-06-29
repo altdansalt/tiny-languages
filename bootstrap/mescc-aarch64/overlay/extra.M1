@@ -28,6 +28,7 @@ DEFINE CSET_X0_LE      e0c79f9a   # cset x0, le
 DEFINE CSET_X0_GE      e0b79f9a   # cset x0, ge
 DEFINE CSET_X0_EQ      e0179f9a   # cset x0, eq
 DEFINE CSET_X0_NE      e0079f9a   # cset x0, ne
+DEFINE CSET_X14_EQ     ee179f9a   # cset x14, eq   (for xor-zf: condx = condx==condy)
 ### sxtw xD, wD : sign-extend 32-bit -> 64-bit  (sbfm xD, xD, #0, #31)
 DEFINE SXTW_X0_X0      007c4093   # sxtw x0, w0
 DEFINE SXTW_X1_X1      217c4093   # sxtw x1, w1

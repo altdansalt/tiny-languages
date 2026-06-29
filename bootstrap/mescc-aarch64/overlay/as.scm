@@ -220,6 +220,10 @@
 (define (aarch64:r-negate info) (aarch64:cmp->r info "EQ"))
 ;; zf->r: materialize "zero flag set" (condx == condy) into r as a 0/1 boolean
 (define (aarch64:zf->r info) (aarch64:cmp->r info "EQ"))
+;; xor-zf: flip the zero-flag sense (for !=).  Replace the condition pair with
+;; (condx = (condx==condy), condy = 0), so a following EQ test reads as inequality.
+(define (aarch64:xor-zf info)
+  `(("CMP_X14_X15") ("CSET_X14_EQ") ("SET_X15_TO_0")))
 
 ;; r-cmp-value: set the condition pair condx=r, condy=v (sign-extended) — for switch
 (define (aarch64:r-cmp-value info v)
@@ -279,6 +283,10 @@
   `(("CMP_X14_X15") ("BNE_SKIP_JUMP") ,@(jump-to label)))
 (define (aarch64:jump-nz info label)
   `(("CMP_X14_X15") ("BEQ_SKIP_JUMP") ,@(jump-to label)))
+;; byte-context variants: the byte was zero-extended on load, so comparing the
+;; whole register against condy is equivalent to comparing just the low 8 bits.
+(define (aarch64:jump-byte-z info label)  (aarch64:jump-z info label))
+(define (aarch64:jump-byte-nz info label) (aarch64:jump-nz info label))
 
 ;; materialize a signed comparison of (condx ? condy) as 0/1 into r
 (define (aarch64:cmp->r info cond)
@@ -363,6 +371,8 @@
     (jump . ,aarch64:jump)
     (jump-z . ,aarch64:jump-z)
     (jump-nz . ,aarch64:jump-nz)
+    (jump-byte-z . ,aarch64:jump-byte-z)
+    (jump-byte-nz . ,aarch64:jump-byte-nz)
     (test-r . ,aarch64:test-r)
     (r-zero? . ,aarch64:r-zero?)
     (r0-cmp-r1 . ,aarch64:r0-cmp-r1)
@@ -405,4 +415,5 @@
     (r-cmp-value . ,aarch64:r-cmp-value)
     (r-long-mem-add . ,aarch64:r-long-mem-add)
     (r-mem-add . ,aarch64:r-mem-add)
-    (zf->r . ,aarch64:zf->r)))
+    (zf->r . ,aarch64:zf->r)
+    (xor-zf . ,aarch64:xor-zf)))

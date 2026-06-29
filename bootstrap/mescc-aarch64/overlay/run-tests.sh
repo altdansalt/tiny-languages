@@ -65,5 +65,13 @@ check 'int main(){int x;int y;x=5;y=x++;return x*10+y;}'               65
 check 'int main(){int x;x=2;switch(x){case 1:return 1;case 2:return 42;}return 0;}' 42
 check 'int main(){int x;x=3;do{x=x+10;}while(x<40);return x;}'         43
 check 'char *s;int main(){s="*";return s[0];}'                         42
+# --- Milestone 6: strings, byte loops, structs, function pointers ---
+check 'int strlen(char*s){int n;n=0;while(s[n])n=n+1;return n;}int main(){return strlen("hello*world");}' 11
+check 'int eq(char*a,char*b){while(*a){if(*a!=*b)return 0;a=a+1;b=b+1;}return *b==0;}int main(){return eq("abc","abc")+eq("abc","abd");}' 1
+check 'struct P{int x;int y;};int main(){struct P p;struct P *q;q=&p;q->x=42;return p.x;}' 42
+check 'int x=7;int main(){return x*6;}'                                 42
+check 'int a[3]={10,20,12};int main(){return a[0]+a[1]+a[2];}'          42
+check 'int add(int a,int b){return a+b;}int main(){int(*f)(int,int);f=add;return f(40,2);}' 42
+check 'struct P{int a;int b;};struct P arr[3];int main(){arr[2].b=42;return arr[2].b;}' 42
 echo "=== $([ $fail -eq 0 ] && echo 'ALL PASS' || echo 'SOME FAILED') ==="
 [ $fail -eq 0 ]

@@ -22,9 +22,16 @@ The backend now compiles: integer arithmetic with precedence, all of C's
 comparisons and `if`/`while`/`for`/`do`/`switch` control flow, functions with
 arguments and recursion, pointers and arrays, local and global variables, `char`,
 bitwise and shift operators, signed/unsigned division and modulo, the logical and
-compound-assignment operators, `++`/`--`, string literals, and basic structs — each
-verified end-to-end (compiled → linked → run → result asserted) in
-`overlay/run-tests.sh`.
+compound-assignment operators, `++`/`--`, string literals, structs (incl. `->`,
+struct pointers, and arrays of structs), function pointers, global/array
+initializers (`int a[3]={…}`), and `char*` string code (byte loops, `strlen`,
+`strcmp`-style `!=` comparison) — each verified end-to-end (compiled → linked →
+run → result asserted) in `overlay/run-tests.sh`.
+
+Known limitation: true multidimensional arrays (`int a[2][2]`) — MesCC's front end
+emits an extra dereference for the inner dimension (modeling them like `int**`),
+which faults on contiguous storage. Single-dimension arrays, arrays of structs, and
+pointer-to-pointer all work; multidim arrays are rare in the bootstrap path.
 
 - **Milestone 1** ✅ — `int main(){return 42;}` → a running native aarch64 ELF.
 - **Milestone 2a** ✅ — a battery of arithmetic programs, each compiled, linked,
