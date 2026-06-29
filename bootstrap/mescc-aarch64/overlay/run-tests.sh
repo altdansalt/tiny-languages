@@ -41,5 +41,16 @@ check 'int sq(int x){return x*x;} int main(){return sq(7);}'            49
 check 'int add3(int a,int b,int c){return a+b+c;} int main(){return add3(10,20,12);}' 42
 check 'int fact(int n){if(n<2){return 1;}return n*fact(n-1);}int main(){return fact(5);}' 120
 check 'int fib(int n){if(n<2){return n;}return fib(n-1)+fib(n-2);}int main(){return fib(10);}' 55
+# --- Milestone 4: pointers, memory, globals, bitwise, shifts ---
+check 'int main(){int x;int *p;x=5;p=&x;*p=42;return x;}'              42
+check 'int main(){int a[4];a[0]=10;a[1]=32;return a[0]+a[1];}'         42
+check 'int main(){int x;x=12;return x&6;}'                            4
+check 'int main(){int x;x=8;return x|2;}'                             10
+check 'int main(){int x;x=15;return x^9;}'                            6
+check 'int main(){int x;x=3;return x<<4;}'                            48
+check 'int main(){int x;x=168;return x>>2;}'                          42
+check 'int g;int main(){g=42;return g;}'                              42
+check 'int gs[3];int main(){gs[1]=42;return gs[1];}'                  42
+check 'char c;int main(){c=65;return c;}'                             65
 echo "=== $([ $fail -eq 0 ] && echo 'ALL PASS' || echo 'SOME FAILED') ==="
 [ $fail -eq 0 ]

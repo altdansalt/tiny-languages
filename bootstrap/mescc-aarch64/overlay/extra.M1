@@ -56,3 +56,41 @@ DEFINE STR_X1_[SP]     410200f9   # str x1,  [x18]
 ### so post-call argument cleanup added garbage and never popped — corrupting any
 ### value spilled across a call (e.g. the n in `n*fact(n-1)`). Correct version:
 DEFINE ADD_SP_SP_X16_OK 5202108b  # add x18, x18, x16  (pop n arg words)
+
+### --- bitwise / shifts / extends / memory (Milestone 4) ---
+### bitwise (2-register model: x0 = x0 OP x1)
+DEFINE AND_X0_X0_X1   0000018a   # and x0, x0, x1
+DEFINE OR_X0_X0_X1    000001aa   # orr x0, x0, x1
+DEFINE EOR_X0_X0_X1   000001ca   # eor x0, x0, x1
+### variable shifts (x0 = x0 SHIFT x1)
+DEFINE LSLV_X0_X0_X1  0020c19a   # lslv x0, x0, x1   (<<)
+DEFINE LSRV_X0_X0_X1  0024c19a   # lsrv x0, x0, x1   (>> unsigned)
+DEFINE ASRV_X0_X0_X1  0028c19a   # asrv x0, x0, x1   (>> signed)
+### shift by amount in x16 (for shl-r immediate)
+DEFINE LSLV_X0_X0_X16 0020d09a   # lslv x0, x0, x16
+DEFINE LSLV_X1_X1_X16 2120d09a   # lslv x1, x1, x16
+### sign/zero extend in place
+DEFINE UXTB_X0_X0     001c0053   # uxtb w0, w0   (zero-extend 8)
+DEFINE UXTB_X1_X1     211c0053
+DEFINE SXTB_X0_X0     001c4093   # sxtb x0, w0   (sign-extend 8)
+DEFINE SXTB_X1_X1     211c4093
+DEFINE UXTH_X0_X0     003c0053   # uxth w0, w0   (zero-extend 16)
+DEFINE UXTH_X1_X1     213c0053
+DEFINE SXTH_X0_X0     003c4093   # sxth x0, w0   (sign-extend 16)
+DEFINE SXTH_X1_X1     213c4093
+### memory loads: r = [r]  (zero-extending for sub-word)
+DEFINE DEREF_X0_W     000040b9   # ldr  w0, [x0]   (32-bit)
+DEFINE DEREF_X1_W     210040b9
+DEFINE DEREF_X0_H     00004079   # ldrh w0, [x0]   (16-bit)
+DEFINE DEREF_X1_H     21004079
+### memory stores: [x1] = low bits of x0
+DEFINE STRH_W0_[X1]   20000079   # strh w0, [x1]   (16-bit)
+### stores to address held in x16 (globals via &label)
+DEFINE STR_X0_[X16]   000200f9   # str  x0, [x16]
+DEFINE STR_X1_[X16]   010200f9
+DEFINE STR_W0_[X16]   000200b9   # str  w0, [x16]
+DEFINE STR_W1_[X16]   010200b9
+DEFINE STRH_W0_[X16]  00020079   # strh w0, [x16]
+DEFINE STRH_W1_[X16]  01020079
+DEFINE STR_BYTE_W0_[X16] 00020039 # strb w0, [x16]
+DEFINE STR_BYTE_W1_[X16] 01020039

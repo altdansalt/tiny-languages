@@ -25,6 +25,16 @@ compiler **natively on aarch64** (see PATHS.md #8 / BOOTSTRAP.md "the gap").
   argument, `call-label`/`call-r` call via `BLR` then pop the args), parameter
   access at positive BP offsets (negative MesCC offsets → `ADD` not `SUB`), and
   `swap-r-stack`/`swap-r1-stack` for reordering operands spilled across a call.
+- **Milestone 4** ✅ — **pointers, memory, globals, bitwise, and shifts**:
+  pointer deref/assign (`*p=42`), local arrays (`a[0]+a[1]`), global scalars and
+  arrays (`int g; gs[1]=42`), char globals, bitwise `& | ^`, and shifts `<< >>`.
+  Adds the bitwise/shift ALU ops, width-aware loads/stores (`DEREF`/`STR` in
+  byte/half/word/dword, with zero/sign extension via `UXTB/SXTB/UXTH/SXTH`),
+  address-of-local (`local-ptr->r`), and label-addressed global storage. The last
+  required emitting label references as MesCC's structured `(#:address ,label)`
+  token (rendered by `M1.scm` via `global->string`/`function->string`) rather than
+  a hand-built `&name`, so every label kind — strings, `<global>`/`<function>`
+  records, nested address forms — resolves correctly.
 
 **Two latent M2libc bugs found en route** (both in macros M2-Planet itself never
 emits, so never exercised before — `extra.M1` defines corrected versions and the

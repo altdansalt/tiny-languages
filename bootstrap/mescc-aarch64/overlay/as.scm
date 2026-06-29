@@ -147,19 +147,82 @@
   (let ((r (string-upcase (get-r info))))
     `((,(string-append "SXTW_" r "_" r)))))
 
+;; --- bitwise & shifts (Milestone 4) -----------------------------------------
+;; 2-register model: r0=x0, r1=x1, so r0 OP r1 maps to a fixed-register macro.
+(define (aarch64:r0-and-r1 info) `(("AND_X0_X0_X1")))
+(define (aarch64:r0-or-r1 info)  `(("OR_X0_X0_X1")))
+(define (aarch64:r0-xor-r1 info) `(("EOR_X0_X0_X1")))
+(define (aarch64:r0<<r1 info)    `(("LSLV_X0_X0_X1")))
+(define (aarch64:r0>>r1 info)    `(("LSRV_X0_X0_X1")))
+(define (aarch64:r0>>r1-signed info) `(("ASRV_X0_X0_X1")))
+;; r <<= immediate n  (shift amount loaded into x16)
+(define (aarch64:shl-r info n)
+  (let ((r (string-upcase (get-r info))))
+    `(,@(load-x16 n) (,(string-append "LSLV_" r "_" r "_X16")))))
+
+;; --- sign/zero extension in place -------------------------------------------
+(define (aarch64:ext r kind) `((,(string-append kind "_" r "_" r))))
+(define (aarch64:byte-r info)        (aarch64:ext (string-upcase (get-r info)) "UXTB"))
+(define (aarch64:byte-signed-r info) (aarch64:ext (string-upcase (get-r info)) "SXTB"))
+(define (aarch64:word-r info)        (aarch64:ext (string-upcase (get-r info)) "UXTH"))
+(define (aarch64:word-signed-r info) (aarch64:ext (string-upcase (get-r info)) "SXTH"))
+
+;; --- pointer / memory access ------------------------------------------------
+;; r = [r]  (the address is already in r); sub-word loads zero-extend
+(define (aarch64:mem->r info)      (let ((r (string-upcase (get-r info)))) `((,(string-append "DEREF_" r)))))
+(define (aarch64:long-mem->r info) (let ((r (string-upcase (get-r info)))) `((,(string-append "DEREF_" r "_W")))))
+(define (aarch64:word-mem->r info) (let ((r (string-upcase (get-r info)))) `((,(string-append "DEREF_" r "_H")))))
+(define (aarch64:byte-mem->r info) (let ((r (string-upcase (get-r info)))) `((,(string-append "DEREF_" r "_BYTE")))))
+;; [r1] = r0  (store the value in x0 at the address in x1), by width
+(define (aarch64:r0->r1-mem info)      `(("STR_X0_[X1]")))
+(define (aarch64:long-r0->r1-mem info) `(("STR_W0_[X1]")))
+(define (aarch64:word-r0->r1-mem info) `(("STRH_W0_[X1]")))
+(define (aarch64:byte-r0->r1-mem info) `(("STR_BYTE_W0_[X1]")))
+
+;; address of local#n into r (no dereference)
+(define (aarch64:local-ptr->r info n)
+  (let ((r (string-upcase (get-r info))))
+    `(,@(addr-x13 n) (,(string-append "SET_" r "_FROM_X13")))))
+
+;; --- globals (label-addressed storage) --------------------------------------
+;; address of a label into r (32-bit address space, so a word load suffices)
+(define (aarch64:label->r info label)
+  (let ((r (get-r info)))
+    `((,(string-append "LOAD_W" (reg-n r) "_AHEAD"))
+      ,(skip+addr label))))
+;; value at a label into r (address then dereference, by width)
+(define (aarch64:label-mem->r info label)
+  (let ((ru (string-upcase (get-r info))))
+    `(,@(aarch64:label->r info label) (,(string-append "DEREF_" ru)))))
+;; store r at a label.  Load &label into x16, then store r there by width.
+(define (label-store r-suffix label)
+  `(("LOAD_W16_AHEAD") ,(skip+addr label)
+    (,(string-append r-suffix "_[X16]"))))
+(define (aarch64:r->label info label)
+  (label-store (string-append "STR_" (string-upcase (get-r info))) label))
+(define (aarch64:r->long-label info label)
+  (label-store (string-append "STR_W" (reg-n (get-r info))) label))
+(define (aarch64:r->word-label info label)
+  (label-store (string-append "STRH_W" (reg-n (get-r info))) label))
+(define (aarch64:r->byte-label info label)
+  (label-store (string-append "STR_BYTE_W" (reg-n (get-r info))) label))
+
 ;; --- comparisons & control flow (Milestone 2b) ------------------------------
 ;; Condition pair: x14 = condx, x15 = condy.  The compare-setup op loads the two
 ;; operands; the jump/materialize op consumes them.  This mirrors the riscv64
 ;; backend's condregx/condregy, realised with aarch64 SUBS+B.cond / CSET.
-(define (label->s label)
-  (cond ((string? label) label)
-        ((symbol? label) (symbol->string label))
-        (else (format #f "~a" label))))
+;; The SKIP_32_DATA macro plus the 4-byte &label it skips over, as one M1 line.
+;; The structured (#:address ,label) token lets M1.scm render every label kind
+;; MesCC passes — plain strings (jump targets), <global>/<function> records, and
+;; nested (#:address ...) forms — via global->string/function->string.  It must
+;; share a line with a leading string token (here "SKIP_32_DATA"), since
+;; line->M1 requires the first or last token to be a string/symbol.
+(define (skip+addr label) `("SKIP_32_DATA" (#:address ,label)))
 
-;; the 4-instruction absolute jump M2libc-style: load &label into x16, BR x16
+;; the absolute jump M2libc-style: load &label into x16, BR x16
 (define (jump-to label)
-  `(("LOAD_W16_AHEAD") ("SKIP_32_DATA")
-    (,(string-append "&" (label->s label)))
+  `(("LOAD_W16_AHEAD")
+    ,(skip+addr label)
     ("BR_X16")))
 
 (define (aarch64:jump info label)
@@ -203,8 +266,8 @@
   `((,(aarch64:push (get-r info)))))
 
 (define (aarch64:label->arg info label i)
-  `(("LOAD_W16_AHEAD") ("SKIP_32_DATA")
-    (,(string-append "&" (label->s label)))
+  `(("LOAD_W16_AHEAD")
+    ,(skip+addr label)
     ("PUSH_X16")))
 
 ;; pop n argument words off the x18 stack after a call (x18 += 8n).  Uses the
@@ -213,8 +276,8 @@
   (if (> n 0) `(,@(load-x16 (* 8 n)) ("ADD_SP_SP_X16_OK")) '()))
 
 (define (aarch64:call-label info label n)
-  `(("LOAD_W16_AHEAD") ("SKIP_32_DATA")
-    (,(string-append "&" (label->s label)))
+  `(("LOAD_W16_AHEAD")
+    ,(skip+addr label)
     ("BLR_X16")
     ,@(args-cleanup n)))
 
@@ -274,4 +337,30 @@
     (l?->r . ,aarch64:l?->r)
     (le?->r . ,aarch64:le?->r)
     (eq?->r . ,aarch64:eq?->r)
-    (ne?->r . ,aarch64:ne?->r)))
+    (ne?->r . ,aarch64:ne?->r)
+    (r0-and-r1 . ,aarch64:r0-and-r1)
+    (r0-or-r1 . ,aarch64:r0-or-r1)
+    (r0-xor-r1 . ,aarch64:r0-xor-r1)
+    (r0<<r1 . ,aarch64:r0<<r1)
+    (r0>>r1 . ,aarch64:r0>>r1)
+    (r0>>r1-signed . ,aarch64:r0>>r1-signed)
+    (shl-r . ,aarch64:shl-r)
+    (byte-r . ,aarch64:byte-r)
+    (byte-signed-r . ,aarch64:byte-signed-r)
+    (word-r . ,aarch64:word-r)
+    (word-signed-r . ,aarch64:word-signed-r)
+    (mem->r . ,aarch64:mem->r)
+    (long-mem->r . ,aarch64:long-mem->r)
+    (word-mem->r . ,aarch64:word-mem->r)
+    (byte-mem->r . ,aarch64:byte-mem->r)
+    (r0->r1-mem . ,aarch64:r0->r1-mem)
+    (long-r0->r1-mem . ,aarch64:long-r0->r1-mem)
+    (word-r0->r1-mem . ,aarch64:word-r0->r1-mem)
+    (byte-r0->r1-mem . ,aarch64:byte-r0->r1-mem)
+    (local-ptr->r . ,aarch64:local-ptr->r)
+    (label->r . ,aarch64:label->r)
+    (label-mem->r . ,aarch64:label-mem->r)
+    (r->label . ,aarch64:r->label)
+    (r->long-label . ,aarch64:r->long-label)
+    (r->word-label . ,aarch64:r->word-label)
+    (r->byte-label . ,aarch64:r->byte-label)))
