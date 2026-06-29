@@ -103,6 +103,34 @@
 (define (aarch64:r+value info v)  (aarch64:add-imm (string-upcase (get-r info)) v))
 (define (aarch64:r0+value info v) (aarch64:add-imm (string-upcase (get-r0 info)) v))
 
+;; --- local variables (BP-relative; M2libc's BP is x17) ----------------------
+;; load the byte offset |off| into x16 (offsets here are small multiples of 8)
+(define (load-x16 off)
+  `(("LOAD_W16_AHEAD") ("SKIP_32_DATA") (,(string-append "%" (number->string off)))))
+(define (first-r info)
+  (car (if (pair? (.allocated info)) (.allocated info) (.registers info))))
+
+;; r = local#n  (value at [BP - 8n])
+(define (aarch64:local->r info n)
+  (let ((r (string-upcase (first-r info))))
+    `(("SET_X0_FROM_BP")
+      ,@(load-x16 (* 8 n))
+      ("SUB_X0_X0_X16")          ; x0 = BP - 8n  (address)
+      ("DEREF_X0")               ; x0 = [address]
+      ,@(if (string=? r "X0") '() `((,(string-append "SET_" r "_FROM_X0")))))))
+
+;; local#n = r  (store r at [BP - 8n])
+(define (aarch64:r->local info n)
+  (let ((r (string-upcase (get-r info))))
+    `(,@(if (string=? r "X0") '() `((,(string-append "SET_X0_FROM_" r))))  ; value -> x0
+      ("PUSH_X0")
+      ("SET_X0_FROM_BP")
+      ,@(load-x16 (* 8 n))
+      ("SUB_X0_X0_X16")          ; x0 = address
+      ("SET_X1_FROM_X0")         ; x1 = address
+      ("POP_X0")                 ; x0 = value
+      ("STR_X0_[X1]"))))
+
 ;; register moves between the working pair
 (define (aarch64:r1->r0 info) `(("SET_X0_FROM_X1")))   ; x0 = x1
 (define (aarch64:r0->r1 info) `(("SET_X1_FROM_X0")))   ; x1 = x0
@@ -132,4 +160,6 @@
     (r0->r1 . ,aarch64:r0->r1)
     (r2->r0 . ,aarch64:r2->r0)
     (r+value . ,aarch64:r+value)
-    (r0+value . ,aarch64:r0+value)))
+    (r0+value . ,aarch64:r0+value)
+    (local->r . ,aarch64:local->r)
+    (r->local . ,aarch64:r->local)))
