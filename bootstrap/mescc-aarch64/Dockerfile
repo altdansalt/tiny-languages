@@ -109,5 +109,5 @@ RUN cd /b/mes \
          -f /b/header.hex2 -f /b/greet.hex2 -f /b/footer.hex2 -o /b/greet.elf \
     && out="$(/b/greet.elf)" \
     && printf 'greet.elf says:\n%s\n' "$out" \
-    && [ "$out" = "$(printf 'libc-aarch64 online (separate compilation + linked libc):\n  strcmp equal     -> ok\n  strcmp ordering  -> ok\n  squares 1..6:\n  1  4  9  16  25  36')" ]
+    && [ "$out" = "$(printf 'libc-aarch64 online (separate compilation + linked libc):\n  strcmp equal     -> ok\n  strcmp ordering  -> ok\n  squares 1..6:\n  1  4  9  16  25  36\n  malloc'"'"'d sum of squares 1..10:\n  385')" ]
 CMD ["sh", "/b/run-tests.sh"]

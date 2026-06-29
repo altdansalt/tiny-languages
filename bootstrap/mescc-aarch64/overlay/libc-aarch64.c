@@ -51,6 +51,25 @@ void exit(int code)
 	__sys_call1(93, code);
 }
 
+/* --- a bump allocator over brk(2) (syscall 214) --------------------------- */
+char *g_brk;
+
+char *sbrk(int n)
+{
+	char *p;
+	if (g_brk == 0)
+		g_brk = (char *) __sys_call1(214, 0);   /* current break */
+	p = g_brk;
+	g_brk = g_brk + n;
+	__sys_call1(214, (long) g_brk);                 /* extend the break */
+	return p;
+}
+
+void *malloc(int n)
+{
+	return sbrk(n);
+}
+
 /* --- portable C on top of the syscalls ------------------------------------ */
 int strlen(char *s)
 {
