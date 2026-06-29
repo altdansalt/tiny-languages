@@ -94,3 +94,26 @@ DEFINE STRH_W0_[X16]  00020079   # strh w0, [x16]
 DEFINE STRH_W1_[X16]  01020079
 DEFINE STR_BYTE_W0_[X16] 00020039 # strb w0, [x16]
 DEFINE STR_BYTE_W1_[X16] 01020039
+
+### --- division, modulo, zero-extend, mem-add, cmp-value (Milestone 5) ---
+DEFINE UXTW_X0_X0     e003002a   # mov w0, w0   (zero-extend 32 -> 64)
+DEFINE UXTW_X1_X1     e103012a   # mov w1, w1
+### division x0 = x0 / x1 (signed sdiv / unsigned udiv)
+DEFINE SDIV_X0_X0_X1  000cc19a   # sdiv x0, x0, x1
+DEFINE UDIV_X0_X0_X1  0008c19a   # udiv x0, x0, x1
+### modulo via x16=quotient then msub: x0 = x0 - (x0/x1)*x1
+DEFINE SDIV_X16_X0_X1 100cc19a   # sdiv x16, x0, x1
+DEFINE UDIV_X16_X0_X1 1008c19a   # udiv x16, x0, x1
+DEFINE MSUB_X0_X16_X1_X0 0082019b # msub x0, x16, x1, x0
+### r-cmp-value: load value into x15 (condy), sign-extended
+DEFINE SET_X15_FROM_X16 ef0310aa # mov x15, x16
+DEFINE SXTW_X15_X15   ef7d4093   # sxtw x15, w15
+### mem-add: read-modify-write 32/64-bit at address in x0/x1 via x13
+DEFINE LDR_W13_[X0]   0d0040b9   # ldr w13, [x0]
+DEFINE LDR_W13_[X1]   2d0040b9
+DEFINE STR_W13_[X0]   0d0000b9   # str w13, [x0]
+DEFINE STR_W13_[X1]   2d0000b9
+DEFINE LDR_X13_[X0]   0d0040f9   # ldr x13, [x0]
+DEFINE LDR_X13_[X1]   2d0040f9
+DEFINE STR_X13_[X0]   0d0000f9   # str x13, [x0]
+DEFINE STR_X13_[X1]   2d0000f9

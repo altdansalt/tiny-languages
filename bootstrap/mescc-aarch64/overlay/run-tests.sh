@@ -52,5 +52,18 @@ check 'int main(){int x;x=168;return x>>2;}'                          42
 check 'int g;int main(){g=42;return g;}'                              42
 check 'int gs[3];int main(){gs[1]=42;return gs[1];}'                  42
 check 'char c;int main(){c=65;return c;}'                             65
+# --- Milestone 5: division, modulo, for, logical, switch, increment ---
+check 'int main(){return 84/2;}'                                       42
+check 'int main(){return 85%43;}'                                      42
+check 'int main(){int i;int s;s=0;for(i=0;i<=8;i=i+1){s=s+i;}return s;}' 36
+check 'int main(){int x;x=5;return !x;}'                                0
+check 'int main(){int x;x=0;return !x;}'                                1
+check 'int main(){return (3<5)&&(2<4);}'                               1
+check 'int main(){return (3>5)||(2<4);}'                               1
+check 'int main(){int x;x=40;x+=2;return x;}'                          42
+check 'int main(){int x;int y;x=5;y=x++;return x*10+y;}'               65
+check 'int main(){int x;x=2;switch(x){case 1:return 1;case 2:return 42;}return 0;}' 42
+check 'int main(){int x;x=3;do{x=x+10;}while(x<40);return x;}'         43
+check 'char *s;int main(){s="*";return s[0];}'                         42
 echo "=== $([ $fail -eq 0 ] && echo 'ALL PASS' || echo 'SOME FAILED') ==="
 [ $fail -eq 0 ]

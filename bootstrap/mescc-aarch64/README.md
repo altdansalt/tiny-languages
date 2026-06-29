@@ -25,6 +25,13 @@ compiler **natively on aarch64** (see PATHS.md #8 / BOOTSTRAP.md "the gap").
   argument, `call-label`/`call-r` call via `BLR` then pop the args), parameter
   access at positive BP offsets (negative MesCC offsets → `ADD` not `SUB`), and
   `swap-r-stack`/`swap-r1-stack` for reordering operands spilled across a call.
+- **Milestone 5** ✅ — **division, modulo, and the rest of C's everyday surface**:
+  `84/2`→42, `85%43`→42 (modulo via `SDIV`+`MSUB`), `for` loops, logical `!`/`&&`/
+  `||`, compound assignment (`x+=2`), post-increment (`x++`, read-modify-write via
+  `r-long-mem-add`), `switch`/`case` (`r-cmp-value`), `do/while`, and string
+  literals (`s="*"; s[0]`→42). Adds signed/unsigned divide and remainder, 32→64
+  zero-extension (`UXTW`), logical-negate, compare-with-immediate, and in-place
+  memory increment.
 - **Milestone 4** ✅ — **pointers, memory, globals, bitwise, and shifts**:
   pointer deref/assign (`*p=42`), local arrays (`a[0]+a[1]`), global scalars and
   arrays (`int g; gs[1]=42`), char globals, bitwise `& | ^`, and shifts `<< >>`.

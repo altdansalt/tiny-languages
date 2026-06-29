@@ -207,6 +207,38 @@
 (define (aarch64:r->byte-label info label)
   (label-store (string-append "STR_BYTE_W" (reg-n (get-r info))) label))
 
+;; --- division, modulo, zero-extend (Milestone 5) ----------------------------
+(define (aarch64:r0/r1 info signed?)
+  (if signed? `(("SDIV_X0_X0_X1")) `(("UDIV_X0_X0_X1"))))
+(define (aarch64:r0%r1 info signed?)
+  `((,(if signed? "SDIV_X16_X0_X1" "UDIV_X16_X0_X1"))  ; x16 = x0 / x1
+    ("MSUB_X0_X16_X1_X0")))                            ; x0 = x0 - x16*x1
+(define (aarch64:long-r info)   ; zero-extend a 32-bit (unsigned int) value to 64
+  (aarch64:ext (string-upcase (get-r info)) "UXTW"))
+
+;; logical NOT: r := (e == 0) — MesCC has set the condition pair (condx=e,condy=0)
+(define (aarch64:r-negate info) (aarch64:cmp->r info "EQ"))
+
+;; r-cmp-value: set the condition pair condx=r, condy=v (sign-extended) — for switch
+(define (aarch64:r-cmp-value info v)
+  (let ((r (string-upcase (get-r info))))
+    `((,(string-append "SET_X14_FROM_" r))
+      ,@(load-x16 v)
+      ("SET_X15_FROM_X16")
+      ("SXTW_X15_X15"))))
+
+;; read-modify-write at the address in r (for ++/-- and += through an lvalue):
+;; load [r], add v (sign-aware), store back.  x13 is the scratch.
+(define (mem-add r ld st v)
+  `((,(string-append ld "_[" r "]"))
+    ,@(load-x16 (abs v))
+    (,(if (>= v 0) "ADD_X13_X13_X16" "SUB_X13_X13_X16"))
+    (,(string-append st "_[" r "]"))))
+(define (aarch64:r-long-mem-add info v)
+  (mem-add (string-upcase (get-r info)) "LDR_W13" "STR_W13" v))
+(define (aarch64:r-mem-add info v)
+  (mem-add (string-upcase (get-r info)) "LDR_X13" "STR_X13" v))
+
 ;; --- comparisons & control flow (Milestone 2b) ------------------------------
 ;; Condition pair: x14 = condx, x15 = condy.  The compare-setup op loads the two
 ;; operands; the jump/materialize op consumes them.  This mirrors the riscv64
@@ -363,4 +395,11 @@
     (r->label . ,aarch64:r->label)
     (r->long-label . ,aarch64:r->long-label)
     (r->word-label . ,aarch64:r->word-label)
-    (r->byte-label . ,aarch64:r->byte-label)))
+    (r->byte-label . ,aarch64:r->byte-label)
+    (r0/r1 . ,aarch64:r0/r1)
+    (r0%r1 . ,aarch64:r0%r1)
+    (long-r . ,aarch64:long-r)
+    (r-negate . ,aarch64:r-negate)
+    (r-cmp-value . ,aarch64:r-cmp-value)
+    (r-long-mem-add . ,aarch64:r-long-mem-add)
+    (r-mem-add . ,aarch64:r-mem-add)))
