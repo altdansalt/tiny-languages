@@ -18,8 +18,22 @@ The headline demo (`calc.c`) is a **recursive-descent expression evaluator** —
 genuine mini-compiler that parses integer expressions with `+ - * /` and
 parentheses, honoring precedence via mutual recursion (`expr→term→factor→expr`) over
 a global cursor, then prints each result (`2+3*(4+10)-2`→42, `10*10-58`→42,
-`(1+2)*(3+4)`→21). All three demos are compiled by the new backend and gated in the
+`(1+2)*(3+4)`→21). All demos are compiled by the new backend and gated in the
 build with exact output assertions.
+
+### Self-hosting groundwork: a Mes-style libc, compiled by the backend
+
+The path to self-hosting (compiling `tcc`) needs MesCC's libc ported to aarch64.
+The other arches do this with a small per-arch syscall layer — `__sys_callN`
+stubs written in C using `asm("…")` with raw assembler tokens — plus portable C for
+everything else. `libc-aarch64.c` is that layer for aarch64: the `__sys_callN`
+stubs marshal args into `x8`/`x0..x5` and `SVC` (the offsets/macros are in
+`libc-aarch64.M1`), with `write`/`read`/`exit` over them and `strlen`/`strcmp`/
+`strcpy`/`puts`/`putchar`/`putint` on top. `greet.c` is then a **separately
+compiled** program linked against that libc — the shape every real bootstrap
+program takes — verified end-to-end in the build. This confirms the libc-port path
+works on aarch64; fleshing it out to the full Mes libc (then the `tcc` target) is
+mechanical from here.
 This is the piece that has been missing from the bootstrappable ecosystem: the path
 past M2-Planet to a *real* C compiler **natively on aarch64** (PATHS.md #8 /
 BOOTSTRAP.md "the gap").

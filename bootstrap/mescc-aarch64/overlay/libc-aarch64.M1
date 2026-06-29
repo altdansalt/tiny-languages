@@ -1,0 +1,15 @@
+### aarch64 syscall argument-marshalling macros for the Mes-libc port.
+###
+### Mes libc's __sys_callN(sysnum, a, b, ...) stubs (libc-aarch64.c) load their
+### arguments — which MesCC passes on the stack, readable at BP-relative positive
+### offsets — into the Linux aarch64 syscall registers (x8 = number, x0..x5 =
+### args) and then SVC. BP is x17; arg0 (sysnum) sits at BP+16, then +8 each.
+### These are plain `ldr xT, [x17, #off]` (off = imm12*8).
+
+DEFINE LDR_X8_[BP_16] 280a40f9   # ldr x8, [x17, #16]   (syscall number)
+DEFINE LDR_X0_[BP_24] 200e40f9   # ldr x0, [x17, #24]   (arg 1)
+DEFINE LDR_X1_[BP_32] 211240f9   # ldr x1, [x17, #32]   (arg 2)
+DEFINE LDR_X2_[BP_40] 221640f9   # ldr x2, [x17, #40]   (arg 3)
+DEFINE LDR_X3_[BP_48] 231a40f9   # ldr x3, [x17, #48]   (arg 4)
+DEFINE LDR_X4_[BP_56] 241e40f9   # ldr x4, [x17, #56]   (arg 5)
+DEFINE LDR_X5_[BP_64] 252240f9   # ldr x5, [x17, #64]   (arg 6)

@@ -51,6 +51,9 @@ COPY overlay/libc-tiny.M1 /b/libc-tiny.M1
 COPY overlay/hello.c      /b/hello.c
 COPY overlay/primes.c     /b/primes.c
 COPY overlay/calc.c       /b/calc.c
+COPY overlay/libc-aarch64.M1 /b/libc-aarch64.M1
+COPY overlay/libc-aarch64.c  /b/libc-aarch64.c
+COPY overlay/greet.c         /b/greet.c
 ENV MES_PREFIX=/b/mes
 
 # --- smoke: compile + run a battery of C programs through the new backend ---
@@ -92,4 +95,19 @@ RUN cd /b/mes \
     && out="$(/b/calc.elf)" \
     && printf 'calc.elf evaluated:\n%s\n' "$out" \
     && [ "$out" = "$(printf '42\n42\n21')" ]
+
+# --- self-hosting groundwork: a small Mes-style libc, compiled by the backend ---
+# Port of the per-arch syscall layer (__sys_callN via asm()) plus a few string/IO
+# routines, then a SEPARATELY-compiled program (greet.c) linked against it. This is
+# the shape every real bootstrap program takes — and the foundation for a full Mes
+# libc / tcc port on aarch64.
+RUN cd /b/mes \
+    && guile -L module -L /opt/nyacc/module -L . /b/drive.scm --arch=aarch64 -S /b/libc-aarch64.c -o /b/libc-aarch64.s \
+    && guile -L module -L /opt/nyacc/module -L . /b/drive.scm --arch=aarch64 -S /b/greet.c -o /b/greet.s \
+    && M1 --architecture aarch64 --little-endian -f /b/defs.M1 -f /b/libc-aarch64.M1 -f /b/crt1.M1 -f /b/libc-aarch64.s -f /b/greet.s -o /b/greet.hex2 \
+    && hex2 --architecture aarch64 --little-endian --base-address 0x00400000 \
+         -f /b/header.hex2 -f /b/greet.hex2 -f /b/footer.hex2 -o /b/greet.elf \
+    && out="$(/b/greet.elf)" \
+    && printf 'greet.elf says:\n%s\n' "$out" \
+    && [ "$out" = "$(printf 'libc-aarch64 online (separate compilation + linked libc):\n  strcmp equal     -> ok\n  strcmp ordering  -> ok\n  squares 1..6:\n  1  4  9  16  25  36')" ]
 CMD ["sh", "/b/run-tests.sh"]
