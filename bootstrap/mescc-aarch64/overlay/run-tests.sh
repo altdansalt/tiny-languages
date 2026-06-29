@@ -75,5 +75,8 @@ check 'int add(int a,int b){return a+b;}int main(){int(*f)(int,int);f=add;return
 check 'struct P{int a;int b;};struct P arr[3];int main(){arr[2].b=42;return arr[2].b;}' 42
 check 'int main(){unsigned int a;a=4000000000;if(a>1000000000)return 42;return 0;}' 42
 check 'int ack(int m,int n){if(m==0)return n+1;if(n==0)return ack(m-1,1);return ack(m-1,ack(m,n-1));}int main(){return ack(2,3);}' 9
+# comparison as a non-leftmost subexpression -> result in x1 (regression: CSET_X1_*)
+check 'int main(){int i;int c;c=0;for(i=1;i<=20;i=i+1)c=c+(i%3==0);return c;}' 6
+check 'int main(){int x;int y;x=5;y=3;return 36+(x>y)+(x==y)*9+(y<x);}' 38
 echo "=== $([ $fail -eq 0 ] && echo 'ALL PASS' || echo 'SOME FAILED') ==="
 [ $fail -eq 0 ]

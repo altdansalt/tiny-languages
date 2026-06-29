@@ -29,6 +29,14 @@ DEFINE CSET_X0_GE      e0b79f9a   # cset x0, ge
 DEFINE CSET_X0_EQ      e0179f9a   # cset x0, eq
 DEFINE CSET_X0_NE      e0079f9a   # cset x0, ne
 DEFINE CSET_X14_EQ     ee179f9a   # cset x14, eq   (for xor-zf: condx = condx==condy)
+### x1 variants of the signed/equality CSETs — needed when a comparison is not the
+### leftmost subexpression (its result lands in x1), e.g. `c + (i%3==0)`.
+DEFINE CSET_X1_LT      e1a79f9a   # cset x1, lt
+DEFINE CSET_X1_GT      e1d79f9a   # cset x1, gt
+DEFINE CSET_X1_LE      e1c79f9a   # cset x1, le
+DEFINE CSET_X1_GE      e1b79f9a   # cset x1, ge
+DEFINE CSET_X1_EQ      e1179f9a   # cset x1, eq
+DEFINE CSET_X1_NE      e1079f9a   # cset x1, ne
 ### unsigned comparisons (HI=above, HS=above-eq, LO=below, LS=below-eq)
 DEFINE CSET_X0_HI      e0979f9a   # cset x0, hi
 DEFINE CSET_X0_HS      e0379f9a   # cset x0, hs
