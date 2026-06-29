@@ -11,6 +11,9 @@ hello, aarch64! (compiled by a brand-new MesCC backend)
 ```
 
 — proving the backend produces genuinely useful programs, not just exit codes.
+And a larger one (`primes.c`) — print every prime below 40 — exercises `void`
+functions, `char` arrays, digit arithmetic, division/modulo, nested calls, and
+`&buf[i]` all at once, asserting its output `2 3 5 7 11 13 17 19 23 29 31 37`.
 This is the piece that has been missing from the bootstrappable ecosystem: the path
 past M2-Planet to a *real* C compiler **natively on aarch64** (PATHS.md #8 /
 BOOTSTRAP.md "the gap").

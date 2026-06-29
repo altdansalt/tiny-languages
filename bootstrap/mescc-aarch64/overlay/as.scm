@@ -218,6 +218,8 @@
 
 ;; logical NOT: r := (e == 0) — MesCC has set the condition pair (condx=e,condy=0)
 (define (aarch64:r-negate info) (aarch64:cmp->r info "EQ"))
+;; zf->r: materialize "zero flag set" (condx == condy) into r as a 0/1 boolean
+(define (aarch64:zf->r info) (aarch64:cmp->r info "EQ"))
 
 ;; r-cmp-value: set the condition pair condx=r, condy=v (sign-extended) — for switch
 (define (aarch64:r-cmp-value info v)
@@ -402,4 +404,5 @@
     (r-negate . ,aarch64:r-negate)
     (r-cmp-value . ,aarch64:r-cmp-value)
     (r-long-mem-add . ,aarch64:r-long-mem-add)
-    (r-mem-add . ,aarch64:r-mem-add)))
+    (r-mem-add . ,aarch64:r-mem-add)
+    (zf->r . ,aarch64:zf->r)))

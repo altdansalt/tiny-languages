@@ -49,6 +49,7 @@ RUN printf '(use-modules (mescc))\n(mescc:main (command-line))\n' > /b/drive.scm
 COPY overlay/run-tests.sh /b/run-tests.sh
 COPY overlay/libc-tiny.M1 /b/libc-tiny.M1
 COPY overlay/hello.c      /b/hello.c
+COPY overlay/primes.c     /b/primes.c
 ENV MES_PREFIX=/b/mes
 
 # --- smoke: compile + run a battery of C programs through the new backend ---
@@ -68,4 +69,14 @@ RUN cd /b/mes \
     && out="$(/b/hello.elf)" \
     && echo "hello.elf says: $out" \
     && [ "$out" = "hello, aarch64! (compiled by a brand-new MesCC backend)" ]
+
+# --- a non-trivial program: print every prime below 40, and assert the output ---
+RUN cd /b/mes \
+    && guile -L module -L /opt/nyacc/module -L . /b/drive.scm --arch=aarch64 -S /b/primes.c -o /b/primes.s \
+    && M1 --architecture aarch64 --little-endian -f /b/defs.M1 -f /b/crt1.M1 -f /b/libc-tiny.M1 -f /b/primes.s -o /b/primes.hex2 \
+    && hex2 --architecture aarch64 --little-endian --base-address 0x00400000 \
+         -f /b/header.hex2 -f /b/primes.hex2 -f /b/footer.hex2 -o /b/primes.elf \
+    && out="$(/b/primes.elf)" \
+    && echo "primes.elf says: $out" \
+    && [ "$out" = "2 3 5 7 11 13 17 19 23 29 31 37 " ]
 CMD ["sh", "/b/run-tests.sh"]
