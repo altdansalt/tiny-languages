@@ -29,5 +29,11 @@ check 'int main(){return 7*6;}'           42
 check 'int main(){return 1+2+3+4+5;}'     15
 check 'int main(){return 100-58;}'        42
 check 'int main(){return 2*3*7;}'         42
+# --- Milestone 2b: comparisons, conditional branches, loops ---
+check 'int main(){int i;i=0;while(i<10){i=i+1;}return i;}'              10
+check 'int main(){int s;int i;s=0;i=1;while(i<=5){s=s+i;i=i+1;}return s;}' 15
+check 'int main(){int i;i=0;if(i<3){i=7;}return i;}'                    7
+check 'int main(){int i;i=9;if(i<3){i=7;}return i;}'                    9
+check 'int main(){int n;int f;n=5;f=1;while(n>1){f=f*n;n=n-1;}return f;}' 120
 echo "=== $([ $fail -eq 0 ] && echo 'ALL PASS' || echo 'SOME FAILED') ==="
 [ $fail -eq 0 ]

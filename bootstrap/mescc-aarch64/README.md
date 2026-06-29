@@ -7,11 +7,18 @@ missing from the bootstrappable ecosystem: the path past M2-Planet to a *real* C
 compiler **natively on aarch64** (see PATHS.md #8 / BOOTSTRAP.md "the gap").
 
 - **Milestone 1** ✅ — `int main(){return 42;}` → a running native aarch64 ELF.
-- **Milestone 2** ✅ — a battery of arithmetic programs, each compiled, linked,
+- **Milestone 2a** ✅ — a battery of arithmetic programs, each compiled, linked,
   run, and its exit code asserted (`overlay/run-tests.sh`):
   `2+3*4`→14 (precedence), `(10-4)*2`→12, `1+2+3+4+5`→15 (chained adds + immediate
   folding), `100-58`→42 (subtraction), `2*3*7`→42 (chained multiply). Exercises
   operator precedence, register spilling to the x18 stack, and constant folding.
+- **Milestone 2b** ✅ — **comparisons, conditional branches, and loops**:
+  `while(i<10){i=i+1;}`→10, `if(i<3){...}` (both taken and not), and two real
+  multi-local algorithms — sum `1..5`→15 and `5!`→120. Adds signed comparisons
+  (`<`,`<=`,`>`,`>=`,`==`,`!=`) via `SUBS`+`CSET`, conditional branches via
+  `SUBS`+`B.cond` over an absolute `BR`, 32→64 sign-extension via `SXTW`, and a
+  rewrite of local-variable addressing to use the **x13 scratch** so a live operand
+  in x0/x1 survives while the other is loaded (the bug that made `s=s+i`→`2i`).
 
 **Bug found in M2libc en route:** its `ADD_X0_X16_X0` macro is mis-encoded as
 `add x0, x0, x0, lsl #8` (`0020008b`) — a latent bug, since M2-Planet only ever

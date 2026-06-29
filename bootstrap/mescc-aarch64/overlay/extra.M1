@@ -10,3 +10,35 @@ DEFINE SET_X0_FROM_X1 e00301aa   # mov x0, x1
 ### (0020008b) — a latent bug, since M2-Planet only ever accumulates in x1.
 ### Here is the correct `add x0, x16, x0`:
 DEFINE ADD_X0_X16_X0_OK 0002008b
+
+### --- comparisons & conditional branches (Milestone 2b) ---
+### Condition registers: x14 = condx, x15 = condy (value-holding, survive between
+### the compare-setup op and the jump). All little-endian aarch64.
+DEFINE SET_X14_FROM_X1 ee0301aa   # mov x14, x1
+DEFINE SET_X15_FROM_X1 ef0301aa   # mov x15, x1
+DEFINE SET_X15_TO_0    ef031faa   # mov x15, xzr
+DEFINE CMP_X14_X15     df010feb   # subs xzr, x14, x15   (compare condx, condy)
+### b.ne / b.eq #20 : skip the 4-instruction absolute jump that follows
+DEFINE BNE_SKIP_JUMP   a1000054   # b.ne  +20
+DEFINE BEQ_SKIP_JUMP   a0000054   # b.eq  +20
+### cset xD, <cond> : xD = 1 if cond else 0  (csinc xD, xzr, xzr, !cond)
+DEFINE CSET_X0_LT      e0a79f9a   # cset x0, lt   (signed <)
+DEFINE CSET_X0_GT      e0d79f9a   # cset x0, gt
+DEFINE CSET_X0_LE      e0c79f9a   # cset x0, le
+DEFINE CSET_X0_GE      e0b79f9a   # cset x0, ge
+DEFINE CSET_X0_EQ      e0179f9a   # cset x0, eq
+DEFINE CSET_X0_NE      e0079f9a   # cset x0, ne
+### sxtw xD, wD : sign-extend 32-bit -> 64-bit  (sbfm xD, xD, #0, #31)
+DEFINE SXTW_X0_X0      007c4093   # sxtw x0, w0
+DEFINE SXTW_X1_X1      217c4093   # sxtw x1, w1
+
+### --- local-variable addressing via x13 scratch (Milestone 2b fix) ---
+### local->r / r->local must compute the BP-relative address WITHOUT clobbering
+### the working pair x0/x1 (the other operand of a binary op may be live in one
+### of them). Mirror riscv64's dedicated tmpreg: use x13 for the address.
+DEFINE SET_X13_FROM_BP ed0311aa   # mov x13, x17(BP)
+DEFINE SUB_X13_X13_X16 ad0110cb   # sub x13, x13, x16   (x13 = BP - offset)
+DEFINE SET_X0_FROM_X13 e0030daa   # mov x0, x13
+DEFINE SET_X1_FROM_X13 e1030daa   # mov x1, x13
+DEFINE STR_X0_[X13]    a00100f9   # str x0, [x13]
+DEFINE STR_X1_[X13]    a10100f9   # str x1, [x13]

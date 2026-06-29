@@ -110,26 +110,23 @@
 (define (first-r info)
   (car (if (pair? (.allocated info)) (.allocated info) (.registers info))))
 
-;; r = local#n  (value at [BP - 8n])
+;; r = local#n  (value at [BP - 8n]).  The address is built in the x13 scratch so
+;; the other working register (the live operand of a binary op) is never touched.
 (define (aarch64:local->r info n)
   (let ((r (string-upcase (first-r info))))
-    `(("SET_X0_FROM_BP")
+    `(("SET_X13_FROM_BP")
       ,@(load-x16 (* 8 n))
-      ("SUB_X0_X0_X16")          ; x0 = BP - 8n  (address)
-      ("DEREF_X0")               ; x0 = [address]
-      ,@(if (string=? r "X0") '() `((,(string-append "SET_" r "_FROM_X0")))))))
+      ("SUB_X13_X13_X16")              ; x13 = BP - 8n  (address)
+      (,(string-append "SET_" r "_FROM_X13"))
+      (,(string-append "DEREF_" r)))))  ; r = [address]
 
-;; local#n = r  (store r at [BP - 8n])
+;; local#n = r  (store r at [BP - 8n]); address via x13, value straight from r.
 (define (aarch64:r->local info n)
   (let ((r (string-upcase (get-r info))))
-    `(,@(if (string=? r "X0") '() `((,(string-append "SET_X0_FROM_" r))))  ; value -> x0
-      ("PUSH_X0")
-      ("SET_X0_FROM_BP")
+    `(("SET_X13_FROM_BP")
       ,@(load-x16 (* 8 n))
-      ("SUB_X0_X0_X16")          ; x0 = address
-      ("SET_X1_FROM_X0")         ; x1 = address
-      ("POP_X0")                 ; x0 = value
-      ("STR_X0_[X1]"))))
+      ("SUB_X13_X13_X16")              ; x13 = address
+      (,(string-append "STR_" r "_[X13]")))))
 
 ;; register moves between the working pair
 (define (aarch64:r1->r0 info) `(("SET_X0_FROM_X1")))   ; x0 = x1
@@ -139,6 +136,58 @@
 (define (aarch64:r2->r0 info)
   `((,(aarch64:pop (get-r0 info)))
     (,(aarch64:push (get-r0 info)))))
+
+;; sign-extend a 32-bit (int) value in r to the full 64-bit register
+(define (aarch64:long-signed-r info)
+  (let ((r (string-upcase (get-r info))))
+    `((,(string-append "SXTW_" r "_" r)))))
+
+;; --- comparisons & control flow (Milestone 2b) ------------------------------
+;; Condition pair: x14 = condx, x15 = condy.  The compare-setup op loads the two
+;; operands; the jump/materialize op consumes them.  This mirrors the riscv64
+;; backend's condregx/condregy, realised with aarch64 SUBS+B.cond / CSET.
+(define (label->s label)
+  (cond ((string? label) label)
+        ((symbol? label) (symbol->string label))
+        (else (format #f "~a" label))))
+
+;; the 4-instruction absolute jump M2libc-style: load &label into x16, BR x16
+(define (jump-to label)
+  `(("LOAD_W16_AHEAD") ("SKIP_32_DATA")
+    (,(string-append "&" (label->s label)))
+    ("BR_X16")))
+
+(define (aarch64:jump info label)
+  (jump-to label))
+
+;; set up the condition pair for a test against zero:  condx = r, condy = 0
+(define (aarch64:test-r info)
+  (let ((r (string-upcase (get-r info))))
+    `((,(string-append "SET_X14_FROM_" r)) ("SET_X15_TO_0"))))
+(define (aarch64:r-zero? info)
+  (let ((r (string-upcase (first-r info))))
+    `((,(string-append "SET_X14_FROM_" r)) ("SET_X15_TO_0"))))
+
+;; set up the condition pair from the working registers: condx = r0, condy = r1
+(define (aarch64:r0-cmp-r1 info)
+  `(("SET_X14_FROM_X0") ("SET_X15_FROM_X1")))
+
+;; branch if condx == condy  (jump-z) / condx != condy  (jump-nz)
+(define (aarch64:jump-z info label)
+  `(("CMP_X14_X15") ("BNE_SKIP_JUMP") ,@(jump-to label)))
+(define (aarch64:jump-nz info label)
+  `(("CMP_X14_X15") ("BEQ_SKIP_JUMP") ,@(jump-to label)))
+
+;; materialize a signed comparison of (condx ? condy) as 0/1 into r
+(define (aarch64:cmp->r info cond)
+  (let ((r (string-upcase (get-r info))))
+    `(("CMP_X14_X15") (,(string-append "CSET_" r "_" cond)))))
+(define (aarch64:l?->r info)  (aarch64:cmp->r info "LT"))  ; condx <  condy
+(define (aarch64:g?->r info)  (aarch64:cmp->r info "GT"))  ; condx >  condy
+(define (aarch64:le?->r info) (aarch64:cmp->r info "LE"))  ; condx <= condy
+(define (aarch64:ge?->r info) (aarch64:cmp->r info "GE"))  ; condx >= condy
+(define (aarch64:eq?->r info) (aarch64:cmp->r info "EQ"))  ; condx == condy
+(define (aarch64:ne?->r info) (aarch64:cmp->r info "NE"))  ; condx != condy
 
 (define aarch64:instructions
   `((function-preamble . ,aarch64:function-preamble)
@@ -162,4 +211,17 @@
     (r+value . ,aarch64:r+value)
     (r0+value . ,aarch64:r0+value)
     (local->r . ,aarch64:local->r)
-    (r->local . ,aarch64:r->local)))
+    (r->local . ,aarch64:r->local)
+    (long-signed-r . ,aarch64:long-signed-r)
+    (jump . ,aarch64:jump)
+    (jump-z . ,aarch64:jump-z)
+    (jump-nz . ,aarch64:jump-nz)
+    (test-r . ,aarch64:test-r)
+    (r-zero? . ,aarch64:r-zero?)
+    (r0-cmp-r1 . ,aarch64:r0-cmp-r1)
+    (g?->r . ,aarch64:g?->r)
+    (ge?->r . ,aarch64:ge?->r)
+    (l?->r . ,aarch64:l?->r)
+    (le?->r . ,aarch64:le?->r)
+    (eq?->r . ,aarch64:eq?->r)
+    (ne?->r . ,aarch64:ne?->r)))
