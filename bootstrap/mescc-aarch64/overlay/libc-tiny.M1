@@ -1,0 +1,19 @@
+### A minimal aarch64 libc shim for the MesCC backend — just enough to do I/O.
+###
+### `write` is a LEAF function: MesCC's caller pushes the arguments onto the x18
+### stack (last-to-first), so on entry x18 -> arg0 (fd), x18+8 -> arg1 (buf),
+### x18+16 -> arg2 (count). No prologue needed — read them, do the syscall, and
+### RETURN (x30 still holds the return address since we call nothing). This proves
+### the backend can build programs that perform real I/O, not just compute exit
+### codes — the next rung is a fuller libc/crt toward self-hosting.
+
+DEFINE LDR_X1_[SP_8]  410640f9   # ldr x1, [x18, #8]
+DEFINE LDR_X2_[SP_16] 420a40f9   # ldr x2, [x18, #16]
+
+:write
+	LDR_X0_[SP]            # x0 = fd      (arg0, M2libc macro)
+	LDR_X1_[SP_8]         # x1 = buf     (arg1)
+	LDR_X2_[SP_16]        # x2 = count   (arg2)
+	SET_X8_TO_SYS_WRITE   # x8 = 64 (write)
+	SYSCALL
+	RETURN

@@ -1,10 +1,27 @@
 # mescc-aarch64 — a new aarch64 backend for GNU Mes's MesCC
 
-**Status: Milestone 2 reached ✅** — a brand-new `aarch64` code-generator backend
-for GNU Mes's MesCC compiler that **compiles real integer arithmetic to native
-aarch64 and runs it**, entirely on this arm64 host. This is the piece that has been
-missing from the bootstrappable ecosystem: the path past M2-Planet to a *real* C
-compiler **natively on aarch64** (see PATHS.md #8 / BOOTSTRAP.md "the gap").
+**Status: a working C subset, incl. real I/O ✅** — a brand-new `aarch64`
+code-generator backend for GNU Mes's MesCC compiler that **compiles a substantial
+C subset to native aarch64 and runs it**, entirely on this arm64 host. The capstone:
+it builds a `hello.c` that prints to stdout via a real `write(2)` syscall —
+
+```
+$ ./hello.elf
+hello, aarch64! (compiled by a brand-new MesCC backend)
+```
+
+— proving the backend produces genuinely useful programs, not just exit codes.
+This is the piece that has been missing from the bootstrappable ecosystem: the path
+past M2-Planet to a *real* C compiler **natively on aarch64** (PATHS.md #8 /
+BOOTSTRAP.md "the gap").
+
+The backend now compiles: integer arithmetic with precedence, all of C's
+comparisons and `if`/`while`/`for`/`do`/`switch` control flow, functions with
+arguments and recursion, pointers and arrays, local and global variables, `char`,
+bitwise and shift operators, signed/unsigned division and modulo, the logical and
+compound-assignment operators, `++`/`--`, string literals, and basic structs — each
+verified end-to-end (compiled → linked → run → result asserted) in
+`overlay/run-tests.sh`.
 
 - **Milestone 1** ✅ — `int main(){return 42;}` → a running native aarch64 ELF.
 - **Milestone 2a** ✅ — a battery of arithmetic programs, each compiled, linked,

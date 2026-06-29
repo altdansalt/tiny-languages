@@ -47,6 +47,8 @@ RUN cd mes && sed -i -f /patch.sed module/mescc/mescc.scm \
     && grep -q 'aarch64-info' module/mescc/mescc.scm && echo "mescc.scm patched"
 RUN printf '(use-modules (mescc))\n(mescc:main (command-line))\n' > /b/drive.scm
 COPY overlay/run-tests.sh /b/run-tests.sh
+COPY overlay/libc-tiny.M1 /b/libc-tiny.M1
+COPY overlay/hello.c      /b/hello.c
 ENV MES_PREFIX=/b/mes
 
 # --- smoke: compile + run a battery of C programs through the new backend ---
@@ -54,4 +56,16 @@ ENV MES_PREFIX=/b/mes
 # run, and its exit code asserted. The build fails if any program is wrong.
 RUN sh /b/run-tests.sh | tee /b/results.txt
 RUN printf 'BINSIZE %s main.elf\n' "$(stat -c %s /b/main.elf)"
+
+# --- capstone: a "hello world" that does real I/O via a write(2) syscall ---
+# Proof the backend builds genuinely useful programs, not just exit codes: compile
+# hello.c, link with crt1 + the tiny `write` shim, run it, and assert the output.
+RUN cd /b/mes \
+    && guile -L module -L /opt/nyacc/module -L . /b/drive.scm --arch=aarch64 -S /b/hello.c -o /b/hello.s \
+    && M1 --architecture aarch64 --little-endian -f /b/defs.M1 -f /b/crt1.M1 -f /b/libc-tiny.M1 -f /b/hello.s -o /b/hello.hex2 \
+    && hex2 --architecture aarch64 --little-endian --base-address 0x00400000 \
+         -f /b/header.hex2 -f /b/hello.hex2 -f /b/footer.hex2 -o /b/hello.elf \
+    && out="$(/b/hello.elf)" \
+    && echo "hello.elf says: $out" \
+    && [ "$out" = "hello, aarch64! (compiled by a brand-new MesCC backend)" ]
 CMD ["sh", "/b/run-tests.sh"]
