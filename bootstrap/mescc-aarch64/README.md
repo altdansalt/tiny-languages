@@ -48,6 +48,12 @@ initializers (`int a[3]={…}`), and `char*` string code (byte loops, `strlen`,
 `strcmp`-style `!=` comparison) — each verified end-to-end (compiled → linked →
 run → result asserted) in `overlay/run-tests.sh`.
 
+Heavier surface also works (verified): `typedef`, `enum`, `static` locals, `goto`/
+labels, `sizeof(struct)`, nested struct members (`o.i.v`), nested ternaries, hex
+literals, and `unsigned char` truncation — so the language coverage on the road to
+`tcc` is already broad; the remaining gap is mostly libc breadth and the
+preprocessor, not codegen.
+
 Known limitation: true multidimensional arrays (`int a[2][2]`) — MesCC's front end
 emits an extra dereference for the inner dimension (modeling them like `int**`),
 which faults on contiguous storage. Single-dimension arrays, arrays of structs, and

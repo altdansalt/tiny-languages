@@ -78,5 +78,15 @@ check 'int ack(int m,int n){if(m==0)return n+1;if(n==0)return ack(m-1,1);return 
 # comparison as a non-leftmost subexpression -> result in x1 (regression: CSET_X1_*)
 check 'int main(){int i;int c;c=0;for(i=1;i<=20;i=i+1)c=c+(i%3==0);return c;}' 6
 check 'int main(){int x;int y;x=5;y=3;return 36+(x>y)+(x==y)*9+(y<x);}' 38
+# --- Milestone 7: heavier C surface (typedef/enum/static/goto/struct sizes) ---
+check 'typedef int myint;myint main(){myint x;x=42;return x;}'         42
+check 'enum{A,B,C,D};int main(){return C*14;}'                         28
+check 'int f(){static int c;c=c+1;return c;}int main(){f();f();return f()*14;}' 42
+check 'int main(){int i;i=0;loop:i=i+1;if(i<42)goto loop;return i;}'    42
+check 'struct P{int a;int b;int c;};int main(){return sizeof(struct P)+30;}' 42
+check 'struct In{int v;};struct Out{struct In i;int w;};int main(){struct Out o;o.i.v=42;return o.i.v;}' 42
+check 'int main(){int x;x=5;x=x>3?x<10?42:1:0;return x;}'              42
+check 'int main(){int x;x=0x2a;return x;}'                             42
+check 'int main(){int a;int b;a=5;b=3;a=a^b;b=a^b;a=a^b;return a*8+b+13;}' 42
 echo "=== $([ $fail -eq 0 ] && echo 'ALL PASS' || echo 'SOME FAILED') ==="
 [ $fail -eq 0 ]
