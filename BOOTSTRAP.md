@@ -150,19 +150,22 @@ remaining gap below.
   cproc itself*. The cproc-built cproc then compiles+runs a program
   (`cproc-selfhost-ok`). Native arm64; a 76 KB driver. The cleanest small "real"
   compiler architecture in the repo, shown closing its own self-host loop.
-- **mescc-aarch64** ✅ (Milestone 1 — closing the native-arm64 gap below M2-Planet).
+- **mescc-aarch64** ✅ (Milestone 2 — closing the native-arm64 gap below M2-Planet).
   A brand-new **aarch64 code-generator backend for GNU Mes's MesCC** — the rung the
   bootstrappable ecosystem is missing (MesCC ships only armv4/riscv64/x86_64, which is
-  *why* the native chain stalls at M2-Planet). It **compiles `int main(){return 42;}`
-  to a 940-byte native aarch64 ELF that runs and exits 42**, natively on this host.
-  Two new Scheme files (`module/mescc/aarch64/{info,as}.scm`) + a 3-line `mescc.scm`
-  patch + a tiny crt; it composes M2libc's already-tested aarch64 instruction macros
-  (so no new encodings) and links through the proven stage0/M2libc M1+hex2+ELF stack.
-  This is a *proof of concept*, not a self-hosting MesCC — see
-  `bootstrap/mescc-aarch64/README.md` for exactly what's done (a running program) and
-  what remains (~100 more codegen ops + a real libc to reach tcc). But it answers the
-  open question definitively: **a native-aarch64 path past M2-Planet is possible**, and
-  here is a running binary that walks the first step of it.
+  *why* the native chain stalls at M2-Planet). It now **compiles real integer
+  arithmetic** — operator precedence, subtraction, chained ops, register spilling,
+  immediate folding — to correct native aarch64, verified by a battery of programs
+  whose exit codes are asserted (`2+3*4`→14, `(10-4)*2`→12, `1+2+3+4+5`→15,
+  `100-58`→42, …). Two new Scheme files (`module/mescc/aarch64/{info,as}.scm`) + a
+  3-line `mescc.scm` patch + a tiny crt + a handful of M1 macros; it composes
+  M2libc's tested aarch64 macros and links through the proven stage0/M2libc
+  M1+hex2+ELF stack. En route it surfaced a **latent bug in M2libc** (`ADD_X0_X16_X0`
+  mis-encoded; never hit because M2-Planet accumulates in x1). Still a work in
+  progress toward self-hosting — see `bootstrap/mescc-aarch64/README.md` for what's
+  done and what remains (control flow, locals, function calls, a real libc → tcc).
+  But the open question is answered with running binaries: **a native-aarch64 path
+  past M2-Planet is real, and it computes.**
 - **cproc-capabilities** ✅ (what cproc can actually compile — an evidence gate). An
   expectation-encoded matrix: cproc handles near-complete C11 — `_Generic`,
   `_Static_assert`, compound literals/designated inits, varargs, VLAs, bitfields,

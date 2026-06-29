@@ -1,0 +1,12 @@
+### Extra aarch64 M1 macros for the MesCC backend — encodings M2libc's
+### aarch64_defs.M1 doesn't already provide. Hand-encoded aarch64 (little-endian),
+### appended to M2libc's defs at link time.
+###
+### mov xD, xS  =  ORR xD, XZR, xS  =  0xAA000000 | (S<<16) | (31<<5) | D
+
+DEFINE SET_X0_FROM_X1 e00301aa   # mov x0, x1
+
+### M2libc's own ADD_X0_X16_X0 is mis-encoded as `add x0,x0,x0,lsl #8`
+### (0020008b) — a latent bug, since M2-Planet only ever accumulates in x1.
+### Here is the correct `add x0, x16, x0`:
+DEFINE ADD_X0_X16_X0_OK 0002008b

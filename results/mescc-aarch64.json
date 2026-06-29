@@ -2,9 +2,9 @@
   "name": "mescc-aarch64",
   "outcome": "ok",
   "build_exit": 0,
-  "build_seconds": 2,
+  "build_seconds": 3,
   "binary_bytes": 0,
-  "smoke": "MesCC-aarch64 built main.elf; it returned 42 ",
-  "image_line": "tinylang/mescc-aarch64        latest         f633b8385fe843fe8c09d00e...",
+  "smoke": "=== MesCC-aarch64: compile + run C programs natively on aarch64 ===   int main(){return 42;}             -> 42   ok   int main(){return 2+3*4;}          -> 14   ok   int main(){return (10-4)*2;}       -> 12   ok   int main(){return 7*6;}            -> 42   ok   int main(){return 1+2+3+4+5;}      -> 15   ok   int main(){return 100-58;}         -> 42   ok   int main(){return 2*3*7;}          -> 42  ",
+  "image_line": "tinylang/mescc-aarch64        latest         044ff24f243ff2e08a82b12d...",
   "log": "results/mescc-aarch64.log"
 }

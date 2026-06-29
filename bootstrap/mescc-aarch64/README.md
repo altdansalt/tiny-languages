@@ -1,11 +1,23 @@
 # mescc-aarch64 — a new aarch64 backend for GNU Mes's MesCC
 
-**Status: Milestone 1 reached ✅** — a brand-new `aarch64` code-generator backend
-for GNU Mes's MesCC compiler that **compiles `int main(){return 42;}` to a native
-aarch64 ELF and runs it (exit 42)**, entirely on this arm64 host. This is the piece
-that has been missing from the bootstrappable ecosystem: it's the first step of a
-path past M2-Planet to a *real* C compiler **natively on aarch64** (see PATHS.md #8 /
-BOOTSTRAP.md "the gap").
+**Status: Milestone 2 reached ✅** — a brand-new `aarch64` code-generator backend
+for GNU Mes's MesCC compiler that **compiles real integer arithmetic to native
+aarch64 and runs it**, entirely on this arm64 host. This is the piece that has been
+missing from the bootstrappable ecosystem: the path past M2-Planet to a *real* C
+compiler **natively on aarch64** (see PATHS.md #8 / BOOTSTRAP.md "the gap").
+
+- **Milestone 1** ✅ — `int main(){return 42;}` → a running native aarch64 ELF.
+- **Milestone 2** ✅ — a battery of arithmetic programs, each compiled, linked,
+  run, and its exit code asserted (`overlay/run-tests.sh`):
+  `2+3*4`→14 (precedence), `(10-4)*2`→12, `1+2+3+4+5`→15 (chained adds + immediate
+  folding), `100-58`→42 (subtraction), `2*3*7`→42 (chained multiply). Exercises
+  operator precedence, register spilling to the x18 stack, and constant folding.
+
+**Bug found in M2libc en route:** its `ADD_X0_X16_X0` macro is mis-encoded as
+`add x0, x0, x0, lsl #8` (`0020008b`) — a latent bug, since M2-Planet only ever
+accumulates into x1 and so never emits the x0 form. `extra.M1` defines the correct
+`ADD_X0_X16_X0_OK` (`0002008b`) and the backend routes around it. (Worth reporting
+upstream.)
 
 ## Why this matters
 
@@ -33,11 +45,13 @@ header (riscv64's, with `e_machine` patched to AArch64 `0xB7`).
 
 | file | what it is |
 |------|-----------|
-| `overlay/info.scm` | `(mescc aarch64 info)` — registers `x0,x1,x13–x15`, C type sizes, instruction table |
-| `overlay/as.scm`   | `(mescc aarch64 as)` — the code generator (Milestone-1 subset; emits M2libc macros) |
-| `overlay/patch.sed`| 3-line patch wiring `aarch64` into `mescc.scm` (arch dispatch, `__aarch64__`, module) |
-| `overlay/crt1.M1`  | aarch64 `_start`: `INIT_SP`, call `:main`, `exit(x0)` |
-| `Dockerfile`       | clones mes + mescc-tools + M2libc(+nyacc), installs the overlay, compiles & runs |
+| `overlay/info.scm`     | `(mescc aarch64 info)` — 2-register model (`x0,x1`), C type sizes, instruction table |
+| `overlay/as.scm`       | `(mescc aarch64 as)` — the code generator: prologue/epilogue, immediates, stack spills, integer arithmetic, register moves |
+| `overlay/extra.M1`     | a few hand-encoded aarch64 macros M2libc lacks (`SET_X0_FROM_X1`) or mis-encodes (`ADD_X0_X16_X0_OK`) |
+| `overlay/patch.sed`    | 3-line patch wiring `aarch64` into `mescc.scm` (arch dispatch, `__aarch64__`, module) |
+| `overlay/crt1.M1`      | aarch64 `_start`: `INIT_SP`, call `:main`, `exit(x0)` |
+| `overlay/run-tests.sh` | the smoke battery — compiles/links/runs each test program, asserts its exit code |
+| `Dockerfile`           | clones mes + mescc-tools + M2libc(+nyacc), installs the overlay, runs the battery |
 
 ## The emitted code (proof the generator is real)
 

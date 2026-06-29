@@ -65,6 +65,53 @@
 
 (define (aarch64:nop info . rest) '(("; nop")))
 
+;; --- stack (spill) ops ------------------------------------------------------
+;; The 2-register model (registers = x0,x1) means MesCC spills deeper sub-
+;; expressions to the x18 stack; these are how it does it.
+(define (aarch64:push-r0 info)
+  `((,(aarch64:push (get-r0 info)))))
+(define (aarch64:pop-r0 info)
+  `((,(aarch64:pop (get-r0 info)))))
+(define (aarch64:push-register info r)
+  `((,(aarch64:push r))))
+(define (aarch64:pop-register info r)
+  `((,(aarch64:pop r))))
+
+;; --- integer arithmetic -----------------------------------------------------
+;; In the 2-register model r0=x0, r1=x1 always, so these map straight onto
+;; M2libc's fixed-register macros. (add/mul commute; sub is x0 = x0 - x1.)
+(define (aarch64:r0+r1 info) `(("ADD_X0_X1_X0")))   ; x0 = x1 + x0
+(define (aarch64:r0-r1 info) `(("SUB_X0_X0_X1")))   ; x0 = x0 - x1
+(define (aarch64:r0*r1 info) `(("MUL_X0_X1_X0")))   ; x0 = x1 * x0
+
+;; swap x0 <-> x1 via the x16 scratch (SET_X0_FROM_X1 is in extra.M1)
+(define (aarch64:swap-r0-r1 info)
+  `(("SET_X16_FROM_X0")
+    ("SET_X0_FROM_X1")
+    ("SET_X1_FROM_X16")))
+
+;; r = r + immediate.  Load |v| (positive) into x16, then add or subtract by sign
+;; — using only verified-correct M2libc macros (its ADD_X0_X16_X0 is buggy, so we
+;; use ADD_X0_X16_X0_OK from extra.M1 for that one case).
+(define (aarch64:add-imm r v)            ; r = "X0" or "X1"
+  (let ((add (if (string=? r "X0") "ADD_X0_X16_X0_OK" (string-append "ADD_" r "_X16_" r)))
+        (sub (string-append "SUB_" r "_" r "_X16")))
+    `(("LOAD_W16_AHEAD")
+      ("SKIP_32_DATA")
+      (,(string-append "%" (number->string (abs v))))
+      (,(if (>= v 0) add sub)))))
+(define (aarch64:r+value info v)  (aarch64:add-imm (string-upcase (get-r info)) v))
+(define (aarch64:r0+value info v) (aarch64:add-imm (string-upcase (get-r0 info)) v))
+
+;; register moves between the working pair
+(define (aarch64:r1->r0 info) `(("SET_X0_FROM_X1")))   ; x0 = x1
+(define (aarch64:r0->r1 info) `(("SET_X1_FROM_X0")))   ; x1 = x0
+;; r2->r0: in the 2-register model there is no 3rd register, so MesCC's fallback
+;; is to peek the spilled top-of-stack (pop then push it back).
+(define (aarch64:r2->r0 info)
+  `((,(aarch64:pop (get-r0 info)))
+    (,(aarch64:push (get-r0 info)))))
+
 (define aarch64:instructions
   `((function-preamble . ,aarch64:function-preamble)
     (function-locals . ,aarch64:function-locals)
@@ -72,4 +119,17 @@
     (value->r0 . ,aarch64:value->r0)
     (return->r . ,aarch64:return->r)
     (ret . ,aarch64:ret)
-    (nop . ,aarch64:nop)))
+    (nop . ,aarch64:nop)
+    (push-r0 . ,aarch64:push-r0)
+    (pop-r0 . ,aarch64:pop-r0)
+    (push-register . ,aarch64:push-register)
+    (pop-register . ,aarch64:pop-register)
+    (r0+r1 . ,aarch64:r0+r1)
+    (r0-r1 . ,aarch64:r0-r1)
+    (r0*r1 . ,aarch64:r0*r1)
+    (swap-r0-r1 . ,aarch64:swap-r0-r1)
+    (r1->r0 . ,aarch64:r1->r0)
+    (r0->r1 . ,aarch64:r0->r1)
+    (r2->r0 . ,aarch64:r2->r0)
+    (r+value . ,aarch64:r+value)
+    (r0+value . ,aarch64:r0+value)))

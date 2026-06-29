@@ -16,9 +16,11 @@
 (define (aarch64-info)
   (make <info> #:types aarch64:type-alist #:registers aarch64:registers #:instructions aarch64:instructions))
 
-;; r0=x0, r1=x1 (the working pair the M2libc macros are built around); x13..x15
-;; are the spare temp pool (PUSH_X13.., SET_X0_FROM_X13.., ADD_X0_X14_X0.. exist).
-(define aarch64:registers '("x0" "x1" "x13" "x14" "x15"))
+;; 2-register model: r0=x0, r1=x1 — the working pair M2libc's fixed-register
+;; macros are built around (ADD_X0_X1_X0, SUB_X0_X0_X1, MUL_X0_X1_X0, …). MesCC
+;; spills deeper subexpressions to the x18 stack (PUSH_X0/POP_X1), so two
+;; registers suffice and every ALU op maps to an existing, tested macro.
+(define aarch64:registers '("x0" "x1"))
 
 (define aarch64:type-alist
   `(("char" . ,(make-type 'signed 1 #f))
